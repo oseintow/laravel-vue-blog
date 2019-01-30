@@ -28,6 +28,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import router from './router'
+
+Vue.component('App', require('./pages/App.vue').default)
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
+    template: '<App/>'
 });

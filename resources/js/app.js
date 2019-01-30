@@ -29,11 +29,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 import router from './router'
+import store from './store'
 
 Vue.component('App', require('./pages/App.vue').default)
 
 const app = new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>'
 });

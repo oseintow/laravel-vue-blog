@@ -31,6 +31,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 import router from './router'
 import store from './store'
 
+
+import GlobalProperties from './plugins/GlobalProperties'
+require('promise.prototype.finally').shim()
+
+Vue.use(GlobalProperties)
+
 Vue.component('App', require('./pages/App.vue').default)
 
 const app = new Vue({

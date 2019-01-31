@@ -2,6 +2,7 @@
     <div>
         Hello am in home
         <div>{{ getBlogs }}</div>
+        <router-link to="signin">SignIn</router-link>
     </div>
 </template>
 

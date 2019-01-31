@@ -9,13 +9,13 @@ const mutations = {
 }
 
 const actions = {
-    blogs({commit}){
-        commit('BLOGS', {name: 'shopify'});
+    blogs({commit}, payload){
+        commit('BLOGS', payload);
     }
 }
 
 const getters = {
-    getPlatforms : state => {
+    getBlogs : state => {
         return state.blogs
     }
 }

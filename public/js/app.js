@@ -1817,14 +1817,34 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Home"
+  name: "Home",
+  data: function data() {
+    return {
+      blogs: {}
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('blog', ['getBlogs'])),
+  mounted: function mounted() {
+    this.$store.dispatch('blog/blogs', {
+      name: 'shopify'
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }
 });
 
 /***/ }),
@@ -36875,7 +36895,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Hello am in home\n")])
+  return _c("div", [
+    _vm._v("\n    Hello am in home\n    "),
+    _c("div", [_vm._v(_vm._s(_vm.getBlogs))])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52197,15 +52220,13 @@ var mutations = {
   }
 };
 var actions = {
-  blogs: function blogs(_ref) {
+  blogs: function blogs(_ref, payload) {
     var commit = _ref.commit;
-    commit('BLOGS', {
-      name: 'shopify'
-    });
+    commit('BLOGS', payload);
   }
 };
 var getters = {
-  getPlatforms: function getPlatforms(state) {
+  getBlogs: function getBlogs(state) {
     return state.blogs;
   }
 };

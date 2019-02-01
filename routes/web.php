@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('sociallogin/{provider}', 'Auth\AuthController@socialSignup');
-Route::post('auth/{provider}', 'Auth\AuthController@index')->where('vue', '.*');
-Route::post('auth/{provider}/callback', 'Auth\AuthController@index')->where('vue', '.*');
+Route::post('auth/{provider}', 'Auth\SocialAccountController@handleProviderCallback');
+Route::post('auth/{provider}/callback', 'Auth\AuthController@index');

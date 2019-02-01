@@ -16,10 +16,7 @@ class SocialAccountAuthenticator
             return $account->user;
         }
 
-        $user = User::firstOrCreate(['email' => $providerUser->getEmail()], [
-                'email' => $providerUser->getEmail(),
-                'name'  => $providerUser->getName(),
-            ]);
+        $user = User::findByEmailOrCreate($providerUser);
 
         $user->accounts()->create([
             'provider_id'   => $providerUser->getId(),

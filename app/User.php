@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nickname', 'avatar'
     ];
 
     /**
@@ -31,5 +31,15 @@ class User extends Authenticatable
     public function accounts()
     {
         return $this->hasMany(SocialAccount::class);
+    }
+
+    public function scopeFindByEmailOrCreate($query, $providerUser)
+    {
+        return $query->firstOrCreate(['email' => $providerUser->getEmail()], [
+            'email' => $providerUser->getEmail(),
+            'name'  => $providerUser->getName(),
+            'avatar' => $providerUser->getAvatar(),
+            'nickname' => $providerUser->getNickname()
+        ]);
     }
 }

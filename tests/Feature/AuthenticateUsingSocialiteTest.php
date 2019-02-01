@@ -52,7 +52,10 @@ class AuthenticateUsingSocialiteTest extends TestCase
         $proivder = 'google';
         $providerUserDetail = ['id' => 1, 'email' => 'foo@bar.com'];
 
-        factory(SocialAccount::class)->create(['provider_id' => $providerUserDetail['id'], 'provider_name' => $proivder]);
+        create(SocialAccount::class, [
+            'provider_id' => $providerUserDetail['id'],
+            'provider_name' => $proivder
+        ]);
 
         $this->mockSocialiteFacade($providerUserDetail['id'], $providerUserDetail['email']);
 

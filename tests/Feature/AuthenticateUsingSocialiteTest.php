@@ -4,13 +4,63 @@
 namespace Tests\Feature;
 
 
+use App\SocialAccount;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Artisan;
 use Mockery as m;
 use Tests\TestCase;
 
-class AuthenticateUsingSocialite extends TestCase
+class AuthenticateUsingSocialiteTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        Artisan::call('passport:install');
+    }
+
+    /** @test */
+    public function a_user_can_authenticate_using_social_logins()
+    {
+        $this->mockSocialiteFacade();
+
+        $response = $this->json('POST', '/auth/google')->json();
+
+        $this->assertArrayHasKey("token", $response);
+        $this->assertArrayHasKey("user", $response);
+    }
+
+    /** @test */
+    public function a_users_social_login_details_are_saved_in_db()
+    {
+        $proivder = 'google';
+        $providerUserDetail = ['id' => 1, 'email' => 'foo@bar.com'];
+
+        $this->mockSocialiteFacade($providerUserDetail['id'], $providerUserDetail['email']);
+
+        $this->json('POST', "/auth/{$proivder}")->json();
+
+        $this->assertDatabaseHas('users',['email' => $providerUserDetail['email']]);
+        $this->assertDatabaseHas('social_accounts', ['provider_name' => $proivder]);
+    }
+
+    /** @test */
+    public function an_existing_user_can_login()
+    {
+        $proivder = 'google';
+        $providerUserDetail = ['id' => 1, 'email' => 'foo@bar.com'];
+
+        factory(SocialAccount::class)->create(['provider_id' => $providerUserDetail['id'], 'provider_name' => $proivder]);
+
+        $this->mockSocialiteFacade($providerUserDetail['id'], $providerUserDetail['email']);
+
+        $response = $this->json('POST', "/auth/{$proivder}")->json();
+
+        $this->assertArrayHasKey("token", $response);
+        $this->assertArrayHasKey("user", $response);
+    }
 
     protected function mockSocialiteFacade($id = 1, $email = 'foo@bar.com')
     {
@@ -33,30 +83,5 @@ class AuthenticateUsingSocialite extends TestCase
         $provider = m::mock('Laravel\Socialite\Contract\Provider');
         $provider->shouldReceive('user')->andReturn($abstractUser);
         $mockSocialite->shouldReceive('driver->stateless')->andReturn($provider);
-    }
-
-    /** @test */
-    public function a_user_can_authenticate_using_social_logins()
-    {
-        $this->mockSocialiteFacade();
-
-        $response = $this->json('POST', '/auth/google')->json();
-
-        $this->assertArrayHasKey("token", $response);
-        $this->assertArrayHasKey("user", $response);
-    }
-
-    /** @test */
-    public function a_users_social_login_details_are_saved_in_db()
-    {
-        $proivder = 'google';
-        $user = ['id' => 1, 'email' => 'foo@bar.com'];
-
-        $this->mockSocialiteFacade($user['id'], $user['email']);
-
-        $this->json('POST', "/auth/{$proivder}")->json();
-
-        $this->assertDatabaseHas('users', $user);
-        $this->assertDatabaseHas('social_accounts', ['provider_name' => $proivder]);
     }
 }

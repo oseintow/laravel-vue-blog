@@ -20,6 +20,6 @@ class SocialAccountController extends Controller
 
         $authUser = $accountAuthenticator->findOrCreate($user, $provider);
 
-        auth()->login($authUser, true);
+        return response($authUser);
     }
 }

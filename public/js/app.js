@@ -1859,13 +1859,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_authenticate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-authenticate */ "./node_modules/vue-authenticate/dist/vue-authenticate.es2015.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
 //
 //
 //
@@ -1874,38 +1874,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_3___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_authenticate__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  baseUrl: 'http://localhost:8000',
-  // Your API domain
-  providers: {
-    facebook: {
-      clientId: '245842109488508',
-      redirectUri: 'http://localhost:8000/auth/facebook/callback' // Your client app URL
-
-    },
-    google: {
-      clientId: '340639301402-0u9qst24dn4va778opjhq3o3hcpv6ona.apps.googleusercontent.com',
-      redirectUri: 'http://localhost:8000/auth/google/callback' // Your client app URL
-
-    }
-  }
-});
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SignIn",
   methods: {
     authenticate: function authenticate(provider) {
-      this.$auth.authenticate(provider).then(function (response) {
-        console.log(response); // Execute application logic after successful social authentication
-      }).catch(function (error) {
-        return console.log("error occured");
-      }); // this.$store.dispatch('auth/login', provider)
-      //     .catch(error => console.error(error))
+      this.$store.dispatch('auth/login', provider).catch(function (error) {
+        return console.error(error);
+      });
     }
-  }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('auth', ['authUser']))
 });
 
 /***/ }),
@@ -42946,7 +42924,9 @@ var render = function() {
         }
       },
       [_vm._v("Google")]
-    )
+    ),
+    _vm._v(" "),
+    _c("div", [_vm._v(_vm._s(_vm.authUser.name))])
   ])
 }
 var staticRenderFns = []
@@ -58321,6 +58301,22 @@ var GlobalProperties = {
       noComments: 'No comments for this post',
       numberOfPosts: 'Number of posts'
     };
+    Vue.prototype.$auth = {
+      user: null,
+      token: null,
+      check: false
+    }, Vue.prototype.$social_account_providers = {
+      facebook: {
+        clientId: '245842109488508',
+        redirectUri: 'http://localhost:8000/auth/facebook/callback' // Your client app URL
+
+      },
+      google: {
+        clientId: '340639301402-0u9qst24dn4va778opjhq3o3hcpv6ona.apps.googleusercontent.com',
+        redirectUri: 'http://localhost:8000/auth/google/callback' // Your client app URL
+
+      }
+    };
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (GlobalProperties);
@@ -58434,38 +58430,68 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_2___default.a, axios__WEBPACK_IMPORTED_MODULE_4___default.a);
 var vueAuth = new vue_authenticate__WEBPACK_IMPORTED_MODULE_3__["VueAuthenticate"](vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http, {
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'http://localhost:8000',
+  providers: {
+    facebook: {
+      clientId: '245842109488508',
+      redirectUri: 'http://localhost:8000/auth/facebook/callback' // Your client app URL
+
+    },
+    google: {
+      clientId: '340639301402-0u9qst24dn4va778opjhq3o3hcpv6ona.apps.googleusercontent.com',
+      redirectUri: 'http://localhost:8000/auth/google/callback' // Your client app URL
+
+    }
+  }
 });
 var state = {
-  isAuthenticated: false // You can use it as a state getter function (probably the best solution)
-
-};
-var getters = {
-  isAuthenticated: function isAuthenticated() {
-    return vueAuth.isAuthenticated();
-  } // Mutation for when you use it as state property
+  isAuthenticated: false,
+  user: null,
+  token: null // Mutation for when you use it as state property
 
 };
 var mutations = {
-  isAuthenticated: function isAuthenticated(state, payload) {
+  IS_AUTHENTICATED: function IS_AUTHENTICATED(state, payload) {
     state.isAuthenticated = payload.isAuthenticated;
+  },
+  SET_AUTH_USER: function SET_AUTH_USER(state, payload) {
+    return state.user = payload;
+  },
+  SET_AUTH_TOKEN: function SET_AUTH_TOKEN(state, payload) {
+    return state.token = payload;
   }
 };
 var actions = {
   // Perform VueAuthenticate login using Vuex actions
-  login: function login(context, payload) {
-    vueAuth.login(payload.user, payload.requestOptions).then(function (response) {
-      context.commit('isAuthenticated', {
+  login: function login(_ref, payload) {
+    var _this = this;
+
+    var commit = _ref.commit;
+    vueAuth.authenticate(payload).then(function (_ref2) {
+      var data = _ref2.data;
+      _this.$auth = {
+        user: data['user'],
+        token: data['token'],
+        check: true
+      };
+      commit('IS_AUTHENTICATED', {
         isAuthenticated: vueAuth.isAuthenticated()
       });
+      commit('SET_AUTH_USER', data['user']);
+      commit('SET_AUTH_TOKEN', data['token']);
     });
+  }
+}; // You can use it as a state getter function (probably the best solution)
+
+var getters = {
+  isAuthenticated: function isAuthenticated() {
+    return vueAuth.isAuthenticated();
   },
-  authenticate: function authenticate(_ref, provider) {
-    var commit = _ref.commit;
-    this.$auth.authenticate(provider).then(function (response) {
-      // Execute application logic after successful social authentication
-      console.log(response);
-    });
+  getToken: function getToken(state) {
+    return state.token;
+  },
+  authUser: function authUser(state) {
+    return state.user;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

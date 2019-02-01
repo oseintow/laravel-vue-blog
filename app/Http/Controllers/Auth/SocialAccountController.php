@@ -18,8 +18,10 @@ class SocialAccountController extends Controller
             return response(['error' => "Something unusual happened"], 403);
         }
 
-        $authUser = $accountAuthenticator->findOrCreate($user, $provider);
+        $user = $accountAuthenticator->findOrCreate($user, $provider);
 
-        return response($authUser);
+        $token = $user->createToken('AppTokens')->accessToken;
+
+        return response(compact('token', 'user'));
     }
 }

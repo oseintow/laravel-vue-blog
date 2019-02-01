@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('sociallogin/{provider}', 'Auth\AuthController@socialSignup');
 Route::post('auth/{provider}', 'Auth\SocialAccountController@handleProviderCallback');
-Route::post('auth/{provider}/callback', 'Auth\AuthController@index');

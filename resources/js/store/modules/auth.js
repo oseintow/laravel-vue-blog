@@ -7,7 +7,7 @@ import axios from 'axios';
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
-const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
+let vueAuth = new VueAuthenticate(Vue.prototype.$http, {
     baseUrl: 'http://localhost:8000',
 
     providers: {
@@ -24,14 +24,14 @@ const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
 })
 
 
-const state= {
+export const state= {
     isAuthenticated: false,
     user: null,
     token: null
 }
 
 // Mutation for when you use it as state property
-const mutations = {
+export const mutations = {
     IS_AUTHENTICATED: (state, payload) => {
         state.isAuthenticated = payload.isAuthenticated
     },
@@ -41,7 +41,7 @@ const mutations = {
     SET_AUTH_TOKEN: (state, payload) => state.token = payload
 }
 
-const actions= {
+export const actions= {
 
     // Perform VueAuthenticate login using Vuex actions
     login({commit}, payload) {
@@ -56,7 +56,7 @@ const actions= {
 }
 
 // You can use it as a state getter function (probably the best solution)
-const getters= {
+export const getters= {
     isAuthenticated: () => vueAuth.isAuthenticated(),
 
     getToken: state => state.token,

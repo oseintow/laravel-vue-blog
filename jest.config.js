@@ -1,3 +1,6 @@
+process.env.VUE_CLI_BABEL_TARGET_NODE = true;
+process.env.VUE_CLI_BABEL_TRANSPILE_MODULES = true;
+
 module.exports = {
     moduleFileExtensions: [
         'js',
@@ -8,17 +11,18 @@ module.exports = {
     transform: {
         '^.+\\.vue$': 'vue-jest',
         '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-        '^.+\\.jsx?$': 'babel-jest'
+        '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.js$': 'babel-jest',
     },
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/resources/assets/js/$1',
-        '^test/(.*)$': '<rootDir>/resources/assets/js/test/$1'
+        '^@/(.*)$': '<rootDir>/resources/js/$1',
+        '^test/(.*)$': '<rootDir>/resources/js/test/$1'
     },
     snapshotSerializers: [
         'jest-serializer-vue'
     ],
     testMatch: [
-        '**/resources/js/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
+        '**/resources/js/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
     ],
     testURL: 'http://localhost/'
 }

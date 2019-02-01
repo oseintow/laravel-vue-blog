@@ -14,6 +14,13 @@ class AuthenticateUsingSocialiteTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        Artisan::call('passport:install');
+    }
+
     /** @test */
     public function a_user_can_sign_up_using_social_logins()
     {

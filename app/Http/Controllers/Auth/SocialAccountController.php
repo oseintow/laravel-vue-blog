@@ -13,12 +13,12 @@ class SocialAccountController extends Controller
     public function handleProviderCallback(SocialAccountAuthenticator $accountAuthenticator, string $provider)
     {
         try {
-            $user = Socialite::driver($provider)->stateless()->user();
+            $socialiteUser = Socialite::driver($provider)->stateless()->user();
         } catch (Exception $e) {
             return response(['error' => "Something unusual happened"], 403);
         }
 
-        $user = $accountAuthenticator->findOrCreate($user, $provider);
+        $user = $accountAuthenticator->findOrCreate($socialiteUser, $provider);
 
         $token = $user->createToken('AppTokens')->accessToken;
 

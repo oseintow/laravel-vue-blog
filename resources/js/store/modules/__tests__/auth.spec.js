@@ -29,17 +29,31 @@ describe('auth store module', () => {
             state.isAuthenticated = true
             expect(getters.isAuthenticated(state)).toBe(true)
         })
-        // it('numberOfPosts returns correct count', () => {
-        //     expect(getters.numberOfPosts(state)).toBe(0)
-        //     state.blogPosts = [{}, {}]
-        //     expect(getters.numberOfPosts(state)).toBe(2)
-        // })
+        it('can get token', () => {
+            expect(getters.getToken(state)).toBe(null)
+            state.token = 'xxx-xxx-xxx'
+            expect(getters.getToken(state)).toBe('xxx-xxx-xxx')
+        })
+        it('can get auth user', () => {
+            expect(getters.authUser(state)).toBe(null)
+            state.user = {name: 'foo'}
+            expect(getters.authUser(state)).toEqual({name: 'foo'})
+        })
     })
 
     describe('mutations', () => {
-        // it('adds blog posts correctly', () => {
-        //     mutations.saveBlogPosts(state, [{ title: 'New post' }])
-        //     expect(state.blogPosts).toEqual([{ title: 'New post' }])
-        // })
+        it('set is authenticated', () => {
+            mutations.IS_AUTHENTICATED(state, {isAuthenticated: true})
+            expect(state.isAuthenticated).toBe(true)
+        })
+        it('set token', () => {
+            mutations.SET_AUTH_TOKEN(state, 'xxx-xxx-xxx')
+            expect(state.token).toBe('xxx-xxx-xxx')
+        })
+        it('set authenticated user', () => {
+            const user ={name: 'foo', email: 'foo@bar.com'};
+            mutations.SET_AUTH_USER(state, user)
+            expect(state.user).toBe(user)
+        })
     })
 })

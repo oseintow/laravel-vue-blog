@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,27 +29,28 @@
       <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-366">
-              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+            <state relative-caret-position="194">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.spec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="auth.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="278">
+              <caret line="54" column="48" lean-forward="true" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignIn.spec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SignIn.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SignIn.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+            <state relative-caret-position="122">
+              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
               <folding>
+                <element signature="e#0#23#0" expanded="true" />
                 <element signature="e#726#792#0" expanded="true" />
               </folding>
             </state>
@@ -194,8 +190,8 @@
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/js/plugins/vue-authenticator.js" />
         <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/pages/__tests__/SignIn.spec.js" />
+        <option value="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" />
       </list>
     </option>
   </component>
@@ -453,7 +449,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32743000" />
+    <option name="totallyTimeSpent" value="33405000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="981" extended-state="0" />
@@ -839,27 +835,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SignIn.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#726#792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="194">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SignIn.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding>
-            <element signature="e#726#792#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="278">
+          <caret line="54" column="48" lean-forward="true" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
         </state>
       </provider>
     </entry>

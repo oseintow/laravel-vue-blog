@@ -1,3 +1,15 @@
+jest.mock('@/plugins/vue-authenticator', () => ({
+    getVueAuthenticate: jest.fn(() => {
+        return {
+            authenticate() {
+                return {
+                    token: 'xxx-xxx', user: {name: 'foo', email: 'foo@bar.com'}
+                }
+            }
+        }
+    })
+}))
+
 import { getters, mutations } from '@/store/modules/auth'
 
 describe('auth store module', () => {

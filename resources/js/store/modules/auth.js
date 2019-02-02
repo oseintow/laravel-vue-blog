@@ -1,27 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueAxios from 'vue-axios'
-import { VueAuthenticate } from 'vue-authenticate'
-import axios from 'axios';
+import { getVueAuthenticate } from "@/plugins/vue-authenticator"
 
-Vue.use(Vuex)
-Vue.use(VueAxios, axios)
-
-let vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-    baseUrl: 'http://localhost:8000',
-
-    providers: {
-        facebook: {
-            clientId: '245842109488508',
-            redirectUri: 'http://localhost:8000/auth/facebook/callback' // Your client app URL
-        },
-
-        google: {
-            clientId: '340639301402-0u9qst24dn4va778opjhq3o3hcpv6ona.apps.googleusercontent.com',
-            redirectUri: 'http://localhost:8000/auth/google/callback' // Your client app URL
-        }
-    }
-})
+let vueAuth = getVueAuthenticate()
 
 
 export const state= {
@@ -47,7 +26,7 @@ export const actions= {
     login({commit}, payload) {
         vueAuth.authenticate(payload).then(({data}) => {
             this.$auth = {user: data['user'], token: data['token'], check: true}
-            commit('IS_AUTHENTICATED', {isAuthenticated: vueAuth.isAuthenticated()})
+            commit('IS_AUTHENTICATED', {isAuthenticated: true})
             commit('SET_AUTH_USER', data['user'])
             commit('SET_AUTH_TOKEN', data['token'])
         })
@@ -57,7 +36,7 @@ export const actions= {
 
 // You can use it as a state getter function (probably the best solution)
 export const getters= {
-    isAuthenticated: () => vueAuth.isAuthenticated(),
+    isAuthenticated: state => state.isAuthenticated,
 
     getToken: state => state.token,
 

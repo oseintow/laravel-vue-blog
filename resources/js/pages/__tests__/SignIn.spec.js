@@ -7,9 +7,12 @@ jest.mock('@/plugins/vue-authenticator', () => ({
     getVueAuthenticate: jest.fn(() => {
         return {
             authenticate() {
-                return {
-                    token: 'xxx-xxx', user: {name: 'foo', email: 'foo@bar.com'}
-                }
+                return new Promise((resolve) => {
+                    if (mockError)
+                        throw Error()
+
+                    resolve({data: {token: 'xxx-xxx', user: {name: 'foo', email: 'foo@bar.com'}}})
+                })
             }
         }
     })

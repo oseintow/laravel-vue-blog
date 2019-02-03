@@ -1,16 +1,22 @@
+const mockToken = 'xxx-xxx';
+const mockUser = {name: 'foo', email: 'foo@bar.com'}
+
 jest.mock('@/plugins/vue-authenticator', () => ({
     getVueAuthenticate: jest.fn(() => {
         return {
             authenticate() {
-                return {
-                    token: 'xxx-xxx', user: {name: 'foo', email: 'foo@bar.com'}
-                }
+                return new Promise((resolve) => {
+                    // if (mockError)
+                    //     throw Error()
+
+                    resolve({data: {token: mockToken, user: mockUser}})
+                })
             }
         }
     })
 }))
 
-import { getters, mutations } from '@/store/modules/auth'
+import { getters, mutations, actions } from '@/store/modules/auth'
 
 describe('auth store module', () => {
     let state
@@ -54,6 +60,24 @@ describe('auth store module', () => {
             const user ={name: 'foo', email: 'foo@bar.com'};
             mutations.SET_AUTH_USER(state, user)
             expect(state.user).toBe(user)
+        })
+    })
+    describe('actions', () => {
+        it('login a user', async () => {
+            const commit = jest.fn()
+
+            await actions.login({ commit }, 'github')
+
+            expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', mockToken)
+        })
+
+        it('catches an error', async () => {
+            const mockError = true
+
+            // await expect(actions.login({ commit: jest.fn() }, 'github'))
+            //     .rejects.toThrow("API Error occurred.")
         })
     })
 })

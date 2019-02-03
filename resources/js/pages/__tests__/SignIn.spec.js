@@ -33,7 +33,7 @@ const router = new VueRouter()
 describe('Sign In', () => {
     let wrapper
     let store
-    const spy = jest.fn();
+    let spy = jest.fn();
 
     let h
     beforeEach(() => {

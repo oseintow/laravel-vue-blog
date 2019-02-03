@@ -71,13 +71,17 @@ describe('Sign In', () => {
 
     it('should be able to login using google social account', async () => {
         wrapper.vm.$router.push = spy;
-
-        expect(true).toBeTruthy()
         h.click('.google-signin')
 
+        await flushPromises()
+        expect(spy).toHaveBeenCalledWith({ name: 'home' });
+    });
+
+    it('should be able to login using facebook social account', async () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.facebook-signin')
 
         await flushPromises()
-        jest.runAllTimers()
         expect(spy).toHaveBeenCalledWith({ name: 'home' });
     });
 })

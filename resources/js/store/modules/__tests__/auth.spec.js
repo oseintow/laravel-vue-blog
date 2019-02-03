@@ -1,13 +1,14 @@
 const mockToken = 'xxx-xxx';
 const mockUser = {name: 'foo', email: 'foo@bar.com'}
+let mockError = false
 
 jest.mock('@/plugins/vue-authenticator', () => ({
     getVueAuthenticate: jest.fn(() => {
         return {
             authenticate() {
-                return new Promise((resolve) => {
-                    // if (mockError)
-                    //     throw Error()
+                return new Promise((resolve, reject) => {
+                    if (mockError)
+                        reject(new Error('API Error occurred.'))
 
                     resolve({data: {token: mockToken, user: mockUser}})
                 })
@@ -74,7 +75,7 @@ describe('auth store module', () => {
         })
 
         it('catches an error', async () => {
-            const mockError = true
+            mockError = true
 
             // await expect(actions.login({ commit: jest.fn() }, 'github'))
             //     .rejects.toThrow("API Error occurred.")

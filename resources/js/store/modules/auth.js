@@ -22,8 +22,8 @@ export const mutations = {
 export const actions= {
 
     // Perform VueAuthenticate login using Vuex actions
-    async login({commit}, payload) {
-        await vueAuth.authenticate(payload).then(({data}) => {
+    login({commit}, payload) {
+        vueAuth.authenticate(payload).then(({data}) => {
             this.$auth = {user: data['user'], token: data['token'], check: true}
             commit('IS_AUTHENTICATED', {isAuthenticated: true})
             commit('SET_AUTH_USER', data['user'])

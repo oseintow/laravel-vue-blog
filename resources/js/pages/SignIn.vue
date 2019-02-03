@@ -1,9 +1,7 @@
 <template>
     <div>
-        <button @click="authenticate('facebook')">Facebook</button>
-        <button @click="authenticate('google')">Google</button>
-
-        <div>{{authUser.name}}</div>
+        <button @click="authenticate('facebook')" class="facebook-signin">Facebook</button>
+        <button @click="authenticate('google')" class="google-signin">Google</button>
     </div>
 </template>
 
@@ -16,6 +14,7 @@ export default {
     methods: {
         authenticate(provider) {
             this.$store.dispatch('auth/login', provider)
+                .then(() => this.$router.push({name: 'home'}))
                 .catch(error => console.error(error))
         }
     },

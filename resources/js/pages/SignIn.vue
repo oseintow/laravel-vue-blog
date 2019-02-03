@@ -7,8 +7,6 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
-
 export default {
     name: "SignIn",
     methods: {
@@ -17,9 +15,6 @@ export default {
                 .then(() => this.$router.push({name: 'home'}))
                 .catch(error => console.error(error))
         }
-    },
-    computed: {
-        ...mapGetters('auth', ['authUser'])
     }
 }
 

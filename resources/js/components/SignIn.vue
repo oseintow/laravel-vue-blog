@@ -6,8 +6,9 @@
 </template>
 
 <script>
+
 export default {
-    name: "SignIn-Page",
+    name: "SignIn",
     methods: {
         authenticate(provider) {
             this.$store.dispatch('auth/login', provider)

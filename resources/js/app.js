@@ -9,6 +9,8 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 import Vue from 'vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,16 +31,23 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import BootstrapVue from 'bootstrap-vue'
 import router from './router'
 import store from './store'
+import SignIn from '@/pages/SignIn'
+import Home from '@/pages/Home'
 
 
-import GlobalProperties from './plugins/GlobalProperties'
+import GlobalProperties from '@/plugins/GlobalProperties'
+import eventBus from '@/plugins/event-bus'
 require('promise.prototype.finally').shim()
 
+Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
+Vue.use(eventBus)
 
 Vue.component('App', require('./pages/App.vue').default)
+
 
 const app = new Vue({
     el: '#app',

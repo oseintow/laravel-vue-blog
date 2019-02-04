@@ -9,7 +9,7 @@
                     <a class="p-2 text-dark" href="#">Support</a>
                     <a class="p-2 text-dark" href="#">Pricing</a>
                 </div>
-                <a class="btn btn-outline-primary justify-content-end" href="#">Sign up</a>
+                <router-link to="signin" class="btn btn-outline-primary justify-content-end">SignIn</router-link>
             </nav>
         </div>
     </div>

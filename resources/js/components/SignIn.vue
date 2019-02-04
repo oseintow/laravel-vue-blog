@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-modal v-model="show" id="modal-center" hide-footer size="lg" centered title="">
+        <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
             <button @click="authenticate('facebook')" class="facebook-signin">Facebook</button>
             <button @click="authenticate('google')" class="google-signin">Google</button>
         </b-modal>

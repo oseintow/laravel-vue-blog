@@ -66017,7 +66017,7 @@ var render = function() {
         "b-modal",
         {
           attrs: {
-            id: "modal-center",
+            id: "authentication-modal",
             "hide-footer": "",
             size: "lg",
             centered: "",
@@ -66092,7 +66092,7 @@ var render = function() {
         "b-modal",
         {
           attrs: {
-            id: "modal-center",
+            id: "authentication-modal",
             "hide-footer": "",
             size: "lg",
             centered: "",
@@ -81301,10 +81301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/es/index.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
-/* harmony import */ var _pages_SignIn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/pages/SignIn */ "./resources/js/pages/SignIn.vue");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/pages/Home */ "./resources/js/pages/Home.vue");
-/* harmony import */ var _plugins_GlobalProperties__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/plugins/GlobalProperties */ "./resources/js/plugins/GlobalProperties.js");
-/* harmony import */ var _plugins_event_bus__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/plugins/event-bus */ "./resources/js/plugins/event-bus.js");
+/* harmony import */ var _plugins_GlobalProperties__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/plugins/GlobalProperties */ "./resources/js/plugins/GlobalProperties.js");
+/* harmony import */ var _plugins_event_bus__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/plugins/event-bus */ "./resources/js/plugins/event-bus.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -81339,13 +81337,11 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('example-component', __web
 
 
 
-
-
 __webpack_require__(/*! promise.prototype.finally */ "./node_modules/promise.prototype.finally/index.js").shim();
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(_plugins_GlobalProperties__WEBPACK_IMPORTED_MODULE_8__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(_plugins_event_bus__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(_plugins_GlobalProperties__WEBPACK_IMPORTED_MODULE_6__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(_plugins_event_bus__WEBPACK_IMPORTED_MODULE_7__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('App', __webpack_require__(/*! ./pages/App.vue */ "./resources/js/pages/App.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
   el: '#app',
@@ -81728,18 +81724,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$store.dispatch('auth/login', provider).then(function () {
-        _this.hideModal();
+        _this.hideModal(); // this.$router.push({name: 'home'})
 
-        _this.$router.push({
-          name: 'home'
-        });
       }).catch(function (error) {
         return console.error(error);
       });
+    },
+    hideModal: function hideModal() {
+      this.show = false;
     }
-  },
-  hideModal: function hideModal() {
-    this.show = false;
   }
 });
 

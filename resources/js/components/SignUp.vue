@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-modal v-model="show" id="modal-center" hide-footer size="lg" centered title="">
+        <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
             <p class="my-4">Vertically centered modal!</p>
         </b-modal>
     </div>

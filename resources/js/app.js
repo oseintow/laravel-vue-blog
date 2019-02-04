@@ -34,9 +34,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 import BootstrapVue from 'bootstrap-vue'
 import router from './router'
 import store from './store'
-import SignIn from '@/pages/SignIn'
-import Home from '@/pages/Home'
-
 
 import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
@@ -47,7 +44,6 @@ Vue.use(GlobalProperties)
 Vue.use(eventBus)
 
 Vue.component('App', require('./pages/App.vue').default)
-
 
 const app = new Vue({
     el: '#app',

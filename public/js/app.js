@@ -1924,6 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_AuthenticationMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/mixins/AuthenticationMixin */ "./resources/js/mixins/AuthenticationMixin.js");
 //
 //
 //
@@ -1933,13 +1934,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SignIn",
-  data: function data() {
-    return {
-      show: false
-    };
-  },
+  mixins: [_mixins_AuthenticationMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   created: function created() {
     var _this = this;
 
@@ -1948,24 +1946,8 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    authenticate: function authenticate(provider) {
-      var _this2 = this;
-
-      this.$store.dispatch('auth/login', provider).then(function () {
-        _this2.hideSignIn();
-
-        _this2.$router.push({
-          name: 'home'
-        });
-      }).catch(function (error) {
-        return console.error(error);
-      });
-    },
     showSignIn: function showSignIn() {
       this.show = true;
-    },
-    hideSignIn: function hideSignIn() {
-      this.show = false;
     }
   }
 });
@@ -1981,6 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_AuthenticationMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/mixins/AuthenticationMixin */ "./resources/js/mixins/AuthenticationMixin.js");
 //
 //
 //
@@ -1989,13 +1972,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SignUp",
-  data: function data() {
-    return {
-      show: false
-    };
-  },
+  mixins: [_mixins_AuthenticationMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   created: function created() {
     var _this = this;
 
@@ -81725,6 +81705,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TopicsMenu_vue_vue_type_template_id_a42f4b10_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/mixins/AuthenticationMixin.js":
+/*!****************************************************!*\
+  !*** ./resources/js/mixins/AuthenticationMixin.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    authenticate: function authenticate(provider) {
+      var _this = this;
+
+      this.$store.dispatch('auth/login', provider).then(function () {
+        _this.hideModal();
+
+        _this.$router.push({
+          name: 'home'
+        });
+      }).catch(function (error) {
+        return console.error(error);
+      });
+    }
+  },
+  hideModal: function hideModal() {
+    this.show = false;
+  }
+});
 
 /***/ }),
 

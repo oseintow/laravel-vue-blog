@@ -8,31 +8,17 @@
 </template>
 
 <script>
+import AuthenticationMixin from '@/mixins/AuthenticationMixin'
 
 export default {
     name: "SignIn",
-    data() {
-        return {
-            show: false
-        }
-    },
+    mixins: [AuthenticationMixin],
     created() {
         this.$eventBus.$on('sign-in', () => this.showSignIn())
     },
     methods: {
-        authenticate(provider) {
-            this.$store.dispatch('auth/login', provider)
-                .then(() =>{
-                    this.hideSignIn()
-                    this.$router.push({name: 'home'})
-                })
-                .catch(error => console.error(error))
-        },
         showSignIn() {
             this.show = true
-        },
-        hideSignIn() {
-            this.show = false
         }
     }
 }

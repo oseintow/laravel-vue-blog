@@ -7,13 +7,11 @@
 </template>
 
 <script>
+    import AuthenticationMixin from '@/mixins/AuthenticationMixin'
+
     export default {
         name: "SignUp",
-        data() {
-            return {
-                show: false
-            }
-        },
+        mixins: [AuthenticationMixin],
         created() {
             this.$eventBus.$on('sign-up', () => this.showSignUp())
         },

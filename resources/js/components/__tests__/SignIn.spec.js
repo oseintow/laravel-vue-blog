@@ -74,19 +74,27 @@ describe('Sign In', () => {
         expect(wrapper.isVueInstance()).toBeTruthy()
     })
 
+    it('should be able to response to sign-in event', async () => {
+        expect(wrapper.vm.$data.show).toBe(false)
+        wrapper.vm.$eventBus.signIn()
+        expect(wrapper.vm.$data.show).toBe(true)
+    })
+
     it('should be able to login using google social account', async () => {
-        // wrapper.vm.$router.push = spy;
+        const spy = jest.fn();
+        wrapper.setMethods({hideModal : spy})
         h.click('.google-signin')
 
         await flushPromises()
-        // expect(spy).toHaveBeenCalledWith({ name: 'home' });
+        expect(spy).toHaveBeenCalled();
     });
 
     it('should be able to login using facebook social account', async () => {
-        // wrapper.vm.$router.push = spy;
+        const spy = jest.fn();
+        wrapper.setMethods({hideModal : spy})
         h.click('.facebook-signin')
 
         await flushPromises()
-        // expect(spy).toHaveBeenCalledWith({ name: 'home' });
+        expect(spy).toHaveBeenCalled();
     });
 })

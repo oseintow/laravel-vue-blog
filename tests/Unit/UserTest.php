@@ -20,6 +20,5 @@ class UserTest extends TestCase
         $firstname = strtolower(explode(" ",$name)[0]);
 
         $this->assertEquals($user->nickname, "{$firstname}-{$user->id}");
-
     }
 }

@@ -11,7 +11,7 @@
 </script>
 
 <style scoped>
-    .err-test {
+    .err-text {
         color: red
     }
 </style>

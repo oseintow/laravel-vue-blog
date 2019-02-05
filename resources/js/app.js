@@ -11,6 +11,7 @@ require('./bootstrap');
 import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'iview/dist/styles/iview.css'
 
 
 /**

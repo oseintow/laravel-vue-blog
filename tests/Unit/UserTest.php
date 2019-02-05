@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -9,13 +10,16 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class UserTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+
+    /** @test */
+    public function a_users_nickname_is_created_if_null_from_social_provider()
     {
-        $this->assertTrue(true);
+        $name = "Foo bar";
+        $user = create(User::class, ['name' => $name]);
+
+        $firstname = strtolower(explode(" ",$name)[0]);
+
+        $this->assertEquals($user->nickname, "{$firstname}-{$user->id}");
+
     }
 }

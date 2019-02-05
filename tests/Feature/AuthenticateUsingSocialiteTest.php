@@ -87,4 +87,5 @@ class AuthenticateUsingSocialiteTest extends TestCase
         $provider->shouldReceive('user')->andReturn($abstractUser);
         $mockSocialite->shouldReceive('driver->stateless')->andReturn($provider);
     }
+
 }

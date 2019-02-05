@@ -11,6 +11,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function(User $user){
+            if ($user->nickname == null) {
+                $firstname = explode(" ", $user->name)[0];
+                $user->nickname = strtolower($firstname)."-".$user->id;
+                $user->save();
+            }
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *

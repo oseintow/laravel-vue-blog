@@ -31,12 +31,13 @@
                     placeholder: 'Type your post',
                     readOnly: true,
                     theme: 'snow'
-                }
+                },
+                delta: undefined
             }
         },
         watch: {
-            content(val) {
-                console.log(val)
+            content() {
+                this.delta = this.$refs.myQuillEditor.quill.getContents()
             }
         }
     }

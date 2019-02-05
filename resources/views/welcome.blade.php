@@ -6,19 +6,10 @@
 
         <title>Laravel</title>
 
-        {{--<script--}}
-                {{--src="https://code.jquery.com/jquery-3.3.1.min.js"--}}
-                {{--integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="--}}
-                {{--crossorigin="anonymous"></script>--}}
-
-        {{--<script src="https://cdn.jsdelivr.net/npm/jquery@3.3"></script>--}}
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
         <link rel="stylesheet" href="/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/vendor/medium-editor.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/vendor/medium-default-theme.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>

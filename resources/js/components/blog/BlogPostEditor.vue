@@ -16,6 +16,13 @@
     import { Button, Input, Select } from 'iview'
 
     export default {
+        name: "BlogPostEditor",
+        components: {
+            Button,
+                Input,
+                Select,
+                quillEditor
+        },
         data() {
             return {
                 content: '',
@@ -27,11 +34,16 @@
                 }
             }
         },
-        components: {
-            Button,
-            Input,
-            Select,
-            quillEditor
+        watch: {
+            content(val) {
+                console.log(val)
+            }
         }
     }
-</script>    
+</script>
+
+<style>
+    .ql-editor{
+        height: 72vh
+    }
+</style>

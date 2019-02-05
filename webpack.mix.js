@@ -21,5 +21,5 @@ mix.js('resources/js/app.js', 'public/js')
                 'vue$': 'vue/dist/vue.esm.js',
                 '@': __dirname + '/resources/js'
             },
-        },
+        }
     })

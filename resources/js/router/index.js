@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home.vue'
-import SignIn from '../pages/SignIn'
+import NewBlog from '../pages/NewBlog'
 import TopicsMenu from '@/components/menu/TopicsMenu'
 
 Vue.use(Router)
@@ -14,8 +14,8 @@ export default new Router({
                 forVisitors: true
             }
         },
-        { path: '/signin', name: 'signin',  components: {
-                default: SignIn,
+        { path: '/blog/new', name: 'new-blog',  components: {
+                default: NewBlog,
             },meta: {
                 forVisitors: true
             }

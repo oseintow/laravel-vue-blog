@@ -9,7 +9,6 @@ export default {
             this.$store.dispatch('auth/login', provider)
                 .then(() =>{
                     this.hideModal()
-                    // this.$router.push({name: 'home'})
                 })
                 .catch(error => console.error(error))
         },

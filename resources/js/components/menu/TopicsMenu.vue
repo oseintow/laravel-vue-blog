@@ -7,9 +7,9 @@
                     <a class="p-2 text-dark" href="#">Features</a>
                     <a class="p-2 text-dark" href="#">Enterprise</a>
                     <a class="p-2 text-dark" href="#">Support</a>
-                    <a class="p-2 text-dark" href="#">Pricing</a>
+                    <a class="p-2 text-dark" href="#" @click.preventDefault="signIn">Sign in</a>
                 </div>
-                <router-link to="signin" class="btn btn-outline-primary justify-content-end">SignIn</router-link>
+                <button class="btn btn-outline-primary justify-content-end" @click="signUp">Get started</button>
             </nav>
         </div>
     </div>
@@ -17,7 +17,15 @@
 
 <script>
     export default {
-        name: "TopicsMenu"
+        name: "TopicsMenu",
+        methods: {
+            signIn() {
+                this.$eventBus.signIn()
+            },
+            signUp() {
+                this.$eventBus.signUp()
+            }
+        }
     }
 </script>
 

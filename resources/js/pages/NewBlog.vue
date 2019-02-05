@@ -24,12 +24,14 @@
                 </div>
             </div>
         </div>
-        <blog-post-editor @delta="delta"></blog-post-editor>
+        <blog-post-editor @delta="delta" :body="content"></blog-post-editor>
         <div class="post-actions-row">
             <Button class="btn-delete" @click="del">Delete</Button>
             <Button type="primary" @click="save">Save</Button>
             <Button type="primary" @click="publish">Publish</Button>
         </div>
+
+        <div class="" ref="contentContainer" v-html="kk"></div>
     </div>
 </template>
 
@@ -37,6 +39,7 @@
     import BlogPostEditor from '@/components/blog/BlogPostEditor'
     import { Button, Input, Select } from 'iview'
     import Error from '@/components/Error'
+    import Quill from 'quill'
 
     export default {
         name: "NewBlog",
@@ -49,6 +52,10 @@
         },
         data() {
             return {
+                content: '',
+                kk:null,
+                article: null,
+                quill: null,
                 title: '',
                 category:'',
                 image_url: '',
@@ -67,9 +74,16 @@
                 ]
             }
         },
+        mounted() {
+            this.article = document.createElement('article')
+            this.quill = new Quill(this.article, {})
+        },
         methods: {
             delta(value) {
-                console.log(value)
+                this.quill.setContents(value)
+                setTimeout(() =>{
+                    this.$refs.contentContainer.appendChild(this.article)
+                },0)
             },
             del() {
 

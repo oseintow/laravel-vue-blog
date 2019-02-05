@@ -16,14 +16,15 @@
 
     export default {
         name: "BlogPostEditor",
+        props: ['body'],
         components: {
             quillEditor
         },
         data() {
             return {
-                content: '',
+                content: this.body,
                 editorOption: {
-                    debug: 'info',
+                    // debug: 'info',
                     placeholder: 'Type your post',
                     readOnly: true,
                     theme: 'snow'
@@ -36,6 +37,10 @@
                 // this.delta = this.$refs.myQuillEditor.quill.getContents()
                 this.$emit('delta', this.$refs.myQuillEditor.quill.getContents())
             }
+            // body() {
+            //     this.content = this.body
+            //     console.log(this.content)
+            // }
         }
     }
 </script>

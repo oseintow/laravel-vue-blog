@@ -11,11 +11,7 @@ require('./bootstrap');
 import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import editor from 'vue2-medium-editor'
 
-import VueTrumbowyg from 'vue-trumbowyg';
-import 'trumbowyg/dist/ui/trumbowyg.css';
-Vue.use(VueTrumbowyg);
 
 /**
  * The following block of code may be used to automatically register your
@@ -49,7 +45,6 @@ Vue.use(GlobalProperties)
 Vue.use(eventBus)
 
 Vue.component('App', require('./pages/App.vue').default)
-Vue.component('medium-editor', editor)
 
 const app = new Vue({
     el: '#app',

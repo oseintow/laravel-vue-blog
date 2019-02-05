@@ -40,6 +40,10 @@ import store from './store'
 import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
 require('promise.prototype.finally').shim()
+import interceptors from '@/helpers/interceptors'
+
+// and running it somewhere here
+interceptors()
 
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)

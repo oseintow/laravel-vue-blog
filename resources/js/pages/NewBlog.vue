@@ -8,31 +8,49 @@
                         <div class="row">
                             <img class="image-display" :src="image_url" alt="">
                         </div>
-                        <error class="flex-center">Post must have an image</error>
-                        <div class="inner-image-input flex-center">
+                        <div class="inner-image-input flex-center mt-3">
                             <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
-                            <!--<Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>-->
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-9">
                     <div class="title-input form-group">
-                        <error>Title should be more than 10 characters</error>
-                        <input v-model="blog.title" placeholder="Post title" class="form-control"/>
+                        <label for="title">Title:</label>
+                        <input v-model="blog.title"
+                               placeholder="Post title"
+                               name="title"
+                               class="form-control"
+                               v-validate="'required|min:6'"/>
+                        <error v-show="errors.has('title')">{{ errors.first('title') }}</error>
                     </div>
                     <div class="cat-input form-group">
-                        <error>Post must have a category</error>
-                        <select placeholder="Select a Category" class="form-control"
+                        <label for="title">Category:</label>
+                        <select placeholder="Select a Category" name="category" class="form-control" v-validate="'required'"
                                 v-model="blog.category_id">
                             <option value="">-- select category --</option>
                             <option v-for="(cat, index) in categories" :key="index" :value="cat.id">
                                 {{cat.name}}
                             </option>
                         </select>
+                        <error v-show="errors.has('category')">{{ errors.first('category') }}</error>
+                    </div>
+                    <div class="status-input form-group">
+                        <label for="status">Status:</label>
+                        <select placeholder="Status" name="status" class="form-control" v-validate="'required'"
+                                v-model="blog.status">
+                            <option value="">-- select Status --</option>
+                            <option value="1">Publish</option>
+                            <option value="0">Save as draft</option>
+                        </select>
+                        <error v-show="errors.has('status')">{{ errors.first('status') }}</error>
                     </div>
                 </div>
             </div>
-            <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
+            <div class="form-group">
+                <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
+            </div>
+            <input type="text" name="body" v-model="body" v-validate="'required|min:6'">
+            <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             <div class="post-actions-row">
                 <Button class="btn-delete" @click="del">Delete</Button>
                 <Button type="primary" @click="saveBlog">Save</Button>
@@ -60,6 +78,7 @@
         },
         data() {
             return {
+                body: '',
                 content: '',
                 image_url: '',
                 blog: {
@@ -67,6 +86,7 @@
                     body: '',
                     category_id:'',
                     cover_image: '',
+                    status: '',
                 },
                 article: null,
                 quill: null,
@@ -90,8 +110,12 @@
         },
         methods: {
             delta(value) {
-                this.blog.body = value;
-                this.quill.setContents(value)
+                if(value === '') {
+                    return this.body = ''
+                }
+                this.body = value.getText()
+                this.blog.body = value.getContents();
+                this.quill.setContents(value.getContents())
                 setTimeout(() =>{
                     this.$refs.contentContainer.appendChild(this.article)
                 },0)
@@ -129,6 +153,7 @@
                             cover_image: '',
                         };
                         this.image_url = ''
+                        this.body = ''
 
                         // setTimeout(() => {
                         //     this.blog.body = response.blog.body
@@ -160,8 +185,10 @@
         font-size: 16px
     }
     .image-display{
-        width: 300px;
+        width: 270px;
+        max-width: 270px;
         height: 250px;
+        max-height: 250px;
         background-image: url("https://placeit.net/uploads/stage/stage_image/4475/default_ac2915d90aa42e8694f4277b355ffc52.png");
         background-repeat: no-repeat;
         background-position: center;

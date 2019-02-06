@@ -42,6 +42,7 @@ import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
 require('promise.prototype.finally').shim()
 import interceptors from '@/helpers/interceptors'
+import Error from '@/components/Error'
 
 // and running it somewhere here
 interceptors()
@@ -52,6 +53,7 @@ Vue.use(GlobalProperties)
 Vue.use(eventBus)
 
 Vue.component('App', require('./pages/App.vue').default)
+Vue.component('error', Error)
 
 const app = new Vue({
     el: '#app',

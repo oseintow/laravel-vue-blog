@@ -1,7 +1,7 @@
 <template>
-    <div class="err-text">
+    <span class="err-text">
         <slot></slot>
-    </div>
+    </span>
 </template>
 
 <script>

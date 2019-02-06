@@ -121,8 +121,18 @@
                 })
 
                 this.$store.dispatch('blog/saveBlog', formData)
-                    .then(() =>{
+                    .then((response) =>{
+                        this.blog = {
+                            title: '',
+                            body: '',
+                            category_id:'',
+                            cover_image: '',
+                        };
+                        this.image_url = ''
 
+                        // setTimeout(() => {
+                        //     this.blog.body = response.blog.body
+                        // }, 5000)
                     })
             },
             publish() {

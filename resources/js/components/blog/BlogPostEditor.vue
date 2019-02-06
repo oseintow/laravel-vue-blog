@@ -34,13 +34,15 @@
         },
         watch: {
             content() {
-                // this.delta = this.$refs.myQuillEditor.quill.getContents()
-                this.$emit('delta', this.$refs.myQuillEditor.quill.getContents())
+                const delta = this.$refs.myQuillEditor.quill.getContents()
+
+                if(delta !== '') this.$emit('delta', delta)
+            },
+            body() {
+                if(this.body == '') {
+                    this.content = this.body
+                }
             }
-            // body() {
-            //     this.content = this.body
-            //     console.log(this.content)
-            // }
         }
     }
 </script>

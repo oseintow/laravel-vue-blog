@@ -21,6 +21,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug');
             $table->json('body')->nullable();
             $table->string('cover_image_url')->nullable();
+            $table->tinyInteger('publish')->default(0);
             $table->timestamps();
         });
     }

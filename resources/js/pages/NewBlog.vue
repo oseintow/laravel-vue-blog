@@ -35,26 +35,24 @@
                         <error v-show="errors.has('category')">{{ errors.first('category') }}</error>
                     </div>
                     <div class="status-input form-group">
-                        <label for="status">Status:</label>
-                        <select placeholder="Status" name="status" class="form-control" v-validate="'required'"
-                                v-model="blog.status">
-                            <option value="">-- select Status --</option>
+                        <label for="publish">Publish Status:</label>
+                        <select placeholder="Status" name="publish" class="form-control" v-validate="'required'"
+                                v-model="blog.publish">
+                            <option value="">-- select publish status --</option>
                             <option value="1">Publish</option>
                             <option value="0">Save as draft</option>
                         </select>
-                        <error v-show="errors.has('status')">{{ errors.first('status') }}</error>
+                        <error v-show="errors.has('publish')">{{ errors.first('publish') }}</error>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
             </div>
-            <input type="text" name="body" v-model="body" v-validate="'required|min:6'">
+            <input type="hidden" name="body" v-model="body" v-validate="'required|min:6'">
             <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
-            <div class="post-actions-row">
-                <Button class="btn-delete" @click="del">Delete</Button>
-                <Button type="primary" @click="saveBlog">Save</Button>
-                <Button type="primary" @click="publish">Publish</Button>
+            <div class="row post-actions-row float-right">
+                <button class="btn btn-primary" @click="saveBlog">Save</button>
             </div>
 
             <div class="" ref="contentContainer"></div>
@@ -64,33 +62,27 @@
 
 <script>
     import BlogPostEditor from '@/components/blog/BlogPostEditor'
-    import { Button, Input, Select } from 'iview'
-    import Error from '@/components/Error'
     import Quill from 'quill'
-    import { mapGetters } from 'vuex'
 
     export default {
         name: "NewBlog",
         components: {
             BlogPostEditor,
-            Button,
-            Error
         },
         data() {
             return {
                 body: '',
-                content: '',
                 image_url: '',
                 blog: {
                     title: '',
                     body: '',
                     category_id:'',
                     cover_image: '',
-                    status: '',
+                    publish: '',
                 },
                 article: null,
                 quill: null,
-                categories: '',
+                categories: [],
             }
         },
         mounted() {
@@ -105,9 +97,6 @@
                     console.error(error)
             })
         },
-        computed: {
-            // ...mapGetters('category', ['categories'])
-        },
         methods: {
             delta(value) {
                 if(value === '') {
@@ -115,10 +104,10 @@
                 }
                 this.body = value.getText()
                 this.blog.body = value.getContents();
-                this.quill.setContents(value.getContents())
-                setTimeout(() =>{
-                    this.$refs.contentContainer.appendChild(this.article)
-                },0)
+                // this.quill.setContents(value.getContents())
+                // setTimeout(() =>{
+                //     this.$refs.contentContainer.appendChild(this.article)
+                // },0)
             },
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
@@ -131,10 +120,7 @@
                 reader.onload = (e) => this.image_url = e.target.result;
                 reader.readAsDataURL(file);
             },
-            del() {
-
-            },
-            saveBlog() {
+            prepareFormData() {
                 const formData = new FormData();
                 Object.keys(this.blog).forEach((key) => {
                     if(key === 'body') {
@@ -143,6 +129,15 @@
                         formData.append(key, this.blog[key])
                     }
                 })
+
+                return formData;
+            },
+            saveBlog(e) {
+                e.preventDefault();
+                this.$validator.validateAll()
+                if (this.errors.any()) return;
+
+                const formData = this.prepareFormData();
 
                 this.$store.dispatch('blog/saveBlog', formData)
                     .then((response) =>{
@@ -155,13 +150,13 @@
                         this.image_url = ''
                         this.body = ''
 
+                        this.errors.clear(); // removes errors for all fields
+                        // this.errors.remove(field)
+
                         // setTimeout(() => {
                         //     this.blog.body = response.blog.body
                         // }, 5000)
                     })
-            },
-            publish() {
-
             }
         }
     }

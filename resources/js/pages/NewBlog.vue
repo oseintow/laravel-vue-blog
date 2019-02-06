@@ -5,11 +5,11 @@
             <div class="col-sm-3">
                 <div class="image-input form-group">
                     <div class="row">
-                        <img class="image-display" src="" alt="">
+                        <img class="image-display" :src="blog.cover_image" alt="">
                     </div>
                     <error class="flex-center">Post must have an image</error>
                     <div class="inner-image-input flex-center">
-                        <input type="file" class="flex-center"/>
+                        <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
                         <!--<Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>-->
                     </div>
                 </div>
@@ -17,20 +17,21 @@
             <div class="col-sm-9">
                 <div class="title-input form-group">
                     <error>Title should be more than 10 characters</error>
-                    <Input v-model="title" placeholder="Post title"/>
+                    <input v-model="blog.title" placeholder="Post title" class="form-control"/>
                 </div>
                 <div class="cat-input form-group">
                     <error>Post must have a category</error>
-                    <Select placeholder="Select a Category"
-                            v-model="category">
-                        <Option v-for="(cat, index) in categories" :key="index" :value="cat.id">
-                            {{cat.label}}
-                        </Option>
-                    </Select>
+                    <select placeholder="Select a Category" class="form-control"
+                            v-model="blog.category_id">
+                        <option value="">-- select category --</option>
+                        <option v-for="(cat, index) in categories" :key="index" :value="cat.id">
+                            {{cat.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
         </div>
-        <blog-post-editor @delta="delta" :body="body"></blog-post-editor>
+        <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
         <div class="post-actions-row">
             <Button class="btn-delete" @click="del">Delete</Button>
             <Button type="primary" @click="save">Save</Button>
@@ -53,33 +54,20 @@
         components: {
             BlogPostEditor,
             Button,
-            Input,
-            Select,
             Error
         },
         data() {
             return {
                 content: '',
-                body: '',
+                blog: {
+                    title: '',
+                    body: '',
+                    category_id:'',
+                    cover_image: '',
+                },
                 article: null,
                 quill: null,
-                title: '',
-                category:'',
                 categories: '',
-                image_url: '',
-                showImageModel: false,
-                postCategories: [
-                    {
-                        id: 1,
-                        label: 'Nodejs',
-                        img: 'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/256/full/nodejslogo.png'
-                    },
-                    {
-                        id: 2,
-                        label: 'Javascript',
-                        img: 'https://cdn-images-1.medium.com/max/1600/1*zWhOGf_PgX0nRTLZLmFpGg.png'
-                    }
-                ]
             }
         },
         mounted() {
@@ -87,8 +75,8 @@
             this.quill = new Quill(this.article, {})
 
             this.$store.dispatch('category/getCategories')
-                .then(({data}) => {
-                    this.categories = data
+                .then(({categories}) => {
+                    this.categories = categories
                 })
                 .catch(error => {
                     console.error(error)
@@ -99,16 +87,29 @@
         },
         methods: {
             delta(value) {
-                this.body = value;
+                this.blog.body = value;
                 this.quill.setContents(value)
                 setTimeout(() =>{
                     this.$refs.contentContainer.appendChild(this.article)
                 },0)
             },
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+                // this.cover_image = files[0];
+                this.createImage(files[0])
+            },
+            createImage(file) {
+                let reader = new FileReader();
+
+                reader.onload = (e) => this.blog.cover_image = e.target.result;
+
+                reader.readAsDataURL(file);
+            },
             del() {
 
             },
-            save() {
+            saveBlog() {
 
             },
             publish() {

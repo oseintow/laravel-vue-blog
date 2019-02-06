@@ -4,13 +4,15 @@ import createPersistedState from 'vuex-persistedstate'
 
 import blog from './modules/blog'
 import auth from './modules/auth'
+import category from './modules/category'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
         blog,
-        auth
+        auth,
+        category
     },
     plugins: [createPersistedState()]
 })

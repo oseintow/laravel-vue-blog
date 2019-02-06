@@ -1,37 +1,43 @@
 <template>
     <div>
         <h3>Medium Editor</h3>
-        <div class="post-inputs">
-            <div class="title-input">
-                <error>Title should be more than 10 characters</error>
-                <Input v-model="title" placeholder="Post title"/>
+        <div class="post-inputs row mb-4">
+            <div class="col-sm-3">
+                <div class="image-input form-group">
+                    <div class="row">
+                        <img class="image-display" src="" alt="">
+                    </div>
+                    <error class="flex-center">Post must have an image</error>
+                    <div class="inner-image-input flex-center">
+                        <input type="file" class="flex-center"/>
+                        <!--<Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>-->
+                    </div>
+                </div>
             </div>
-            <div class="cat-input">
-                <error>Post must have a category</error>
-                <Select placeholder="Select a Category"
-                        v-model="category"
-                        v-if="postCategories.length">
-                    <Option v-for="(cat, index) in postCategories" :key="index" :value="cat.id">
-                        {{cat.label}}
-                    </Option>
-                </Select>
-            </div>
-            <div class="image-input">
-                <error>Post must have an image</error>
-                <div class="inner-image-input">
-                    <img :src="image_url" alt="" v-if="image_url"/>
-                    <Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>
+            <div class="col-sm-9">
+                <div class="title-input form-group">
+                    <error>Title should be more than 10 characters</error>
+                    <Input v-model="title" placeholder="Post title"/>
+                </div>
+                <div class="cat-input form-group">
+                    <error>Post must have a category</error>
+                    <Select placeholder="Select a Category"
+                            v-model="category">
+                        <Option v-for="(cat, index) in categories" :key="index" :value="cat.id">
+                            {{cat.label}}
+                        </Option>
+                    </Select>
                 </div>
             </div>
         </div>
-        <blog-post-editor @delta="delta" :body="content"></blog-post-editor>
+        <blog-post-editor @delta="delta" :body="body"></blog-post-editor>
         <div class="post-actions-row">
             <Button class="btn-delete" @click="del">Delete</Button>
             <Button type="primary" @click="save">Save</Button>
             <Button type="primary" @click="publish">Publish</Button>
         </div>
 
-        <div class="" ref="contentContainer" v-html="kk"></div>
+        <div class="" ref="contentContainer"></div>
     </div>
 </template>
 
@@ -40,6 +46,7 @@
     import { Button, Input, Select } from 'iview'
     import Error from '@/components/Error'
     import Quill from 'quill'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: "NewBlog",
@@ -53,11 +60,12 @@
         data() {
             return {
                 content: '',
-                kk:null,
+                body: '',
                 article: null,
                 quill: null,
                 title: '',
                 category:'',
+                categories: '',
                 image_url: '',
                 showImageModel: false,
                 postCategories: [
@@ -77,9 +85,21 @@
         mounted() {
             this.article = document.createElement('article')
             this.quill = new Quill(this.article, {})
+
+            this.$store.dispatch('category/getCategories')
+                .then(({data}) => {
+                    this.categories = data
+                })
+                .catch(error => {
+                    console.error(error)
+            })
+        },
+        computed: {
+            // ...mapGetters('category', ['categories'])
         },
         methods: {
             delta(value) {
+                this.body = value;
                 this.quill.setContents(value)
                 setTimeout(() =>{
                     this.$refs.contentContainer.appendChild(this.article)
@@ -114,5 +134,14 @@
     }
     .ivu-icon-ios-camera-outline{
         font-size: 16px
+    }
+    .image-display{
+        width: 300px;
+        height: 250px;
+        background-image: url("https://placeit.net/uploads/stage/stage_image/4475/default_ac2915d90aa42e8694f4277b355ffc52.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: #cccccc;
     }
 </style>

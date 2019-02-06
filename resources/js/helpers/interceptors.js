@@ -5,7 +5,7 @@ export default function setup() {
     axios.interceptors.request.use(function(config) {
         const token = store.getters.getToken;
         if(token) {
-            config.headers.Authorization = `Bearer ${token}`;
+            config.headers.BadIt = `Bearer ${token}`;
         }
         return config;
     }, function(err) {

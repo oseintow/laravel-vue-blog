@@ -1,44 +1,46 @@
 <template>
     <div>
         <h3>Medium Editor</h3>
-        <div class="post-inputs row mb-4">
-            <div class="col-sm-3">
-                <div class="image-input form-group">
-                    <div class="row">
-                        <img class="image-display" :src="blog.cover_image" alt="">
+        <form enctype="multipart/form-data" novalidate>
+            <div class="post-inputs row mb-4">
+                <div class="col-sm-3">
+                    <div class="image-input form-group">
+                        <div class="row">
+                            <img class="image-display" :src="image_url" alt="">
+                        </div>
+                        <error class="flex-center">Post must have an image</error>
+                        <div class="inner-image-input flex-center">
+                            <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
+                            <!--<Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>-->
+                        </div>
                     </div>
-                    <error class="flex-center">Post must have an image</error>
-                    <div class="inner-image-input flex-center">
-                        <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
-                        <!--<Button @click="showImageModel = true" type="primary" class="flex-center" icon="ios-camera-outline">Post Image</Button>-->
+                </div>
+                <div class="col-sm-9">
+                    <div class="title-input form-group">
+                        <error>Title should be more than 10 characters</error>
+                        <input v-model="blog.title" placeholder="Post title" class="form-control"/>
+                    </div>
+                    <div class="cat-input form-group">
+                        <error>Post must have a category</error>
+                        <select placeholder="Select a Category" class="form-control"
+                                v-model="blog.category_id">
+                            <option value="">-- select category --</option>
+                            <option v-for="(cat, index) in categories" :key="index" :value="cat.id">
+                                {{cat.name}}
+                            </option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
-                <div class="title-input form-group">
-                    <error>Title should be more than 10 characters</error>
-                    <input v-model="blog.title" placeholder="Post title" class="form-control"/>
-                </div>
-                <div class="cat-input form-group">
-                    <error>Post must have a category</error>
-                    <select placeholder="Select a Category" class="form-control"
-                            v-model="blog.category_id">
-                        <option value="">-- select category --</option>
-                        <option v-for="(cat, index) in categories" :key="index" :value="cat.id">
-                            {{cat.name}}
-                        </option>
-                    </select>
-                </div>
+            <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
+            <div class="post-actions-row">
+                <Button class="btn-delete" @click="del">Delete</Button>
+                <Button type="primary" @click="saveBlog">Save</Button>
+                <Button type="primary" @click="publish">Publish</Button>
             </div>
-        </div>
-        <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
-        <div class="post-actions-row">
-            <Button class="btn-delete" @click="del">Delete</Button>
-            <Button type="primary" @click="save">Save</Button>
-            <Button type="primary" @click="publish">Publish</Button>
-        </div>
 
-        <div class="" ref="contentContainer"></div>
+            <div class="" ref="contentContainer"></div>
+        </form>
     </div>
 </template>
 
@@ -59,6 +61,7 @@
         data() {
             return {
                 content: '',
+                image_url: '',
                 blog: {
                     title: '',
                     body: '',
@@ -96,21 +99,25 @@
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length) return;
-                // this.cover_image = files[0];
+                this.blog.cover_image = files[0];
                 this.createImage(files[0])
             },
             createImage(file) {
                 let reader = new FileReader();
-
-                reader.onload = (e) => this.blog.cover_image = e.target.result;
-
+                reader.onload = (e) => this.image_url = e.target.result;
                 reader.readAsDataURL(file);
             },
             del() {
 
             },
             saveBlog() {
+                const formData = new FormData();
+                Object.keys(this.blog).forEach((key) => formData.append(key, this.blog[key]))
 
+                this.$store.dispatch('blog/saveBlog', formData)
+                    .then(() =>{
+
+                    })
             },
             publish() {
 

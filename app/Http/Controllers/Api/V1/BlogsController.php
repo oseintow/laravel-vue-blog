@@ -10,7 +10,6 @@ class BlogsController extends Controller
 {
     public function store(Request $request)
     {
-        logger($request->file('cover_image')->getClientOriginalName());
         $path = $request->file('cover_image')->store('images');
         $user = ['user_id' => auth()->user()->id, 'cover_image' => $path];
 

@@ -112,7 +112,13 @@
             },
             saveBlog() {
                 const formData = new FormData();
-                Object.keys(this.blog).forEach((key) => formData.append(key, this.blog[key]))
+                Object.keys(this.blog).forEach((key) => {
+                    if(key === 'body') {
+                        formData.append(key, JSON.stringify(this.blog[key]))
+                    }else{
+                        formData.append(key, this.blog[key])
+                    }
+                })
 
                 this.$store.dispatch('blog/saveBlog', formData)
                     .then(() =>{

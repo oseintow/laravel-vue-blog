@@ -2315,6 +2315,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2394,28 +2395,30 @@ __webpack_require__.r(__webpack_exports__);
 
       return formData;
     },
-    saveBlog: function saveBlog(e) {
+    resetForm: function resetForm() {
       var _this4 = this;
+
+      this.blog = {
+        title: '',
+        body: '',
+        category_id: '',
+        cover_image: ''
+      };
+      this.image_url = '';
+      this.body = '';
+      this.$nextTick(function () {
+        return _this4.$validator.reset();
+      });
+    },
+    saveBlog: function saveBlog(e) {
+      var _this5 = this;
 
       e.preventDefault();
       this.$validator.validateAll();
       if (this.errors.any()) return;
       var formData = this.prepareFormData();
-      this.$store.dispatch('blog/saveBlog', formData).then(function (response) {
-        _this4.blog = {
-          title: '',
-          body: '',
-          category_id: '',
-          cover_image: ''
-        };
-        _this4.image_url = '';
-        _this4.body = '';
-
-        _this4.$nextTick(function () {
-          return _this4.$validator.reset();
-        }); // this.errors.clear(); // removes errors for all fields
-        // this.errors.remove(field)
-        // setTimeout(() => {
+      this.$store.dispatch('blog/saveBlog', formData).then(function () {
+        _this5.resetForm(); // setTimeout(() => {
         //     this.blog.body = response.blog.body
         // }, 5000)
 
@@ -87710,319 +87713,309 @@ var render = function() {
   return _c("div", [
     _c("h3", [_vm._v("Medium Editor")]),
     _vm._v(" "),
-    _c(
-      "form",
-      { attrs: { enctype: "multipart/form-data", novalidate: "" } },
-      [
-        _c("div", { staticClass: "post-inputs row mb-4" }, [
-          _c("div", { staticClass: "col-sm-3" }, [
-            _c("div", { staticClass: "image-input form-group" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("img", {
-                  staticClass: "image-display",
-                  attrs: { src: _vm.image_url, alt: "" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "inner-image-input flex-center mt-3" }, [
-                _c("input", {
-                  staticClass: "flex-center",
-                  attrs: { type: "file", name: "cover_image" },
-                  on: { change: _vm.onFileChange }
-                })
-              ])
+    _c("form", { attrs: { enctype: "multipart/form-data", novalidate: "" } }, [
+      _c("div", { staticClass: "post-inputs row mb-4" }, [
+        _c("div", { staticClass: "col-sm-3 flex-center" }, [
+          _c("div", { staticClass: "image-input form-group" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("img", {
+                staticClass: "image-display",
+                attrs: { src: _vm.image_url, alt: "" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "inner-image-input flex-center mt-3" }, [
+              _c("input", {
+                staticClass: "flex-center",
+                attrs: { type: "file", name: "cover_image" },
+                on: { change: _vm.onFileChange }
+              })
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-9" }, [
-            _c(
-              "div",
-              { staticClass: "title-input form-group" },
-              [
-                _c("label", { attrs: { for: "title" } }, [_vm._v("Title:")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.blog.title,
-                      expression: "blog.title"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required|min:3",
-                      expression: "'required|min:3'"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { placeholder: "Post title", name: "title" },
-                  domProps: { value: _vm.blog.title },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.blog, "title", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "error",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("title"),
-                        expression: "errors.has('title')"
-                      }
-                    ]
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("title")))]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "cat-input form-group" },
-              [
-                _c("label", { attrs: { for: "title" } }, [_vm._v("Category:")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.blog.category_id,
-                        expression: "blog.category_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      placeholder: "Select a Category",
-                      name: "category"
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.blog,
-                          "category_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("-- select category --")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.categories, function(cat, index) {
-                      return _c(
-                        "option",
-                        { key: index, domProps: { value: cat.id } },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(cat.name) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    })
-                  ],
-                  2
-                ),
-                _vm._v(" "),
-                _c(
-                  "error",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("category"),
-                        expression: "errors.has('category')"
-                      }
-                    ]
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("category")))]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "status-input form-group" },
-              [
-                _c("label", { attrs: { for: "publish" } }, [
-                  _vm._v("Publish Status:")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.blog.publish,
-                        expression: "blog.publish"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { placeholder: "Status", name: "publish" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.blog,
-                          "publish",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("-- select publish status --")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("Publish")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("Save as draft")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "error",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("publish"),
-                        expression: "errors.has('publish')"
-                      }
-                    ]
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("publish")))]
-                )
-              ],
-              1
-            )
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [
-            _c("blog-post-editor", {
-              attrs: { body: _vm.blog.body },
-              on: { delta: _vm.delta }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.body,
-              expression: "body"
-            },
-            {
-              name: "validate",
-              rawName: "v-validate",
-              value: "required|min:3",
-              expression: "'required|min:3'"
-            }
-          ],
-          attrs: { type: "hidden", name: "body" },
-          domProps: { value: _vm.body },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.body = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "error",
-          {
+        _c("div", { staticClass: "col-sm-9" }, [
+          _c(
+            "div",
+            { staticClass: "title-input form-group" },
+            [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Title:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.blog.title,
+                    expression: "blog.title"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|min:3",
+                    expression: "'required|min:3'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { placeholder: "Post title", name: "title" },
+                domProps: { value: _vm.blog.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.blog, "title", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "error",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("title"),
+                      expression: "errors.has('title')"
+                    }
+                  ]
+                },
+                [_vm._v(_vm._s(_vm.errors.first("title")))]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "cat-input form-group" },
+            [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Category:")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.blog.category_id,
+                      expression: "blog.category_id"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { placeholder: "Select a Category", name: "category" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.blog,
+                        "category_id",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("-- select category --")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.categories, function(cat, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: cat.id } },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(cat.name) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "error",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("category"),
+                      expression: "errors.has('category')"
+                    }
+                  ]
+                },
+                [_vm._v(_vm._s(_vm.errors.first("category")))]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "status-input form-group" },
+            [
+              _c("label", { attrs: { for: "publish" } }, [
+                _vm._v("Publish Status:")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.blog.publish,
+                      expression: "blog.publish"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { placeholder: "Status", name: "publish" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.blog,
+                        "publish",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("-- select publish status --")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("Publish")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "0" } }, [
+                    _vm._v("Save as draft")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "error",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("publish"),
+                      expression: "errors.has('publish')"
+                    }
+                  ]
+                },
+                [_vm._v(_vm._s(_vm.errors.first("publish")))]
+              )
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("blog-post-editor", {
+            attrs: { body: _vm.blog.body },
+            on: { delta: _vm.delta }
+          }),
+          _vm._v(" "),
+          _c("input", {
             directives: [
               {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.errors.has("body"),
-                expression: "errors.has('body')"
+                name: "model",
+                rawName: "v-model",
+                value: _vm.body,
+                expression: "body"
+              },
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:3",
+                expression: "'required|min:3'"
               }
-            ]
-          },
-          [_vm._v(_vm._s(_vm.errors.first("body")))]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row post-actions-row float-right" }, [
+            ],
+            attrs: { type: "hidden", name: "body" },
+            domProps: { value: _vm.body },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.body = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn btn-primary", on: { click: _vm.saveBlog } },
-            [_vm._v("Save")]
+            "error",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("body"),
+                  expression: "errors.has('body')"
+                }
+              ]
+            },
+            [_vm._v(_vm._s(_vm.errors.first("body")))]
           )
-        ]),
-        _vm._v(" "),
-        _c("div", { ref: "contentContainer" })
-      ],
-      1
-    )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row post-actions-row float-right" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", on: { click: _vm.saveBlog } },
+          [_vm._v("Save")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { ref: "contentContainer" })
+    ])
   ])
 }
 var staticRenderFns = []

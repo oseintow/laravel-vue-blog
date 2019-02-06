@@ -3,7 +3,7 @@
         <h3>Medium Editor</h3>
         <form enctype="multipart/form-data" novalidate>
             <div class="post-inputs row mb-4">
-                <div class="col-sm-3">
+                <div class="col-sm-3 flex-center">
                     <div class="image-input form-group">
                         <div class="row">
                             <img class="image-display" :src="image_url" alt="">
@@ -48,9 +48,10 @@
             </div>
             <div class="form-group">
                 <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
+                <input type="hidden" name="body" v-model="body" v-validate="'required|min:3'">
+                <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             </div>
-            <input type="hidden" name="body" v-model="body" v-validate="'required|min:3'">
-            <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
+
             <div class="row post-actions-row float-right">
                 <button class="btn btn-primary" @click="saveBlog">Save</button>
             </div>
@@ -132,6 +133,18 @@
 
                 return formData;
             },
+            resetForm() {
+                this.blog = {
+                    title: '',
+                    body: '',
+                    category_id:'',
+                    cover_image: '',
+                };
+                this.image_url = ''
+                this.body = ''
+
+                this.$nextTick(() => this.$validator.reset())
+            },
             saveBlog(e) {
                 e.preventDefault();
                 this.$validator.validateAll()
@@ -140,24 +153,13 @@
                 const formData = this.prepareFormData();
 
                 this.$store.dispatch('blog/saveBlog', formData)
-                    .then((response) =>{
-                        this.blog = {
-                            title: '',
-                            body: '',
-                            category_id:'',
-                            cover_image: '',
-                        };
-                        this.image_url = ''
-                        this.body = ''
-
-                        this.$nextTick(() => this.$validator.reset())
-                        // this.errors.clear(); // removes errors for all fields
-                        // this.errors.remove(field)
-
+                    .then(() =>{
+                        this.resetForm();
                         // setTimeout(() => {
                         //     this.blog.body = response.blog.body
                         // }, 5000)
                     })
+
             }
         }
     }

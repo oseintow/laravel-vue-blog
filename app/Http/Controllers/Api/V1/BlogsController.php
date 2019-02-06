@@ -8,12 +8,16 @@ use App\Http\Controllers\Controller;
 
 class BlogsController extends Controller
 {
-    public function store(Request $request)
+    public function store()
     {
-        $path = $request->file('cover_image')->store('images');
-        $user = ['user_id' => auth()->user()->id, 'cover_image' => $path];
+        if(request()->hasFile('cover_image')){
+            $coverImagePath = request()->file('cover_image')->store('cover_images');
+            request()->merge(['cover_image_url' => "/images/{$coverImagePath}"]);
+        }
 
-        $blog = Blog::create(request()->merge($user)->all());
+        request()->merge(['user_id' => auth()->user()->id]);
+
+        $blog = Blog::create(request()->except('cover_image'));
 
         return response(compact('blog'));
     }

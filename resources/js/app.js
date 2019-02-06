@@ -12,6 +12,7 @@ import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'iview/dist/styles/iview.css'
+import VeeValidate from 'vee-validate';
 
 
 /**
@@ -45,6 +46,7 @@ import interceptors from '@/helpers/interceptors'
 // and running it somewhere here
 interceptors()
 
+Vue.use(VeeValidate);
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)

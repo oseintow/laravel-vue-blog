@@ -2411,7 +2411,9 @@ __webpack_require__.r(__webpack_exports__);
         _this4.image_url = '';
         _this4.body = '';
 
-        _this4.errors.clear(); // removes errors for all fields
+        _this4.$nextTick(function () {
+          return _this4.$validator.reset();
+        }); // this.errors.clear(); // removes errors for all fields
         // this.errors.remove(field)
         // setTimeout(() => {
         //     this.blog.body = response.blog.body
@@ -87750,8 +87752,8 @@ var render = function() {
                     {
                       name: "validate",
                       rawName: "v-validate",
-                      value: "required|min:6",
-                      expression: "'required|min:6'"
+                      value: "required|min:3",
+                      expression: "'required|min:3'"
                     }
                   ],
                   staticClass: "form-control",
@@ -87978,8 +87980,8 @@ var render = function() {
             {
               name: "validate",
               rawName: "v-validate",
-              value: "required|min:6",
-              expression: "'required|min:6'"
+              value: "required|min:3",
+              expression: "'required|min:3'"
             }
           ],
           attrs: { type: "hidden", name: "body" },

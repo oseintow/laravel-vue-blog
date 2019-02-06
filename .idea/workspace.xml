@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_05_230033_create_blogs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_05_230033_create_blogs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/blog/BlogPostEditor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/blog/BlogPostEditor.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/NewBlog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/NewBlog.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,11 +75,11 @@
       <file leaf-file-name="NewBlog.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/pages/NewBlog.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+            <state relative-caret-position="265">
+              <caret line="50" column="18" lean-forward="true" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
               <folding>
                 <element signature="e#3335#3396#0" expanded="true" />
-                <marker date="1549496669952" expanded="true" signature="6607:6683" ph="..." />
+                <marker date="1549496870593" expanded="true" signature="6680:6756" ph="..." />
               </folding>
             </state>
           </provider>
@@ -502,7 +500,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126672000" />
+    <option name="totallyTimeSpent" value="126867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -943,11 +941,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/pages/NewBlog.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        <state relative-caret-position="265">
+          <caret line="50" column="18" lean-forward="true" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding>
             <element signature="e#3335#3396#0" expanded="true" />
-            <marker date="1549496669952" expanded="true" signature="6607:6683" ph="..." />
+            <marker date="1549496870593" expanded="true" signature="6680:6756" ph="..." />
           </folding>
         </state>
       </provider>

@@ -20,7 +20,7 @@
                                placeholder="Post title"
                                name="title"
                                class="form-control"
-                               v-validate="'required|min:6'"/>
+                               v-validate="'required|min:3'"/>
                         <error v-show="errors.has('title')">{{ errors.first('title') }}</error>
                     </div>
                     <div class="cat-input form-group">
@@ -49,7 +49,7 @@
             <div class="form-group">
                 <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
             </div>
-            <input type="hidden" name="body" v-model="body" v-validate="'required|min:6'">
+            <input type="hidden" name="body" v-model="body" v-validate="'required|min:3'">
             <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             <div class="row post-actions-row float-right">
                 <button class="btn btn-primary" @click="saveBlog">Save</button>
@@ -150,7 +150,8 @@
                         this.image_url = ''
                         this.body = ''
 
-                        this.errors.clear(); // removes errors for all fields
+                        this.$nextTick(() => this.$validator.reset())
+                        // this.errors.clear(); // removes errors for all fields
                         // this.errors.remove(field)
 
                         // setTimeout(() => {

@@ -35,7 +35,7 @@ const actions = {
 }
 
 const getters = {
-    getBlogs : state => {
+    blogs : state => {
         return state.blogs
     }
 }

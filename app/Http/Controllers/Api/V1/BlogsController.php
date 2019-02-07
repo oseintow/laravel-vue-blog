@@ -3,11 +3,24 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Blog;
+use App\Http\Resources\BlogCollection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BlogsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->only(['store']);
+    }
+
+    public function index()
+    {
+        $blogs = Blog::with('category')->paginate();
+
+        return new BlogCollection($blogs);
+    }
+
     public function store()
     {
         if(request()->hasFile('cover_image')){

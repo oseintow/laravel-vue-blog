@@ -49,4 +49,5 @@ class CreateBlogTest extends TestCase
         $this->assertDatabaseHas('blogs', ['cover_image_url' => '/images/cover_images/' . $coverImage->hashName()]);
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());
     }
+
 }

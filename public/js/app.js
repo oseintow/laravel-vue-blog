@@ -87569,7 +87569,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.blogs, function(blog) {
+    _vm._l(_vm.blogs.data, function(blog) {
       return _c("div", [_c("div", [_vm._v(_vm._s(blog.title))])])
     }),
     0
@@ -104384,7 +104384,7 @@ var actions = {
   }
 };
 var getters = {
-  getBlogs: function getBlogs(state) {
+  blogs: function blogs(state) {
     return state.blogs;
   }
 };

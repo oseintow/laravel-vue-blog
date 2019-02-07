@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="blog in blogs">
+        <div v-for="blog in blogs.data">
             <div>{{ blog.title }}</div>
         </div>
     </div>

@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="row col-md-12">
+            <search></search>
+        </div>
         <div class="row">
             <div class="col-md-8">
                 <div class="mr-4">

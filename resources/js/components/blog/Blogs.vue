@@ -22,6 +22,10 @@
             this.$store.dispatch('blog/getBlogs').catch(error => {
                 console.error(error)
             })
+
+            this.$eventBus.$on('search', (value) => {
+                console.log(value);
+            })
         }
     }
 </script>

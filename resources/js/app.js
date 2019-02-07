@@ -43,6 +43,7 @@ import eventBus from '@/plugins/event-bus'
 require('promise.prototype.finally').shim()
 import interceptors from '@/helpers/interceptors'
 import Error from '@/components/Error'
+import Search from '@/components/Search'
 
 // and running it somewhere here
 interceptors()
@@ -54,6 +55,7 @@ Vue.use(eventBus)
 
 Vue.component('App', require('./pages/App.vue').default)
 Vue.component('error', Error)
+Vue.component('search', Search)
 
 const app = new Vue({
     el: '#app',

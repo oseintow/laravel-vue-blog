@@ -1,7 +1,6 @@
 <template>
     <div>
-        Hello am in home
-        <div>{{ getBlogs }}</div>
+        <blogs></blogs>
         <router-link to="signin">SignIn</router-link>
         <button @click="showSignUp">Show SignUp</button>
         <button @click="showSignIn">Show SignIn</button>
@@ -9,22 +8,12 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import Blogs from '@/components/blog/Blogs'
 
     export default {
         name: "Home",
-        data() {
-            return {
-                blogs: {}
-            }
-        },
-        computed: {
-            ...mapGetters('blog', ['getBlogs'])
-        },
-        mounted() {
-            this.$store.dispatch('blog/blogs', {name: 'shopify'}).catch(error => {
-                console.error(error)
-            })
+        components: {
+            Blogs
         },
         methods: {
             showSignUp() {

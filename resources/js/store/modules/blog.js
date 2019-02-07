@@ -1,4 +1,4 @@
-import { saveBlog } from '@/api/blog'
+import { saveBlog, getBlogs } from '@/api/blog'
 
 const state = {
     blogs: []
@@ -11,10 +11,6 @@ const mutations = {
 }
 
 const actions = {
-    blogs({commit}, payload){
-        commit('BLOGS', payload);
-    },
-
     saveBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             saveBlog(payload)
@@ -23,6 +19,17 @@ const actions = {
                 })
                 .catch(error => reject(error))
 
+        })
+    },
+
+    getBlogs({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            getBlogs(payload)
+                .then(({data}) => {
+                    commit('BLOGS', data)
+                    resolve(data)
+                })
+                .catch(error => reject(error))
         })
     }
 }

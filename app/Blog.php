@@ -24,6 +24,10 @@ class Blog extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function author() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function setBodyAttribute($value)
     {
         if ($value) {

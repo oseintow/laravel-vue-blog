@@ -16,7 +16,7 @@ class BlogsController extends Controller
 
     public function index()
     {
-        $blogs = Blog::with('category')->paginate();
+        $blogs = Blog::with('category', 'author')->paginate();
 
         return new BlogCollection($blogs);
     }

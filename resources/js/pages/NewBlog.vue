@@ -87,9 +87,6 @@
             }
         },
         mounted() {
-            this.article = document.createElement('article')
-            this.quill = new Quill(this.article, {})
-
             this.$store.dispatch('category/getCategories')
                 .then(({categories}) => {
                     this.categories = categories
@@ -105,10 +102,6 @@
                 }
                 this.body = value.getText()
                 this.blog.body = value.getContents();
-                // this.quill.setContents(value.getContents())
-                // setTimeout(() =>{
-                //     this.$refs.contentContainer.appendChild(this.article)
-                // },0)
             },
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;

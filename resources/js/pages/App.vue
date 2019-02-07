@@ -1,7 +1,7 @@
 <template>
     <div>
         <router-view name="header"></router-view>
-        <div class="container">
+        <div class="container mt-4">
             <router-view></router-view>
         </div>
         <router-view name="footer"></router-view>
@@ -24,5 +24,7 @@
 </script>
 
 <style scoped>
-
+    .mt-4 {
+        margin-top: 50px !important;
+    }
 </style>

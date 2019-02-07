@@ -1,16 +1,20 @@
 <template>
     <div>
         <div v-for="blog in blogs.data">
-            <div>{{ blog.title }}</div>
+            <blog :data="blog"></blog>
         </div>
     </div>
 </template>
 
 <script>
     import { mapGetters } from'vuex'
+    import Blog from '@/components/blog/Blog'
 
     export default {
         name: "Blogs",
+        components: {
+            Blog
+        },
         computed: {
             ...mapGetters('blog', ['blogs'])
         },

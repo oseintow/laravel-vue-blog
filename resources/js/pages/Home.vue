@@ -1,9 +1,20 @@
 <template>
     <div>
-        <blogs></blogs>
-        <router-link to="signin">SignIn</router-link>
-        <button @click="showSignUp">Show SignUp</button>
-        <button @click="showSignIn">Show SignIn</button>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="mr-4">
+                    <blogs></blogs>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <h4>Placeholder for image</h4>
+                </div>
+                <div class="row mt-4">
+                    <h4>Placeholder for Popular on this Blog Site</h4>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

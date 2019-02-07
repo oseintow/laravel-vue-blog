@@ -20,6 +20,12 @@ export default new Router({
                 forVisitors: true
             }
         },
+        { path: '/@:username/:blog', name: 'user-blog',  components: {
+                default: NewBlog,
+            },meta: {
+                forVisitors: true
+            }
+        },
         {
             path: '/auth/:provide/callback',
             component: {

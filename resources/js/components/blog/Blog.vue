@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <div class="col-md-9">
                 <div class="col-md-12">{{blog.category.name.toUpperCase()}}</div>
-                <router-link to="/blog/new" style="color: black">
+                <router-link :to="{name: 'user-blog', params:{ username: blog.author.nickname, blog: blog.slug } }" style="color: black">
                     <div class="col-md-12 mt-1">
                         <h4>{{ blog.title }}</h4>
                     </div>

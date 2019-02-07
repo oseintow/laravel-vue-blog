@@ -88,9 +88,7 @@ class AuthenticateUsingSocialiteTest extends TestCase
         $mockSocialite->shouldReceive('driver->stateless')->andReturn($provider);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function should_return_403_if_something_bad_occurs()
     {
         $this->json('POST', "/auth/foo")

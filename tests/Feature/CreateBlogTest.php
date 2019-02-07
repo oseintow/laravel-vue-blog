@@ -17,8 +17,6 @@ class CreateBlogTest extends TestCase
     /** @test */
     public function unauthernticated_users_can_not_create_blog()
     {
-        $category = create(Category::class);
-
         $response = $this->json('POST', 'v1/blogs', []);
 
         $response->assertStatus(401);
@@ -28,7 +26,6 @@ class CreateBlogTest extends TestCase
     public function authernticated_users_can_create_blog()
     {
         $this->signIn();
-
         $blog = make(Blog::class);
 
         $response = $this->json('POST', 'v1/blogs', $blog->toArray());

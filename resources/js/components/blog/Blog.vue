@@ -17,7 +17,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <img :src="blog.cover_image_url" alt="" class="cover_image_url float-right">
+                <router-link :to="{name: 'user-blog', params:{ username: blog.author.nickname, blog: blog.slug } }" style="color: black">
+                    <img :src="blog.cover_image_url" alt="" class="cover_image_url float-right">
+                </router-link>
             </div>
         </div>
     </div>

@@ -6,7 +6,9 @@ const state = {
 
 const mutations = {
     BLOGS: (state, payload) => {
-        state.blogs = payload
+        // console.log(...payload.data);
+        state.blogs.push(...payload.data)
+        // console.log(state.blogs);
     }
 }
 

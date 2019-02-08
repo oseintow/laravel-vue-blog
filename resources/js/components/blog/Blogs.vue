@@ -15,16 +15,37 @@
         components: {
             Blog
         },
+        data() {
+            return {
+                payload: {
+                    page: 1,
+                    q: '',
+                    per_page: 10
+                },
+            }
+        },
         computed: {
             ...mapGetters('blog', ['blogs'])
         },
+        methods: {
+            getBlogs() {
+                this.$store.dispatch('blog/getBlogs', this.payload)
+                    .catch(error => console.error(error));
+            }
+        },
+        watch: {
+            payload: {
+                handler(value) {
+                    this.getBlogs()
+                },
+                deep: true
+            }
+        },
         mounted() {
-            this.$store.dispatch('blog/getBlogs').catch(error => {
-                console.error(error)
-            })
+            this.getBlogs()
 
             this.$eventBus.$on('search', (value) => {
-                console.log(value);
+                this.payload.q=value
             })
         }
     }

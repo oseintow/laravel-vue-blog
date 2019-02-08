@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'iview/dist/styles/iview.css'
 import VeeValidate from 'vee-validate';
+import VueRx from 'vue-rx'
 
 
 /**
@@ -49,6 +50,7 @@ import Search from '@/components/Search'
 interceptors()
 
 Vue.use(VeeValidate);
+Vue.use(VueRx)
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)

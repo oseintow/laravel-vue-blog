@@ -11,6 +11,11 @@
                         <div class="inner-image-input flex-center mt-3">
                             <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
                         </div>
+                        <!--<div class="custom-file">-->
+                            <!--<input type="file" class="custom-file-input" name="cover_image" v-on:change="onFileChange" id="validatedCustomFile">-->
+                            <!--<label class="custom-file-label" for="validatedCustomFile">{{ image_url || 'Choose file...'}}</label>-->
+                            <!--<div class="invalid-feedback">Example invalid custom file feedback</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 <div class="col-sm-9">

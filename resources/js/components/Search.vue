@@ -7,6 +7,8 @@
 </template>
 
 <script>
+    import {pluck, debounceTime, distinctUntilChanged, map} from 'rxjs/operators'
+
     export default {
         props: {
             placeholder: {
@@ -20,9 +22,20 @@
                 search: ''
             }
         },
-        watch: {
-            search(value) {
-                this.$eventBus.search(value)
+        methods: {
+            emitSearchValue() {
+                this.$eventBus.search(this.search)
+            }
+        },
+        subscriptions() {
+            return {
+                results: this.$watchAsObservable('search')
+                    .pipe(
+                        pluck('newValue'),
+                        debounceTime(500),
+                        distinctUntilChanged(),
+                        map(this.emitSearchValue)
+                    )
             }
         }
     }

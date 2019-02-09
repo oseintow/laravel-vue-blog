@@ -16,7 +16,11 @@ class BlogsController extends Controller
 
     public function index()
     {
-        $blogs = Blog::with('category', 'author')->paginate(5);
+        $blogs = Blog::with('category', 'author')->latest()
+            ->when(request()->has('q'), function($q) {
+                $q->where('title', 'like', '%'. request('q') . '%');
+            })
+            ->paginate(request('per_page'));
 
         return new BlogCollection($blogs);
     }

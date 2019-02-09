@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Blog;
+use App\Filters\BlogFilter;
 use App\Http\Resources\BlogCollection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,12 +15,10 @@ class BlogsController extends Controller
         $this->middleware('auth:api')->only(['store']);
     }
 
-    public function index()
+    public function index(BlogFilter $filter)
     {
         $blogs = Blog::with('category', 'author')->latest()
-            ->when(request()->has('q'), function($q) {
-                $q->where('title', 'like', '%'. request('q') . '%');
-            })
+            ->filter($filter)
             ->paginate(request('per_page'));
 
         return new BlogCollection($blogs);

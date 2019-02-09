@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    use Filter;
+
     protected $guarded = [];
 
     protected $casts = ['body' => 'json'];

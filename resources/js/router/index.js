@@ -27,6 +27,12 @@ export default new Router({
                 forVisitors: true
             }
         },
+        { path: '/@:nickname', name: 'users-blogs',  components: {
+                default: BlogView,
+            },meta: {
+                forVisitors: true
+            }
+        },
         {
             path: '/auth/:provide/callback',
             component: {

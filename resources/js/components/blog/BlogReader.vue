@@ -28,8 +28,6 @@
                 article.getElementsByClassName("ql-editor")[0].className += ' blogContent'
                 this.$refs.blogContent.appendChild(article)
             }, 0)
-        },
-        updated() {
         }
     }
 </script>

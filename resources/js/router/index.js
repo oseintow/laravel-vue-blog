@@ -21,7 +21,7 @@ export default new Router({
                 forVisitors: true
             }
         },
-        { path: '/@:username/:blog', name: 'user-blog',  components: {
+        { path: '/@:nickname/:blog', name: 'user-blog',  components: {
                 default: BlogView,
             },meta: {
                 forVisitors: true

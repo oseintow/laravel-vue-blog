@@ -7,9 +7,9 @@ use App\Blog;
 
 class UsersBlogsController extends Controller
 {
-    public function show($nickname, Blog $blog)
+    public function show()
     {
-        $blog = $blog->userBlog($nickname);
+        $blog = Blog::userBlog(request('nickname'), request('blog'))->first();
 
         return response(compact('blog'));
     }

@@ -3,18 +3,24 @@
         <div>
             <blog-reader :blog="blog" v-if="blog"></blog-reader>
         </div>
+        <div class="row row justify-content-md-center mb-4">
+            <div class="col-md-8">
+                <comments :slug="params.blog" v-if="params.blog"></comments>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     import { mapActions } from 'vuex'
     import BlogReader from '@/components/blog/BlogReader'
-
+    import Comments from '@/components/comment/Comments'
 
     export default {
         name: "BlogView",
         components:{
-            BlogReader
+            BlogReader,
+            Comments
         },
         data() {
             return {
@@ -26,7 +32,9 @@
             }
         },
         methods: {
-            ...mapActions('blog', ['getBlog'])
+            ...mapActions({
+                getBlog: 'blog/getBlog'
+            })
         },
         created() {
             this.getBlog(this.params)

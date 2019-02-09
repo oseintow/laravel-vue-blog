@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home.vue'
 import NewBlog from '../pages/NewBlog'
+import BlogView from '../pages/BlogView'
 import TopicsMenu from '@/components/menu/TopicsMenu'
 
 Vue.use(Router)
@@ -21,7 +22,7 @@ export default new Router({
             }
         },
         { path: '/@:username/:blog', name: 'user-blog',  components: {
-                default: NewBlog,
+                default: BlogView,
             },meta: {
                 forVisitors: true
             }

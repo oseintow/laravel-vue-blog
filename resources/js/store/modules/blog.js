@@ -1,4 +1,4 @@
-import { saveBlog, getBlogs } from '@/api/blog'
+import { saveBlog, getBlogs, getBlog } from '@/api/blog'
 
 const state = {
 }
@@ -21,6 +21,15 @@ const actions = {
     getBlogs({commit}, payload) {
         return new Promise((resolve, reject) => {
             getBlogs(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
+        })
+    },
+    getBlog({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            getBlog(payload)
                 .then(({data}) => {
                     resolve(data)
                 })

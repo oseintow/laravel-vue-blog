@@ -7,3 +7,7 @@ export function saveBlog(payload) {
 export function getBlogs(payload) {
     return axios.get('v1/blogs', { params: payload})
 }
+
+export function getBlog(payload) {
+    return axios.get(`v1/blogs/${payload.username}/${payload.blog}`)
+}

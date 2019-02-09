@@ -22,7 +22,7 @@
         data() {
             return {
                 blogs: [],
-                payload: {
+                query: {
                     page: 1,
                     q: '',
                     per_page: 5
@@ -32,11 +32,11 @@
         },
         methods: {
             getBlogs(state) {
-                this.$store.dispatch('blog/getBlogs', this.payload)
+                this.$store.dispatch('blog/getBlogs', this.query)
                     .then((response) => {
                         this.blogs.push(...response.data)
                         if(response.meta.current_page != response.meta.last_page) {
-                            this.payload.page = response.meta.current_page + 1
+                            this.query.page = response.meta.current_page + 1
                             state.loaded()
                         }else{
                             state.complete()
@@ -46,7 +46,7 @@
                     .catch(error => console.error(error))
             },
             resetPayload(){
-                this.payload = {
+                this.query = {
                     page: 1,
                     q: '',
                     per_page: 5
@@ -58,7 +58,7 @@
         beforeMount() {
             this.$eventBus.$on('search', (value) => {
                 this.resetPayload()
-                this.payload.q=value
+                this.query.q=value
                 this.blogs = []
             })
         }

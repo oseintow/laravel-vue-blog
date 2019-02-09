@@ -8,6 +8,10 @@ export function getBlogs(payload) {
     return axios.get('v1/blogs', { params: payload})
 }
 
+export function getUsersBlogs(payload) {
+    return axios.get(`v1/users/${payload.nickname}/blogs`)
+}
+
 export function getBlog(payload) {
     return axios.get(`v1/users/${payload.nickname}/blogs/${payload.blog}`)
 }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../pages/Home.vue'
 import NewBlog from '../pages/NewBlog'
 import BlogView from '../pages/BlogView'
+import UserBlogsView from '../pages/UserBlogsView'
 import TopicsMenu from '@/components/menu/TopicsMenu'
 
 Vue.use(Router)
@@ -28,7 +29,7 @@ export default new Router({
             }
         },
         { path: '/@:nickname', name: 'users-blogs',  components: {
-                default: BlogView,
+                default: UserBlogsView,
             },meta: {
                 forVisitors: true
             }

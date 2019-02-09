@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Blog;
 use App\Http\Resources\BlogCollection;
 use App\Http\Resources\UserCollection;
-use App\User;
 
 class UsersBlogsController extends Controller
 {

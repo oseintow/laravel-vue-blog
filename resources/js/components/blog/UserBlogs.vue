@@ -1,8 +1,7 @@
 <template>
     <div>
-        Am in user blogs
         <div v-for="userBlog in userBlogs">
-            <!--<blog :data="blog"></blog>-->
+            <user-blog :data="userBlog"></user-blog>
         </div>
         <div style="margin-bottom: 100px">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getUserBlogs" v-if="userBlogs"></infinite-loading>
@@ -12,13 +11,13 @@
 
 <script>
     import InfiniteLoading from 'vue-infinite-loading';
-    import Blog from '@/components/blog/Blog'
+    import UserBlog from '@/components/blog/UserBlog'
 
     export default {
         name: "UserBlogs",
         props: ['nickname'],
         components: {
-            Blog,
+            UserBlog,
             InfiniteLoading
         },
         data() {

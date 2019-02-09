@@ -53,6 +53,6 @@
 
 <style>
     .ql-editor{
-        height: 36vh
+        height: 36vh !important
     }
 </style>

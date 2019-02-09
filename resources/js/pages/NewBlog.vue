@@ -11,11 +11,6 @@
                         <div class="inner-image-input flex-center mt-3">
                             <input type="file" name="cover_image" v-on:change="onFileChange" class="flex-center"/>
                         </div>
-                        <!--<div class="custom-file">-->
-                            <!--<input type="file" class="custom-file-input" name="cover_image" v-on:change="onFileChange" id="validatedCustomFile">-->
-                            <!--<label class="custom-file-label" for="validatedCustomFile">{{ image_url || 'Choose file...'}}</label>-->
-                            <!--<div class="invalid-feedback">Example invalid custom file feedback</div>-->
-                        <!--</div>-->
                     </div>
                 </div>
                 <div class="col-sm-9">
@@ -52,7 +47,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <blog-post-editor @delta="delta" :body="blog.body"></blog-post-editor>
+                <editor @delta="delta" :body="blog.body"></editor>
                 <input type="hidden" name="body" v-model="body" v-validate="'required|min:3'">
                 <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             </div>
@@ -67,13 +62,12 @@
 </template>
 
 <script>
-    import BlogPostEditor from '@/components/blog/BlogPostEditor'
-    import Quill from 'quill'
+    import Editor from '@/components/blog/Editor'
 
     export default {
         name: "NewBlog",
         components: {
-            BlogPostEditor,
+            Editor,
         },
         data() {
             return {
@@ -153,9 +147,6 @@
                 this.$store.dispatch('blog/saveBlog', formData)
                     .then(() =>{
                         this.resetForm();
-                        // setTimeout(() => {
-                        //     this.blog.body = response.blog.body
-                        // }, 5000)
                     })
 
             }

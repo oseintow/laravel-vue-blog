@@ -16,7 +16,7 @@ class GetBlogTest extends TestCase
     public function a_user_can_get_paginated_blog_posts()
     {
         $user = create(User::class);
-        create(Blog::class, ['user_id' => $user->id], 10);
+        create(Blog::class, ['user_id' => $user->id], 1);
 
         $response = $this->getJson('/v1/blogs')->json();
 

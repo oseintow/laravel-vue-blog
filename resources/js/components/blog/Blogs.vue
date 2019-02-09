@@ -4,13 +4,12 @@
             <blog :data="blog"></blog>
         </div>
         <div style="margin-bottom: 100px">
-            <infinite-loading spinner="waveDots" @infinite="getBlogs" v-if="blogs"></infinite-loading>
+            <infinite-loading :identifier="payload.q" spinner="waveDots" @infinite="getBlogs" v-if="blogs"></infinite-loading>
         </div>
     </div>
 </template>
 
 <script>
-    import { mapGetters } from'vuex'
     import InfiniteLoading from 'vue-infinite-loading';
     import Blog from '@/components/blog/Blog'
 
@@ -28,18 +27,19 @@
                     q: '',
                     per_page: 5
                 },
+                scrollState: null
             }
         },
         methods: {
-            getBlogs(state = null) {
+            getBlogs(state) {
                 this.$store.dispatch('blog/getBlogs', this.payload)
                     .then((response) => {
                         this.blogs.push(...response.data)
                         if(response.meta.current_page != response.meta.last_page) {
                             this.payload.page = response.meta.current_page + 1
-                            if(state  != null) state.loaded()
+                            state.loaded()
                         }else{
-                            if(state  != null) state.complete()
+                            state.complete()
                         }
 
                     })
@@ -60,7 +60,6 @@
                 this.resetPayload()
                 this.payload.q=value
                 this.blogs = []
-                this.getBlogs()
             })
         }
     }

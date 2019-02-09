@@ -9,5 +9,5 @@ export function getBlogs(payload) {
 }
 
 export function getBlog(payload) {
-    return axios.get(`v1/blogs/${payload.username}/${payload.blog}`)
+    return axios.get(`v1/users/${payload.username}/blogs/${payload.blog}`)
 }

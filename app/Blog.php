@@ -48,4 +48,11 @@ class Blog extends Model
             $this->attributes['body'] = json_encode(json_decode($value, true));
         }
     }
+
+    public function scopeUserBlog($query, $nickname)
+    {
+        return $query->whereHas('author', function($q) use ($nickname){
+            $q->where('nickname', $nickname);
+        })->first();
+    }
 }

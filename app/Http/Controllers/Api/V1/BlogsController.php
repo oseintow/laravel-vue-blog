@@ -35,15 +35,4 @@ class BlogsController extends Controller
 
         return response(compact('blog'));
     }
-
-    public function getBlog($nickname, Blog $blog)
-    {
-        $blog = $blog->whereHas('author', function($q){
-            $q->where('nickname', request('nickname'));
-        })->first();
-
-        logger("got here");
-
-        return response(compact('blog'));
-    }
 }

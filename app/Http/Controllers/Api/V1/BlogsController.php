@@ -17,9 +17,7 @@ class BlogsController extends Controller
 
     public function index(BlogFilter $filter)
     {
-        $blogs = Blog::with('category', 'author')->latest()
-            ->filter($filter)
-            ->paginate(request('per_page'));
+        $blogs = Blog::filter($filter)->paginate(request('per_page'));
 
         return new BlogCollection($blogs);
     }

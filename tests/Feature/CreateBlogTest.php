@@ -30,8 +30,8 @@ class CreateBlogTest extends TestCase
 
         $response = $this->json('POST', 'v1/blogs', $blog->toArray());
 
-        $response->assertStatus(200);
         $this->assertDatabaseHas('blogs', ['title' => $blog->toArray()['title']]);
+        $response->assertStatus(200);
     }
 
     /** @test */

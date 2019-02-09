@@ -12,9 +12,15 @@ class Blog extends Model
 
     protected $casts = ['body' => 'json'];
 
+    protected $with = ['author', 'category'];
+
     protected static function boot()
     {
         parent::boot();
+
+        static::addGlobalScope('latestBlogs', function($builder){
+            $builder->orderBy('id', 'desc');
+        });
 
         static::saving(function ($model) {
             $model->slug = str_slug($model->title);
@@ -26,7 +32,8 @@ class Blog extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function author() {
+    public function author()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 

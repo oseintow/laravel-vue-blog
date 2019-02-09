@@ -4,7 +4,7 @@
             <blog :data="blog"></blog>
         </div>
         <div style="margin-bottom: 100px">
-            <infinite-loading spinner="waveDots" @infinite="inf" v-if="blogs"></infinite-loading>
+            <infinite-loading spinner="waveDots" @infinite="getBlogs" v-if="blogs"></infinite-loading>
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@
                 payload: {
                     page: 1,
                     q: '',
-                    per_page: 2
+                    per_page: 5
                 },
             }
         },
@@ -45,15 +45,21 @@
                     })
                     .catch(error => console.error(error))
             },
-            inf($state){
-                this.getBlogs($state)
+            resetPayload(){
+                this.payload = {
+                    page: 1,
+                    q: '',
+                    per_page: 5
+                }
             }
 
         },
 
         beforeMount() {
             this.$eventBus.$on('search', (value) => {
+                this.resetPayload()
                 this.payload.q=value
+                this.blogs = []
                 this.getBlogs()
             })
         }

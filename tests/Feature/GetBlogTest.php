@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class GetBlogTest extends TestCase
 {
-//    use RefreshDatabase;
+    use RefreshDatabase;
 
     /** @test */
     public function a_user_can_get_paginated_blog_posts()

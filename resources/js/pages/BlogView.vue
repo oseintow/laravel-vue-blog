@@ -5,10 +5,7 @@
         </div>
         <div class="row justify-content-md-center comment-editor">
             <div class="col-md-8">
-                <comment-editor @content="content"></comment-editor>
-                <div class="row justify-content-md-end mr-0 mt-2">
-                    <button class="btn btn-primary" @click="saveComment">submit</button>
-                </div>
+                <comment-editor :newComment="content" :slug="params.slug" v-if="params.slug"></comment-editor>
             </div>
         </div>
         <div class="row row justify-content-md-center comments">
@@ -45,13 +42,9 @@
         methods: {
             ...mapActions({
                 getBlog: 'blog/getBlog',
-                saveComment: 'comment/saveComment'
             }),
             content(value){
-                this.body = value.getContents()
-            },
-            saveComment(){
-                this.saveComment({ slug: this.slug, body: this.body })
+                // this.body = value.getContents()
             }
         },
         created() {

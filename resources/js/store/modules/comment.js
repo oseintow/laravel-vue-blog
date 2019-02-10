@@ -1,4 +1,4 @@
-import { getComments } from '@/api/comment'
+import { getComments, saveComment } from '@/api/comment'
 
 const state = {
 }

@@ -3,6 +3,14 @@
         <div>
             <blog-reader :blog="blog" v-if="blog"></blog-reader>
         </div>
+        <div class="row justify-content-md-center comment-editor">
+            <div class="col-md-8">
+                <comment-editor @content="content"></comment-editor>
+                <div class="row justify-content-md-end mr-0 mt-2">
+                    <button class="btn btn-primary">submit</button>
+                </div>
+            </div>
+        </div>
         <div class="row row justify-content-md-center comments">
             <div class="col-md-8">
                 <comments :slug="params.blog" v-if="params.blog"></comments>
@@ -14,13 +22,15 @@
 <script>
     import { mapActions } from 'vuex'
     import BlogReader from '@/components/blog/BlogReader'
+    import CommentEditor from '@/components/comment/CommentEditor'
     import Comments from '@/components/comment/Comments'
 
     export default {
         name: "BlogView",
         components:{
             BlogReader,
-            Comments
+            Comments,
+            CommentEditor
         },
         data() {
             return {
@@ -33,8 +43,15 @@
         },
         methods: {
             ...mapActions({
-                getBlog: 'blog/getBlog'
-            })
+                getBlog: 'blog/getBlog',
+                saveComments: 'comment/saveComment'
+            }),
+            content(value){
+                console.log(value.getContents())
+            },
+            saveComments(){
+
+            }
         },
         created() {
             this.getBlog(this.params)
@@ -46,7 +63,10 @@
 </script>
 
 <style>
-.comments {
-    margin-bottom: 100px;
-}
+    .comments {
+        margin-bottom: 100px;
+    }
+    .comment-editor {
+        margin-bottom: 50px;
+    }
 </style>

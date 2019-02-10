@@ -1,19 +1,15 @@
 <template>
     <div>
-        <editor @delta="delta"></editor>
+        adfkaslfjsakj
     </div>
 </template>
 
 <script>
     import { mapActions } from 'vuex'
-    import Editor from '@/components/blog/Editor'
 
     export default {
         name: "comments",
         props: ['slug'],
-        components: {
-            Editor
-        },
         data() {
             return {
                 comments: ''
@@ -23,9 +19,6 @@
             ...mapActions({
                 getComments: 'comment/getComments'
             }),
-            delta() {
-
-            }
         },
         created() {
             this.getComments({slug: this.slug})

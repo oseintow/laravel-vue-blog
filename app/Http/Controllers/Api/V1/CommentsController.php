@@ -21,7 +21,7 @@ class CommentsController extends Controller
 
     public function store($slug)
     {
-        $blog = Blog::where('slug', $slug)->first();
+        $blog = Blog::where('slug', $slug)->firstOrFail();
 
         $comment = $blog->saveComment([
             'user_id' => auth()->user()->id,

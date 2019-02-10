@@ -18,7 +18,7 @@ const actions = {
     },
     saveComment({commit}, payload) {
         return new Promise((resolve, reject) => {
-            getComments(payload)
+            saveComment(payload)
                 .then(({data}) => {
                     resolve(data)
                 })

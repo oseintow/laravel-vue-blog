@@ -7,13 +7,13 @@
             <div class="col-md-8">
                 <comment-editor @content="content"></comment-editor>
                 <div class="row justify-content-md-end mr-0 mt-2">
-                    <button class="btn btn-primary">submit</button>
+                    <button class="btn btn-primary" @click="saveComment">submit</button>
                 </div>
             </div>
         </div>
         <div class="row row justify-content-md-center comments">
             <div class="col-md-8">
-                <comments :slug="params.blog" v-if="params.blog"></comments>
+                <comments :slug="params.slug" v-if="params.slug"></comments>
             </div>
         </div>
     </div>
@@ -35,22 +35,23 @@
         data() {
             return {
                 blog: '',
+                body: '',
                 params: {
                     nickname: this.$route.params.nickname,
-                    blog: this.$route.params.blog
+                    slug: this.$route.params.slug
                 }
             }
         },
         methods: {
             ...mapActions({
                 getBlog: 'blog/getBlog',
-                saveComments: 'comment/saveComment'
+                saveComment: 'comment/saveComment'
             }),
             content(value){
-                console.log(value.getContents())
+                this.body = value.getContents()
             },
-            saveComments(){
-
+            saveComment(){
+                this.saveComment({ slug: this.slug, body: this.body })
             }
         },
         created() {

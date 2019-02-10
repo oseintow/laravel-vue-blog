@@ -12,6 +12,6 @@ export function getUserBlogs(payload) {
     return axios.get(`v1/users/${payload.params.nickname}/blogs`, {params: payload.query})
 }
 
-export function getBlog(payload) {
-    return axios.get(`v1/users/${payload.nickname}/blogs/${payload.blog}`)
+export function getBlog({nickname, slug}) {
+    return axios.get(`v1/users/${nickname}/blogs/${slug}`)
 }

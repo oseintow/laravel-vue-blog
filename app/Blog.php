@@ -62,10 +62,15 @@ class Blog extends Model
         ->where('slug', $slug);
     }
 
-    public function scopeAuthor($query, $nickname)
+    public function scopeAuthor($query, string $nickname)
     {
         return $query->whereHas('author', function($q) use ($nickname){
             $q->where('nickname', $nickname);
         });
+    }
+
+    public function scopeSaveComment($query, array $data)
+    {
+        return $this->comments()->create($data);
     }
 }

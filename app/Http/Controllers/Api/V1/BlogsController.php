@@ -10,11 +10,18 @@ use App\Http\Controllers\Controller;
 
 class BlogsController extends Controller
 {
+    /**
+     * BlogsController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth:api')->only(['store']);
     }
 
+    /**
+     * @param BlogFilter $filter
+     * @return BlogCollection
+     */
     public function index(BlogFilter $filter)
     {
         $blogs = Blog::filter($filter)->paginate(request('per_page'));
@@ -22,6 +29,9 @@ class BlogsController extends Controller
         return new BlogCollection($blogs);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function store()
     {
         if(request()->hasFile('cover_image')){

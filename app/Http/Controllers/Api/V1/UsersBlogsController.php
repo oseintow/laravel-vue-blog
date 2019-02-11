@@ -10,18 +10,25 @@ use App\Http\Resources\UserCollection;
 
 class UsersBlogsController extends Controller
 {
+    /**
+     * @param BlogFilter $filter
+     * @return BlogCollection
+     */
     public function index(BlogFilter $filter)
     {
-        $blogs = Blog::filter($filter)
-            ->author(request('nickname'))
+        $blogs = Blog::forAuthor(request('nickname'))
+            ->filter($filter)
             ->paginate(request('per_page'));
 
         return new BlogCollection($blogs);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function show()
     {
-        $blog = Blog::userBlog(request('nickname'), request('blog'))->first();
+        $blog = Blog::forAuthor(request('nickname'), request('blog'))->first();
 
         return response(compact('blog'));
     }

@@ -10,20 +10,28 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
+    /**
+     * CommentsController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth:api')->only(['store']);
     }
 
+    /**
+     * @return CommentCollection
+     */
     public function index()
     {
-        $comments = Comment::whereHas('blog', function($q){
-            $q->where('slug', request('slug'));
-        })->paginate(request('per_page'));
+        $comments = Comment::onBlog(request('slug'))->paginate(request('per_page'));
 
         return new CommentCollection($comments);
     }
 
+    /**
+     * @param $slug
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function store($slug)
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();

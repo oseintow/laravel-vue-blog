@@ -21,4 +21,11 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function scopeOnBlog($query, string $slug)
+    {
+        return $query->whereHas('blog', function($q) use($slug) {
+            $q->where('slug', $slug);
+        });
+    }
 }

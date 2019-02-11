@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="comment in comments">
-            <comment :data="comment"></comment>
+            <comment :data="comment" class="mb-3"></comment>
         </div>
         <div style="margin-bottom: 100px">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getComments" v-if="comments"></infinite-loading>
@@ -33,7 +33,7 @@
         },
         methods: {
             getComments(state) {
-                this.$store.dispatch('comment/getComments', {slug: this.slug})
+                this.$store.dispatch('comment/getComments', {slug: this.slug, query: this.query})
                     .then((response) => {
                         this.comments.push(...response.data)
                         if(response.meta.current_page != response.meta.last_page) {

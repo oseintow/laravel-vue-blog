@@ -54,12 +54,9 @@ class Blog extends Model
         }
     }
 
-    public function scopeUserBlog($query, $nickname, $slug)
+    public function scopeHasBlog($query, $slug)
     {
-        return $query->whereHas('author', function($q) use ($nickname){
-            $q->where('nickname', $nickname);
-        })
-        ->where('slug', $slug);
+        return $query->where('slug', $slug);
     }
 
     public function scopeForAuthor($query, string $nickname)

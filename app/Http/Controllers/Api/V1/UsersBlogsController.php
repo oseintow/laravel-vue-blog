@@ -28,7 +28,9 @@ class UsersBlogsController extends Controller
      */
     public function show()
     {
-        $blog = Blog::forAuthor(request('nickname'), request('blog'))->first();
+        $blog = Blog::forAuthor(request('nickname'))
+            ->hasBlog(request('blog'))
+            ->first();
 
         return response(compact('blog'));
     }

@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->only(['store']);
+    }
+
     public function index()
     {
         $comments = Comment::whereHas('blog', function($q){

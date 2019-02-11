@@ -26,8 +26,7 @@
                     page: 1,
                     q: '',
                     per_page: 5
-                },
-                scrollState: null
+                }
             }
         },
         methods: {

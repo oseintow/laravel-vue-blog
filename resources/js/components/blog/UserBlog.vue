@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <div class="col-md-9">
                 <div class="col-md-12">{{blog.category.name.toUpperCase()}}</div>
-                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, blog: blog.slug } }" style="color: black">
+                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, slug: blog.slug } }" style="color: black">
                     <div class="col-md-12 mt-1">
                         <h4>{{ blog.title }}</h4>
                     </div>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, blog: blog.slug } }" style="color: black">
+                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, slug: blog.slug } }" style="color: black">
                     <img :src="blog.cover_image_url" alt="" class="cover_image_url float-right">
                 </router-link>
             </div>

@@ -14,6 +14,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'iview/dist/styles/iview.css'
 import VeeValidate from 'vee-validate';
 import VueRx from 'vue-rx'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
+import { faCoffee, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 
 
 /**
@@ -54,6 +57,11 @@ Vue.use(VueRx)
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)
+library.add(faCoffee, faThumbsUp)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-layers', FontAwesomeLayers)
+Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 
 Vue.component('App', require('./pages/App.vue').default)
 Vue.component('error', Error)

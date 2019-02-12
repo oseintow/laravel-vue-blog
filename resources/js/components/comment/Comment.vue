@@ -14,6 +14,9 @@
                 <div class="row mt-4 ml-2">
                     {{comment.body}}
                 </div>
+                <div class="row mt-4 ml-2">
+                    <favourite @favourited="favourited"></favourite>
+                </div>
             </div>
         </div>
     </div>
@@ -21,10 +24,14 @@
 
 <script>
     import moment from 'moment'
+    import Favourite from '@/components/Favourite'
 
     export default {
         name: "Comment",
         props: ['data'],
+        components: {
+            Favourite
+        },
         data() {
           return {
               comment: this.data,
@@ -43,6 +50,10 @@
                 const body = quill.getText()
 
                 return body.length > 200 ? body.substring(0,200) + '...' : body
+            }
+        },
+        methods: {
+            favourited(value) {
             }
         }
     }

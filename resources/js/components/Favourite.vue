@@ -2,7 +2,7 @@
     <div>
         <div @click="toggle" class="toggle">
             <font-awesome-icon icon="thumbs-up" size="2x"/>
-            <span v-text="favouritesCount"></span>
+            <span v-text="favouritesCount" class="ml-2"></span>
         </div>
     </div>
 </template>
@@ -11,21 +11,22 @@
     export default {
         name: "Favourite",
         props: {
-            isFavourited: Boolean,
-            favouritesCount: {
-                type: Number,
-                default: 0
-            }
+            favourite: Object
         },
         data() {
             return {
-                favourited: this.isFavourited
+                isFavourited: this.favourite.isFavourited,
+                favouritesCount: this.favourite.favouritesCount
             }
         },
         methods: {
             toggle() {
-                this.favourited = !this.favourited
-                this.$emit('favourited', this.favourited)
+                this.isFavourited = !this.isFavourited
+
+                this.$emit('favourited', {
+                    id: this.favourite.id,
+                    isFavourited: this.isFavourited
+                })
             }
         }
     }

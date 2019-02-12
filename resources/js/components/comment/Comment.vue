@@ -54,6 +54,7 @@
         },
         methods: {
             favourited(value) {
+                this.$store.dispatch('comment/saveFavourite', )
             }
         }
     }

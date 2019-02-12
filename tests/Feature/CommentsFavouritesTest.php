@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Comment;
 use Tests\TestCase;
 
 class CommentsFavouritesTest extends TestCase

@@ -1,5 +1,6 @@
 <?php
 
+use App\Blog;
 use Faker\Generator as Faker;
 
 $factory->define(App\Comment::class, function (Faker $faker) {

@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    use Filter;
+    use Favouritable, Filter;
 
-    protected $guarded = [];
+    protected $fillable = [ 'user_id', 'category_id', 'title', 'slug', 'body', 'cover_image_url'];
 
     protected $casts = ['body' => 'json'];
 
     protected $with = ['author', 'category'];
+
+    protected $appends = ['favourite_url', 'is_favourited', 'favourites_count'];
 
     protected static function boot()
     {
@@ -69,5 +71,10 @@ class Blog extends Model
     public function scopeSaveComment($query, array $data)
     {
         return $this->comments()->create($data);
+    }
+
+    public function getFavouriteUrlAttribute()
+    {
+        return "v1/blogs/{$this->slug}/favourites";
     }
 }

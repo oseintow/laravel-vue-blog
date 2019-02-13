@@ -14,7 +14,6 @@ class Comment extends Model
 
     protected $with = ['owner'];
 
-
     protected $appends = ['favourite_url', 'is_favourited', 'favourites_count'];
 
     public function blog()

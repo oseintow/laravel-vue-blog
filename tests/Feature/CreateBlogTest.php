@@ -26,7 +26,7 @@ class CreateBlogTest extends TestCase
     public function authernticated_users_can_create_blog()
     {
         $this->signIn();
-        $blog = make(Blog::class);
+        $blog = make(Blog::class)->makeHidden('user_id');
 
         $response = $this->json('POST', 'v1/blogs', $blog->toArray());
 
@@ -42,7 +42,7 @@ class CreateBlogTest extends TestCase
 
         $blog = make(Blog::class, [
             'cover_image' => $coverImage = UploadedFile::fake()->image('random.jpg')
-        ]);
+        ])->makeHidden('user_id');
 
         $this->json('POST', 'v1/blogs', $blog->toArray());
 

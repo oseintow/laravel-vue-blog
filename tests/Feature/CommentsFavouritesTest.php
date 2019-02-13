@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Blog;
 use App\Comment;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;

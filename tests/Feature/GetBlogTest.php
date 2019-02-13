@@ -16,7 +16,7 @@ class GetBlogTest extends TestCase
     public function a_user_can_get_paginated_blog_posts()
     {
         $user = create(User::class);
-        create(Blog::class, ['user_id' => $user->id], 1);
+        create(Blog::class);
 
         $response = $this->getJson('/v1/blogs')->json();
 
@@ -28,9 +28,8 @@ class GetBlogTest extends TestCase
     /** @test */
     public function a_user_can_search_for_blogs()
     {
-        $user = create(User::class);
-        create(Blog::class, ['user_id' => $user->id, 'title' => 'foo'], 10);
-        create(Blog::class, ['user_id' => $user->id, 'title' => 'bar'], 2);
+        create(Blog::class, ['title' => 'foo'], 10);
+        create(Blog::class, ['title' => 'bar'], 2);
 
         $this->json('GET', '/v1/blogs', ['q' => 'bar', 'per_page' => 5])
             ->assertJsonCount(2, 'data');

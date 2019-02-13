@@ -15,7 +15,7 @@
                     {{comment.body}}
                 </div>
                 <div class="row mt-4 ml-2">
-                    <favourite @favourited="favourited"></favourite>
+                    <favourite :favourite="comment" v-if="comment"></favourite>
                 </div>
             </div>
         </div>
@@ -53,9 +53,6 @@
             }
         },
         methods: {
-            favourited(value) {
-                this.$store.dispatch('comment/saveFavourite', )
-            }
         }
     }
 </script>

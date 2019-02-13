@@ -14,6 +14,9 @@ class Comment extends Model
 
     protected $with = ['owner'];
 
+
+    protected $appends = ['favourite_url', 'is_favourited', 'favourites_count'];
+
     public function blog()
     {
         return $this->belongsTo(Blog::class);
@@ -29,5 +32,10 @@ class Comment extends Model
         return $query->whereHas('blog', function($q) use($slug) {
             $q->where('slug', $slug);
         });
+    }
+
+    public function getFavouriteUrlAttribute()
+    {
+        return "comments/{$this->id}/favourites";
     }
 }

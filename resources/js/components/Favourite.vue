@@ -15,18 +15,32 @@
         },
         data() {
             return {
-                isFavourited: this.favourite.isFavourited,
-                favouritesCount: this.favourite.favouritesCount
+                isFavourited: this.favourite.is_favourited,
+                favouritesCount: this.favourite.favourites_count
             }
         },
         methods: {
             toggle() {
                 this.isFavourited = !this.isFavourited
 
-                this.$emit('favourited', {
-                    id: this.favourite.id,
-                    isFavourited: this.isFavourited
-                })
+                // this.$emit('favourited', {
+                //     id: this.favourite.id,
+                //     isFavourited: this.isFavourited
+                // })
+
+                if(this.isFavourited) {
+                    this.saveFavourite()
+                }else{
+                    this.deleteFavourite()
+                }
+            },
+            saveFavourite()
+            {
+
+            },
+            deleteFavourite()
+            {
+
             }
         }
     }

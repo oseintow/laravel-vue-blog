@@ -15,7 +15,6 @@ class GetBlogTest extends TestCase
     /** @test */
     public function a_user_can_get_paginated_blog_posts()
     {
-        $user = create(User::class);
         create(Blog::class);
 
         $response = $this->getJson('/v1/blogs')->json();
@@ -38,8 +37,7 @@ class GetBlogTest extends TestCase
     /** @test */
     public function blog_should_display_latest_blogs()
     {
-        $user = create(User::class);
-        create(Blog::class, ['user_id' => $user->id], 10);
+        create(Blog::class, [], 10);
 
         $response = $this->call('GET','/v1/blogs', ['per_page' => 5])->json();
 

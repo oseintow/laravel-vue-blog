@@ -20,7 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::resource('categories', 'CategoriesController');
     Route::resource('blogs', 'BlogsController');
-//    Route::resource('users.blogs', 'UsersBlogsController');
 
     Route::get('users/{nickname}/blogs', 'UsersBlogsController@index');
     Route::get('users/{nickname}/blogs/{blog}', 'UsersBlogsController@show');
@@ -29,4 +28,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::post('blogs/{slug}/comments', 'CommentsController@store');
 
     Route::post('comments/{comment}/favourites', 'CommentFavouritesController@store');
+    Route::delete('comments/{comment}/favourites', 'CommentFavouritesController@destroy');
 });

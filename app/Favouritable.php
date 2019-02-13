@@ -17,4 +17,11 @@ trait Favouritable
             return $this->favourites()->create($favourited);
         }
     }
+
+    public function unFavourite()
+    {
+        $favourited = ['user_id' => auth()->id()];
+
+        $this->favourites()->where($favourited)->first()->delete();
+    }
 }

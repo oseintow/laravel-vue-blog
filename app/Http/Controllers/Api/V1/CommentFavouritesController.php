@@ -20,8 +20,8 @@ class CommentFavouritesController extends Controller
         return response([], 200);
     }
 
-    public function destroy()
+    public function destroy(Comment $comment)
     {
-
+        $comment->unFavourite();
     }
 }

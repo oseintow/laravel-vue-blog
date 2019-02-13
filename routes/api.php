@@ -27,6 +27,9 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::get('blogs/{slug}/comments', 'CommentsController@index');
     Route::post('blogs/{slug}/comments', 'CommentsController@store');
 
+    Route::post('blogs/{blog}/favourites', 'BlogFavouritesController@store');
+    Route::delete('blogs/{blog}/favourites', 'BlogFavouritesController@destroy');
+
     Route::post('comments/{comment}/favourites', 'CommentFavouritesController@store');
     Route::delete('comments/{comment}/favourites', 'CommentFavouritesController@destroy');
 });

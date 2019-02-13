@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Blog;
 use App\Http\Controllers\Controller;
 
 class BlogFavouritesController extends Controller
@@ -19,8 +20,8 @@ class BlogFavouritesController extends Controller
         return response([], 200);
     }
 
-    public function destroy()
+    public function destroy(Blog $blog)
     {
-
+        $blog->unFavourite();
     }
 }

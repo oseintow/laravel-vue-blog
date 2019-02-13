@@ -3,12 +3,17 @@
         <div>
             <blog-reader :blog="blog" v-if="blog"></blog-reader>
         </div>
+        <div class="row justify-content-md-center favourite ml-1">
+            <div class="col-md-8">
+                <favourite :favourite="blog" v-if="blog"></favourite>
+            </div>
+        </div>
         <div class="row justify-content-md-center comment-editor">
             <div class="col-md-8">
                 <comment-editor :newComment="content" :slug="params.slug" v-if="params.slug"></comment-editor>
             </div>
         </div>
-        <div class="row row justify-content-md-center comments">
+        <div class="row justify-content-md-center comments">
             <div class="col-md-8">
                 <comments :slug="params.slug" v-if="params.slug"></comments>
             </div>
@@ -21,13 +26,15 @@
     import BlogReader from '@/components/blog/BlogReader'
     import CommentEditor from '@/components/comment/CommentEditor'
     import Comments from '@/components/comment/Comments'
+    import Favourite from '@/components/Favourite'
 
     export default {
         name: "BlogView",
         components:{
             BlogReader,
             Comments,
-            CommentEditor
+            CommentEditor,
+            Favourite
         },
         data() {
             return {
@@ -57,6 +64,10 @@
 </script>
 
 <style>
+    .favourite {
+        margin-bottom: 30px;
+        margin-top: -60px;
+    }
     .comments {
         margin-bottom: 100px;
     }

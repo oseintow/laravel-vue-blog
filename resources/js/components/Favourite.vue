@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div @click="toggle" class="toggle">
-            <font-awesome-icon icon="thumbs-up" size="2x"/>
+        <div >
+            <font-awesome-icon icon="thumbs-up" size="2x" @click="toggle" class="toggle"/>
             <span v-text="favouritesCount" class="ml-2"></span>
         </div>
     </div>
@@ -16,31 +16,35 @@
         data() {
             return {
                 isFavourited: this.favourite.is_favourited,
-                favouritesCount: this.favourite.favourites_count
+                favouritesCount: this.favourite.favourites_count,
+                requestSent: false
             }
         },
         methods: {
             toggle() {
-                this.isFavourited = !this.isFavourited
+                if(this.requestSent) return;
 
-                // this.$emit('favourited', {
-                //     id: this.favourite.id,
-                //     isFavourited: this.isFavourited
-                // })
-
-                if(this.isFavourited) {
-                    this.saveFavourite()
-                }else{
-                    this.deleteFavourite()
-                }
+                this.isFavourited
+                    ? this.deleteFavourite()
+                    : this.saveFavourite()
             },
             saveFavourite()
             {
-
+                this.requestSent = true
+                this.$store.dispatch('favourite/saveFavourite', { endpoint: this.favourite.favourite_url })
+                    .then(() => {
+                        this.isFavourited = true
+                        this.favouritesCount++
+                    }).finally(() => this.requestSent = false)
             },
             deleteFavourite()
             {
-
+                this.requestSent = true
+                this.$store.dispatch('favourite/deleteFavourite', { endpoint: this.favourite.favourite_url })
+                    .then(() => {
+                        this.isFavourited = false
+                        this.favouritesCount--
+                    }).finally(() => this.requestSent = false)
             }
         }
     }

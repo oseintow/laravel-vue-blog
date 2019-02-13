@@ -6,6 +6,7 @@ import blog from './modules/blog'
 import auth from './modules/auth'
 import category from './modules/category'
 import comment from './modules/comment'
+import favourite from './modules/favourite'
 
 Vue.use(Vuex);
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
         blog,
         auth,
         category,
-        comment
+        comment,
+        favourite
     },
     plugins: [createPersistedState()]
 })

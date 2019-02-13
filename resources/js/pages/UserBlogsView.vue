@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <user-blogs :nickname="params.nickname" v-if="params.nickname"></user-blogs>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <user-blogs :nickname="params.nickname" v-if="params.nickname"></user-blogs>
+        </div>
     </div>
 </template>
 

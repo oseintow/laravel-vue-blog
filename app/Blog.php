@@ -24,6 +24,10 @@ class Blog extends Model
             $builder->orderBy('id', 'desc');
         });
 
+        static::addGlobalScope('commentsCount', function($builder){
+            $builder->withCount('comments');
+        });
+
         static::saving(function ($model) {
             $model->slug = str_slug($model->title);
         });

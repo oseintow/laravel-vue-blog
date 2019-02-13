@@ -15,12 +15,22 @@ class CommentsFavouritesTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_favourite_a_comment()
     {
-        $this->signIn();
+        $user = create(User::class);
+        $this->signIn($user);
 
         $comment = create(Comment::class);
 
-        $response = $this->post("comments/{$comment->id}/favourites");
+        $response = $this->json('POST', "v1/comments/{$comment->id}/favourites");
+
+        $this->assertDatabaseHas('favourites', ['user_id' => $user->id, 'favourited_type' => 'App\Comment']);
 
         $response->status(200);
+    }
+
+    /** @test */
+    public function unauthenticated_users_can_not_favourite_a_commet()
+    {
+        $this->json('POST', "v1/comments/1/favourites")
+            ->assertStatus(401);
     }
 }

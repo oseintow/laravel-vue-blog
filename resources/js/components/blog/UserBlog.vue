@@ -31,6 +31,15 @@
                         <p>{{ body }}</p>
                     </div>
                 </router-link>
+
+                <div class="d-flex flex-row mt-3">
+                    <div class="mr-auto">
+                        <favourite :favourite="blog" v-if="blog"></favourite>
+                    </div>
+                    <div class="mt-2" style="font-weight: bold">
+                        {{ blog.comments_count }} comments
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -39,10 +48,14 @@
 <script>
     import Quill from 'quill'
     import moment from 'moment';
+    import Favourite from '@/components/Favourite'
 
     export default {
         name: "Blog",
         props: ['data'],
+        components: {
+            Favourite
+        },
         data() {
             return {
                 blog: this.data,

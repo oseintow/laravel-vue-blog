@@ -31,7 +31,7 @@ class CommentsFavouritesTest extends TestCase
 
         $this->assertDatabaseHas('favourites', ['user_id' => $user->id, 'favourited_type' => 'App\Comment']);
 
-        $response->status(200);
+        $response->assertStatus(200);
     }
 
     /** @test */
@@ -55,7 +55,6 @@ class CommentsFavouritesTest extends TestCase
 
         $this->assertDatabaseMissing('favourites', ['user_id' => $user->id, 'favourited_type' => 'App\Comment']);
 
-
-        $response->status(200);
+        $response->assertStatus(200);
     }
 }

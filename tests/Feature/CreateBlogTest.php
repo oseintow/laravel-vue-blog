@@ -17,7 +17,8 @@ class CreateBlogTest extends TestCase
     /** @test */
     public function unauthernticated_users_can_not_create_blog()
     {
-        $response = $this->json('POST', 'v1/blogs', []);
+        $response = $this->withExceptionHandling()
+            ->json('POST', 'v1/blogs', []);
 
         $response->assertStatus(401);
     }

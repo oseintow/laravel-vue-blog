@@ -17,7 +17,8 @@ class CommentsOnBlogTest extends TestCase
     {
         $blog = create(Blog::class);
 
-       $this->json('POST', "/v1/blogs/{$blog->slug}/comments", [])
+       $this->withExceptionHandling()
+           ->json('POST', "/v1/blogs/{$blog->slug}/comments", [])
            ->assertStatus(401);
     }
 

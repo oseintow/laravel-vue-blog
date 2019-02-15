@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CreateBlogTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateBlogTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,26 +28,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommentsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentsController.php">
+      <file leaf-file-name="CommentsOnBlogTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+            <state relative-caret-position="-556">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding>
-                <element signature="e#47#60#0#PHP" expanded="true" />
+                <element signature="e#33#46#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommentsOnBlogTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php">
+      <file leaf-file-name="CreateBlogTest.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/CreateBlogTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="781">
-              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-              <folding>
-                <element signature="e#33#46#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="262">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -58,6 +56,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CommentsFavouritesTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-194">
+              <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+              <folding>
+                <element signature="e#33#46#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ExampleTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/ExampleTest.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlogsFavouritesTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlogsFavouritesTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/BlogsFavouritesTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
@@ -77,23 +87,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AuthenticateUsingSocialiteTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/AuthenticateUsingSocialiteTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1468">
+              <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TestCase.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
               <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/CommentFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#7#20#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -185,7 +192,6 @@
         <option value="$PROJECT_DIR$/resources/js/api/favourite.js" />
         <option value="$PROJECT_DIR$/resources/js/components/Favourite.vue" />
         <option value="$PROJECT_DIR$/resources/js/store/modules/favourite.js" />
-        <option value="$PROJECT_DIR$/tests/Feature/CreateBlogTest.php" />
         <option value="$PROJECT_DIR$/app/Comment.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BlogFavouritesController.php" />
@@ -194,11 +200,12 @@
         <option value="$PROJECT_DIR$/resources/js/pages/BlogView.vue" />
         <option value="$PROJECT_DIR$/resources/js/pages/UserBlogsView.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/UserBlog.vue" />
-        <option value="$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php" />
         <option value="$PROJECT_DIR$/tests/Feature/BlogsFavouriteTest.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php" />
         <option value="$PROJECT_DIR$/tests/TestCase.php" />
         <option value="$PROJECT_DIR$/tests/Feature/BlogsFavouritesTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/CreateBlogTest.php" />
       </list>
     </option>
   </component>
@@ -426,12 +433,12 @@
       <workItem from="1549876745289" duration="896000" />
       <workItem from="1549966604406" duration="12653000" />
       <workItem from="1550061214279" duration="14470000" />
-      <workItem from="1550101813875" duration="4293000" />
+      <workItem from="1550101813875" duration="4400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238907000" />
+    <option name="totallyTimeSpent" value="239014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="985" extended-state="6" />
@@ -444,8 +451,8 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.3727064" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.3727064" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -578,13 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/AuthenticateUsingSocialiteTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -803,16 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#33#46#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/GetBlogTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -832,28 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CreateBlogTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CategoriesTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="781">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="e#33#46#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -864,6 +832,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/AuthenticateUsingSocialiteTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1468">
+          <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/BlogsFavouritesTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -871,6 +846,38 @@
           <folding>
             <element signature="e#33#46#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/CategoriesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-194" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsFavouritesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-194">
+          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          <folding>
+            <element signature="e#33#46#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-556">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#33#46#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/CreateBlogTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

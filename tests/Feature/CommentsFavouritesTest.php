@@ -15,7 +15,8 @@ class CommentsFavouritesTest extends TestCase
     /** @test */
     public function unauthenticated_users_can_not_favourite_a_commet()
     {
-        $this->json('POST', "v1/comments/1/favourites")
+        $this->withExceptionHandling()
+            ->json('POST', "v1/comments/1/favourites")
             ->assertStatus(401);
     }
 
@@ -37,7 +38,8 @@ class CommentsFavouritesTest extends TestCase
     /** @test */
     public function unauthenticated_users_can_not_unfavourite_a_commet()
     {
-        $this->json('DELETE', "v1/comments/1/favourites")
+        $this->withExceptionHandling()
+            ->json('DELETE', "v1/comments/1/favourites")
             ->assertStatus(401);
     }
 

@@ -35,4 +35,18 @@ class CommentsOnBlogTest extends TestCase
         $response->assertStatus(200);
         $this->assertDatabaseHas('comments', ['blog_id' => $blog->id]);
     }
+
+    /** @test */
+    public function a_user_can_get_paginated_list_of_comments_on_a_blog()
+    {
+        $blog = create(Blog::class);
+
+        create(Comment::class, ['blog_id' => $blog->id], 10);
+
+        $response = $this->json('GET', "/v1/blogs/{$blog->slug}/comments")->json();
+
+        $this->assertArrayHasKey('meta', $response);
+        $this->assertArrayHasKey('links', $response);
+        $this->assertArrayHasKey('data', $response);
+    }
 }

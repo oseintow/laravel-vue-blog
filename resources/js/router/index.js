@@ -4,32 +4,32 @@ import Home from '../pages/Home.vue'
 import NewBlog from '../pages/NewBlog'
 import BlogView from '../pages/BlogView'
 import UserBlogsView from '../pages/UserBlogsView'
-import TopicsMenu from '@/components/menu/TopicsMenu'
+import Header from '@/components/menu/Header'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
         { path: '', name: 'home',  components: {
-                default: Home, header: TopicsMenu
+                default: Home, header: Header
             },meta: {
                 forVisitors: true
             }
         },
         { path: '/blog/new', name: 'new-blog',  components: {
-                default: NewBlog,
+                default: NewBlog, header: Header
             },meta: {
                 forVisitors: true
             }
         },
         { path: '/@:nickname/:slug', name: 'user-blog',  components: {
-                default: BlogView,
+                default: BlogView, header: Header
             },meta: {
                 forVisitors: true
             }
         },
         { path: '/@:nickname', name: 'users-blogs',  components: {
-                default: UserBlogsView,
+                default: UserBlogsView, header: Header
             },meta: {
                 forVisitors: true
             }

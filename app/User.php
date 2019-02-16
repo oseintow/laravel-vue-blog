@@ -47,11 +47,6 @@ class User extends Authenticatable
         return $this->hasMany(SocialAccount::class);
     }
 
-    public function blogs()
-    {
-        return $this->hasMany(Blog::class);
-    }
-
     public function scopeFindByEmailOrCreate($query, $providerUser)
     {
         return $query->firstOrCreate(['email' => $providerUser->getEmail()], [

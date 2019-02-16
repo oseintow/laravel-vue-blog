@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Blog;
 use App\Category;
+use App\Comment;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
@@ -55,11 +56,34 @@ class BlogTest extends TestCase
     }
 
     /** @test */
-    public function a_blog_is_under_a_category()
+    public function a_blog_falls_under_a_category()
     {
         $blog = create(Blog::class);
 
         $this->assertInstanceOf(Category::class, $blog->category);
+    }
+
+    /** @test */
+    public function it_can_get_all_blogs_that_belogs_to_an_author()
+    {
+        $user = create(User::class);
+
+        create(Blog::class, ['user_id' => $user->id], 4);
+        create(Blog::class, [], 3);
+
+        $this->assertEquals(4, Blog::forAuthor($user->nickname)->count());
+    }
+
+    /** @test */
+    public function a_bog_can_save_associated_comments()
+    {
+        $blog = create(Blog::class);
+
+        $commentCollection = make(Comment::class, ['blog_id' => $blog->id]);
+
+        $comment = $blog->saveComment($commentCollection->only(['user_id', 'blog_id', 'body']));
+
+        $this->assertDatabaseHas('comments', ['blog_id' => $blog->id, 'id' => $comment->id]);
     }
 
     /** @test */

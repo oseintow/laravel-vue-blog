@@ -60,7 +60,7 @@ class Blog extends Model
         }
     }
 
-    public function scopeHasBlog($query, $slug)
+    public function scopeHasSlug($query, $slug)
     {
         return $query->where('slug', $slug);
     }

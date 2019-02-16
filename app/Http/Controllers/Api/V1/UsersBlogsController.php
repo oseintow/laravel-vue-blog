@@ -29,7 +29,7 @@ class UsersBlogsController extends Controller
     public function show()
     {
         $blog = Blog::forAuthor(request('nickname'))
-            ->hasBlog(request('blog'))
+            ->hasSlug(request('blog'))
             ->first();
 
         return response(compact('blog'));

@@ -20,5 +20,36 @@ class BlogTest extends TestCase
 
         $this->assertDatabaseHas('blogs', ['slug' => 'foo-bar']);
     }
+
+    /** @test */
+    public function get_latest_blogs()
+    {
+        create(Blog::class, [], 5);
+
+        $blogsWithOutScope = Blog::withoutGlobalScope('latestBlogs')
+            ->orderBy('id', 'desc')
+            ->get()
+            ->pluck('id');
+
+        $blogs = Blog::get()->pluck('id');
+
+        $this->assertEquals($blogsWithOutScope, $blogs);
+    }
+
+    /** @test */
+    public function a_blog_has_a_slug()
+    {
+        $blog = create(Blog::class);
+
+        $this->assertEquals(1, Blog::hasSlug($blog->slug)->count());
+    }
+
+    /** @test */
+    public function a_blog_has_a_favourite_url()
+    {
+        $blog = create(Blog::class);
+
+        $this->assertEquals($blog->favourite_url, "v1/blogs/{$blog->slug}/favourites");
+    }
     
 }

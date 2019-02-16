@@ -3,7 +3,9 @@
 namespace Tests\Unit;
 
 use App\Blog;
+use App\Category;
 use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -34,6 +36,30 @@ class BlogTest extends TestCase
         $blogs = Blog::get()->pluck('id');
 
         $this->assertEquals($blogsWithOutScope, $blogs);
+    }
+
+    /** @test */
+    public function a_blog_has_comments()
+    {
+        $blog = create(Blog::class);
+
+        $this->assertInstanceOf(Collection::class, $blog->comments);
+    }
+
+    /** @test */
+    public function a_blog_has_an_author()
+    {
+        $blog = create(Blog::class);
+
+        $this->assertInstanceOf(User::class, $blog->author);
+    }
+
+    /** @test */
+    public function a_blog_is_under_a_category()
+    {
+        $blog = create(Blog::class);
+
+        $this->assertInstanceOf(Category::class, $blog->category);
     }
 
     /** @test */

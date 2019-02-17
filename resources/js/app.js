@@ -44,6 +44,7 @@ import store from './store'
 
 import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
+import Authentication from '@/plugins/authentication'
 require('promise.prototype.finally').shim()
 import interceptors from '@/helpers/interceptors'
 import Error from '@/components/Error'
@@ -57,6 +58,7 @@ Vue.use(VueRx)
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)
+Vue.use(Authentication)
 library.add(faCoffee, faThumbsUp)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

@@ -1,6 +1,9 @@
 import { getVueAuthenticate } from "@/plugins/vue-authenticator"
 
 let vueAuth = getVueAuthenticate()
+import Vue from 'vue'
+
+let auth = new Vue()
 
 export const state= {
     isAuthenticated: false,
@@ -24,7 +27,6 @@ export const actions= {
     login({commit}, payload) {
         return new Promise((resolve, reject) => {
             vueAuth.authenticate(payload).then(({data}) => {
-                this.$auth = {user: data['user'], token: data['token'], check: true}
                 commit('IS_AUTHENTICATED', {isAuthenticated: true})
                 commit('SET_AUTH_USER', data['user'])
                 commit('SET_AUTH_TOKEN', data['token'])
@@ -41,7 +43,9 @@ export const getters= {
 
     getToken: state => state.token,
 
-    authUser: state => state.user
+    authUser: state => state.user,
+
+    user: state => state.user
 }
 
 export default {

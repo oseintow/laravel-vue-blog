@@ -7,7 +7,7 @@ const Authentication = {
                 user() {
                     return store.state.auth.user
                 },
-                isAuthenticated() {
+                check() {
                     return store.state.auth.isAuthenticated
                 },
                 token() {

@@ -36,9 +36,9 @@ export const actions= {
 
     logout({commit}, payload) {
         return new Promise((resolve, reject) => {
-            commit('IS_AUTHENTICATED', {isAuthenticated: false})
-            commit('SET_AUTH_USER', null)
-            commit('SET_AUTH_TOKEN', null)
+            // commit('IS_AUTHENTICATED', {isAuthenticated: false})
+            // commit('SET_AUTH_USER', null)
+            // commit('SET_AUTH_TOKEN', null)
 
             logout()
                 .then((response) => {

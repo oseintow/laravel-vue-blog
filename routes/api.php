@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
+    Route::get('logout', function() {
+       logger('logout');
+    });
     Route::resource('categories', 'CategoriesController');
     Route::resource('blogs', 'BlogsController');
 

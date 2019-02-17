@@ -7,9 +7,15 @@
                     <a class="p-2 text-dark" href="#">Features</a>
                     <a class="p-2 text-dark" href="#">Enterprise</a>
                     <a class="p-2 text-dark" href="#">Support</a>
-                    <a class="p-2 text-dark" href="#" @click.preventDefault="signIn">Sign in</a>
+                    <a class="p-2 text-dark" href="#" @click.preventDefault="signIn" v-if="!$auth.isAuthenticated">Sign in</a>
+                    <a class="p-2 text-dark" href="#" v-if="$auth.isAuthenticated" @click.preventDefault="logout">Logout</a>
+
                 </div>
-                <button class="btn btn-outline-primary justify-content-end" @click="signUp">Get started</button>
+                <button class="btn btn-outline-primary justify-content-end"
+                        @click="signUp"
+                        v-if="!$auth.isAuthenticated">
+                    Get started
+                </button>
             </nav>
         </div>
     </div>
@@ -24,6 +30,9 @@
             },
             signUp() {
                 this.$eventBus.signUp()
+            },
+            logout() {
+                this.$store.dispatch('auth/logout')
             }
         }
     }

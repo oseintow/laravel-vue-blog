@@ -6,9 +6,8 @@
                 <div class="nav  justify-content-end">
                     <a class="p-2 text-dark" @click.preventDefault="stories" v-if="$auth.check">Stories</a>
                     <a class="p-2 text-dark" @click.preventDefault="newStory" v-if="$auth.check">New Story</a>
-                    <a class="p-2 text-dark" @click.preventDefault="signIn" v-if="!$auth.check">Sign in</a>
+                    <a class="p-2 text-dark" @click.preventDefault="signIn" v-if="!$auth.check">Sign In</a>
                     <a class="p-2 text-dark" @click.preventDefault="logout" v-if="$auth.check" >Logout</a>
-
                 </div>
                 <button class="btn btn-outline-primary justify-content-end"
                         @click="signUp"
@@ -22,7 +21,7 @@
 
 <script>
     export default {
-        name: "TopicsMenu",
+        name: "Header",
         methods: {
             signIn() {
                 this.$eventBus.signIn()

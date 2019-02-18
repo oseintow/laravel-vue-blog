@@ -46,13 +46,13 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" v-if="$auth.check">
                 <editor @delta="delta" :body="blog.body"></editor>
                 <input type="hidden" name="body" v-model="body" v-validate="'required|min:3'">
                 <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             </div>
 
-            <div class="row post-actions-row float-right">
+            <div class="row post-actions-row float-right" v-if="$auth.check">
                 <button class="btn btn-primary" @click="saveBlog">Save</button>
             </div>
 

@@ -4,11 +4,10 @@
             <nav class="my-2 my-md-0 mr-md-3 nav">
                 <h5 class="my-0 mr-md-auto font-weight-normal nav mt-2">OSEINTOW</h5>
                 <div class="nav  justify-content-end">
-                    <a class="p-2 text-dark" href="#">Features</a>
-                    <a class="p-2 text-dark" href="#">Stories</a>
-                    <a class="p-2 text-dark" @click="newStory">New Story</a>
-                    <a class="p-2 text-dark" href="#" @click.preventDefault="signIn" v-if="!$auth.check">Sign in</a>
-                    <a class="p-2 text-dark" href="#" v-if="$auth.check" @click.preventDefault="logout">Logout</a>
+                    <a class="p-2 text-dark" @click.preventDefault="stories" v-if="$auth.check">Stories</a>
+                    <a class="p-2 text-dark" @click.preventDefault="newStory" v-if="$auth.check">New Story</a>
+                    <a class="p-2 text-dark" @click.preventDefault="signIn" v-if="!$auth.check">Sign in</a>
+                    <a class="p-2 text-dark" @click.preventDefault="logout" v-if="$auth.check" >Logout</a>
 
                 </div>
                 <button class="btn btn-outline-primary justify-content-end"
@@ -35,10 +34,10 @@
                 this.$store.dispatch('auth/logout')
             },
             stories() {
-                this.$router.push({name: 'users-blogs'})
+                return this.$router.push(`/@${this.$auth.user.nickname}`)
             },
             newStory() {
-                this.$router.push({name: 'new-blog'})
+                return this.$router.push({name: 'new-blog'})
             }
         }
     }

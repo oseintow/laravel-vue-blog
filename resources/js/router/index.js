@@ -22,14 +22,14 @@ export default new Router({
                 forVisitors: true
             }
         },
-        { path: '/@:nickname/:slug', name: 'user-blog',  components: {
-                default: BlogView, header: Header
+        { path: '/@:nickname', name: 'users-blogs',  components: {
+                default: UserBlogsView, header: Header
             },meta: {
                 forVisitors: true
             }
         },
-        { path: '/@:nickname', name: 'users-blogs',  components: {
-                default: UserBlogsView, header: Header
+        { path: '/@:nickname/:slug', name: 'user-blog',  components: {
+                default: BlogView, header: Header
             },meta: {
                 forVisitors: true
             }

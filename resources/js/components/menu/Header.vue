@@ -2,7 +2,7 @@
     <div class="d-flex flex-md-row align-items-center p-3 px-md-4 mb-1 bg-white border-bottom shadow-sm">
         <div class="container">
             <nav class="my-2 my-md-0 mr-md-3 nav">
-                <h5 class="my-0 mr-md-auto font-weight-normal nav mt-2">OSEINTOW</h5>
+                <h5 class="my-0 mr-md-auto font-weight-normal nav mt-2 home" @click="home">OSEINTOW</h5>
                 <div class="nav  justify-content-end">
                     <a class="p-2 text-dark" @click.preventDefault="stories" v-if="$auth.check">Stories</a>
                     <a class="p-2 text-dark" @click.preventDefault="newStory" v-if="$auth.check">New Story</a>
@@ -33,6 +33,9 @@
             logout() {
                 this.$store.dispatch('auth/logout')
             },
+            home() {
+                return this.$router.push('/')
+            },
             stories() {
                 return this.$router.push(`/@${this.$auth.user.nickname}`)
             },
@@ -44,5 +47,7 @@
 </script>
 
 <style scoped>
-
+    .home{
+        cursor: pointer
+    }
 </style>

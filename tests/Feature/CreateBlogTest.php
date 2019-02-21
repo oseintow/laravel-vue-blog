@@ -27,11 +27,13 @@ class CreateBlogTest extends TestCase
     public function authernticated_users_can_create_blog()
     {
         $this->signIn();
-        $blog = make(Blog::class)->makeHidden('user_id');
+        $blog = make(Blog::class)->makeHidden('user_id')->toArray();
+        $blog['body'] = json_encode(["foo" => "bar"]);
 
-        $response = $this->json('POST', 'v1/blogs', $blog->toArray());
+        $response = $this->withExceptionHandling()
+            ->json('POST', 'v1/blogs', $blog);
 
-        $this->assertDatabaseHas('blogs', ['title' => $blog->toArray()['title']]);
+        $this->assertDatabaseHas('blogs', ['title' => $blog['title']]);
         $response->assertStatus(200);
     }
 
@@ -43,9 +45,12 @@ class CreateBlogTest extends TestCase
 
         $blog = make(Blog::class, [
             'cover_image' => $coverImage = UploadedFile::fake()->image('random.jpg')
-        ])->makeHidden('user_id');
+        ])->makeHidden('user_id')->toArray();
 
-        $this->json('POST', 'v1/blogs', $blog->toArray());
+        $blog['body'] = json_encode(["foo" => "bar"]);
+
+        $this->withExceptionHandling()
+            ->json('POST', 'v1/blogs', $blog);
 
         $this->assertDatabaseHas('blogs', ['cover_image_url' => '/images/cover_images/' . $coverImage->hashName()]);
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());

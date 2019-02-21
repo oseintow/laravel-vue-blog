@@ -137,4 +137,13 @@ class CreateBlogTest extends TestCase
         $this->validatePostRequest(['publish' => 'true'])
             ->assertJsonValidationErrors('publish');
     }
+
+    /** @test */
+    public function cover_image_must_be_an_image()
+    {
+        Storage::fake('local');
+
+        $this->validatePostRequest(['cover_image' => UploadedFile::fake()->image('random.txt')])
+            ->assertJsonValidationErrors('cover_image');
+    }
 }

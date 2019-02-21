@@ -72,9 +72,12 @@ class Blog extends Model
         });
     }
 
-    public function scopeSaveComment($query, array $data)
+    public function scopeSaveComment($query, $body)
     {
-        return $this->comments()->create($data);
+        return $this->comments()->create([
+            'user_id' => auth()->user()->id,
+            'body' => $body
+        ]);
     }
 
     public function getFavouriteUrlAttribute()

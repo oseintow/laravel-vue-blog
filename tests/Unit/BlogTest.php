@@ -77,11 +77,12 @@ class BlogTest extends TestCase
     /** @test */
     public function a_bog_can_save_associated_comments()
     {
+        $this->signIn();
         $blog = create(Blog::class);
 
         $commentCollection = make(Comment::class, ['blog_id' => $blog->id]);
 
-        $comment = $blog->saveComment($commentCollection->only(['user_id', 'blog_id', 'body']));
+        $comment = $blog->saveComment($commentCollection->only(['body']));
 
         $this->assertDatabaseHas('comments', ['blog_id' => $blog->id, 'id' => $comment->id]);
     }

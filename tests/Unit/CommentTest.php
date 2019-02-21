@@ -36,7 +36,6 @@ class CommentTest extends TestCase
         create(Comment::class, ['blog_id' => $blog->id], 2);
         create(Comment::Class, [], 5);
 
-        logger($blog->slug);
         $this->assertEquals(2, Comment::onBlog($blog->slug)->count());
     }
 }

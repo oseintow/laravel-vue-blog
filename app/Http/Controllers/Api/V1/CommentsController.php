@@ -38,10 +38,7 @@ class CommentsController extends Controller
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();
 
-        $comment = $blog->saveComment([
-            'user_id' => auth()->user()->id,
-            'body' => $request->body
-        ]);
+        $comment = $blog->saveComment($request->body);
 
         return response(compact('comment'));
     }

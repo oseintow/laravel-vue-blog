@@ -13,6 +13,37 @@ class CommentsOnBlogTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function a_comments_requires_body()
+    {
+        $this->validateCommentsOnBlog(['body' => null])
+            ->assertJsonValidationErrors('body');
+    }
+
+    /** @test */
+    public function body_must_have_more_than_three_characters()
+    {
+        $this->validateCommentsOnBlog(['body' => 'aa'])
+            ->assertJsonValidationErrors('body');
+    }
+
+    /** @test */
+    public function body_field_must_be_json()
+    {
+        $this->validateCommentsOnBlog(['body' => 'foobar'])
+            ->assertJsonValidationErrors('body');
+    }
+
+    public function validateCommentsOnBlog(array $body = [])
+    {
+        return $this->signIn()
+            ->withExceptionHandling()
+            ->json('POST', 'v1/blogs', array_merge([
+                'body' => json_encode(["foo" => "bar"]),
+            ],$body))
+            ->assertStatus(422);
+    }
+
+    /** @test */
     public function an_unauthenticated_user_can_not_comment_on_a_blog()
     {
         $blog = create(Blog::class);

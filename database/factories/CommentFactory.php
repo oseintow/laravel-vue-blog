@@ -12,9 +12,9 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         'blog_id' => function() {
             return factory(Blog::class)->create()->id;
         },
-        'body' => json_encode(["ops" => [
+        'body' => ["ops" => [
                 ["insert" => $faker->paragraph]
             ]
-        ])
+        ]
     ];
 });

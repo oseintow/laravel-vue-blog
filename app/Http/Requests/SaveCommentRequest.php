@@ -24,7 +24,7 @@ class SaveCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|min:3|json',
+            'body' => 'required|array',
         ];
     }
 }

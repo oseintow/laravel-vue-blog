@@ -20,13 +20,6 @@ class CommentsOnBlogTest extends TestCase
     }
 
     /** @test */
-    public function body_must_have_more_than_three_characters()
-    {
-        $this->validateCommentsOnBlog(['body' => 'aa'])
-            ->assertJsonValidationErrors('body');
-    }
-
-    /** @test */
     public function body_field_must_be_json()
     {
         $this->validateCommentsOnBlog(['body' => 'foobar'])
@@ -38,7 +31,7 @@ class CommentsOnBlogTest extends TestCase
         return $this->signIn()
             ->withExceptionHandling()
             ->json('POST', 'v1/blogs', array_merge([
-                'body' => json_encode(["foo" => "bar"]),
+                'body' => ["foo" => "bar"],
             ],$body))
             ->assertStatus(422);
     }

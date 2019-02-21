@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Blog::class, function (Faker $faker) {
     return [
-        "title" => str_repeat('a', 10),
+        "title" => $faker->word,
         "user_id" => function() {
             return factory(User::class)->create()->id;
         },

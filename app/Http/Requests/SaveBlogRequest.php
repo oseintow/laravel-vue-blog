@@ -25,7 +25,7 @@ class SaveBlogRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:50',
-            'body' => 'required|json|min:3',
+            'body' => 'required|min:3|json',
             'category_id' => 'required|exists:categories,id',
             'publish' => 'required|boolean',
             'cover_image' => 'nullable|image'

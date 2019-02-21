@@ -36,15 +36,14 @@ class BlogsController extends Controller
      */
     public function store(SaveBlogRequest $request)
     {
-        logger($request->all());
-        if(request()->hasFile('cover_image')){
-            $coverImagePath = request()->file('cover_image')->store('cover_images');
-            request()->merge(['cover_image_url' => "/images/{$coverImagePath}"]);
+        if($request->hasFile('cover_image')){
+            $coverImagePath = $request->file('cover_image')->store('cover_images');
+            $request->merge(['cover_image_url' => "/images/{$coverImagePath}"]);
         }
 
-        request()->merge(['user_id' => auth()->user()->id]);
+        $request->merge(['user_id' => auth()->user()->id]);
 
-        $blog = Blog::create(request()->except('cover_image'));
+        $blog = Blog::create($request->except('cover_image'));
 
         return response(compact('blog'));
     }

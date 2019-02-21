@@ -135,7 +135,7 @@ class CreateBlogTest extends TestCase
             ->assertJsonValidationErrors('cover_image');
     }
 
-    protected function validatePostRequest(array $body)
+    protected function validatePostRequest(array $body = [])
     {
         Storage::fake('local');
         $category = create(Category::class);

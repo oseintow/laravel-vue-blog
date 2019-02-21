@@ -52,7 +52,7 @@
                 <error v-show="errors.has('body')">{{ errors.first('body') }}</error>
             </div>
 
-            <div class="row post-actions-row float-right">
+            <div class="row post-actions-row float-right mb-4">
                 <button class="btn btn-primary" @click="saveBlog">Save</button>
             </div>
 

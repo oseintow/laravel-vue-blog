@@ -56,55 +56,38 @@ class CreateBlogTest extends TestCase
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());
     }
 
-    protected function validatePostRequest(array $body)
-    {
-        Storage::fake('local');
-        $category = create(Category::class);
-
-        return $this->signIn()
-            ->withExceptionHandling()
-            ->json('POST', 'v1/blogs', array_merge([
-                'title' => 'foobar',
-                'body' => json_encode(["foo" => "bar"]),
-                'category_id' => $category->id,
-                'cover_image' => UploadedFile::fake()->image('random.jpg'),
-                'publish' => true
-            ],$body))
-            ->assertStatus(422);
-    }
-
     /** @test */
-    public function title_is_required()
+    public function a_blog_requires_a_title()
     {
-        $this->validatePostRequest(['title' => ''])
+        $this->validatePostRequest(['title' => null])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
     public function a_title_must_have_more_than_three_characters()
     {
-        $this->validatePostRequest(['title' => 'as'])
+        $this->validatePostRequest(['title' => 'aa'])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
-    public function a_title_has_a_max_length_of_fifty()
+    public function a_title_must_have_a_max_length_of_fifty()
     {
         $this->validatePostRequest(['title' => str_repeat('a', 55)])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
-    public function body_field_is_requried()
+    public function a_blog_requires_a_body()
     {
-        $this->validatePostRequest(['body' => ''])
+        $this->validatePostRequest(['body' => null])
             ->assertJsonValidationErrors('body');
     }
 
     /** @test */
     public function body_field_must_be_more_than_three_characters()
     {
-        $this->validatePostRequest(['body' => 'fo'])
+        $this->validatePostRequest(['body' => 'aa'])
             ->assertJsonValidationErrors('body');
     }
 
@@ -116,9 +99,9 @@ class CreateBlogTest extends TestCase
     }
 
     /** @test */
-    public function category_is_required()
+    public function a_blog_requires_a_category()
     {
-        $this->validatePostRequest(['category_id' => ''])
+        $this->validatePostRequest(['category_id' => null])
             ->assertJsonValidationErrors('category_id');
     }
 
@@ -130,9 +113,9 @@ class CreateBlogTest extends TestCase
     }
 
     /** @test */
-    public function publish_field_is_required()
+    public function a_blog_require_a_publish_status()
     {
-        $this->validatePostRequest(['publish' => ''])
+        $this->validatePostRequest(['publish' => null])
             ->assertJsonValidationErrors('publish');
     }
 
@@ -150,5 +133,22 @@ class CreateBlogTest extends TestCase
 
         $this->validatePostRequest(['cover_image' => UploadedFile::fake()->image('random.txt')])
             ->assertJsonValidationErrors('cover_image');
+    }
+
+    protected function validatePostRequest(array $body)
+    {
+        Storage::fake('local');
+        $category = create(Category::class);
+
+        return $this->signIn()
+            ->withExceptionHandling()
+            ->json('POST', 'v1/blogs', array_merge([
+                'title' => 'foobar',
+                'body' => json_encode(["foo" => "bar"]),
+                'category_id' => $category->id,
+                'cover_image' => UploadedFile::fake()->image('random.jpg'),
+                'publish' => true
+            ],$body))
+            ->assertStatus(422);
     }
 }

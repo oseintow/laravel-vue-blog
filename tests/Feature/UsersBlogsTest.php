@@ -32,7 +32,6 @@ class UsersBlogsTest extends TestCase
 
         $this->json('GET', "/v1/users/{$user->nickname}/blogs/{$blog->slug}")
             ->assertSee($blog->title)
-            ->assertSee($blog->body)
             ->assertJsonStructure([
                 'blog' => [
                     'title',

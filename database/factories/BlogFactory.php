@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Blog::class, function (Faker $faker) {
     return [
-        "title" => $faker->word,
+        "title" => $faker->sentence(2),
         "user_id" => function() {
             return factory(User::class)->create()->id;
         },

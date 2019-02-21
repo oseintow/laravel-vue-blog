@@ -31,7 +31,8 @@ class CommentsOnBlogTest extends TestCase
 
         $blog = create(Blog::class);
 
-        $response = $this->json('POST', "/v1/blogs/{$blog->slug}/comments", $comment->toArray());
+        $response = $this->withExceptionHandling()
+            ->json('POST', "/v1/blogs/{$blog->slug}/comments", $comment->toArray());
 
         $response->assertStatus(200);
         $this->assertDatabaseHas('comments', ['blog_id' => $blog->id]);

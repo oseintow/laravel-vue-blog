@@ -13,7 +13,10 @@ $factory->define(App\Blog::class, function (Faker $faker) {
         "category_id" => function() {
             return factory(Category::class)->create()->id;
         },
-        "body" => json_encode(["foobar" => "barbaz"]),
+        "body" => json_encode(["ops" => [
+                ["insert" => $faker->paragraph]
+            ]
+        ]),
         "publish" => true
     ];
 });

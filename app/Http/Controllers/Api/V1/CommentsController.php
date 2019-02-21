@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Blog;
 use App\Comment;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SaveCommentRequest;
 use App\Http\Resources\CommentCollection;
 use Illuminate\Http\Request;
 
@@ -29,16 +30,17 @@ class CommentsController extends Controller
     }
 
     /**
+     * @param SaveCommentRequest $request
      * @param $slug
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function store($slug)
+    public function store(SaveCommentRequest $request, $slug)
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();
 
         $comment = $blog->saveComment([
             'user_id' => auth()->user()->id,
-            'body' => request('body')
+            'body' => $request->body
         ]);
 
         return response(compact('comment'));

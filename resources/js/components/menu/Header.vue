@@ -7,21 +7,35 @@
                     <a class="p-2 text-dark" @click.preventDefault="stories" v-if="$auth.check">Stories</a>
                     <a class="p-2 text-dark" @click.preventDefault="newStory" v-if="$auth.check">New Story</a>
                     <a class="p-2 text-dark" @click.preventDefault="signIn" v-if="!$auth.check">Sign In</a>
-                    <a class="p-2 text-dark" @click.preventDefault="logout" v-if="$auth.check" >Logout</a>
                 </div>
                 <button class="btn btn-outline-primary justify-content-end"
                         @click="signUp"
                         v-if="!$auth.check">
                     Get started
                 </button>
+                <div class="justify-content-end d-flex" v-if="$auth.check">
+                    <div class="dropdown">
+                        <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-50,23">
+                            <avatar :image="$auth.user.avatar" :width="40" :height="40"></avatar>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <a class="dropdown-item" @click.preventDefault="logout" >Logout</a>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
     </div>
 </template>
 
 <script>
+    import Avatar from '@/components/Avatar'
+
     export default {
         name: "Header",
+        components: {
+            Avatar
+        },
         methods: {
             signIn() {
                 this.$eventBus.signIn()

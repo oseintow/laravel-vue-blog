@@ -2,7 +2,6 @@ import { getVueAuthenticate } from "@/plugins/vue-authenticator"
 import { logout } from '@/api/auth'
 
 let vueAuth = getVueAuthenticate()
-import Vue from 'vue'
 
 export const state= {
     isAuthenticated: false,

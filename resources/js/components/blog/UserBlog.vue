@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="d-flex flex-row">
                         <div class="mr-2">
-                            <img :src="blog.author.avatar" class="avatar avatar-image avatar-image--icon" alt="">
+                            <avatar :image="blog.author.avatar"></avatar>
                         </div>
                         <div class="blog-info">
                             <router-link class="blog-link" :to="{name: 'users-blogs', params: { nickname: blog.author.nickname }}">
@@ -49,12 +49,14 @@
     import Quill from 'quill'
     import moment from 'moment';
     import Favourite from '@/components/Favourite'
+    import Avatar from '@/components/Avatar'
 
     export default {
         name: "Blog",
         props: ['data'],
         components: {
-            Favourite
+            Favourite,
+            Avatar
         },
         data() {
             return {
@@ -83,18 +85,6 @@
         max-height: 250px;
         min-height: 150px;
         width: 100%;
-    }
-
-    .avatar-image {
-        background-image: url("https://cdn-images-1.medium.com/fit/c/64/64/0*6UYZ5LeYzOr24--U.");
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 100%
-    }
-
-    .avatar-image--icon {
-        width: 50px;
-        height: 50px;
     }
 
     .author-name {

@@ -8,17 +8,14 @@
                 <favourite :favourite="blog" v-if="blog"></favourite>
             </div>
         </div>
-        <div class="row justify-content-md-center comment-editor" v-if="$auth.check">
-            <div class="col-md-8">
+        <div class="row justify-content-md-center comment-editor">
+            <div class="col-md-8 mb-4">
+                <h3>Comments</h3>
+            </div>
+            <div class="col-md-8" v-if="$auth.check">
                 <comment-editor :newComment="content" :slug="params.slug" v-if="params.slug"></comment-editor>
             </div>
         </div>
-        <!--<div class="row justfify-content-md-center comment-text">-->
-            <!--<div class="col-md-8">-->
-                <!--<h3>Comments</h3>-->
-                <!--<hr>-->
-            <!--</div>-->
-        <!--</div>-->
         <div class="row justify-content-md-center comments">
             <div class="col-md-8">
                 <comments :slug="params.slug" v-if="params.slug"></comments>

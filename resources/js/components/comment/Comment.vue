@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="d-flex flex-row">
                     <div class="">
-                        <img :src="owner.avatar" class="avatar avatar-image avatar-image--icon" alt="">
+                        <avatar :image="owner.avatar"></avatar>
                     </div>
                     <div class="blog-info ml-2">
                         <p class="author-name">{{owner.name}}</p>
@@ -25,12 +25,14 @@
 <script>
     import moment from 'moment'
     import Favourite from '@/components/Favourite'
+    import Avatar from '@/components/Avatar'
 
     export default {
         name: "Comment",
         props: ['data'],
         components: {
-            Favourite
+            Favourite,
+            Avatar
         },
         data() {
           return {
@@ -58,18 +60,6 @@
 </script>
 
 <style scoped>
-
-    .avatar-image {
-        background-image: url("https://cdn-images-1.medium.com/fit/c/64/64/0*6UYZ5LeYzOr24--U.");
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 100%
-    }
-
-    .avatar-image--icon {
-        width: 50px;
-        height: 50px;
-    }
 
     .author-name {
         font-size: 13px;

@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="row col-md-12">
-            <search></search>
-        </div>
         <div class="row">
             <div class="col-md-8">
                 <div class="mr-4">
@@ -11,10 +8,12 @@
             </div>
             <div class="col-md-4">
                 <div class="row">
-                    <h4>Placeholder for image</h4>
-                </div>
-                <div class="row mt-4">
-                    <h4>Placeholder for Popular on this Blog Site</h4>
+                    <ul class="list-group d-flex" style="width: 100%">
+                        <li class="list-group-item"><h6>Search</h6></li>
+                        <li class="list-group-item">
+                            <search placeholder="search for blog"></search>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

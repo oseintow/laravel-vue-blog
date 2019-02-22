@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="row justify-content-md-center comments">
-            <div class="col-md-8">
-                <comments :new-comments="comments" :enableInfiniteLoading="false" :slug="slug" v-if="slug"></comments>
-            </div>
+        <div v-if="isComment">
+            <h4 class="mb-3">New Comments</h4>
+            <comments :new-comments="comments" :enableInfiniteLoading="false" :slug="slug" v-if="slug"></comments>
+            <hr class="mt-3 mb-3"/>
         </div>
     </div>
 </template>
@@ -22,9 +22,15 @@
                 comments: [],
             }
         },
+        computed: {
+            isComment() {
+                return this.comments.length > 0
+            }
+        },
         created() {
             this.$eventBus.$on('new-comment', (value) => {
                 this.comments.unshift(value)
+                console.log(this.comments);
             })
         }
     }

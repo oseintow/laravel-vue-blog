@@ -3,25 +3,25 @@
         <div class="row mb-4">
             <div class="col-md-9">
                 <div class="col-md-12">{{blog.category.name.toUpperCase()}}</div>
-                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, slug: blog.slug } }" style="color: black">
+                <a @click.preventDefault="gotoUserBlog" style="color: black" >
                     <div class="col-md-12 mt-1">
                         <h4>{{ blog.title }}</h4>
                     </div>
                     <div class="col-md-12 mt-2">
                         <p>{{ body }}</p>
                     </div>
-                </router-link>
+                </a>
                 <div class="col-md-12 mt-3">
-                    <router-link :to="{name: 'users-blogs', params: { nickname: blog.author.nickname }}">
+                    <a @click.preventDefault="gotoUsersBlogs">
                         <p style="font-weight: bold; color: #515a6e">{{ blog.author.name }}</p>
-                    </router-link>
+                    </a>
                     <p>{{ ago }}</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, blog: blog.slug } }" style="color: black">
+                <a @click.preventDefault="gotoUserBlog" style="color: black">
                     <img :src="blog.cover_image_url" alt="" class="cover_image_url float-right">
-                </router-link>
+                </a>
             </div>
         </div>
     </div>
@@ -37,6 +37,22 @@
         data() {
             return {
                 blog: this.data,
+            }
+        },
+        methods: {
+            gotoUsersBlogs() {
+                this.$router.push({
+                    name: 'users-blogs',
+                    params: { nickname: this.blog.author.nickname }
+                })
+            },
+            gotoUserBlog() {
+                this.$router.push({
+                    name: 'user-blog',
+                    params:{
+                        nickname: this.blog.author.nickname,
+                        slug: this.blog.slug }
+                })
             }
         },
         computed: {

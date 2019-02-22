@@ -19,7 +19,7 @@
                             <avatar :image="$auth.user.avatar" :width="40" :height="40"></avatar>
                         </div>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" @click.preventDefault="logout" >Logout</a>
+                            <a class="dropdown-item" @click.preventDefault="signOut" >Sign Out</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
             signUp() {
                 this.$eventBus.signUp()
             },
-            logout() {
+            signOut() {
                 this.$store.dispatch('auth/logout')
             },
             home() {

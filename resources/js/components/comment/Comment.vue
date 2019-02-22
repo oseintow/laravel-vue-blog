@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="row mt-4 ml-2">
-                    {{comment.body}}
+                    {{body}}
                 </div>
                 <div class="row mt-4 ml-2">
                     <favourite :favourite="comment" v-if="comment"></favourite>
@@ -24,6 +24,7 @@
 
 <script>
     import moment from 'moment'
+    import Quill from 'quill'
     import Favourite from '@/components/Favourite'
     import Avatar from '@/components/Avatar'
 

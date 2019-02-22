@@ -3,7 +3,7 @@
         <div v-for="comment in comments">
             <comment :data="comment" class="mb-3"></comment>
         </div>
-        <div style="margin-bottom: 100px">
+        <div style="margin-bottom: 100px" v-if="enableInfiniteLoading">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getComments" v-if="comments"></infinite-loading>
         </div>
     </div>
@@ -16,14 +16,26 @@
 
     export default {
         name: "comments",
-        props: ['slug'],
+        props: {
+            slug: String,
+            enableInfiniteLoading: {
+                type: Boolean,
+                default: true
+            },
+            newComments: {
+                type: Array,
+                default: function() {
+                    return [];
+                }
+            }
+        },
         components: {
             Comment,
             InfiniteLoading
         },
         data() {
             return {
-                comments: [],
+                comments: this.newComments,
                 query: {
                     page: 1,
                     q: '',

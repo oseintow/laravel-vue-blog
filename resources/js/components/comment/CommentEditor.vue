@@ -27,13 +27,12 @@
                 saveComment: 'comment/saveComment'
             }),
             delta(value) {
-                // this.$emit('content', value)
                 this.body = value.getContents()
             },
             save(){
                 this.saveComment({ slug: this.slug, body: this.body })
-                    .then(() =>{
-
+                    .then((response) =>{
+                        this.$eventBus.newComment(response.comment)
                     })
                     .catch((error) => console.log(error));
             }

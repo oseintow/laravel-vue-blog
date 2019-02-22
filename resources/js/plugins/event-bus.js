@@ -10,6 +10,9 @@ const eventBus = {
                 },
                 search(value) {
                     this.$emit('search', value)
+                },
+                newComment(value) {
+                    this.$emit('new-comment', value)
                 }
             }
         })

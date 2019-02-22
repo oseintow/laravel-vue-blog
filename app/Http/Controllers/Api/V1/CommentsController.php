@@ -40,6 +40,6 @@ class CommentsController extends Controller
 
         $comment = $blog->saveComment($request->body);
 
-        return response(compact('comment'));
+        return response(['comment' => $comment->load('owner')]);
     }
 }

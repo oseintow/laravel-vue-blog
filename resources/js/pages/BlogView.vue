@@ -16,6 +16,11 @@
                 <comment-editor :newComment="content" :slug="params.slug" v-if="params.slug"></comment-editor>
             </div>
         </div>
+        <div class="row justify-content-md-center get-new-comments ">
+            <div class="col-md-8">
+                <get-new-comments :slug="params.slug" v-if="params.slug"></get-new-comments>
+            </div>
+        </div>
         <div class="row justify-content-md-center comments">
             <div class="col-md-8">
                 <comments :slug="params.slug" v-if="params.slug"></comments>
@@ -29,6 +34,7 @@
     import BlogReader from '@/components/blog/BlogReader'
     import CommentEditor from '@/components/comment/CommentEditor'
     import Comments from '@/components/comment/Comments'
+    import GetNewComments from '@/components/comment/GetNewComments'
     import Favourite from '@/components/Favourite'
 
     export default {
@@ -37,7 +43,8 @@
             BlogReader,
             Comments,
             CommentEditor,
-            Favourite
+            Favourite,
+            GetNewComments
         },
         data() {
             return {
@@ -70,6 +77,9 @@
     .favourite {
         margin-bottom: 30px;
         margin-top: -60px;
+    }
+    .get-new-comments {
+        margin-bottom: 30px;
     }
     .comments {
         margin-bottom: 100px;

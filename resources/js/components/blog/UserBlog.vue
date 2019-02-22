@@ -8,29 +8,29 @@
                             <avatar :image="blog.author.avatar"></avatar>
                         </div>
                         <div class="blog-info">
-                            <router-link class="blog-link" :to="{name: 'users-blogs', params: { nickname: blog.author.nickname }}">
+                            <a class="blog-link" @click.preventDefault="gotoUsersBlogs">
                                 <p class="author-name">{{blog.author.name}}</p>
-                            </router-link>
+                            </a>
                             <p class="created_at">{{ago}}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="row p-4">
-                    <router-link class="row" :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, slug: blog.slug } }" style="color: black">
+                    <a class="row" @click.preventDefault="gotoUserBlog" style="color: black">
                         <img :src="blog.cover_image_url" alt="" class="cover_image_url">
-                    </router-link>
+                    </a>
                 </div>
 
                 <div class="row">{{blog.category.name.toUpperCase()}}</div>
-                <router-link :to="{name: 'user-blog', params:{ nickname: blog.author.nickname, slug: blog.slug } }" style="color: black">
+                <a @click.preventDefault="gotoUserBlog" style="color: black">
                     <div class="row mt-1">
                         <h4>{{ blog.title }}</h4>
                     </div>
                     <div class="row mt-2">
                         <p>{{ body }}</p>
                     </div>
-                </router-link>
+                </a>
 
                 <div class="d-flex flex-row mt-3">
                     <div class="mr-auto">
@@ -61,6 +61,22 @@
         data() {
             return {
                 blog: this.data,
+            }
+        },
+        methods: {
+            gotoUsersBlogs() {
+                this.$router.push({
+                    name: 'users-blogs',
+                    params: { nickname: this.blog.author.nickname }
+                })
+            },
+            gotoUserBlog() {
+                this.$router.push({
+                    name: 'user-blog',
+                    params:{
+                        nickname: this.blog.author.nickname,
+                        slug: this.blog.slug }
+                })
             }
         },
         computed: {

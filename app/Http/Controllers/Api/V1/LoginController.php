@@ -19,4 +19,12 @@ class LoginController extends Controller
 
         return response(['error' =>'email or password incorrect'], 422);
     }
+
+    public function logout()
+    {
+        $token = auth()->user()->token();
+        $token->revoke();
+
+        return null;
+    }
 }

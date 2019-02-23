@@ -5,24 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::created(function(User $user){
-            if ($user->nickname == null) {
-                $firstname = explode(" ", $user->name)[0];
-                $user->nickname = strtolower($firstname)."-".$user->id;
-                $user->save();
-            }
-        });
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -41,6 +29,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function(User $user){
+            if ($user->nickname == null) {
+                $firstname = explode(" ", $user->name)[0];
+                $user->nickname = strtolower($firstname)."-".$user->id;
+                $user->save();
+            }
+        });
+
+        static::creating(function(User $user) {
+            if ($user->password) {
+                $user->password = Hash::make($user->password);
+            }
+        });
+    }
 
     public function accounts()
     {

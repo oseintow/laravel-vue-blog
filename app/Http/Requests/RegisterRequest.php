@@ -25,7 +25,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             "name" => "required|min:3|max:100",
-            "nickname" => "required|min:3|max:50"
+            "nickname" => "required|min:3|max:50",
+            "email" => "required"
         ];
     }
 }

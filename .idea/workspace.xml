@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,11 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResetPasswordController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResetPasswordController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ResetPasswordController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
               <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PasswordReset.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/PasswordReset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -106,15 +110,6 @@
               <folding>
                 <element signature="e#33#46#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -175,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/Feature/UsersBlogsTest.php" />
         <option value="$PROJECT_DIR$/database/factories/BlogFactory.php" />
         <option value="$PROJECT_DIR$/tests/Unit/CommentTest.php" />
         <option value="$PROJECT_DIR$/app/Blog.php" />
@@ -226,6 +220,7 @@
         <option value="$PROJECT_DIR$/resources/js/router/index.js" />
         <option value="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ResetPasswordController.php" />
+        <option value="$PROJECT_DIR$/app/PasswordReset.php" />
       </list>
     </option>
   </component>
@@ -384,48 +379,6 @@
               <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="V1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="V1" type="462c0819:PsiDirectoryNode" />
-              <item name="ResetPasswordController.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
@@ -615,12 +568,12 @@
       <workItem from="1550598327551" duration="1685000" />
       <workItem from="1550614266044" duration="1195000" />
       <workItem from="1550653056134" duration="23784000" />
-      <workItem from="1550833507757" duration="32735000" />
+      <workItem from="1550833507757" duration="32984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322841000" />
+    <option name="totallyTimeSpent" value="323090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="985" extended-state="6" />
@@ -633,8 +586,8 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.36926606" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2899878" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.36926606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2899878" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3295063" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -684,11 +637,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentFavouritesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/CommentsOnBlogTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1253">
@@ -1052,6 +1000,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/PasswordReset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
         </state>
       </provider>
     </entry>

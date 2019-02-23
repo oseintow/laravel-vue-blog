@@ -18,7 +18,7 @@ class AuthenticateUsingSocialiteTest extends TestCase
     {
         parent::setUp();
 
-        Artisan::call('passport:install');
+        $this->installPassport();
     }
 
     /** @test */

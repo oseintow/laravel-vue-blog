@@ -26,4 +26,11 @@ abstract class TestCase extends BaseTestCase
 
         return $this;
     }
+
+    protected function installPassport()
+    {
+        Artisan::call('passport:install');
+
+        return $this;
+    }
 }

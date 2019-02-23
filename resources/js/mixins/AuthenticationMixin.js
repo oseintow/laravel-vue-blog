@@ -5,7 +5,14 @@ export default {
         }
     },
     methods: {
-        authenticate(provider) {
+        login(provider) {
+            this.$store.dispatch('auth/login', provider)
+                .then(() =>{
+                    this.hideModal()
+                })
+                .catch(error => console.error(error))
+        },
+        socialLogin(provider) {
             this.$store.dispatch('auth/socialLogin', provider)
                 .then(() =>{
                     this.hideModal()

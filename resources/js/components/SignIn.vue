@@ -2,13 +2,13 @@
     <div>
         <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-6">
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <login></login>
                     </div>
-                    <div class="col-md-6">
-                        <button @click="authenticate('facebook')" class="facebook-signin">Facebook</button>
-                        <button @click="authenticate('google')" class="google-signin">Google</button>
+                    <div class="col-sm-6">
+                        <button @click="socialLogin('facebook')" class="facebook-signin">Facebook</button>
+                        <button @click="socialLogin('google')" class="google-signin">Google</button>
                     </div>
                 </div>
             </div>

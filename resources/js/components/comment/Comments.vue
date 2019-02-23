@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
     import InfiniteLoading from 'vue-infinite-loading';
     import Comment from '@/components/comment/Comment'
 

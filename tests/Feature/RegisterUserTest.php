@@ -32,7 +32,15 @@ class RegisterUserTest extends TestCase
     /** @test */
     public function a_users_name_is_required()
     {
+        $this->registerUser(['name' => null])
+            ->assertJsonValidationErrors('name');
+    }
 
+    /** @test */
+    public function a_user_name_cannot_be_less_than_three_characters()
+    {
+        $this->registerUser(['name' => 'aa'])
+            ->assertJsonValidationErrors('name');
     }
 
     protected function registerUser(array $body = [])
@@ -43,6 +51,7 @@ class RegisterUserTest extends TestCase
             ->makeVisible(['password']);
 
         return $this->installPassport()
+            ->withExceptionHandling()
             ->json('POST', '/v1/register', array_merge($user->toArray(), $body));
     }
 }

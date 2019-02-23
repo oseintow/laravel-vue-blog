@@ -8,6 +8,9 @@ const eventBus = {
                 signIn() {
                     this.$emit('sign-in')
                 },
+                userRegistered() {
+                  this.$emit('user-registered')
+                },
                 search(value) {
                     this.$emit('search', value)
                 },

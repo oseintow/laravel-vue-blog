@@ -12,6 +12,16 @@ export default {
                 })
                 .catch(error => console.error(error))
         },
+        register(payload) {
+            return new Promise((resolve, reject) => {
+                this.$store.dispatch('auth/register', payload)
+                    .then(({data}) => {
+                        this.$eventBus.userRegistered()
+                        return resolve(data)
+                    })
+                    .catch(error => reject(error))
+            })
+        },
         hideModal() {
             this.show = false
         }

@@ -71,8 +71,11 @@
 </template>
 
 <script>
+    import AuthenticationMixin from '@/mixins/AuthenticationMixin'
+
     export default {
         name: "Register",
+        mixins: [AuthenticationMixin],
         data() {
             return {
                 user: {
@@ -89,6 +92,19 @@
                 e.preventDefault();
                 this.$validator.validateAll()
                 if (this.errors.any()) return;
+
+                this.register(this.user)
+                    .then(() => {
+                        this.user = {
+                            name: '',
+                            nickname: '',
+                            email: '',
+                            password: '',
+                            confirm_password: ''
+                        }
+
+                        this.$nextTick(() => this.$validator.reset())
+                    })
             }
         }
     }

@@ -27,6 +27,7 @@
         },
         created() {
             this.$eventBus.$on('sign-up', () => this.showSignUp())
+            this.$eventBus.$on('user-registered', () => this.hideModal())
         },
         methods: {
             showSignUp() {

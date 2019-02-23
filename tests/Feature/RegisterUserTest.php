@@ -44,9 +44,9 @@ class RegisterUserTest extends TestCase
     }
 
     /** @test */
-    public function a_user_name_cannot_be_more_than_fifty_characters()
+    public function a_user_name_cannot_be_more_than_hundred_characters()
     {
-        $this->registerUser(['name' => str_repeat('a', 55)])
+        $this->registerUser(['name' => str_repeat('a', 101)])
             ->assertJsonValidationErrors('name');
     }
 

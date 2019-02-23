@@ -30,8 +30,8 @@
       <file leaf-file-name="RegisterUserTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/RegisterUserTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="53" column="48" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="48" />
+            <state relative-caret-position="329">
+              <caret line="60" column="72" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="72" />
               <folding>
                 <element signature="e#33#46#0#PHP" expanded="true" />
               </folding>
@@ -51,8 +51,8 @@
       <file leaf-file-name="RegisterRequest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/RegisterRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state relative-caret-position="273">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -525,12 +525,12 @@
       <workItem from="1550598327551" duration="1685000" />
       <workItem from="1550614266044" duration="1195000" />
       <workItem from="1550653056134" duration="23784000" />
-      <workItem from="1550833507757" duration="11048000" />
+      <workItem from="1550833507757" duration="11101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301154000" />
+    <option name="totallyTimeSpent" value="301207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="985" extended-state="6" />
@@ -931,8 +931,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/RegisterUserTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="53" column="48" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="48" />
+        <state relative-caret-position="329">
+          <caret line="60" column="72" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="72" />
           <folding>
             <element signature="e#33#46#0#PHP" expanded="true" />
           </folding>
@@ -941,8 +941,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/RegisterRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state relative-caret-position="273">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
         </state>
       </provider>
     </entry>

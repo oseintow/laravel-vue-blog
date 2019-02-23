@@ -17,10 +17,13 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::get('logout', function() {
        $token = Auth::user()->token();
        $token->revoke();
+
+       return null;
     });
 
     Route::resource('categories', 'CategoriesController');
     Route::resource('blogs', 'BlogsController');
+    Route::resource('register', 'RegisterController')->only(['store']);
 
     Route::get('users/{nickname}/blogs', 'UsersBlogsController@index');
     Route::get('users/{nickname}/blogs/{blog}', 'UsersBlogsController@show');

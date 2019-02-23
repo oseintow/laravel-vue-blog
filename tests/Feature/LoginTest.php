@@ -33,4 +33,20 @@ class LoginTest extends TestCase
             ->assertStatus(422)
             ->assertJson(['error' => 'email or password incorrect']);
     }
+
+    /** @test */
+    public function an_unauthenticated_user_can_not_logout()
+    {
+        $this->withExceptionHandling()
+            ->json('GET', 'v1/logout')
+            ->assertStatus(401);
+    }
+
+    /** @test */
+    public function authentication_users_can_logout()
+    {
+        $this->signIn()
+            ->json('GET', 'v1/logout')
+            ->assertStatus(200);
+    }
 }

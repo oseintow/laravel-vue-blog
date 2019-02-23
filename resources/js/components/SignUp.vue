@@ -7,7 +7,8 @@
                         <register></register>
                     </div>
                     <div class="col-md-6">
-                        <p class="my-4">Vertically centered modal!</p>
+                        <button @click="socialLogin('facebook')" class="facebook-signin">Facebook</button>
+                        <button @click="socialLogin('google')" class="google-signin">Google</button>
                     </div>
                 </div>
             </div>

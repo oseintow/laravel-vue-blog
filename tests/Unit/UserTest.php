@@ -23,6 +23,21 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function a_user_can_create_an_account()
+    {
+        $user = factory(User::class)
+            ->make(['nickname' => 'foo']);
+
+        User::register($user->toArray());
+
+        $this->assertDatabaseHas('users', [
+            'name' => $user->name,
+            'email' => $user->email,
+            'nickname' => $user->nickname
+        ]);
+    }
+
+    /** @test */
     public function a_user_can_authenticate()
     {
         $data = [

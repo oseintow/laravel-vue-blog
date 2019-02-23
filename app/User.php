@@ -74,7 +74,9 @@ class User extends Authenticatable
         $user = self::where(['email' => $data['email']])->first();
 
         if($user && Hash::check($data['password'], $user->password)) {
-            return $user;
+            $token = $user->createToken('AppTokens')->accessToken;
+
+            return compact('user', 'token');
         }
 
         return null;

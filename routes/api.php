@@ -24,7 +24,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::resource('categories', 'CategoriesController');
     Route::resource('blogs', 'BlogsController');
     Route::resource('register', 'RegisterController')->only(['store']);
-    Route::resource('login', 'LoginController')->only(['store']);
+
+    Route::post('login', 'LoginController@login');
 
     Route::get('users/{nickname}/blogs', 'UsersBlogsController@index');
     Route::get('users/{nickname}/blogs/{blog}', 'UsersBlogsController@show');

@@ -21,4 +21,34 @@ class UserTest extends TestCase
 
         $this->assertEquals($user->nickname, "{$firstname}-{$user->id}");
     }
+
+    /** @test */
+    public function a_user_can_authenticate()
+    {
+        $data = [
+            'email' => 'foo@bar.com',
+            'password' => 'secret'
+        ];
+
+        $this->installPassport();
+
+        create(User::class, $data);
+        $user = User::authenticate($data);
+
+        $this->assertArrayHasKey('user', $user);
+        $this->assertArrayHasKey('token', $user);
+    }
+
+    /** @test */
+    public function a_user_with_wrong_details_can_not_authenticate()
+    {
+        $data = [
+            'email' => 'foo@bar.com',
+            'password' => 'secret'
+        ];
+
+        $user = User::authenticate($data);
+
+        $this->assertNull($user);
+    }
 }

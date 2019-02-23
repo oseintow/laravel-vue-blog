@@ -23,7 +23,7 @@
                        placeholder="">
             </div>
 
-            <button type="submit" class="btn btn-primary" @click.preventDefault="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
         </form>
     </div>
 </template>
@@ -43,7 +43,8 @@
             }
         },
         methods: {
-            submit() {
+            submit(e) {
+                e.preventDefault()
                 this.login(this.user)
                     .then(() => {
                         this.user = {

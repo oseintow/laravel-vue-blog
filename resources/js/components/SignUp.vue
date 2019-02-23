@@ -1,17 +1,30 @@
 <template>
     <div>
         <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
-            <p class="my-4">Vertically centered modal!</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <register></register>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="my-4">Vertically centered modal!</p>
+                    </div>
+                </div>
+            </div>
         </b-modal>
     </div>
 </template>
 
 <script>
     import AuthenticationMixin from '@/mixins/AuthenticationMixin'
+    import Register from '@/components/Register'
 
     export default {
         name: "SignUp",
         mixins: [AuthenticationMixin],
+        components: {
+            Register
+        },
         created() {
             this.$eventBus.$on('sign-up', () => this.showSignUp())
         },

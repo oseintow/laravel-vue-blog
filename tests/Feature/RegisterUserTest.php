@@ -78,6 +78,13 @@ class RegisterUserTest extends TestCase
             ->assertJsonValidationErrors('email');
     }
 
+    /** @test */
+    public function a_users_email_must_be_a_valid_email()
+    {
+        $this->registerUser(['email' => 'foo@bar'])
+            ->assertJsonValidationErrors('email');
+    }
+
     protected function registerUser(array $body = [])
     {
         $user = factory(User::class)

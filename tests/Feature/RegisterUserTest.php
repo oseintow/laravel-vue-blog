@@ -85,6 +85,13 @@ class RegisterUserTest extends TestCase
             ->assertJsonValidationErrors('email');
     }
 
+    /** @test */
+    public function a_users_password_is_required()
+    {
+        $this->registerUser(['password' => null])
+            ->assertJsonValidationErrors('password');
+    }
+
     protected function registerUser(array $body = [])
     {
         $user = factory(User::class)

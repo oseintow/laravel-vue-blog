@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             "name" => "required|min:3|max:100",
             "nickname" => "required|min:3|max:50",
             "email" => "required|email",
-            "password" => "required|min:6"
+            "password" => "required|min:6|max:50"
         ];
     }
 }

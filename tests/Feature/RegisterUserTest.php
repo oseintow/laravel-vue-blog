@@ -99,6 +99,13 @@ class RegisterUserTest extends TestCase
             ->assertJsonValidationErrors('password');
     }
 
+    /** @test */
+    public function a_users_password_cannot_be_more_than_fifty_characters()
+    {
+        $this->registerUser(['password' => str_repeat('a', 51)])
+            ->assertJsonValidationErrors('password');
+    }
+
     protected function registerUser(array $body = [])
     {
         $user = factory(User::class)

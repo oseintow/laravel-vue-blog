@@ -50,6 +50,13 @@ class RegisterUserTest extends TestCase
             ->assertJsonValidationErrors('name');
     }
 
+    /** @test */
+    public function a_users_nickname_is_required()
+    {
+        $this->registerUser(['nickname' => null])
+            ->assertJsonValidationErrors('nickname');
+    }
+
     protected function registerUser(array $body = [])
     {
         $user = factory(User::class)

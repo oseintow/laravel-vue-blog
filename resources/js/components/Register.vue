@@ -53,16 +53,16 @@
             </div>
 
             <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
+                <label for="password_confirmation">Confirm Password:</label>
                 <input type="password"
                        v-model="user.confirm_password"
-                       name="confirm_password"
+                       name="password_confirmation"
                        class="form-control"
-                       id="confirm_password"
+                       id="password_confirmation"
                        placeholder=""
                        data-vv-as="password"
                        v-validate="'required|confirmed:password'">
-                <error v-show="errors.has('confirm_password')">{{ errors.first('confirm_password') }}</error>
+                <error v-show="errors.has('password_confirmation')">{{ errors.first('password_confirmation') }}</error>
             </div>
 
             <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
@@ -83,7 +83,7 @@
                     nickname: '',
                     email: '',
                     password: '',
-                    confirm_password: ''
+                    password_confirmation: ''
                 }
             }
         },

@@ -13,7 +13,10 @@ class RegisterUserTest extends TestCase
     /** @test */
     public function a_user_can_create_an_account()
     {
-        $this->registerUser()
+        $this->registerUser([
+                'password' => 'secret',
+                'password_confirmation' => 'secret'
+            ])
             ->assertStatus(200)
             ->assertJsonStructure([
                 'token',
@@ -103,6 +106,16 @@ class RegisterUserTest extends TestCase
     public function a_users_password_cannot_be_more_than_fifty_characters()
     {
         $this->registerUser(['password' => str_repeat('a', 51)])
+            ->assertJsonValidationErrors('password');
+    }
+
+    /** @test */
+    public function a_users_password_and_confirmation_password_does_not_match()
+    {
+        $this->registerUser([
+                'password' => 'aaaaaa',
+                'password_confirmation' => 'bbbbbb'
+            ])
             ->assertJsonValidationErrors('password');
     }
 

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Tests\Feature;
-
 
 use App\SocialAccount;
 use Illuminate\Foundation\Testing\RefreshDatabase;

@@ -69,4 +69,15 @@ class User extends Authenticatable
         return self::create($data);
     }
 
+    public static function authenticate(array $data)
+    {
+        $user = self::where(['email' => $data['email']])->first();
+
+        if($user && Hash::check($data['password'], $user->password)) {
+            return $user;
+        }
+
+        return null;
+    }
+
 }

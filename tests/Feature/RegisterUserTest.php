@@ -36,7 +36,12 @@ class RegisterUserTest extends TestCase
     public function a_users_name_is_required()
     {
         $this->registerUser(['name' => null])
-            ->assertJsonValidationErrors('name');
+            ->assertJsonValidationErrors('name')
+            ->assertJson([
+                'errors' => [
+                    'name' => ['The name field is required.']
+                ]
+            ]);
     }
 
     /** @test */

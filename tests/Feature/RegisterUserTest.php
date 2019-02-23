@@ -92,6 +92,13 @@ class RegisterUserTest extends TestCase
             ->assertJsonValidationErrors('password');
     }
 
+    /** @test */
+    public function a_users_password_cannot_be_less_than_six_characters()
+    {
+        $this->registerUser(['password' => str_repeat('a', 5)])
+            ->assertJsonValidationErrors('password');
+    }
+
     protected function registerUser(array $body = [])
     {
         $user = factory(User::class)

@@ -5,6 +5,7 @@ import NewBlog from '../pages/NewBlog'
 import BlogView from '../pages/BlogView'
 import UserBlogsView from '../pages/UserBlogsView'
 import Header from '@/components/menu/Header'
+import ResetPasswordView from '@/pages/ResetPasswordView'
 
 Vue.use(Router)
 
@@ -30,6 +31,12 @@ export default new Router({
         },
         { path: '/@:nickname/:slug', name: 'user-blog',  components: {
                 default: BlogView, header: Header
+            },meta: {
+                forVisitors: true
+            }
+        },
+        { path: '/password/reset', name: 'reset-password',  components: {
+                default: ResetPasswordView, header: Header
             },meta: {
                 forVisitors: true
             }

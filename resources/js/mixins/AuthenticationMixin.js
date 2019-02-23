@@ -8,7 +8,7 @@ export default {
         login(provider) {
             this.$store.dispatch('auth/login', provider)
                 .then(() =>{
-                    this.hideModal()
+                    this.$eventBus.userLoggedIn()
                 })
                 .catch(error => console.error(error))
         },

@@ -28,6 +28,7 @@ export default {
     },
     created() {
         this.$eventBus.$on('sign-in', () => this.showSignIn())
+        this.$eventBus.$on('user-logged-in', () => this.hideModal())
     },
     methods: {
         showSignIn() {

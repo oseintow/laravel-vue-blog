@@ -32,7 +32,7 @@ export const actions= {
                 }).catch(error => reject(error))
         })
     },
-    login({comit}, payload) {
+    login({commit}, payload) {
         return new Promise((resolve, reject) => {
             login(payload)
                 .then(({data}) => {

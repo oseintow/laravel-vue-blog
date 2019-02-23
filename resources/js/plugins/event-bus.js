@@ -11,6 +11,9 @@ const eventBus = {
                 userRegistered() {
                   this.$emit('user-registered')
                 },
+                userLoggedIn() {
+                  this.$emit('user-logged-in')
+                },
                 search(value) {
                     this.$emit('search', value)
                 },

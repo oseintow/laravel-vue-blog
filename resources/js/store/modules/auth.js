@@ -1,5 +1,5 @@
 import { getVueAuthenticate } from "@/plugins/vue-authenticator"
-import { register, login, logout } from '@/api/auth'
+import { register, login, logout, sendPasswordResetLink, resetPassword } from '@/api/auth'
 
 let vueAuth = getVueAuthenticate()
 
@@ -55,13 +55,33 @@ export const actions= {
         })
     },
 
-    logout({commit}, payload) {
+    logout({commit}) {
         return new Promise((resolve, reject) => {
             commit('IS_AUTHENTICATED', {isAuthenticated: false})
             commit('SET_AUTH_USER', null)
             commit('SET_AUTH_TOKEN', null)
 
             logout()
+                .then((response) => {
+                    resolve()
+                })
+                .catch(error => reject(error))
+        });
+    },
+
+    sendPasswordResetLink({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            sendPasswordResetLink(payload)
+                .then((response) => {
+                    resolve()
+                })
+                .catch(error => reject(error))
+        });
+    },
+
+    resetPassword({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            resetPassword(payload)
                 .then((response) => {
                     resolve()
                 })

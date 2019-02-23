@@ -11,3 +11,11 @@ export function login(payload) {
 export function logout() {
     return axios.get('v1/logout')
 }
+
+export function sendPasswordResetLink(payload) {
+    return axios.post('v1/password/email', payload)
+}
+
+export function resetPassword(payload) {
+    return axios.post('v1/reset', payload)
+}

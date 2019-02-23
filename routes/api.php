@@ -18,6 +18,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
 
     Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout');
+    Route::post('password/reset', 'PasswordResetController@reset');
+    Route::post('password/email', 'PasswordResetController@sendResetLinkEmail');
 
     Route::get('users/{nickname}/blogs', 'UsersBlogsController@index');
     Route::get('users/{nickname}/blogs/{blog}', 'UsersBlogsController@show');

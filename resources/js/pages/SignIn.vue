@@ -10,7 +10,7 @@ export default {
     name: "SignIn-Page",
     methods: {
         authenticate(provider) {
-            this.$store.dispatch('auth/login', provider)
+            this.$store.dispatch('auth/socialLogin', provider)
                 .then(() => this.$router.push({name: 'home'}))
                 .catch(error => console.error(error))
         }

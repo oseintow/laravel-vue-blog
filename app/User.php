@@ -56,4 +56,10 @@ class User extends Authenticatable
             'nickname' => $providerUser->getNickname()
         ]);
     }
+
+    public static function register(array $data)
+    {
+        return self::create($data);
+    }
+
 }

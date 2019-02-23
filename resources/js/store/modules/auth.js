@@ -1,5 +1,5 @@
 import { getVueAuthenticate } from "@/plugins/vue-authenticator"
-import { logout } from '@/api/auth'
+import { register, logout } from '@/api/auth'
 
 let vueAuth = getVueAuthenticate()
 
@@ -21,8 +21,19 @@ export const mutations = {
 }
 
 export const actions= {
+    register({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            register(payload)
+                .then(({data}) => {
+                    commit('IS_AUTHENTICATED', {isAuthenticated: true})
+                    commit('SET_AUTH_USER', data['user'])
+                    commit('SET_AUTH_TOKEN', data['token'])
+                    resolve(data)
+                }).catch(error => reject(error))
+        })
+    },
     // Perform VueAuthenticate login using Vuex actions
-    login({commit}, payload) {
+    socialLogin({commit}, payload) {
         return new Promise((resolve, reject) => {
             vueAuth.authenticate(payload).then(({data}) => {
                 commit('IS_AUTHENTICATED', {isAuthenticated: true})

@@ -17,9 +17,10 @@ class CategoriesTest extends TestCase
     {
         $this->seed(CategoriesTableSeeder::class)
             ->json('GET', '/v1/categories')
+            ->assertJsonCount(6, 'categories')
             ->assertJson([
                 "categories" => [
-                    ["name" => "Laravel", "slug" => "laravel"],
+                    ['name' => 'Laravel', 'slug' => 'laravel'],
                     ['name' => 'VueJs', 'slug' => 'vuejs'],
                     ['name' => 'Express', 'slug' => 'express'],
                     ['name' => 'Angular', 'slug' => 'angular'],

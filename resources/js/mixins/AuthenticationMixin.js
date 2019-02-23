@@ -6,7 +6,7 @@ export default {
     },
     methods: {
         authenticate(provider) {
-            this.$store.dispatch('auth/login', provider)
+            this.$store.dispatch('auth/socialLogin', provider)
                 .then(() =>{
                     this.hideModal()
                 })

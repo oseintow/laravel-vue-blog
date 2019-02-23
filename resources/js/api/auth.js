@@ -4,6 +4,10 @@ export function register(payload) {
     return axios.post('v1/register', payload)
 }
 
+export function login(payload) {
+    return axios.post('v1/login', payload)
+}
+
 export function logout() {
     return axios.get('v1/logout')
 }

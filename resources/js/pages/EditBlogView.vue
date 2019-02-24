@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Edit Story</h3>
+        <h3 class="mb-4">Edit Story</h3>
         <blog-form type="edit" :slug="slug"></blog-form>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>New Story</h3>
+        <h3 class="mb-4">New Story</h3>
         <blog-form type="new"></blog-form>
     </div>
 </template>

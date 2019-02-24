@@ -90,8 +90,12 @@ class User extends Authenticatable
 
     public static function changePassword(array $data)
     {
-        return self::where('email', $data['email'])
-            ->update(['password' => $data['password']]);
+        $user =  self::where('email', $data['email'])->first();
+
+        $user->update(['password' => $data['password']]);
+
+        return $user;
+
     }
 
 }

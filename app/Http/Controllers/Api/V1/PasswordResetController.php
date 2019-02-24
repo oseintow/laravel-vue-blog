@@ -8,6 +8,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Notifications\PasswordResetSuccessfully;
 use App\Notifications\SendPasswordResetLink;
 use App\PasswordReset;
+use App\User;
 
 class PasswordResetController extends Controller
 {
@@ -23,11 +24,9 @@ class PasswordResetController extends Controller
 
     public function resetPassword(ResetPasswordRequest $request)
     {
-        $data = $request->only('email', 'password');
+        $user = User::changePassword($request->only('email', 'password'));
 
-        $user = User::changePassword($data);
-
-        PasswordReset::where($data)->delete();
+        PasswordReset::where($request->only('email', 'token'))->delete();
 
         $user->notify(new PasswordResetSuccessfully());
     }

@@ -41,8 +41,7 @@ class PasswordResetSuccessfully extends Notification implements ShouldQueue
         return (new MailMessage)
             ->line('Password changed successfully.')
             ->line('If you did changed your password, no further action is required.')
-            ->line('If you did not change your password, 
-            some one might have tempered with your account so reset your password');
+            ->line('If you did not then some one might have tempered with your account so reset your password');
     }
     /**
      * Get the array representation of the notification.

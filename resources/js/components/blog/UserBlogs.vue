@@ -1,10 +1,11 @@
 <template>
     <div>
-        <div v-for="userBlog in userBlogs">
-            <user-blog :data="userBlog"></user-blog>
+        <div v-for="(userBlog, index) in userBlogs" :key="userBlog.id">
+            <user-blog :data="userBlog" @deleted="remove(index)"></user-blog>
         </div>
         <div style="margin-bottom: 100px">
-            <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getUserBlogs" v-if="userBlogs"></infinite-loading>
+            <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getUserBlogs" v-if="userBlogs">
+            </infinite-loading>
         </div>
     </div>
 </template>
@@ -55,6 +56,9 @@
                     q: '',
                     per_page: 5
                 }
+            },
+            remove(index) {
+                this.userBlogs.splice(index, 1);
             }
 
         },

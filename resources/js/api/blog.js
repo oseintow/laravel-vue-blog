@@ -17,6 +17,10 @@ export function getBlog({slug}) {
     return axios.get(`/v1/blogs/${slug}`)
 }
 
+export function deleteBlog({slug}) {
+    return axios.delete(`/v1/blogs/${slug}`)
+}
+
 export function getBlogs(payload) {
     return axios.get('/v1/blogs', { params: payload})
 }

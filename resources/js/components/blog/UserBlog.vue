@@ -82,6 +82,7 @@
         data() {
             return {
                 blog: this.data,
+                isDeleted: false
             }
         },
         methods: {
@@ -103,7 +104,8 @@
                 this.$router.push({name: 'edit-user-blog', params: { slug: blog.slug}})
             },
             deleteBlog(blog) {
-                console.log('delete blog')
+                this.$store.dispatch('blog/deleteBlog', {slug: blog.slug})
+                    .then(() => this.$emit('deleted', this.blog.id))
             }
         },
         computed: {

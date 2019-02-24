@@ -75,4 +75,11 @@ class BlogsController extends Controller
 
         return response(compact('blog'));
     }
+
+    public function destroy(Blog $blog)
+    {
+        $blog->delete();
+
+        return null;
+    }
 }

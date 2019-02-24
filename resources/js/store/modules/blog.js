@@ -1,4 +1,12 @@
-import { saveBlog, updateBlog, getBlogs, getBlog, getUserBlog, getUserBlogs } from '@/api/blog'
+import {
+    saveBlog,
+    updateBlog,
+    deleteBlog,
+    getBlogs,
+    getBlog,
+    getUserBlog,
+    getUserBlogs
+} from '@/api/blog'
 
 const state = {
 }
@@ -26,6 +34,16 @@ const actions = {
                 })
                 .catch(error => reject(error))
 
+        })
+    },
+
+    deleteBlog({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            deleteBlog(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
         })
     },
 

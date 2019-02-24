@@ -15,7 +15,7 @@
     import { quillEditor } from 'vue-quill-editor'
 
     export default {
-        name: "BlogPostEditor",
+        name: "Editor",
         props: ['body'],
         components: {
             quillEditor

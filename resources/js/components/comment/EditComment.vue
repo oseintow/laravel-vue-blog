@@ -31,7 +31,7 @@
             return {
                 id: this.comment.id,
                 body: this.comment.body,
-                slug: this.blogSlug
+                slug: this.blogSlug,
             }
         },
         methods: {
@@ -39,6 +39,10 @@
                 updateComment: 'comment/updateComment'
             }),
             delta(value) {
+                if(value === '') {
+                    return this.body = ''
+                }
+
                 this.body = value.getContents()
             },
             update(){

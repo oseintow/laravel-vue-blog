@@ -11,3 +11,7 @@ export function saveComment({slug, body}) {
 export function updateComment({slug, id, body}) {
     return axios.put(`/v1/blogs/${slug}/comments/${id}`, { body })
 }
+
+export function deleteComment({slug, id}) {
+    return axios.put(`/v1/blogs/${slug}/comments/${id}`)
+}

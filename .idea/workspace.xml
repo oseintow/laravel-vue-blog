@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/SendPasswordResetLink.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/SendPasswordResetLink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PasswordReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PasswordReset.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PasswordResetController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PasswordResetController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="233">
+              <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding>
                 <element signature="e#47#83#0#PHP" expanded="true" />
               </folding>
@@ -41,32 +39,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PasswordResetSuccessfully.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php">
+      <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-              <folding>
-                <element signature="e#37#66#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="15" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/RegisterRequest.php">
+      <file leaf-file-name="PasswordReset.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/PasswordReset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="90" column="54" lean-forward="true" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
+            <state relative-caret-position="381">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -208,7 +194,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Notifications/SendPaswordResetLink.php" />
-        <option value="$PROJECT_DIR$/app/PasswordReset.php" />
         <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
         <option value="$PROJECT_DIR$/resources/js/router/index.js" />
         <option value="$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue" />
@@ -217,9 +202,10 @@
         <option value="$PROJECT_DIR$/resources/js/components/Register.vue" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ResetPasswordRequest.php" />
         <option value="$PROJECT_DIR$/app/Notifications/SendPasswordResetLink.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php" />
+        <option value="$PROJECT_DIR$/app/PasswordReset.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php" />
       </list>
     </option>
   </component>
@@ -528,12 +514,12 @@
       <workItem from="1550598327551" duration="1685000" />
       <workItem from="1550614266044" duration="1195000" />
       <workItem from="1550653056134" duration="23784000" />
-      <workItem from="1550833507757" duration="45135000" />
+      <workItem from="1550833507757" duration="45532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335241000" />
+    <option name="totallyTimeSpent" value="335638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="985" extended-state="6" />
@@ -546,8 +532,8 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.36926606" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2899878" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.36926606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2899878" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3295063" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -597,9 +583,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/pages/NewBlog.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1858">
@@ -850,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/PasswordReset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -929,22 +905,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php">
+    <entry file="file://$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="312">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#47#83#0#PHP" expanded="true" />
+            <element signature="e#37#66#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Notifications/PasswordResetSuccessfully.php">
+    <entry file="file://$PROJECT_DIR$/app/PasswordReset.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="43" column="29" lean-forward="true" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+        <state relative-caret-position="381">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="15" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PasswordResetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
-            <element signature="e#37#66#0#PHP" expanded="true" />
+            <element signature="e#47#83#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

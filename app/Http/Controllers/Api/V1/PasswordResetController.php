@@ -19,15 +19,17 @@ class PasswordResetController extends Controller
         ($passwordReset->load('user'))
             ->user->notify(new SendPasswordResetLink($passwordReset->token));
 
-        return response()->json(['message' => 'We have e-mailed your password reset link!']);
+        return response(['message' => 'We have e-mailed your password reset link!']);
     }
 
     public function resetPassword(ResetPasswordRequest $request)
     {
         $user = User::changePassword($request->only('email', 'password'));
-
-        PasswordReset::where($request->only('email', 'token'))->delete();
+        PasswordReset::deleteToken($request->only('email', 'token'));
 
         $user->notify(new PasswordResetSuccessfully());
+        $token = $user->createToken('AppTokens')->accessToken;
+
+        return response(compact('token', 'user'));
     }
 }

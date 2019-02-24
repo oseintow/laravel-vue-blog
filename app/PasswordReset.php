@@ -28,4 +28,9 @@ class PasswordReset extends Model
             ]
         );
     }
+
+    public static function deleteToken(array $data)
+    {
+        return self::where($data)->delete();
+    }
 }

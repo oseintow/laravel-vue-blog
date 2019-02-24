@@ -89,7 +89,8 @@ class AuthenticateUsingSocialiteTest extends TestCase
     /** @test */
     public function should_return_403_if_something_bad_occurs()
     {
-        $this->json('POST', "/auth/foo")
+        $this
+            ->json('POST', "/auth/foo")
             ->assertStatus(403);
     }
 

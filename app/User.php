@@ -47,12 +47,6 @@ class User extends Authenticatable
                 $user->password = Hash::make($user->password);
             }
         });
-
-        static::updating(function(User $user) {
-            if ($user->password) {
-                $user->password = Hash::make($user->password);
-            }
-        });
     }
 
     public function accounts()
@@ -92,10 +86,9 @@ class User extends Authenticatable
     {
         $user =  self::where('email', $data['email'])->first();
 
-        $user->update(['password' => $data['password']]);
+        $user->update(['password' => Hash::make($data['password'])]);
 
         return $user;
-
     }
 
 }

@@ -99,8 +99,7 @@
                 if (this.errors.any()) return;
 
                 this.$store.dispatch('auth/resetPassword', this.user)
-                    .then((response) => {
-                    })
+                    .then(() => this.$router.push({name: 'home'}))
             }
         }
     }

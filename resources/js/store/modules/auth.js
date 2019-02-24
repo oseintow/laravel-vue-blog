@@ -83,6 +83,9 @@ export const actions= {
         return new Promise((resolve, reject) => {
             resetPassword(payload)
                 .then(({data}) => {
+                    commit('IS_AUTHENTICATED', {isAuthenticated: true})
+                    commit('SET_AUTH_USER', data['user'])
+                    commit('SET_AUTH_TOKEN', data['token'])
                     resolve(data)
                 })
                 .catch(error => reject(error))

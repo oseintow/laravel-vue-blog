@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PasswordResetLinkEmailRequest;
 use App\Http\Requests\ResetPasswordRequest;
+use App\Notifications\PasswordResetSuccessfully;
 use App\Notifications\SendPasswordResetLink;
 use App\PasswordReset;
 
@@ -22,6 +23,12 @@ class PasswordResetController extends Controller
 
     public function resetPassword(ResetPasswordRequest $request)
     {
+        $data = $request->only('email', 'password');
 
+        $user = User::changePassword($data);
+
+        PasswordReset::where($data)->delete();
+
+        $user->notify(new PasswordResetSuccessfully());
     }
 }

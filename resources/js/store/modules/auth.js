@@ -72,8 +72,8 @@ export const actions= {
     sendPasswordResetLink({commit}, payload) {
         return new Promise((resolve, reject) => {
             sendPasswordResetLink(payload)
-                .then((response) => {
-                    resolve()
+                .then(({data}) => {
+                    resolve(data)
                 })
                 .catch(error => reject(error))
         });
@@ -82,8 +82,8 @@ export const actions= {
     resetPassword({commit}, payload) {
         return new Promise((resolve, reject) => {
             resetPassword(payload)
-                .then((response) => {
-                    resolve()
+                .then(({data}) => {
+                    resolve(data)
                 })
                 .catch(error => reject(error))
         });

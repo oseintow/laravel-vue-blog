@@ -7,8 +7,10 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class SendPasswordResetLink extends Notification
+class SendPasswordResetLink extends Notification implements ShouldQueue
 {
+    use Queueable;
+
     protected $token;
     /**
      * Create a new notification instance.
@@ -38,6 +40,7 @@ class SendPasswordResetLink extends Notification
     public function toMail($notifiable)
     {
         $url = url('/v1/password/reset/'.$this->token);
+
         return (new MailMessage)
             ->line('You are receiving this email because we received a password reset request for your account.')
             ->action('Reset Password', url($url))

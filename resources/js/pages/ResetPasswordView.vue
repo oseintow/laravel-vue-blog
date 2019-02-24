@@ -11,7 +11,7 @@
                                 <div class="col-sm-9">
                                     <div>
                                         <input type="text"
-                                               v-model="email"
+                                               v-model="user.email"
                                                name="email"
                                                class="form-control"
                                                id="email"
@@ -21,15 +21,56 @@
                                     <div>
                                         <error v-if="errors.has('email')">{{ errors.first('email') }}</error>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label" style="font-size: 14px">Password:</label>
+                                <div class="col-sm-9">
                                     <div>
-                                        <button type="submit"
-                                                class="btn btn-primary mt-3"
-                                                @click="sendPasswordResetLink">
-                                            Send Password Reset Link
-                                        </button>
+                                        <input type="password"
+                                               v-model="user.password"
+                                               name="password"
+                                               class="form-control"
+                                               id="password"
+                                               ref="password"
+                                               placeholder=""
+                                               v-validate="'required|min:6|max:50'">
+                                    </div>
+                                    <div>
+                                        <error v-if="errors.has('password')">{{ errors.first('password') }}</error>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label" style="font-size: 14px">Confirm Password:</label>
+                                <div class="col-sm-9">
+                                    <div>
+                                        <input type="password"
+                                               v-model="user.confirm_password"
+                                               name="password_confirmation"
+                                               class="form-control"
+                                               id="password_confirmation"
+                                               placeholder=""
+                                               data-vv-as="password"
+                                               v-validate="'required|confirmed:password'">
+                                    </div>
+                                    <div>
+                                        <error v-if="errors.has('password_confirmation')">{{ errors.first('password_confirmation') }}</error>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9">
+                                    <button type="submit"
+                                            class="btn btn-primary mt-2"
+                                            @click="resetPassword">
+                                        Reset Password
+                                    </button>
+                                </div>
+                            </div>
+
                         </li>
                     </ul>
                 </div>
@@ -43,18 +84,21 @@
         name: "ResetPasswordView",
         data() {
           return {
-            email: ''
+            user: {
+                email: '',
+                password: '',
+                confirm_password: ''
+            }
           }
         },
         methods: {
-            sendPasswordResetLink(e) {
+            resetPassword(e) {
                 e.preventDefault()
                 this.$validator.validateAll()
                 if (this.errors.any()) return;
 
-                this.$store.dispatch('auth/sendPasswordResetLink', { email: this.email })
-                    .then(() => {
-                        alert('got here');
+                this.$store.dispatch('auth/resetPassword', this.user)
+                    .then((response) => {
                     })
             }
         }

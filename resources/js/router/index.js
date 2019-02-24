@@ -6,6 +6,7 @@ import BlogView from '../pages/BlogView'
 import UserBlogsView from '../pages/UserBlogsView'
 import Header from '@/components/menu/Header'
 import ResetPasswordView from '@/pages/ResetPasswordView'
+import SendResetPasswordLinkView from '@/pages/SendResetPasswordLinkView'
 
 Vue.use(Router)
 
@@ -36,6 +37,12 @@ export default new Router({
             }
         },
         { path: '/password/reset', name: 'reset-password',  components: {
+                default: SendResetPasswordLinkView, header: Header
+            },meta: {
+                forVisitors: true
+            }
+        },
+        { path: '/password/reset/:token', name: 'reset-password-token',  components: {
                 default: ResetPasswordView, header: Header
             },meta: {
                 forVisitors: true

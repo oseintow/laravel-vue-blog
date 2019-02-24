@@ -75,6 +75,7 @@
                 this.edit = true;
             },
             updatedComment(body) {
+                this.comment.body = body
                 this.edit = false;
             },
             cancelledComment() {

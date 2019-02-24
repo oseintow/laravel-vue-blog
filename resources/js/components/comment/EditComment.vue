@@ -44,7 +44,7 @@
             update(){
                 this.updateComment({ id: this.id, slug: this.slug, body: this.body })
                     .then((response) =>{
-                        this.$emit('updated')
+                        this.$emit('updated', response.comment.body)
                     })
                     .catch((error) => console.log(error));
             },

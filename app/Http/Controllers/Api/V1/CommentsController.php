@@ -51,9 +51,9 @@ class CommentsController extends Controller
      */
     public function update(UpdateCommentRequest $request, $slug)
     {
-        $this->authorize('update', Comment::clas);
-
         $comment = Comment::onBlog($slug)->find($request->comment);
+
+        $this->authorize('update', $comment);
 
         $comment->update($request->only('body'));
 

@@ -49,12 +49,23 @@ class CommentsController extends Controller
      * @param $slug
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function update(UpdateCommentRequest $request, $slug, $id)
+    public function update(UpdateCommentRequest $request, $slug)
     {
-        $comment = Comment::onBlog($slug)->find($id);
+        $this->authorize('update', Comment::clas);
+
+        $comment = Comment::onBlog($slug)->find($request->comment);
 
         $comment->update($request->only('body'));
 
         return response(['comment' => $comment->load('owner')]);
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $this->authorize('delete', Comment::clas);
+
+        $comment->delete();
+
+        return null;
     }
 }

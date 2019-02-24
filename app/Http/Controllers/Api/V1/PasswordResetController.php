@@ -14,8 +14,8 @@ class PasswordResetController extends Controller
     {
         $passwordReset = PasswordReset::generateToken($request->email);
 
-        if ($passwordReset && $passwordReset->load('user'))
-            $passwordReset->user->notify(new SendPasswordResetLink($passwordReset->token));
+        ($passwordReset->load('user'))
+            ->user->notify(new SendPasswordResetLink($passwordReset->token));
 
         return response()->json(['message' => 'We have e-mailed your password reset link!']);
     }

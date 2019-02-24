@@ -28,7 +28,7 @@ class Blog extends Model
             $builder->withCount('comments');
         });
 
-        static::saving(function ($model) {
+        static::creating(function ($model) {
             $model->slug = str_slug($model->title);
         });
     }

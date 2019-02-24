@@ -1,4 +1,4 @@
-import { getComments, saveComment } from '@/api/comment'
+import { getComments, saveComment, updateComment } from '@/api/comment'
 
 const state = {
 }
@@ -19,6 +19,15 @@ const actions = {
     saveComment({commit}, payload) {
         return new Promise((resolve, reject) => {
             saveComment(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
+        })
+    },
+    updateComment({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            updateComment(payload)
                 .then(({data}) => {
                     resolve(data)
                 })

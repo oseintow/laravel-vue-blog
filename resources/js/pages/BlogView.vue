@@ -13,7 +13,7 @@
                 <h3>Comments</h3>
             </div>
             <div class="col-md-8" v-if="$auth.check">
-                <comment-editor :newComment="content" :slug="params.slug" v-if="params.slug"></comment-editor>
+                <new-comment :newComment="content" :slug="params.slug" v-if="params.slug"></new-comment>
             </div>
         </div>
         <div class="row justify-content-md-center get-new-comments ">
@@ -32,7 +32,7 @@
 <script>
     import { mapActions } from 'vuex'
     import BlogReader from '@/components/blog/BlogReader'
-    import CommentEditor from '@/components/comment/CommentEditor'
+    import NewComment from '@/components/comment/NewComment'
     import Comments from '@/components/comment/Comments'
     import GetNewComments from '@/components/comment/GetNewComments'
     import Favourite from '@/components/Favourite'
@@ -42,7 +42,7 @@
         components:{
             BlogReader,
             Comments,
-            CommentEditor,
+            NewComment,
             Favourite,
             GetNewComments
         },

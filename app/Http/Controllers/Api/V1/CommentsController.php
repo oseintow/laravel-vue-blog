@@ -6,6 +6,7 @@ use App\Blog;
 use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Resources\CommentCollection;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CommentsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api')->only(['store']);
+        $this->middleware('auth:api')->only(['store', 'update']);
     }
 
     /**
@@ -36,9 +37,23 @@ class CommentsController extends Controller
      */
     public function store(SaveCommentRequest $request, $slug)
     {
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog = Blog::hasSlug($slug)->firstOrFail();
 
         $comment = $blog->saveComment($request->body);
+
+        return response(['comment' => $comment->load('owner')]);
+    }
+
+    /**
+     * @param SaveCommentRequest $request
+     * @param $slug
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function update(UpdateCommentRequest $request, $slug, $id)
+    {
+        $comment = Comment::onBlog($slug)->find($id);
+
+        $comment->update($request->only('body'));
 
         return response(['comment' => $comment->load('owner')]);
     }

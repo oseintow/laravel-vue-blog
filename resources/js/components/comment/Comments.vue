@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="comment in comments" :key="comment.id">
-            <comment :data="comment" class="mb-3"></comment>
+            <comment :data="comment" :blogSlug="slug" class="mb-3"></comment>
         </div>
         <div style="margin-bottom: 100px" v-if="enableInfiniteLoading">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getComments" v-if="comments"></infinite-loading>

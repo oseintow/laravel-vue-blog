@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home.vue'
-import NewBlog from '@/pages/NewBlog'
+import NewBlogView from '@/pages/NewBlogView'
 import BlogView from '@/pages/BlogView'
 import EditBlogView from '@/pages/EditBlogView'
 import UserBlogsView from '@/pages/UserBlogsView'
@@ -20,7 +20,7 @@ export default new Router({
             }
         },
         { path: '/blog/new', name: 'new-blog',  components: {
-                default: NewBlog, header: Header
+                default: NewBlogView, header: Header
             },meta: {
                 forVisitors: true
             }

@@ -7,3 +7,7 @@ export function getComments({slug, query}) {
 export function saveComment({slug, body}) {
     return axios.post(`/v1/blogs/${slug}/comments`, { body })
 }
+
+export function updateComment({slug, id, body}) {
+    return axios.put(`/v1/blogs/${slug}/comments/${id}`, { body })
+}

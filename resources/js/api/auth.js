@@ -17,5 +17,5 @@ export function sendPasswordResetLink(payload) {
 }
 
 export function resetPassword(payload) {
-    return axios.post('v1/reset', payload)
+    return axios.post('v1/passord/reset', payload)
 }

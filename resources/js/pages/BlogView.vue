@@ -58,7 +58,7 @@
         },
         methods: {
             ...mapActions({
-                getBlog: 'blog/getUserBlog',
+                getUserBlog: 'blog/getUserBlog',
             }),
             content(value){
                 // this.body = value.getContents()

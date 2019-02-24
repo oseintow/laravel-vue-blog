@@ -52,8 +52,8 @@
             </div>
 
             <div class="row post-actions-row float-right mb-4">
-                <button class="btn btn-primary" @click="saveBlog" v-if="formType='new'">Save</button>
-                <button class="btn btn-primary" @click="updateBlog" v-if="formType='edit'">Save</button>
+                <button class="btn btn-primary" @click="saveBlog" v-if="formType=='new'">Save</button>
+                <button class="btn btn-primary" @click="updateBlog" v-if="formType=='edit'">Update</button>
             </div>
 
             <div class="" ref="contentContainer"></div>
@@ -108,6 +108,7 @@
                 this.getBlog({slug: this.slug})
                     .then((response) => {
                         this.blog = response.blog
+                        this.image_url = response.blog.cover_image_url
                     })
             }
         },
@@ -175,6 +176,7 @@
                 this.$validator.validateAll()
                 if (this.errors.any()) return;
 
+                this.blog._method = "PUT"
                 const formData = this.prepareFormData();
 
                 this.$store.dispatch('blog/updateBlog', {slug: this.slug, formData})

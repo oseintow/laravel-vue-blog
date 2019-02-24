@@ -3,15 +3,35 @@
         <div class="row shadow p-4 mb-4 bg-white rounded">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="d-flex flex-row">
-                        <div class="mr-2">
-                            <avatar :image="blog.author.avatar"></avatar>
+                    <div class="row col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="mr-2">
+                                    <avatar :image="blog.author.avatar"></avatar>
+                                </div>
+                                <div class="blog-info">
+                                    <a class="blog-link" @click.preventDefault="gotoUsersBlogs">
+                                        <p class="author-name">{{blog.author.name}}</p>
+                                    </a>
+                                    <p class="created_at">{{ago}}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog-info">
-                            <a class="blog-link" @click.preventDefault="gotoUsersBlogs">
-                                <p class="author-name">{{blog.author.name}}</p>
-                            </a>
-                            <p class="created_at">{{ago}}</p>
+                        <div class="col-sm-6">
+                            <div class="d-flex justify-content-end" style="margin-right: -35px">
+                                <div class="justify-content-end d-flex" v-if="$auth.check">
+                                    <div class="dropdown">
+                                        <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
+                                            <!--<avatar :image="$auth.user.avatar" :width="40" :height="40"></avatar>-->
+
+                                            <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>
+                                        </div>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                            <a class="dropdown-item" @click.preventDefault="editBlog(blog)">Edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,6 +96,13 @@
                     params:{
                         nickname: this.blog.author.nickname,
                         slug: this.blog.slug }
+                })
+            },
+            editBlog(blog) {
+                this.$router.push({name: 'edit-user-blog', params: {
+                        nickname: blog.author.nickname,
+                        slug: blog.slug
+                    }
                 })
             }
         },

@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../pages/Home.vue'
-import NewBlog from '../pages/NewBlog'
-import BlogView from '../pages/BlogView'
-import UserBlogsView from '../pages/UserBlogsView'
+import Home from '@/pages/Home.vue'
+import NewBlog from '@/pages/NewBlog'
+import BlogView from '@/pages/BlogView'
+import EditBlogView from '@/pages/EditBlogView'
+import UserBlogsView from '@/pages/UserBlogsView'
 import Header from '@/components/menu/Header'
 import ResetPasswordView from '@/pages/ResetPasswordView'
 import SendResetPasswordLinkView from '@/pages/SendResetPasswordLinkView'
@@ -32,6 +33,12 @@ export default new Router({
         },
         { path: '/@:nickname/:slug', name: 'user-blog',  components: {
                 default: BlogView, header: Header
+            },meta: {
+                forVisitors: true
+            }
+        },
+        { path: '/@:nickname/:slug/edit', name: 'edit-user-blog',  components: {
+                default: EditBlogView, header: Header
             },meta: {
                 forVisitors: true
             }

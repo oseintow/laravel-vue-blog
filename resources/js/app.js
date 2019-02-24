@@ -16,7 +16,7 @@ import VeeValidate from 'vee-validate';
 import VueRx from 'vue-rx'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
-import { faCoffee, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faThumbsUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 
 /**
@@ -59,7 +59,7 @@ Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)
 Vue.use(Authentication)
-library.add(faCoffee, faThumbsUp)
+library.add(faCoffee, faThumbsUp, faCaretDown)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)

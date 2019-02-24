@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Medium Editor</h3>
+        <h3>New Story</h3>
         <form enctype="multipart/form-data" novalidate>
             <div class="post-inputs row mb-4">
                 <div class="col-sm-3 flex-center">

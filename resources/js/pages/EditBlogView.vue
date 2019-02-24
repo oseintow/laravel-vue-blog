@@ -1,6 +1,6 @@
 <template>
     <div>
-        edit blog
+        <h3>New Story</h3>
     </div>
 </template>
 

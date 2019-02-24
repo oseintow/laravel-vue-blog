@@ -27,7 +27,8 @@
                                             <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                            <a class="dropdown-item" @click.preventDefault="editBlog(blog)">Edit</a>
+                                            <a class="dropdown-item" @click.preventDefault="editBlog(blog)">Edit Blog</a>
+                                            <a class="dropdown-item" @click.preventDefault="deleteBlog(blog)">Delete Blog</a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,6 +105,9 @@
                         slug: blog.slug
                     }
                 })
+            },
+            deleteBlog(blog) {
+                console.log('delete blog')
             }
         },
         computed: {

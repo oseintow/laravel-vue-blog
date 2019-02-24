@@ -36,7 +36,7 @@ export default new Router({
                 forVisitors: true
             }
         },
-        { path: '/password/reset', name: 'reset-password',  components: {
+        { path: '/password/reset', name: 'send-reset-password-link',  components: {
                 default: SendResetPasswordLinkView, header: Header
             },meta: {
                 forVisitors: true

@@ -9,7 +9,7 @@
                     <div class="col-sm-6">
                         <button @click="socialLogin('facebook')" class="facebook-signin">Facebook</button>
                         <button @click="socialLogin('google')" class="google-signin">Google</button>
-                        <a href="" @click.preventDefault="resetPassword">Forgot Your Password?</a>
+                        <a href="" @click="resetPassword">Forgot Your Password?</a>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,9 @@ export default {
         showSignIn() {
             this.show = true
         },
-        resetPassword() {
+        resetPassword(e) {
+            e.preventDefault()
+            this.hideModal()
             this.$router.push({name: 'send-reset-password-link'})
         }
     }

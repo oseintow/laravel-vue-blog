@@ -100,11 +100,7 @@
                 })
             },
             editBlog(blog) {
-                this.$router.push({name: 'edit-user-blog', params: {
-                        nickname: blog.author.nickname,
-                        slug: blog.slug
-                    }
-                })
+                this.$router.push({name: 'edit-user-blog', params: { slug: blog.slug}})
             },
             deleteBlog(blog) {
                 console.log('delete blog')

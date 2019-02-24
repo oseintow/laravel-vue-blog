@@ -1,4 +1,4 @@
-import { saveBlog, getBlogs, getBlog, getUserBlogs } from '@/api/blog'
+import { saveBlog, updateBlog, getBlogs, getBlog, getUserBlog, getUserBlogs } from '@/api/blog'
 
 const state = {
 }
@@ -10,6 +10,17 @@ const actions = {
     saveBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             saveBlog(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
+
+        })
+    },
+
+    updateBlog({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            updateBlog(payload)
                 .then(({data}) => {
                     resolve(data)
                 })
@@ -30,6 +41,15 @@ const actions = {
     getBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             getBlog(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
+        })
+    },
+    getUserBlog({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            getUserBlog(payload)
                 .then(({data}) => {
                     resolve(data)
                 })

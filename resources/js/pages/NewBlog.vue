@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>New Story</h3>
-        <blog-form></blog-form>
+        <blog-form type="new"></blog-form>
     </div>
 </template>
 

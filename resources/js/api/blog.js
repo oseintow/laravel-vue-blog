@@ -4,6 +4,14 @@ export function saveBlog(payload) {
     return axios.post('/v1/blogs', payload)
 }
 
+export function updateBlog({slug, formData}) {
+    return axios.put(`/v1/blogs/${slug}`, formData)
+}
+
+export function getBlog({slug}) {
+    return axios.get(`/v1/blogs/${slug}`)
+}
+
 export function getBlogs(payload) {
     return axios.get('/v1/blogs', { params: payload})
 }
@@ -12,6 +20,6 @@ export function getUserBlogs(payload) {
     return axios.get(`/v1/users/${payload.params.nickname}/blogs`, {params: payload.query})
 }
 
-export function getBlog({nickname, slug}) {
+export function getUserBlog({nickname, slug}) {
     return axios.get(`/v1/users/${nickname}/blogs/${slug}`)
 }

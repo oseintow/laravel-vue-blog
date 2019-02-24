@@ -25,6 +25,12 @@ export default new Router({
                 forVisitors: true
             }
         },
+        { path: '/blog/:slug/edit', name: 'edit-user-blog',  components: {
+                default: EditBlogView, header: Header
+            },meta: {
+                forVisitors: true
+            }
+        },
         { path: '/@:nickname', name: 'users-blogs',  components: {
                 default: UserBlogsView, header: Header
             },meta: {
@@ -33,12 +39,6 @@ export default new Router({
         },
         { path: '/@:nickname/:slug', name: 'user-blog',  components: {
                 default: BlogView, header: Header
-            },meta: {
-                forVisitors: true
-            }
-        },
-        { path: '/@:nickname/:slug/edit', name: 'edit-user-blog',  components: {
-                default: EditBlogView, header: Header
             },meta: {
                 forVisitors: true
             }

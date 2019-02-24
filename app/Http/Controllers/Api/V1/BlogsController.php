@@ -30,6 +30,11 @@ class BlogsController extends Controller
         return new BlogCollection($blogs);
     }
 
+    public function show(Blog $blog)
+    {
+        return response(compact('blog'));
+    }
+
     /**
      * @param SaveBlogRequest $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response

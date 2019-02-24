@@ -52,7 +52,8 @@
             </div>
 
             <div class="row post-actions-row float-right mb-4">
-                <button class="btn btn-primary" @click="saveBlog">Save</button>
+                <button class="btn btn-primary" @click="saveBlog" v-if="formType='new'">Save</button>
+                <button class="btn btn-primary" @click="updateBlog" v-if="formType='edit'">Save</button>
             </div>
 
             <div class="" ref="contentContainer"></div>
@@ -61,10 +62,18 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     import Editor from '@/components/blog/Editor'
 
     export default {
         name: "BlogForm",
+        props: {
+            type: {
+                type: String,
+                required: true
+            },
+            slug: String
+        },
         components: {
             Editor,
         },
@@ -82,6 +91,7 @@
                 article: null,
                 quill: null,
                 categories: [],
+                formType: this.type
             }
         },
         mounted() {
@@ -93,7 +103,18 @@
                     console.error(error)
                 })
         },
+        created() {
+            if (this.type == 'edit') {
+                this.getBlog({slug: this.slug})
+                    .then((response) => {
+                        this.blog = response.blog
+                    })
+            }
+        },
         methods: {
+            ...mapActions({
+                getBlog: 'blog/getBlog',
+            }),
             delta(value) {
                 if(value === '') {
                     return this.body = ''
@@ -148,6 +169,17 @@
                         this.resetForm();
                     })
 
+            },
+            updateBlog(e){
+                e.preventDefault();
+                this.$validator.validateAll()
+                if (this.errors.any()) return;
+
+                const formData = this.prepareFormData();
+
+                this.$store.dispatch('blog/updateBlog', {slug: this.slug, formData})
+                    .then(() =>{
+                    })
             }
         }
     }

@@ -1,12 +1,23 @@
 <template>
     <div>
-        <h3>New Story</h3>
+        <h3>Edit Story</h3>
+        <blog-form type="edit" :slug="slug"></blog-form>
     </div>
 </template>
 
 <script>
+    import BlogForm from '@/components/blog/BlogForm'
+
     export default {
-        name: "EditBlogView"
+        name: "EditBlogView",
+        components: {
+            BlogForm
+        },
+        data() {
+            return {
+                slug: this.$route.params.slug
+            }
+        }
     }
 </script>
 

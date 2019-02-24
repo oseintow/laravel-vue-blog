@@ -58,14 +58,14 @@
         },
         methods: {
             ...mapActions({
-                getBlog: 'blog/getBlog',
+                getBlog: 'blog/getUserBlog',
             }),
             content(value){
                 // this.body = value.getContents()
             }
         },
         created() {
-            this.getBlog(this.params)
+            this.getUserBlog(this.params)
                 .then((response) => {
                     this.blog = response.blog
                 })

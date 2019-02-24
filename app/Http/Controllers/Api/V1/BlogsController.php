@@ -61,7 +61,8 @@ class BlogsController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        logger($request->all());
+        $this->authorize('update', $blog);
+
         if($request->hasFile('cover_image')){
             $coverImagePath = $request->file('cover_image')->store('cover_images');
             $request->merge(['cover_image_url' => "/images/{$coverImagePath}"]);
@@ -78,6 +79,8 @@ class BlogsController extends Controller
 
     public function destroy(Blog $blog)
     {
+        $this->authorize('delete', $blog);
+
         $blog->delete();
 
         return null;

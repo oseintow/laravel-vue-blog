@@ -46,7 +46,7 @@
                                 <div class="col-sm-9">
                                     <div>
                                         <input type="password"
-                                               v-model="user.confirm_password"
+                                               v-model="user.password_confirmation"
                                                name="password_confirmation"
                                                class="form-control"
                                                id="password_confirmation"
@@ -87,7 +87,8 @@
             user: {
                 email: '',
                 password: '',
-                confirm_password: ''
+                password_confirmation: '',
+                token: this.$route.params.token
             }
           }
         },

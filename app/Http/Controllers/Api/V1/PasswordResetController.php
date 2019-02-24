@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PasswordResetLinkEmailRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Notifications\SendPasswordResetLink;
 use App\PasswordReset;
 
@@ -19,7 +20,7 @@ class PasswordResetController extends Controller
         return response()->json(['message' => 'We have e-mailed your password reset link!']);
     }
 
-    public function resetPassword()
+    public function resetPassword(ResetPasswordRequest $request)
     {
 
     }

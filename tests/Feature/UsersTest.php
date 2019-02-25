@@ -35,9 +35,23 @@ class UsersTest extends TestCase
         $user->avatar_image = $avatarImage;
 
         $this->withExceptionHandling()
-            ->json('PUT', "/v1/users/{$user->id}", $user->only(['name', 'bio', 'avatar_image']));
+            ->json('PUT', "/v1/users/{$user->id}", $user->only(['name', 'bio', 'avatar_image']))
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                "user" => [
+                    'id',
+                    'name',
+                    'nickname',
+                    'avatar',
+                    'bio'
+                ]
+            ]);
 
-        $this->assertDatabaseHas('users', ['avatar' => '/images/avatar/' . $avatarImage->hashName()]);
+        $this->assertDatabaseHas('users', [
+            'name' => $user->name,
+            'bio' => $user->bio,
+            'avatar' => '/images/avatar/' . $avatarImage->hashName(),
+        ]);
         Storage::disk('local')->assertExists('avatar/' . $avatarImage->hashName());
     }
 }

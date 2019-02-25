@@ -3,13 +3,14 @@
 namespace Tests\Unit;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, withFaker;
 
     /** @test */
     public function a_users_nickname_is_created_if_null_from_social_provider()
@@ -65,5 +66,17 @@ class UserTest extends TestCase
         $user = User::authenticate($data);
 
         $this->assertNull($user);
+    }
+
+    /** @test */
+    public function a_user_can_update_his_password()
+    {
+        $email = $this->faker->email;
+        create(User::class, ['email' => $email, 'password' => 'secret']);
+
+        $newPassword = 'passord';
+        $user = User::changePassword(['email' => $email, 'password' => $newPassword]);
+
+        $this->assertTrue(Hash::check($newPassword, $user->password));
     }
 }

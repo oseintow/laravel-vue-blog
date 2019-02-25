@@ -21,6 +21,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::post('password/email', 'PasswordResetController@sendResetLinkEmail');
     Route::post('password/reset', 'PasswordResetController@resetPassword');
 
+    Route::put('users/{user}', 'UsersController@update');
 
     Route::get('users/{nickname}/blogs', 'UsersBlogsController@index');
     Route::get('users/{nickname}/blogs/{blog}', 'UsersBlogsController@show');

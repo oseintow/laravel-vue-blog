@@ -17,70 +17,70 @@ class CreateBlogTest extends TestCase
     /** @test */
     public function a_blog_requires_a_title()
     {
-        $this->validatePostRequest(['title' => null])
+        $this->createBlog(['title' => null])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
     public function a_title_must_have_more_than_three_characters()
     {
-        $this->validatePostRequest(['title' => 'aa'])
+        $this->createBlog(['title' => 'aa'])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
     public function a_title_must_have_a_max_length_of_fifty()
     {
-        $this->validatePostRequest(['title' => str_repeat('a', 55)])
+        $this->createBlog(['title' => str_repeat('a', 55)])
             ->assertJsonValidationErrors('title');
     }
 
     /** @test */
     public function a_blog_requires_a_body()
     {
-        $this->validatePostRequest(['body' => null])
+        $this->createBlog(['body' => null])
             ->assertJsonValidationErrors('body');
     }
 
     /** @test */
     public function body_field_must_be_more_than_three_characters()
     {
-        $this->validatePostRequest(['body' => 'aa'])
+        $this->createBlog(['body' => 'aa'])
             ->assertJsonValidationErrors('body');
     }
 
     /** @test */
     public function body_field_must_be_json()
     {
-        $this->validatePostRequest(['body' => 'foobar'])
+        $this->createBlog(['body' => 'foobar'])
             ->assertJsonValidationErrors('body');
     }
 
     /** @test */
     public function a_blog_requires_a_category()
     {
-        $this->validatePostRequest(['category_id' => null])
+        $this->createBlog(['category_id' => null])
             ->assertJsonValidationErrors('category_id');
     }
 
     /** @test */
     public function category_must_exist_in_db()
     {
-        $this->validatePostRequest(['category_id' => 2])
+        $this->createBlog(['category_id' => 2])
             ->assertJsonValidationErrors('category_id');
     }
 
     /** @test */
     public function a_blog_require_a_publish_status()
     {
-        $this->validatePostRequest(['publish' => null])
+        $this->createBlog(['publish' => null])
             ->assertJsonValidationErrors('publish');
     }
 
     /** @test */
     public function publish_field_must_be_boolean()
     {
-        $this->validatePostRequest(['publish' => 'true'])
+        $this->createBlog(['publish' => 'true'])
             ->assertJsonValidationErrors('publish');
     }
 
@@ -89,11 +89,11 @@ class CreateBlogTest extends TestCase
     {
         Storage::fake('local');
 
-        $this->validatePostRequest(['cover_image' => UploadedFile::fake()->image('random.txt')])
+        $this->createBlog(['cover_image' => UploadedFile::fake()->image('random.txt')])
             ->assertJsonValidationErrors('cover_image');
     }
 
-    protected function validatePostRequest(array $body = [])
+    protected function createBlog(array $body = [])
     {
         Storage::fake('local');
         $category = create(Category::class);
@@ -106,8 +106,7 @@ class CreateBlogTest extends TestCase
                 'category_id' => $category->id,
                 'cover_image' => UploadedFile::fake()->image('random.jpg'),
                 'publish' => true
-            ],$body))
-            ->assertStatus(422);
+            ],$body));
     }
 
     /** @test */

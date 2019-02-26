@@ -54,11 +54,6 @@ class BlogsController extends Controller
         return response(compact('blog'));
     }
 
-    /**
-     * @param UpdateBlogRequest $request
-     * @param Blog $blog
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $this->authorize('update', $blog);

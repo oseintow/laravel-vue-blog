@@ -43,6 +43,11 @@
                 this.user.avatar_image = this.$auth.user.avatar
             }
 
+        },
+        methods: {
+            update() {
+
+            }
         }
 
     }

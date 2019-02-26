@@ -35,7 +35,7 @@ class DeleteCommentTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_not_update_other_users_comment()
+    public function a_user_can_not_delete_other_users_comment()
     {
         $this->signIn()
             ->deleteComment()

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BlogsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BlogsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/DeleteBlogTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/DeleteBlogTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteBlogTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeleteBlogTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Feature/DeleteBlogTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="168">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="e#33#46#0#PHP" expanded="true" />
               </folding>
@@ -71,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteCommentTest.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DeleteCommentTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
+            <state relative-caret-position="217">
+              <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="e#33#49#0#PHP" expanded="true" />
               </folding>
@@ -206,9 +207,9 @@
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentsController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/UpdateCommentTest.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BlogsController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/DeleteBlogTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php" />
       </list>
     </option>
   </component>
@@ -486,12 +487,12 @@
       <workItem from="1550614266044" duration="1195000" />
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
-      <workItem from="1550977836933" duration="40775000" />
+      <workItem from="1550977836933" duration="40843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379168000" />
+    <option name="totallyTimeSpent" value="379236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -905,16 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
-          <folding>
-            <element signature="e#33#49#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -944,10 +935,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/DeleteBlogTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        <state relative-caret-position="168">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="e#33#46#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/DeleteCommentTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding>
+            <element signature="e#33#49#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

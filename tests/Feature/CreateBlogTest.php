@@ -93,22 +93,6 @@ class CreateBlogTest extends TestCase
             ->assertJsonValidationErrors('cover_image');
     }
 
-    protected function createBlog(array $body = [])
-    {
-        Storage::fake('local');
-        $category = create(Category::class);
-
-        return $this->signIn()
-            ->withExceptionHandling()
-            ->json('POST', 'v1/blogs', array_merge([
-                'title' => 'foobar',
-                'body' => json_encode(["foo" => "bar"]),
-                'category_id' => $category->id,
-                'cover_image' => UploadedFile::fake()->image('random.jpg'),
-                'publish' => true
-            ],$body));
-    }
-
     /** @test */
     public function unauthernticated_users_can_not_create_blog()
     {
@@ -125,8 +109,7 @@ class CreateBlogTest extends TestCase
         $blog = make(Blog::class)->makeHidden('user_id')->toArray();
         $blog['body'] = json_encode(["foo" => "bar"]);
 
-        $response = $this->withExceptionHandling()
-            ->json('POST', 'v1/blogs', $blog);
+        $response = $this->createBlog($blog);
 
         $this->assertDatabaseHas('blogs', ['title' => $blog['title']]);
         $response->assertStatus(200);
@@ -144,10 +127,25 @@ class CreateBlogTest extends TestCase
 
         $blog['body'] = json_encode(["foo" => "bar"]);
 
-        $this->withExceptionHandling()
-            ->json('POST', 'v1/blogs', $blog);
+        $this->createBlog($blog);
 
         $this->assertDatabaseHas('blogs', ['cover_image_url' => '/images/cover_images/' . $coverImage->hashName()]);
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());
+    }
+
+    protected function createBlog(array $body = [])
+    {
+        Storage::fake('local');
+        $category = create(Category::class);
+
+        return $this->signIn()
+            ->withExceptionHandling()
+            ->json('POST', 'v1/blogs', array_merge([
+                'title' => 'foobar',
+                'body' => json_encode(["foo" => "bar"]),
+                'category_id' => $category->id,
+                'cover_image' => UploadedFile::fake()->image('random.jpg'),
+                'publish' => true
+            ],$body));
     }
 }

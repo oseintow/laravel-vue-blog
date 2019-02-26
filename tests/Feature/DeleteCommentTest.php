@@ -13,12 +13,26 @@ class DeleteCommentTest extends TestCase
     use RefreshDatabase;
 
     protected $user;
+    protected $comment;
 
     public function setUp()
     {
         parent::setUp();
 
         $this->user = create(User::class);
+        $this->comment = create(Comment::class, ['user_id' => $this->user->id]);
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_delete_comment()
+    {
+        $this->assertDatabaseHas('comments', ['id' => $this->comment->id]);
+
+        $this->signIn($this->user)
+            ->deleteComment()
+            ->assertStatus(200);
+
+        $this->assertDatabaseMissing('comments', ['id' => $this->comment->id]);
     }
 
     /** @test */
@@ -31,10 +45,8 @@ class DeleteCommentTest extends TestCase
 
     protected function deleteComment()
     {
-        $comment = create(Comment::class, ['user_id' => $this->user->id]);
-
-        $slug = $comment->blog->slug;
-        $commentId = $comment->id;
+        $slug = $this->comment->blog->slug;
+        $commentId = $this->comment->id;
 
         return $this->withExceptionHandling()
             ->json('DELETE', "/v1/blogs/{$slug}/comments/{$commentId}");

@@ -67,12 +67,14 @@ class UpdateCommentTest extends TestCase
     /** @test */
     public function a_user_can_update_comment()
     {
+        $body = ['new' => 'body'];
+
         $this->signIn($this->user)
-            ->updateComment()
+            ->updateComment(['body' => $body])
             ->assertStatus(200)
-            ->assertJsonStructure([
+            ->assertJson([
                 'comment' => [
-                    "owner"
+                    "body" => $body
                 ]
             ]);
     }

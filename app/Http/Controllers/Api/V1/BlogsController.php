@@ -67,8 +67,6 @@ class BlogsController extends Controller
 
         $blog->update($request->except('cover_image'));
 
-        $blog->refresh();
-
         return response(compact('blog'));
     }
 

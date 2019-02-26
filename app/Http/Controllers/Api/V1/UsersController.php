@@ -22,8 +22,6 @@ class UsersController extends Controller
 
         $user->update($request->only('name', 'bio', 'avatar'));
 
-        $user->refresh();
-
         return response(compact('user'));
     }
 }

@@ -174,9 +174,13 @@ class UpdateBlogTest extends TestCase
         $blog['cover_image'] = $coverImage;
 
         $this->withExceptionHandling()
-            ->json('PUT', "v1/blogs/{$blog['slug']}", $blog);
+            ->json('PUT', "v1/blogs/{$blog['slug']}", $blog)
+            ->assertJson([
+                'blog' => [
+                    'cover_image_url' => '/images/cover_images/' . $coverImage->hashName()
+                ]
+            ]);
 
-        $this->assertDatabaseHas('blogs', ['cover_image_url' => '/images/cover_images/' . $coverImage->hashName()]);
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());
     }
 }

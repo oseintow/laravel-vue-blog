@@ -119,15 +119,16 @@ class UpdateBlogTest extends TestCase
     /** @test */
     public function authenticated_users_can_not_update_other_users_blog()
     {
-        $this->signIn();
-        $blog = create(Blog::class, ['user_id' => $this->user->id])
-            ->makeHidden('user_id')
-            ->toArray();
+        $user = create(User::class);
+        $this->blog = create(Blog::class, ['user_id' => $user->id])
+            ->makeHidden('user_id');
 
-        $blog['body'] = json_encode(["foo" => "bar"]);
+        $blog = [
+            'title' => $this->faker->title,
+            'body' => json_encode(["foo" => "bar"])
+        ];
 
-        $this->withExceptionHandling()
-            ->json('PUT', "v1/blogs/{$blog['slug']}", $blog)
+        $this->updateBlog($blog)
             ->assertStatus(403);
     }
 

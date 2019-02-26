@@ -13,15 +13,19 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UpdateBlogTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
     protected $user;
+    protected $blog;
 
     public function setUp()
     {
         parent::setUp();
 
         $this->user = create(User::class);
+        $this->blog = create(Blog::class, ['user_id' => $this->user->id]);
+
+        Storage::fake('local');
     }
 
     /** @test */
@@ -103,23 +107,6 @@ class UpdateBlogTest extends TestCase
             ->assertJsonValidationErrors('cover_image');
     }
 
-    protected function updateBlog(array $body = [])
-    {
-        Storage::fake('local');
-        $category = create(Category::class);
-        $blog = create(Blog::class, ['user_id' => $this->user->id]);
-
-        return $this->signIn($this->user)
-            ->withExceptionHandling()
-            ->json('PUT', "v1/blogs/{$blog->slug}", array_merge([
-                'title' => 'foobar',
-                'body' => json_encode(["foo" => "bar"]),
-                'category_id' => $category->id,
-                'cover_image' => UploadedFile::fake()->image('random.jpg'),
-                'publish' => true
-            ],$body));
-    }
-
     /** @test */
     public function unauthernticated_users_can_not_update_blog()
     {
@@ -162,19 +149,14 @@ class UpdateBlogTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_can_upload_cover_images_when_creating_blog_post()
+    public function authenticated_users_can_upload_cover_images_when_updating_blog_post()
     {
-        $this->signIn($this->user);
-        Storage::fake('local');
-        $coverImage = UploadedFile::fake()->image('random.jpg');
-
-        $blog = create(Blog::class, ['user_id' => $this->user->id])->makeHidden('user_id')->toArray();
+        $coverImage = UploadedFile::fake()->image('update_random_image.jpg');
 
         $blog['body'] = json_encode(["foo" => "bar"]);
         $blog['cover_image'] = $coverImage;
 
-        $this->withExceptionHandling()
-            ->json('PUT', "v1/blogs/{$blog['slug']}", $blog)
+        $this->updateBlog($blog)
             ->assertJson([
                 'blog' => [
                     'cover_image_url' => '/images/cover_images/' . $coverImage->hashName()
@@ -182,5 +164,21 @@ class UpdateBlogTest extends TestCase
             ]);
 
         Storage::disk('local')->assertExists('cover_images/' . $coverImage->hashName());
+    }
+
+    protected function updateBlog(array $body = [])
+    {
+        Storage::fake('local');
+        $category = create(Category::class);
+
+        return $this->signIn($this->user)
+            ->withExceptionHandling()
+            ->json('PUT', "v1/blogs/{$this->blog->slug}", array_merge([
+                'title' => $this->faker->title,
+                'body' => json_encode(["foo" => "bar"]),
+                'category_id' => $category->id,
+                'cover_image' => UploadedFile::fake()->image('random.jpg'),
+                'publish' => true
+            ],$body));
     }
 }

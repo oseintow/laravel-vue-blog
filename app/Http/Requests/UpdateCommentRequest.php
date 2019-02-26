@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 
 class UpdateCommentRequest extends FormRequest
 {
@@ -24,8 +25,17 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'slug' => 'required|exists:blog,slug',
+            'slug' => 'exists:blogs,slug',
+            'comment' => 'exists:comments,id',
             'body' => 'required|array'
         ];
+    }
+
+    protected function validationData()
+    {
+        return array_merge($this->request->all(), [
+            'slug' => $this->route('slug'),
+            'comment' => $this->route('comment')
+        ]);
     }
 }

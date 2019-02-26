@@ -8,6 +8,8 @@ class Blog extends Model
 {
     use Favouritable, Filter;
 
+    protected $table = "blogs";
+
     protected $fillable = [ 'user_id', 'category_id', 'title', 'slug', 'body', 'cover_image_url'];
 
     protected $casts = ['body' => 'json'];

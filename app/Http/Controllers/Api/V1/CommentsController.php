@@ -44,11 +44,6 @@ class CommentsController extends Controller
         return response(['comment' => $comment->load('owner')]);
     }
 
-    /**
-     * @param SaveCommentRequest $request
-     * @param $slug
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function update(UpdateCommentRequest $request, $slug)
     {
         $comment = Comment::onBlog($slug)->find($request->comment);

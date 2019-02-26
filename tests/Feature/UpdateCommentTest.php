@@ -22,6 +22,13 @@ class UpdateCommentTest extends TestCase
     }
 
     /** @test */
+    public function authenticated_user_can_not_update_comment()
+    {
+        $this->updateComment()
+            ->assertStatus(401);
+    }
+
+    /** @test */
     public function a_slug_does_not_exists()
     {
         $this->signIn($this->user)
@@ -64,6 +71,14 @@ class UpdateCommentTest extends TestCase
             ->updateComment()
             ->assertStatus(200)
             ->assertJsonStructure(['comment']);
+    }
+
+    /** @test */
+    public function a_user_can_not_update_other_users_comment()
+    {
+        $this->signIn()
+            ->updateComment()
+            ->assertStatus(403);
     }
 
     protected function updateComment(array $data = [])

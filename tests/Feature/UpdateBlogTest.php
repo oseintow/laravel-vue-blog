@@ -107,10 +107,11 @@ class UpdateBlogTest extends TestCase
     {
         Storage::fake('local');
         $category = create(Category::class);
+        $blog = create(Blog::class, ['user_id' => $this->user->id]);
 
-        return $this->signIn()
+        return $this->signIn($this->user)
             ->withExceptionHandling()
-            ->json('PUT', 'v1/blogs', array_merge([
+            ->json('PUT', "v1/blogs/{$blog->slug}", array_merge([
                 'title' => 'foobar',
                 'body' => json_encode(["foo" => "bar"]),
                 'category_id' => $category->id,

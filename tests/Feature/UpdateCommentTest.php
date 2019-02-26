@@ -70,7 +70,11 @@ class UpdateCommentTest extends TestCase
         $this->signIn($this->user)
             ->updateComment()
             ->assertStatus(200)
-            ->assertJsonStructure(['comment']);
+            ->assertJsonStructure([
+                'comment' => [
+                    "owner"
+                ]
+            ]);
     }
 
     /** @test */
@@ -93,5 +97,5 @@ class UpdateCommentTest extends TestCase
             ->json('PUT', "/v1/blogs/{$slug}/comments/{$commentId}", [
                 'body' => $body
             ]);
-}
+    }
 }

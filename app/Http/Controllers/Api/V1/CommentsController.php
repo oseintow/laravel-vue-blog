@@ -17,7 +17,7 @@ class CommentsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api')->only(['store', 'update']);
+        $this->middleware('auth:api')->only(['store', 'update', 'destroy']);
     }
 
     /**
@@ -55,9 +55,9 @@ class CommentsController extends Controller
         return response(['comment' => $comment->load('owner')]);
     }
 
-    public function destroy(Comment $comment)
+    public function destroy($slug, Comment $comment)
     {
-        $this->authorize('delete', Comment::clas);
+        $this->authorize('delete', $comment);
 
         $comment->delete();
 

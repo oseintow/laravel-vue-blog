@@ -14,6 +14,13 @@ class CreateBlogTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        Storage::fake('local');
+    }
+
     /** @test */
     public function a_blog_requires_a_title()
     {
@@ -133,7 +140,6 @@ class CreateBlogTest extends TestCase
     public function authenticated_users_can_upload_cover_images_when_creating_blog_post()
     {
         $this->signIn();
-        Storage::fake('local');
 
         $blog = make(Blog::class, [
             'cover_image' => $coverImage = UploadedFile::fake()->image('random.jpg')
@@ -149,7 +155,6 @@ class CreateBlogTest extends TestCase
 
     protected function createBlog(array $body = [])
     {
-        Storage::fake('local');
         $category = create(Category::class);
 
         return $this->signIn()

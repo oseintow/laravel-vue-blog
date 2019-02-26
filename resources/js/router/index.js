@@ -8,6 +8,7 @@ import UserBlogsView from '@/pages/UserBlogsView'
 import Header from '@/components/menu/Header'
 import ResetPasswordView from '@/pages/ResetPasswordView'
 import SendResetPasswordLinkView from '@/pages/SendResetPasswordLinkView'
+import EditProfileView from '@/pages/EditProfileView'
 
 Vue.use(Router)
 
@@ -33,6 +34,12 @@ export default new Router({
         },
         { path: '/@:nickname', name: 'users-blogs',  components: {
                 default: UserBlogsView, header: Header
+            },meta: {
+                forVisitors: true
+            }
+        },
+        { path: '/@:nickname/edit', name: 'edit-profile',  components: {
+                default: EditProfileView, header: Header
             },meta: {
                 forVisitors: true
             }

@@ -24,7 +24,8 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'slug' => 'required|exists:blog,slug',
+            'body' => 'required|array'
         ];
     }
 }

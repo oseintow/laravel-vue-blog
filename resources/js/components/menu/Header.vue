@@ -51,7 +51,7 @@
                 return this.$router.push('/')
             },
             profile() {
-                return this.$router.push({name: 'edit-profile', nickname: this.$auth.user.nickname})
+                return this.$router.push({name: 'edit-profile', params: {nickname: this.$auth.user.nickname}})
             },
             stories() {
                 return this.$router.push(`/@${this.$auth.user.nickname}`)

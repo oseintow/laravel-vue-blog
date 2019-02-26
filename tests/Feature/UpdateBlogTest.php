@@ -134,15 +134,9 @@ class UpdateBlogTest extends TestCase
     /** @test */
     public function authenticated_users_can_update_blog()
     {
-        $this->signIn($this->user);
-        $blog = create(Blog::class, ['user_id' => $this->user->id])
-            ->makeHidden('user_id')
-            ->toArray();
+        $blog = ['title' => $this->faker->title, 'body' => json_encode(["foo" => "bar"])];
 
-        $blog['body'] = json_encode(["foo" => "bar"]);
-
-        $response = $this->withExceptionHandling()
-            ->json('PUT', "v1/blogs/{$blog['slug']}", $blog);
+        $response = $this->updateBlog($blog);
 
         $this->assertDatabaseHas('blogs', ['title' => $blog['title']]);
         $response->assertStatus(200);

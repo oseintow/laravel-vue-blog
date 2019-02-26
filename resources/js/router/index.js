@@ -38,7 +38,7 @@ export default new Router({
                 forVisitors: true
             }
         },
-        { path: '/@:nickname/edit', name: 'edit-profile',  components: {
+        { path: '/profile/edit', name: 'edit-profile',  components: {
                 default: EditProfileView, header: Header
             },meta: {
                 forVisitors: true

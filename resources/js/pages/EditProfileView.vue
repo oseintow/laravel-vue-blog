@@ -35,14 +35,11 @@
             }
         },
         mounted() {
-            const nickname = this.$route.params.nickname
-
-            if(nickname == this.$auth.user.nickname) {
+            if(this.$auth.check) {
                 this.user.name = this.$auth.user.name
                 this.user.bio = this.$auth.user.bio
                 this.user.avatar_image = this.$auth.user.avatar
             }
-
         },
         methods: {
             update() {

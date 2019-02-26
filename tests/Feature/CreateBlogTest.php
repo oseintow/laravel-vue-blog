@@ -109,7 +109,21 @@ class CreateBlogTest extends TestCase
         $blog = make(Blog::class)->makeHidden('user_id')->toArray();
         $blog['body'] = json_encode(["foo" => "bar"]);
 
-        $response = $this->createBlog($blog);
+        $response = $this->createBlog($blog)
+            ->assertJsonStructure([
+               'blog' => [
+                   'id',
+                   'title',
+                   'user_id',
+                   'category_id',
+                   'slug',
+                   'category',
+                   'body',
+                   'cover_image_url',
+                   'created_at',
+                   'updated_at'
+               ]
+            ]);
 
         $this->assertDatabaseHas('blogs', ['title' => $blog['title']]);
         $response->assertStatus(200);

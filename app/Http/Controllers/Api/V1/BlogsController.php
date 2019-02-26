@@ -51,6 +51,8 @@ class BlogsController extends Controller
 
         $blog = Blog::create($request->except('cover_image'));
 
+        $blog->load('author', 'category');
+
         return response(compact('blog'));
     }
 

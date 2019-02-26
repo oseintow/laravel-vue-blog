@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Comment;
 use App\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DeleteCommentTest extends TestCase

@@ -15,7 +15,6 @@ class UsersController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        logger($request->all());
         if($request->hasFile('avatar_image')){
             $avatarImagePath = $request->file('avatar_image')->store('avatar');
             $request->merge(['avatar' => "/images/{$avatarImagePath}"]);

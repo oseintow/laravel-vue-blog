@@ -24,7 +24,9 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|min:3|max:100",
+            "bio" => "min:3|max:300",
+            "avatar_image" => "nullable|image"
         ];
     }
 }

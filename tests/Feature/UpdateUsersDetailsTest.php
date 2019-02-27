@@ -67,7 +67,9 @@ class UpdateUsersDetailsTest extends TestCase
     /** @test */
     public function a_user_must_upload_a_valid_image()
     {
-        $this->updateUserDetails(['avatar_image' => 'image/path'])
+        $file = UploadedFile::fake()->create('files.pdf');
+
+        $this->updateUserDetails(['avatar_image' => $file])
             ->assertJsonValidationErrors('avatar_image');
     }
 

@@ -65,6 +65,13 @@ class UpdateUsersDetailsTest extends TestCase
     }
 
     /** @test */
+    public function a_user_must_upload_a_valid_image()
+    {
+        $this->updateUserDetails(['avatar_image' => 'image/path'])
+            ->assertJsonValidationErrors('avatar_image');
+    }
+
+    /** @test */
     public function an_authenticated_user_can_not_update_profile()
     {
         $this->withExceptionHandling()

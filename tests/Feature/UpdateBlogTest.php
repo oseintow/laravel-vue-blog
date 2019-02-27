@@ -144,6 +144,16 @@ class UpdateBlogTest extends TestCase
     }
 
     /** @test */
+    public function title_update_does_not_update_slug()
+    {
+        $blog = ['title' => $this->faker->title, 'body' => json_encode(["foo" => "bar"])];
+
+        $response = $this->updateBlog($blog);
+
+        $this->assertEquals($this->blog->slug, $response->json('blog.slug'));
+    }
+
+    /** @test */
     public function authenticated_users_can_upload_cover_images_when_updating_blog_post()
     {
         $coverImage = UploadedFile::fake()->image('update_random_image.jpg');

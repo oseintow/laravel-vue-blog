@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 
 import blog from './modules/blog'
 import auth from './modules/auth'
+import user from './modules/user'
 import category from './modules/category'
 import comment from './modules/comment'
 import favourite from './modules/favourite'
@@ -16,7 +17,8 @@ export default new Vuex.Store({
         auth,
         category,
         comment,
-        favourite
+        favourite,
+        user
     },
     plugins: [createPersistedState()]
 })

@@ -56,10 +56,6 @@
             }
         },
         methods: {
-            update(e) {
-                e.preventDefault()
-                this.$validator.validateAll()
-            },
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;
                 if (!files.length) return;
@@ -73,10 +69,22 @@
             },
             prepareFormData() {
                 const formData = new FormData();
-                Object.keys(this.blog).forEach((key) => formData.append(key, this.user[key]));
+                Object.keys(this.user).forEach((key) => formData.append(key, this.user[key]));
 
                 return formData;
             },
+            update(e) {
+                e.preventDefault()
+                this.$validator.validateAll()
+                if (this.errors.any()) return;
+
+                this.user._method = "PUT"
+                const formData = this.prepareFormData();
+
+                this.$store.dispatch('user/update', {id: this.$auth.user.id, formData})
+                    .then(() =>{
+                    })
+            }
         }
 
     }

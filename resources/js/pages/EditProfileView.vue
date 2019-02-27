@@ -8,12 +8,27 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" name="name" v-model="user.name" class="form-control" id="name" placeholder="">
+                            <input type="text"
+                                   name="name"
+                                   v-model="user.name"
+                                   class="form-control"
+                                   id="name"
+                                   placeholder=""
+                                   v-validate="'required|min:3|max:100'">
+                            <error v-show="errors.has('name')">{{ errors.first('name') }}</error>
                         </div>
 
                         <div class="form-group">
                             <label for="bio">Bio:</label>
-                            <textarea name="bio" id="bio" v-model="user.bio" placeholder="" class="form-control" rows="8"></textarea>
+                            <textarea name="bio"
+                                      id="bio"
+                                      v-model="user.bio"
+                                      placeholder=""
+                                      class="form-control"
+                                      rows="8"
+                                      v-validate="'min:3|max:300'">
+                            </textarea>
+                            <error v-show="errors.has('bio')">{{ errors.first('bio') }}</error>
                         </div>
 
                         <div>

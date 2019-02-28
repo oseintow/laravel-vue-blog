@@ -67,7 +67,7 @@ describe('auth store module', () => {
         it('login a user', async () => {
             const commit = jest.fn()
 
-            await actions.login({ commit }, 'github')
+            await actions.socialLogin({ commit }, 'github')
 
             expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
             expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)

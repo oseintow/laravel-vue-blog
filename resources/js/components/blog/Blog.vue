@@ -5,10 +5,10 @@
                 <div class="col-md-12">{{blog.category.name.toUpperCase()}}</div>
                 <a @click.preventDefault="gotoUserBlog" style="color: black" >
                     <div class="col-md-12 mt-1">
-                        <h4>{{ blog.title }}</h4>
+                        <h4 id="title">{{ blog.title }}</h4>
                     </div>
                     <div class="col-md-12 mt-2">
-                        <p>{{ body }}</p>
+                        <p id="body">{{ body }}</p>
                     </div>
                 </a>
                 <div class="col-md-12 mt-3">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <a @click.preventDefault="gotoUserBlog" style="color: black">
+                <a class="user-blog" @click.preventDefault="gotoUserBlog" style="color: black">
                     <img :src="blog.cover_image_url" alt="" class="cover_image_url float-right">
                 </a>
             </div>
@@ -60,13 +60,13 @@
                 return moment(this.blog.created_at).fromNow() + '...';
             },
             body() {
-                // const article = document.createElement('article')
-                // let quill = new Quill(article, {})
-                //
-                // quill.setContents(this.blog.body)
-                // const body = quill.getText()
-                //
-                // return body.length > 200 ? body.substring(0,200) + '...' : body
+                const article = document.createElement('article')
+                let quill = new Quill(article, {})
+
+                quill.setContents(this.blog.body)
+                const body = quill.getText()
+
+                return body.length > 200 ? body.substring(0,200) + '...' : body
             }
         }
     }

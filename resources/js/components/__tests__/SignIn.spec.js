@@ -35,9 +35,8 @@ const router = new VueRouter()
 describe('Sign In', () => {
     let wrapper
     let store
-    let spy = jest.fn();
-
     let h
+
     beforeEach(() => {
         store = new Vuex.Store({
             modules: {

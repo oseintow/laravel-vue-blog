@@ -43,6 +43,9 @@ class TestHelpers {
     find(selector) {
         return this.wrapper.find(selector)
     }
+    findAll(selector){
+        return this.wrapper.findAll(selector)
+    }
     hasAttribute(selector, attribute) {
         return this.expect(this.find(selector).attributes()[attribute]).toBeTruthy()
     }

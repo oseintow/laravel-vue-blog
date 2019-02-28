@@ -27,10 +27,6 @@ describe('Blog', () => {
     let h
     let spy = jest.fn()
 
-    jest.mock("moment", () => () => ({
-        fromNow: () => "a few seconds ago"
-    }))
-
     beforeEach(() => {
         wrapper = shallowMount(Blog, {
             localVue,
@@ -75,6 +71,10 @@ describe('Blog', () => {
     })
 
     it('should display time blog was created', () => {
+        jest.mock("moment",  () => ({
+            fromNow: () => "a few seconds ago"
+        }))
+
         h.see('a few seconds ago...', '.age')
     })
 

@@ -9,9 +9,18 @@ import {
 } from '@/api/blog'
 
 const state = {
+    blog: [],
+    blogs: []
 }
 
 const mutations = {
+    BLOGS: (state, payload) => {
+        const blogs = state.blogs
+        blogs.push(...payload.data)
+        state.blogs = blogs
+    },
+
+    BLOG: (state, payload) => state.blog = payload
 }
 
 const actions = {
@@ -51,6 +60,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             getBlogs(payload)
                 .then(({data}) => {
+                    commit('BLOGS', data)
                     resolve(data)
                 })
                 .catch(error => reject(error))
@@ -60,6 +70,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             getBlog(payload)
                 .then(({data}) => {
+                    commit('BLOG', data)
                     resolve(data)
                 })
                 .catch(error => reject(error))
@@ -88,7 +99,9 @@ const actions = {
 const getters = {
     blogs : state => {
         return state.blogs
-    }
+    },
+
+    blog: state => state.blog
 }
 
 export default {

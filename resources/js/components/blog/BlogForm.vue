@@ -62,7 +62,7 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
     import Editor from '@/components/blog/Editor'
 
     export default {
@@ -90,18 +90,15 @@
                 },
                 article: null,
                 quill: null,
-                categories: [],
                 formType: this.type
             }
         },
+        computed: {
+            ...mapGetters('category', ['categories'])
+        },
         mounted() {
             this.$store.dispatch('category/getCategories')
-                .then(({categories}) => {
-                    this.categories = categories
-                })
-                .catch(error => {
-                    console.error(error)
-                })
+                .catch((error) => console.log(error))
         },
         created() {
             if (this.type == 'edit') {
@@ -180,8 +177,7 @@
                 const formData = this.prepareFormData();
 
                 this.$store.dispatch('blog/updateBlog', {slug: this.slug, formData})
-                    .then(() =>{
-                    })
+                    .then(() => {})
             }
         }
     }

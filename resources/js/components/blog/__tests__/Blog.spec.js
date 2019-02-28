@@ -1,25 +1,23 @@
 const mockSentence = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-jest.mock('quill', () => {
-    return jest.fn().mockImplementation(() => ({
-        setContents: jest.fn(),
-        getText: jest.fn(() => mockSentence)
-    }));
-})
-
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import Blog from '@/components/blog/Blog'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
-import eventBus from '@/plugins/event-bus'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
-localVue.use(eventBus)
 const router = new VueRouter()
+
+jest.mock('quill', () => {
+    return jest.fn().mockImplementation(() => ({
+        setContents: jest.fn(),
+        getText: jest.fn(() => mockSentence)
+    }));
+})
 
 describe('Blog', () => {
 

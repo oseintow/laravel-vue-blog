@@ -14,7 +14,9 @@ const actions = {
     getCategories({commit}){
         return new Promise((resolve, reject) => {
             getCategories()
-                .then(({data}) => {
+                .then(({data}) =>{
+                    console.log(data)
+                    commit('CATEGORIES', data.categories)
                     resolve(data)
                 })
                 .catch(error => reject(error))

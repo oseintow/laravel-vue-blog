@@ -2,7 +2,7 @@
     <div>
         <div class="row mb-4">
             <div class="col-md-9">
-                <div class="col-md-12">{{blog.category.name.toUpperCase()}}</div>
+                <div class="col-md-12" id="category">{{blog.category.name.toUpperCase()}}</div>
                 <a @click.preventDefault="gotoUserBlog" style="color: black" >
                     <div class="col-md-12 mt-1">
                         <h4 id="title">{{ blog.title }}</h4>
@@ -13,7 +13,7 @@
                 </a>
                 <div class="col-md-12 mt-3">
                     <a class="users-blogs" @click.preventDefault="gotoUsersBlogs">
-                        <p style="font-weight: bold; color: #515a6e">{{ blog.author.name }}</p>
+                        <p id="author" style="font-weight: bold; color: #515a6e">{{ blog.author.name }}</p>
                     </a>
                     <p class="age">{{ ago }}</p>
                 </div>

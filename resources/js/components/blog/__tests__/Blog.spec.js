@@ -49,7 +49,7 @@ describe('Blog', () => {
                         nickname: 'baz-123'
                     },
                     category: {
-                        name: 'for-category'
+                        name: 'foo-category'
                     }
                 }
             }
@@ -67,6 +67,11 @@ describe('Blog', () => {
         expect(wrapper.isVueInstance()).toBeTruthy()
     })
 
+    it('should show blogs category in capital letters', () => {
+        h.doNotSee('foo-category')
+        h.see('FOO-CATEGORY', '#category')
+    })
+
     it('should display title', () => {
         h.see('foobar', '#title')
     })
@@ -75,8 +80,12 @@ describe('Blog', () => {
         h.see('a few seconds ago...', '.age')
     })
 
-    it('should limit body of block to 200 characters', async () => {
+    it('should limit body of block to 200 characters', () => {
         h.see(mockSentence.substring(0,200) + '...', '#body')
+    })
+
+    it('should see blogs author\s name', () => {
+        h.see('baz', '#author')
     })
 
     it('can navigate to users blogs', async () => {
@@ -85,5 +94,19 @@ describe('Blog', () => {
 
         await flushPromises()
         expect(spy).toHaveBeenCalledWith({ name: 'users-blogs', params: {nickname: "baz-123"}});
+    });
+
+    it('should navigate to user\'s blog', async () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.user-blog')
+
+        await flushPromises()
+        expect(spy).toHaveBeenCalledWith({
+            name: 'user-blog',
+            params: {
+                nickname: "baz-123",
+                slug: 'foo-bar'
+            }
+        });
     });
 })

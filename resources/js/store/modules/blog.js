@@ -15,7 +15,7 @@ const state = {
 
 const mutations = {
     BLOGS: (state, payload) => {
-        const blogs = state.blogs
+        let blogs = state.blogs
         blogs.push(...payload.data)
         state.blogs = blogs
     },

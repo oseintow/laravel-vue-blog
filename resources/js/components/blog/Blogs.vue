@@ -4,7 +4,8 @@
             <blog :data="blog"></blog>
         </div>
         <div style="margin-bottom: 100px">
-            <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getBlogs" v-if="blogs"></infinite-loading>
+            <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getBlogs" v-if="blogs">
+            </infinite-loading>
         </div>
     </div>
 </template>

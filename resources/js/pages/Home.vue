@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <div class="row mb-4">
                     <ul class="list-group searchBox">
-                        <li class="list-group-item"><h6>Search</h6></li>
+                        <li class="list-group-item"><h6 class="search">Search</h6></li>
                         <li class="list-group-item">
                             <search placeholder="search for blog"></search>
                         </li>

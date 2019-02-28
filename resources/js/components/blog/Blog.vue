@@ -12,7 +12,7 @@
                     </div>
                 </a>
                 <div class="col-md-12 mt-3">
-                    <a @click.preventDefault="gotoUsersBlogs">
+                    <a class="users-blogs" @click.preventDefault="gotoUsersBlogs">
                         <p style="font-weight: bold; color: #515a6e">{{ blog.author.name }}</p>
                     </a>
                     <p>{{ ago }}</p>

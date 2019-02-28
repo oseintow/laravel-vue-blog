@@ -12,5 +12,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /.idea
+.idea
 public/images/cover_images/
 

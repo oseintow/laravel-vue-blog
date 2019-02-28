@@ -14,7 +14,6 @@ import Blog from '@/components/blog/Blog'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
 import eventBus from '@/plugins/event-bus'
-import Quill from 'quill'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -25,7 +24,6 @@ const router = new VueRouter()
 describe('Blog', () => {
 
     let wrapper
-    let store
     let h
     let spy = jest.fn()
 
@@ -41,7 +39,7 @@ describe('Blog', () => {
                 data: {
                     title: 'foobar',
                     slug: 'foo-bar',
-                    cover_image: 'for-image',
+                    cover_image_url: 'foo-image.jpg',
                     created_at: Date.now(),
                     body: {ops: {insert: ['a','b']}},
                     author: {
@@ -80,12 +78,16 @@ describe('Blog', () => {
         h.see('a few seconds ago...', '.age')
     })
 
-    it('should limit body of block to 200 characters', () => {
+    it('should limit body of blog to 200 characters', () => {
         h.see(mockSentence.substring(0,200) + '...', '#body')
     })
 
     it('should see blogs author\s name', () => {
         h.see('baz', '#author')
+    })
+
+    it('image src should have correct image url', () => {
+        h.hasAttribute('.cover_image_url', 'src')
     })
 
     it('can navigate to users blogs', async () => {

@@ -15,7 +15,7 @@
                     <a class="users-blogs" @click.preventDefault="gotoUsersBlogs">
                         <p style="font-weight: bold; color: #515a6e">{{ blog.author.name }}</p>
                     </a>
-                    <p>{{ ago }}</p>
+                    <p class="age">{{ ago }}</p>
                 </div>
             </div>
             <div class="col-md-3">
@@ -60,13 +60,13 @@
                 return moment(this.blog.created_at).fromNow() + '...';
             },
             body() {
-                const article = document.createElement('article')
-                let quill = new Quill(article, {})
-
-                quill.setContents(this.blog.body)
-                const body = quill.getText()
-
-                return body.length > 200 ? body.substring(0,200) + '...' : body
+                // const article = document.createElement('article')
+                // let quill = new Quill(article, {})
+                //
+                // quill.setContents(this.blog.body)
+                // const body = quill.getText()
+                //
+                // return body.length > 200 ? body.substring(0,200) + '...' : body
             }
         }
     }

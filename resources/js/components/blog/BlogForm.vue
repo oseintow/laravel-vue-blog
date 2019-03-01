@@ -19,11 +19,12 @@
                                placeholder="Post title"
                                name="title"
                                class="form-control"
+                               id="title"
                                v-validate="'required|min:3'"/>
                         <error v-show="errors.has('title')">{{ errors.first('title') }}</error>
                     </div>
                     <div class="cat-input form-group">
-                        <label for="title">Category:</label>
+                        <label for="category">Category:</label>
                         <select placeholder="Select a Category" name="category" class="form-control" v-validate="'required'"
                                 v-model="blog.category_id">
                             <option value="">-- select category --</option>

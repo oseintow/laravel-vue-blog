@@ -50,7 +50,8 @@ describe('BlogForm', () => {
                 blog: {
                     namespaced: true,
                     actions: {
-                        saveBlog: jest.fn()
+                        saveBlog: jest.fn(),
+                        updateBlog: jest.fn(),
                     }
                 },
                 category: {
@@ -85,9 +86,6 @@ describe('BlogForm', () => {
         h = new TestHelpers(wrapper, expect)
     })
 
-    afterEach(() => {
-    })
-
     it('can get all categories', () => {
         expect(wrapper.vm.categories.length).toBe(2)
     })
@@ -113,9 +111,7 @@ describe('BlogForm', () => {
 
         it('body is null', async () => {
             expect(wrapper.vm.errors.has("body")).toBe(false);
-            wrapper.setData({
-                body: 'init body is not null'
-            })
+            wrapper.setData({body: 'init body is not null'})
 
             await flushPromises()
             let body = h.find('input[name="body"]')
@@ -130,9 +126,7 @@ describe('BlogForm', () => {
         it('body has less than three characters', async () => {
             expect(wrapper.vm.errors.has("body")).toBe(false);
 
-            wrapper.setData({
-                body: 'as'
-            })
+            wrapper.setData({body: 'as'})
 
             await flushPromises()
             expect(wrapper.vm.errors.has("body")).toBe(true);
@@ -169,15 +163,14 @@ describe('BlogForm', () => {
 
     })
 
-    describe('Creating a new Blog', () => {
+    describe('can save', () => {
         beforeEach(() => {
             wrapper.setData({
                 formType: 'new',
-                slug: 'foo-bar'
             })
         })
 
-        it('should save a new blog', async () => {
+        it('a new blog', async () => {
             wrapper.setData({
                 blog: {
                     title: 'foo bar',
@@ -195,20 +188,56 @@ describe('BlogForm', () => {
 
             expect(wrapper.vm.errors.count()).toBe(0)
 
-            // expect(wrapper.vm.$data.blog).toBe({
-            //     title: '',
-            //     body: '',
-            //     category_id:'',
-            //     cover_image: ''
-            // })
+            await flushPromises()
+
+            expect(wrapper.vm.$data.blog).toEqual({
+                title: '',
+                body: '',
+                category_id:'',
+                cover_image: ''
+            })
         })
     })
 
-    // describe('Updating an old Blog', () => {
-    //
-    // })
-    //
-    it('', () => {
-        expect(true).toBeTruthy()
+    describe('can update', () => {
+        beforeEach(() => {
+            wrapper.setData({
+                formType: 'edit',
+                slug: 'foo-bar'
+            })
+        })
+
+        it('an existing blog', async () => {
+            wrapper.setData({
+                blog: {
+                    title: 'foo bar',
+                    body: 'Lorem upsum',
+                    category_id: 1,
+                    cover_image: '',
+                    publish: true,
+                    _method: ''
+                },
+                body: 'Lorem upsum'
+            })
+
+            await flushPromises()
+            let update = h.find("[data-update]")
+            h.find('input[name="title"]').setValue('bar baz')
+            h.find('select[name="category"]').setValue(2)
+            update.trigger('click')
+
+            expect(wrapper.vm.errors.count()).toBe(0)
+
+            await flushPromises()
+
+            expect(wrapper.vm.$data.blog).toEqual({
+                title: 'bar baz',
+                body: 'Lorem upsum',
+                category_id: 2,
+                cover_image: '',
+                publish: true,
+                _method: 'PUT'
+            })
+        })
     })
 })

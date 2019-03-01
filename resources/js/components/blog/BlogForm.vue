@@ -53,8 +53,8 @@
             </div>
 
             <div class="row post-actions-row float-right mb-4">
-                <button class="btn btn-primary" @click="saveBlog" v-if="formType=='new'">Save</button>
-                <button class="btn btn-primary" @click="updateBlog" v-if="formType=='edit'">Update</button>
+                <button class="btn btn-primary" data-save @click="saveBlog" v-if="formType=='new'">Save</button>
+                <button class="btn btn-primary" data-update @click="updateBlog" v-if="formType=='edit'">Update</button>
             </div>
 
             <div class="" ref="contentContainer"></div>

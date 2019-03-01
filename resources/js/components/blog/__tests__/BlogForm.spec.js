@@ -5,48 +5,33 @@ import VeeValidate from 'vee-validate';
 import BlogForm from '@/components/blog/BlogForm'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
-import { state, getters, mutations, actions } from '@/store/modules/blog'
-import {
-    state as category_state,
-    getters as category_getters,
-    mutations as category_mutations,
-    actions as category_actions
-} from '@/store/modules/category'
+// import { state, getters, mutations, actions } from '@/store/modules/blog'
+// import {
+//     state as category_state,
+//     getters as category_getters,
+//     mutations as category_mutations,
+//     actions as category_actions
+// } from '@/store/modules/category'
 
 import Editor from '@/components/blog/Editor'
 import Error from '@/components/Error'
 
-let mockError = false;
-
-jest.mock('@/api/category', () => ({
-    getCategories: jest.fn(() => {
-        return new Promise((resolve, reject) => {
-            // if (mockError)
-            //     reject(new Error('API Error occurred.'))
-
-            resolve({
-                data: {
-                    categories: [
-                        {
-                            id: 1,
-                            name: "Laravel",
-                            slug: "laravel",
-                            created_at: "2019-02-27 20:36:44",
-                            updated_at: "2019-02-27 20:36:44"
-                        },
-                        {
-                            id: 2,
-                            name: "Vue",
-                            slug: "vue",
-                            created_at: "2019-02-27 20:36:44",
-                            updated_at: "2019-02-27 20:36:44"
-                        },
-                    ]
-                }
-            })
-        })
-    })
-}))
+const categories = [
+    {
+        id: 1,
+        name: "Laravel",
+        slug: "laravel",
+        created_at: "2019-02-27 20:36:44",
+        updated_at: "2019-02-27 20:36:44"
+    },
+    {
+        id: 2,
+        name: "Vue",
+        slug: "vue",
+        created_at: "2019-02-27 20:36:44",
+        updated_at: "2019-02-27 20:36:44"
+    },
+]
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -64,17 +49,21 @@ describe('BlogForm', () => {
             modules: {
                 blog: {
                     namespaced: true,
-                    state,
-                    getters,
-                    mutations,
-                    actions
+                    actions: {
+                        saveBlog: jest.fn()
+                    }
                 },
                 category: {
                     namespaced: true,
-                    state: category_state,
-                    getters: category_getters,
-                    mutations: category_mutations,
-                    actions: category_actions
+                    state: {
+                        categories
+                    },
+                    getters: {
+                        categories: (state) => state.categories
+                    },
+                    actions: {
+                        getCategories: jest.fn
+                    }
                 }
             }
         })
@@ -99,6 +88,10 @@ describe('BlogForm', () => {
     afterEach(() => {
     })
 
+    it('can get all categories', () => {
+        expect(wrapper.vm.categories.length).toBe(2)
+    })
+
     describe('Validate', () => {
         it('title is null', async () => {
             expect(wrapper.vm.errors.has("title")).toBe(false);
@@ -109,7 +102,7 @@ describe('BlogForm', () => {
             })
 
             await flushPromises()
-            let title = wrapper.find('input[name="title"]')
+            let title = h.find('input[name="title"]')
             title.setValue("")
             title.trigger('blur')
 
@@ -125,7 +118,7 @@ describe('BlogForm', () => {
             })
 
             await flushPromises()
-            let body = wrapper.find('input[name="body"]')
+            let body = h.find('input[name="body"]')
             body.setValue("")
             body.trigger('blur')
 
@@ -166,7 +159,7 @@ describe('BlogForm', () => {
                 }
             })
 
-            let category = wrapper.find('select[name="category"]')
+            let category = h.find('select[name="category"]')
             category.setValue(0)
             category.trigger('blur')
 
@@ -179,13 +172,35 @@ describe('BlogForm', () => {
     describe('Creating a new Blog', () => {
         beforeEach(() => {
             wrapper.setData({
-                formType: 'edit',
+                formType: 'new',
                 slug: 'foo-bar'
             })
         })
 
-        it('should save a new blog', () => {
+        it('should save a new blog', async () => {
+            wrapper.setData({
+                blog: {
+                    title: 'foo bar',
+                    body: 'Lorem upsum',
+                    category_id: 1,
+                    cover_image: '',
+                    publish: true,
+                },
+                body: 'Lorem upsum'
+            })
 
+            await flushPromises()
+            let save = h.find("[data-save]")
+            save.trigger('click')
+
+            expect(wrapper.vm.errors.count()).toBe(0)
+
+            // expect(wrapper.vm.$data.blog).toBe({
+            //     title: '',
+            //     body: '',
+            //     category_id:'',
+            //     cover_image: ''
+            // })
         })
     })
 

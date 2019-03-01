@@ -118,6 +118,33 @@ describe('BlogForm', () => {
 
         })
 
+        it('body is null', async () => {
+            expect(wrapper.vm.errors.has("body")).toBe(false);
+            wrapper.setData({
+                body: 'init body is not null'
+            })
+
+            await flushPromises()
+            let body = wrapper.find('input[name="body"]')
+            body.setValue("")
+            body.trigger('blur')
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("body")).toBe(true);
+
+        })
+
+        it('body has less than three characters', async () => {
+            expect(wrapper.vm.errors.has("body")).toBe(false);
+
+            wrapper.setData({
+                body: 'as'
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("body")).toBe(true);
+        })
+
         it('title has less than three characters', async () => {
             expect(wrapper.vm.errors.has("title")).toBe(false);
 
@@ -131,7 +158,7 @@ describe('BlogForm', () => {
             expect(wrapper.vm.errors.has("title")).toBe(true);
         })
 
-        it('category is not null', async () => {
+        it('category is null', async () => {
             expect(wrapper.vm.errors.has("category")).toBe(false);
             wrapper.setData({
                 blog: {
@@ -139,7 +166,6 @@ describe('BlogForm', () => {
                 }
             })
 
-            await flushPromises()
             let category = wrapper.find('select[name="category"]')
             category.setValue(0)
             category.trigger('blur')
@@ -156,6 +182,10 @@ describe('BlogForm', () => {
                 formType: 'edit',
                 slug: 'foo-bar'
             })
+        })
+
+        it('should save a new blog', () => {
+
         })
     })
 

@@ -5,16 +5,14 @@ import VeeValidate from 'vee-validate';
 import BlogForm from '@/components/blog/BlogForm'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
-// import { state, getters, mutations, actions } from '@/store/modules/blog'
-// import {
-//     state as category_state,
-//     getters as category_getters,
-//     mutations as category_mutations,
-//     actions as category_actions
-// } from '@/store/modules/category'
-
 import Editor from '@/components/blog/Editor'
 import Error from '@/components/Error'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+localVue.use(VueRouter)
+localVue.use(VeeValidate)
+const router = new VueRouter()
 
 const categories = [
     {
@@ -33,11 +31,24 @@ const categories = [
     },
 ]
 
-const localVue = createLocalVue()
-localVue.use(Vuex)
-localVue.use(VueRouter)
-localVue.use(VeeValidate)
-const router = new VueRouter()
+const blog = {
+    actions: {
+        saveBlog: jest.fn(),
+        updateBlog: jest.fn(),
+    }
+}
+
+const category = {
+    state: {
+        categories
+    },
+    getters: {
+        categories: (state) => state.categories
+    },
+    actions: {
+        getCategories: jest.fn
+    }
+}
 
 describe('BlogForm', () => {
     let store
@@ -49,22 +60,11 @@ describe('BlogForm', () => {
             modules: {
                 blog: {
                     namespaced: true,
-                    actions: {
-                        saveBlog: jest.fn(),
-                        updateBlog: jest.fn(),
-                    }
+                    ...blog
                 },
                 category: {
                     namespaced: true,
-                    state: {
-                        categories
-                    },
-                    getters: {
-                        categories: (state) => state.categories
-                    },
-                    actions: {
-                        getCategories: jest.fn
-                    }
+                    ...category
                 }
             }
         })
@@ -189,6 +189,7 @@ describe('BlogForm', () => {
             expect(wrapper.vm.errors.count()).toBe(0)
 
             await flushPromises()
+            expect(blog.actions.saveBlog).toHaveBeenCalled()
 
             expect(wrapper.vm.$data.blog).toEqual({
                 title: '',
@@ -230,6 +231,7 @@ describe('BlogForm', () => {
 
             await flushPromises()
 
+            expect(blog.actions.updateBlog).toHaveBeenCalled()
             expect(wrapper.vm.$data.blog).toEqual({
                 title: 'bar baz',
                 body: 'Lorem upsum',

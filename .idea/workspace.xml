@@ -29,8 +29,8 @@
       <file leaf-file-name="Blog.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
               <folding>
                 <element signature="e#599#622#0" expanded="true" />
                 <element signature="e#717#1221#0" />
@@ -51,13 +51,11 @@
       <file leaf-file-name="BlogForm.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="237" column="30" lean-forward="true" selection-start-line="237" selection-start-column="30" selection-end-line="237" selection-end-column="30" />
+            <state relative-caret-position="322">
+              <caret line="198" column="14" lean-forward="true" selection-start-line="198" selection-start-column="14" selection-end-line="198" selection-end-column="14" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <element signature="e#578#623#0" expanded="true" />
-                <element signature="e#707#1328#0" />
-                <element signature="e#4514#4538#0" />
+                <element signature="e#548#869#0" />
               </folding>
             </state>
           </provider>
@@ -560,12 +558,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="65055000" />
+      <workItem from="1551173161003" duration="66030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="448205000" />
+    <option name="totallyTimeSpent" value="449180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -981,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="29" />
+        <state relative-caret-position="68">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
           <folding>
             <element signature="e#599#622#0" expanded="true" />
             <element signature="e#717#1221#0" />
@@ -992,13 +990,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="237" column="30" lean-forward="true" selection-start-line="237" selection-start-column="30" selection-end-line="237" selection-end-column="30" />
+        <state relative-caret-position="322">
+          <caret line="198" column="14" lean-forward="true" selection-start-line="198" selection-start-column="14" selection-end-line="198" selection-end-column="14" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#578#623#0" expanded="true" />
-            <element signature="e#707#1328#0" />
-            <element signature="e#4514#4538#0" />
+            <element signature="e#548#869#0" />
           </folding>
         </state>
       </provider>

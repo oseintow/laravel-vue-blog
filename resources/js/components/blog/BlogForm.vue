@@ -98,7 +98,6 @@
         },
         mounted() {
             this.$store.dispatch('category/getCategories')
-                .catch((error) => console.log(error))
         },
         created() {
             if (this.type == 'edit') {

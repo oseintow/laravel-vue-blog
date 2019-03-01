@@ -12,11 +12,14 @@ import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'iview/dist/styles/iview.css'
+import BootstrapVue from 'bootstrap-vue'
 import VeeValidate from 'vee-validate';
 import VueRx from 'vue-rx'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 import { faCoffee, faThumbsUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+
+import 'quill/dist/quill.snow.css'
 
 
 /**
@@ -38,7 +41,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import BootstrapVue from 'bootstrap-vue'
 import router from './router'
 import store from './store'
 

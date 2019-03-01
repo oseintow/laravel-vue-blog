@@ -1,21 +1,20 @@
 import { getCategories } from "@/api/category";
 
-const state = {
+export const state = {
     categories: []
 }
 
-const mutations = {
+export const mutations = {
     CATEGORIES: (state, payload) => {
         state.categories = payload
     }
 }
 
-const actions = {
+export const actions = {
     getCategories({commit}){
         return new Promise((resolve, reject) => {
             getCategories()
                 .then(({data}) =>{
-                    console.log(data)
                     commit('CATEGORIES', data.categories)
                     resolve(data)
                 })
@@ -25,7 +24,7 @@ const actions = {
 
 }
 
-const getters = {
+export const getters = {
     categories : state => {
         return state.categories
     }

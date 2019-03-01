@@ -8,12 +8,12 @@ import {
     getUserBlogs
 } from '@/api/blog'
 
-const state = {
+export const state = {
     blog: [],
     blogs: []
 }
 
-const mutations = {
+export const mutations = {
     BLOGS: (state, payload) => {
         let blogs = state.blogs
         blogs.push(...payload.data)
@@ -23,7 +23,7 @@ const mutations = {
     BLOG: (state, payload) => state.blog = payload
 }
 
-const actions = {
+export const actions = {
     saveBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             saveBlog(payload)
@@ -96,7 +96,7 @@ const actions = {
     },
 }
 
-const getters = {
+export const getters = {
     blogs : state => {
         return state.blogs
     },

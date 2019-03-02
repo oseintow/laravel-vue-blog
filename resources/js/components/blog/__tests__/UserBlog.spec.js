@@ -9,6 +9,7 @@ import flushPromises from 'flush-promises'
 import Favourite from '@/components/Favourite'
 import Avatar from '@/components/Avatar'
 import UserBlog from '@/components/blog/UserBlog'
+import { FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -46,6 +47,7 @@ describe('UserBlog', () => {
     let h
     let wrapper
     let store
+    let spy = jest.fn()
 
     beforeEach(() => {
         store = new Vuex.Store({
@@ -62,7 +64,8 @@ describe('UserBlog', () => {
             }
         })
 
-        wrapper = mount(UserBlog, {
+        wrapper = shallowMount(UserBlog, {
+            localVue,
             store,
             router,
             propsData: {
@@ -89,12 +92,18 @@ describe('UserBlog', () => {
             },
             stubs: {
                 Favourite: true,
-                Avatar: '<img src="blog.author.avatar" />'
+                Avatar: '<img src="blog.author.avatar" />',
+                FontAwesomeIcon: true
             },
-            sync: false
+            // sync: false
         })
 
         h = new TestHelpers(wrapper, expect)
+        jest.useFakeTimers()
+    })
+
+    afterEach(() => {
+        jest.useRealTimers()
     })
 
     it('should render users avatar image', () => {
@@ -111,5 +120,41 @@ describe('UserBlog', () => {
         }))
 
         h.see('a few seconds ago...', '.created_at')
+    })
+
+    it('should hide blog actions', async () => {
+        wrapper.vm.$auth.check = false
+
+        await flushPromises()
+
+        h.domHasNot('.blog-actions')
+        h.doNotSee('Edit Blog', '.blog-actions')
+        h.doNotSee('Delete Blog', '.blog-actions')
+    })
+
+    it('should hide blog actions if user is not authenticated', async () => {
+        await flushPromises()
+
+        h.domHas('.blog-actions')
+    })
+
+    it('should display edit blog if user is authenticated', () => {
+        h.see('Edit Blog', '.blog-actions')
+    })
+
+    it('should display delete blog if user is authenticated', () => {
+        h.see('Delete Blog', '.blog-actions')
+    })
+
+    it('can navigate to edit blogs if authenticated', async () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.edit-blog')
+
+        expect(spy).toHaveBeenCalledWith({
+            name: 'edit-user-blog',
+            params: {
+                slug: 'foo-bar'
+            }
+        });
     })
 })

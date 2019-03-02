@@ -19,16 +19,14 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex justify-content-end" style="margin-right: -35px">
-                                <div class="justify-content-end d-flex" v-if="$auth.check">
+                                <div class="justify-content-end d-flex blog-actions" v-if="$auth.check">
                                     <div class="dropdown">
                                         <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
-                                            <!--<avatar :image="$auth.user.avatar" :width="40" :height="40"></avatar>-->
-
                                             <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                            <a class="dropdown-item" @click.preventDefault="editBlog(blog)">Edit Blog</a>
-                                            <a class="dropdown-item" @click.preventDefault="deleteBlog(blog)">Delete Blog</a>
+                                            <a class="dropdown-item edit-blog" @click.preventDefault="editBlog(blog)">Edit Blog</a>
+                                            <a class="dropdown-item delete-blog" @click.preventDefault="deleteBlog(blog)">Delete Blog</a>
                                         </div>
                                     </div>
                                 </div>

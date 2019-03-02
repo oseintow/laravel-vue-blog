@@ -74,7 +74,7 @@ describe('BlogForm', () => {
             store,
             router,
             stubs: {
-                Editor: '<textarea type="text" name="editor"></textarea>',
+                Editor: true,
                 Error
             },
             propsData: {
@@ -109,24 +109,27 @@ describe('BlogForm', () => {
 
         })
 
-        it('body is null', async () => {
+        it('body is null', async() => {
             expect(wrapper.vm.errors.has("body")).toBe(false);
             wrapper.setData({body: 'init body is not null'})
 
-            await flushPromises()
-            let body = h.find('input[name="body"]')
-            body.setValue("")
-            body.trigger('blur')
+            h.find(Editor).vm.$emit('delta', {
+                getText: jest.fn(() => null),
+                getContents: jest.fn(() => null)
+            })
 
             await flushPromises()
             expect(wrapper.vm.errors.has("body")).toBe(true);
-
         })
 
         it('body has less than three characters', async () => {
             expect(wrapper.vm.errors.has("body")).toBe(false);
+            wrapper.setData({body: 'init body is not null'})
 
-            wrapper.setData({body: 'as'})
+            h.find(Editor).vm.$emit('delta', {
+                getText: jest.fn(() => 'ab'),
+                getContents: jest.fn(() => 'ab')
+            })
 
             await flushPromises()
             expect(wrapper.vm.errors.has("body")).toBe(true);

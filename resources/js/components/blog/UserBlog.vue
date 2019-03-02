@@ -104,6 +104,7 @@
             deleteBlog(blog) {
                 this.$store.dispatch('blog/deleteBlog', {slug: blog.slug})
                     .then(() => this.$emit('deleted', this.blog.id))
+                    .catch((error) => console.log(error))
             }
         }
     }

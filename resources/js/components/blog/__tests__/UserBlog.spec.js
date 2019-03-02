@@ -53,9 +53,12 @@ describe('UserBlog', () => {
         store = new Vuex.Store({
             modules: {
                 blog: {
+                    namespaced: true,
                     actions: {
                         deleteBlog: jest.fn(() => {
                             return new Promise((resolve, reject) => {
+                                if (mockError)
+                                    reject(new Error('API Error occurred.'))
                                 resolve(true)
                             })
                         })
@@ -146,7 +149,7 @@ describe('UserBlog', () => {
         h.see('Delete Blog', '.blog-actions')
     })
 
-    it('can navigate to edit blogs if authenticated', async () => {
+    it('can navigate to edit blogs if authenticated', () => {
         wrapper.vm.$router.push = spy;
         h.click('.edit-blog')
 
@@ -156,5 +159,13 @@ describe('UserBlog', () => {
                 slug: 'foo-bar'
             }
         });
+    })
+
+    it('can delete blog if authenticated', async () => {
+        h.click('.delete-blog')
+
+        await flushPromises()
+
+        expect(wrapper.emitted().deleted).toBeTruthy()
     })
 })

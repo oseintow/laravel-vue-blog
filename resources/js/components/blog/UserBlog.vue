@@ -41,8 +41,8 @@
                     </a>
                 </div>
 
-                <div class="row">{{blog.category.name.toUpperCase()}}</div>
-                <a @click.preventDefault="gotoUserBlog" style="color: black">
+                <div class="row category-name">{{blog.category.name.toUpperCase()}}</div>
+                <a class="nav-to-user-blog" @click.preventDefault="gotoUserBlog" style="color: black">
                     <div class="row mt-1">
                         <h4>{{ blog.title }}</h4>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="mr-auto">
                         <favourite :favourite="blog" v-if="blog"></favourite>
                     </div>
-                    <div class="mt-2" style="font-weight: bold">
+                    <div class="mt-2 comment-count" style="font-weight: bold">
                         {{ blog.comments_count }} comments
                     </div>
                 </div>

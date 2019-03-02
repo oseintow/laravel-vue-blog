@@ -78,6 +78,7 @@ describe('UserBlog', () => {
                     cover_image_url: 'foo-image.jpg',
                     created_at: Date.now(),
                     body: {ops: {insert: ['a','b']}},
+                    comments_count: 2,
                     author: {
                         name: 'baz',
                         nickname: 'baz-123',
@@ -175,5 +176,34 @@ describe('UserBlog', () => {
                 slug: 'foo-bar'
             }
         });
+    })
+
+    it('renders blog cover image', () => {
+        h.hasAttributeValue('img.cover_image_url', 'src', 'foo-image.jpg')
+    })
+
+    it('can go to users blog', () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.nav-to-users-blog')
+
+        expect(spy).toHaveBeenCalledWith({
+            name: 'user-blog',
+            params: {
+                nickname: 'baz-123',
+                slug: 'foo-bar'
+            }
+        });
+    })
+
+    it('should see category name in capital letters', () => {
+        h.see('FOO-CATEGORY', '.category-name')
+    })
+
+    it('should see favourite component', () => {
+        h.exists(Favourite)
+    })
+
+    it('should see comment count', () => {
+        h.see('2 comments', '.comment-count')
     })
 })

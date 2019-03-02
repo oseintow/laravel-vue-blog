@@ -55,14 +55,6 @@ describe.only('BlogReader', () => {
         h = new TestHelpers(wrapper, expect)
     })
 
-    it('sees blogs title', () => {
-        h.see('foobar', '.title')
-    })
-
-    it('sees author\'s name', () => {
-        h.see('baz', '.author-name')
-    })
-
     it('sees blog creation date', () => {
         jest.mock("moment",  () => ({
             fromNow: () => "a few seconds ago"

@@ -109,10 +109,6 @@ describe('UserBlog', () => {
         h.exists(Avatar)
     })
 
-    it('should display authors name', () => {
-        h.see('baz', '.author-name')
-    })
-
     it('should display time blog was created', () => {
         jest.mock("moment",  () => ({
             fromNow: () => "a few seconds ago"
@@ -127,22 +123,13 @@ describe('UserBlog', () => {
         await flushPromises()
 
         h.domHasNot('.blog-actions')
-        h.doNotSee('Edit Blog', '.blog-actions')
-        h.doNotSee('Delete Blog', '.blog-actions')
     })
 
     it('should hide blog actions if user is not authenticated', async () => {
+        wrapper.vm.$auth.check = true
         await flushPromises()
 
         h.domHas('.blog-actions')
-    })
-
-    it('should display edit blog if user is authenticated', () => {
-        h.see('Edit Blog', '.blog-actions')
-    })
-
-    it('should display delete blog if user is authenticated', () => {
-        h.see('Delete Blog', '.blog-actions')
     })
 
     it('can navigate to edit blogs if authenticated', () => {
@@ -176,10 +163,6 @@ describe('UserBlog', () => {
                 slug: 'foo-bar'
             }
         });
-    })
-
-    it('renders blog cover image', () => {
-        h.hasAttributeValue('img.cover_image_url', 'src', 'foo-image.jpg')
     })
 
     it('can go to users blog', () => {

@@ -59,14 +59,14 @@ describe('Sign In', () => {
             router,
             stubs: {
                 bModal: true
-            }
+            },
         })
         h = new TestHelpers(wrapper, expect)
-        jest.useFakeTimers()
+        // jest.useFakeTimers()
     })
 
     afterEach(() => {
-        jest.useRealTimers()
+        // jest.useRealTimers()
     })
 
     it('component mounts without errors', () => {

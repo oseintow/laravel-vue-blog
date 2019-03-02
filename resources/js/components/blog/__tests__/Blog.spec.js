@@ -92,7 +92,6 @@ describe('Blog', () => {
         wrapper.vm.$router.push = spy;
         h.click('.users-blogs')
 
-        await flushPromises()
         expect(spy).toHaveBeenCalledWith({ name: 'users-blogs', params: {nickname: "baz-123"}});
     });
 
@@ -100,7 +99,6 @@ describe('Blog', () => {
         wrapper.vm.$router.push = spy;
         h.click('.user-blog')
 
-        await flushPromises()
         expect(spy).toHaveBeenCalledWith({
             name: 'user-blog',
             params: {

@@ -3,14 +3,16 @@ const mockSentence = "Lorem Ipsum is simply dummy text of the printing and types
 const mockObjectSentennce= {"ops":[{"attributes":{"color":"#000000","bold":true},"insert":"Lorem Ipsum"},{"attributes":{"color":"#000000"},"insert":" is simply dummy text of the printing and typesetting industry"},{"insert":"\n"}]}
 
 import Vuex from 'vuex'
-import { shallowMount, createLocalVue } from '@vue/test-utils'
-import { RouterLinkStub } from '@vue/test-utils';
+import { shallowMount, createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
+import VueRouter from 'vue-router'
 import BlogReader from '@/components/blog/BlogReader'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueRouter)
+const router = new VueRouter()
 
 jest.mock('quill', () => {
     return jest.fn().mockImplementation(() => ({
@@ -24,31 +26,34 @@ describe.only('BlogReader', () => {
     let h
     let spy = jest.fn()
 
-    wrapper = shallowMount(BlogReader, {
-        localVue,
-        propsData: {
-            blog: {
-                title: 'foobar',
-                slug: 'foo-bar',
-                cover_image_url: 'foo-image.jpg',
-                created_at: Date.now(),
-                body: {ops: {insert: ['a','b']}},
-                author: {
-                    name: 'baz',
-                    nickname: 'baz-123',
-                    avatar: 'profile-image.jpg'
-                },
-                category: {
-                    name: 'foo-category'
+    beforeEach(() => {
+        wrapper = mount(BlogReader, {
+            localVue,
+            router,
+            propsData: {
+                blog: {
+                    title: 'foobar',
+                    slug: 'foo-bar',
+                    cover_image_url: 'foo-image.jpg',
+                    created_at: Date.now(),
+                    body: {ops: {insert: ['a', 'b']}},
+                    author: {
+                        name: 'baz',
+                        nickname: 'baz-123',
+                        avatar: 'profile-image.jpg'
+                    },
+                    category: {
+                        name: 'foo-category'
+                    }
                 }
-            }
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    })
+            },
+            // stubs: {
+            //     RouterLink: RouterLinkStub
+            // }
+        })
 
-    h = new TestHelpers(wrapper, expect)
+        h = new TestHelpers(wrapper, expect)
+    })
 
     it('sees blogs title', () => {
         h.see('foobar', '.title')
@@ -68,5 +73,19 @@ describe.only('BlogReader', () => {
 
     it('renders blogs cover image', async () => {
         h.hasAttributeValue('img', 'src', 'profile-image.jpg')
+    })
+
+    it('can navigate to users blogs page', async () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.blog-link')
+
+        await flushPromises()
+
+        expect(spy).toHaveBeenCalledWith({
+            name: 'users-blogs',
+            params: {
+                nickname: "baz-123"
+            }
+        });
     })
 })

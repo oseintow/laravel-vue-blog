@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="blog in blogs">
-            <blog :data="blog"></blog>
+            <blog :data="blog" class="blog"></blog>
         </div>
         <div style="margin-bottom: 100px">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getBlogs" v-if="blogs">

@@ -104,4 +104,12 @@ describe('UserBlog', () => {
     it('should display authors name', () => {
         h.see('baz', '.author-name')
     })
+
+    it('should display time blog was created', () => {
+        jest.mock("moment",  () => ({
+            fromNow: () => "a few seconds ago"
+        }))
+
+        h.see('a few seconds ago...', '.created_at')
+    })
 })

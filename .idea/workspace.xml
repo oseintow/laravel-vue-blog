@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vue-authenticator.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/plugins/vue-authenticator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/test/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/test/test-helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,8 +41,8 @@
       <file leaf-file-name="UserBlog.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/UserBlog.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="60" />
+            <state relative-caret-position="205">
+              <caret line="15" column="56" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="56" />
               <folding>
                 <element signature="e#3383#3429#0" expanded="true" />
               </folding>
@@ -56,8 +53,8 @@
       <file leaf-file-name="UserBlog.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
+            <state relative-caret-position="411">
+              <caret line="110" column="11" lean-forward="true" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -103,8 +100,8 @@
       <file leaf-file-name="Blog.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1953">
-              <caret selection-end-line="1" />
+            <state relative-caret-position="49">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="76" selection-end-column="6" />
               <folding>
                 <element signature="e#599#622#0" expanded="true" />
               </folding>
@@ -539,12 +536,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="88588000" />
+      <workItem from="1551173161003" duration="88641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="471738000" />
+    <option name="totallyTimeSpent" value="471791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -966,6 +963,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="76" selection-end-column="6" />
+          <folding>
+            <element signature="e#599#622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/test/test-helpers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -975,28 +982,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/UserBlog.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="60" />
+        <state relative-caret-position="205">
+          <caret line="15" column="56" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="56" />
           <folding>
             <element signature="e#3383#3429#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1953">
-          <caret selection-end-line="1" />
-          <folding>
-            <element signature="e#599#622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
+        <state relative-caret-position="411">
+          <caret line="110" column="11" lean-forward="true" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

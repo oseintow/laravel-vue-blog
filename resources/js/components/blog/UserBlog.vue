@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="row p-4">
-                    <a class="row" @click.preventDefault="gotoUserBlog" style="color: black">
+                    <a class="row nav-to-users-blog" @click.preventDefault="gotoUserBlog" style="color: black">
                         <img :src="blog.cover_image_url" alt="" class="cover_image_url">
                     </a>
                 </div>

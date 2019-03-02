@@ -97,16 +97,11 @@ describe('UserBlog', () => {
                 Favourite: true,
                 Avatar: '<img src="blog.author.avatar" />',
                 FontAwesomeIcon: true
-            },
+            }
             // sync: false
         })
 
         h = new TestHelpers(wrapper, expect)
-        jest.useFakeTimers()
-    })
-
-    afterEach(() => {
-        jest.useRealTimers()
     })
 
     it('should render users avatar image', () => {
@@ -150,7 +145,7 @@ describe('UserBlog', () => {
     })
 
     it('can navigate to edit blogs if authenticated', () => {
-        wrapper.vm.$router.push = spy;
+        wrapper.vm.$router.push = spy
         h.click('.edit-blog')
 
         expect(spy).toHaveBeenCalledWith({
@@ -167,5 +162,18 @@ describe('UserBlog', () => {
         await flushPromises()
 
         expect(wrapper.emitted().deleted).toBeTruthy()
+    })
+
+    it('can navigate to users blog', () => {
+        wrapper.vm.$router.push = spy;
+        h.click('.nav-to-users-blog')
+
+        expect(spy).toHaveBeenCalledWith({
+            name: 'user-blog',
+            params: {
+                nickname: 'baz-123',
+                slug: 'foo-bar'
+            }
+        });
     })
 })

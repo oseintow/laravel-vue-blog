@@ -67,8 +67,6 @@ describe.only('BlogReader', () => {
     })
 
     it('renders blogs cover image', async () => {
-        await flushPromises()
-        expect(h.find('img').attributes("src")).toBe('profile-image.jpg')
-        // expect(h.find("img").prop("src")).toEqual('foo-image.jpg');
+        h.hasAttributeValue('img', 'src', 'profile-image.jpg')
     })
 })

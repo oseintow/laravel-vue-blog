@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/test/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/test/test-helpers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +52,20 @@
       <file leaf-file-name="BlogReader.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="737">
-              <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+            <state relative-caret-position="281">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#832#855#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test-helpers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/test/test-helpers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="51" column="21" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -198,7 +207,6 @@
         <option value="$PROJECT_DIR$/resources/js/components/blog/__mocks__/quill.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/SignIn.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/Blog.vue" />
-        <option value="$PROJECT_DIR$/resources/js/test/test-helpers.js" />
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/Editor.vue" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
@@ -210,6 +218,7 @@
         <option value="$PROJECT_DIR$/jest.config.js" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/resources/js/test/test-helpers.js" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js" />
       </list>
     </option>
@@ -493,12 +502,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="72476000" />
+      <workItem from="1551173161003" duration="72647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455626000" />
+    <option name="totallyTimeSpent" value="455797000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -825,13 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/test/test-helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jest.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
@@ -913,6 +915,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogReader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#931#956#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -924,20 +936,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogReader.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/test/test-helpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="e#931#956#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="229">
+          <caret line="51" column="21" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="281">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#832#855#0" expanded="true" />
           </folding>

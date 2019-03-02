@@ -49,6 +49,9 @@ class TestHelpers {
     hasAttribute(selector, attribute) {
         return this.expect(this.find(selector).attributes()[attribute]).toBeTruthy()
     }
+    hasAttributeValue(selector, attribute, value) {
+        return this.expect(this.find(selector).attributes(attribute)).toBe(value)
+    }
 }
 
 export default TestHelpers

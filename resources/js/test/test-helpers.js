@@ -52,6 +52,9 @@ class TestHelpers {
     hasAttributeValue(selector, attribute, value) {
         return this.expect(this.find(selector).attributes(attribute)).toBe(value)
     }
+    exists(selector){
+        return this.expect(this.find(selector).exists()).toBe(true)
+    }
 }
 
 export default TestHelpers

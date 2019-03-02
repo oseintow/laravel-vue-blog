@@ -22,6 +22,6 @@ export const getVueAuthenticate = () => {
                 redirectUri: 'http://localhost:8000/auth/google/callback' // Your client app URL
             }
         }
-    });
+    })
 }
 

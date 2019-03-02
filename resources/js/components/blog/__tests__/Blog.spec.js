@@ -84,18 +84,18 @@ describe('Blog', () => {
         h.see('baz', '#author')
     })
 
-    it('renders blogs cover image', async () => {
+    it('renders blogs cover image', () => {
         h.hasAttributeValue('img', 'src', 'foo-image.jpg')
     })
 
-    it('can navigate to users blogs', async () => {
+    it('can navigate to users blogs', () => {
         wrapper.vm.$router.push = spy;
         h.click('.users-blogs')
 
         expect(spy).toHaveBeenCalledWith({ name: 'users-blogs', params: {nickname: "baz-123"}});
     });
 
-    it('should navigate to user\'s blog', async () => {
+    it('should navigate to user\'s blog', () => {
         wrapper.vm.$router.push = spy;
         h.click('.user-blog')
 

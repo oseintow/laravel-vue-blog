@@ -109,6 +109,19 @@ describe('BlogForm', () => {
 
         })
 
+        it('title has less than three characters', async () => {
+            expect(wrapper.vm.errors.has("title")).toBe(false);
+
+            wrapper.setData({
+                blog: {
+                    title: 'as'
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("title")).toBe(true);
+        })
+
         it('body is null', async() => {
             expect(wrapper.vm.errors.has("body")).toBe(false);
             wrapper.setData({body: 'init body is not null'})
@@ -133,19 +146,6 @@ describe('BlogForm', () => {
 
             await flushPromises()
             expect(wrapper.vm.errors.has("body")).toBe(true);
-        })
-
-        it('title has less than three characters', async () => {
-            expect(wrapper.vm.errors.has("title")).toBe(false);
-
-            wrapper.setData({
-                blog: {
-                    title: 'as'
-                }
-            })
-
-            await flushPromises()
-            expect(wrapper.vm.errors.has("title")).toBe(true);
         })
 
         it('category is null', async () => {

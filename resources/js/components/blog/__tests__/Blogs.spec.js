@@ -12,7 +12,6 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
 localVue.use(eventBus)
-// const router = new VueRouter()
 
 const blog = {
     actions: {
@@ -95,5 +94,15 @@ describe('Blogs', () => {
         const blogs = h.findAll('.blog')
 
         expect(blogs.length).toBe(2)
+    })
+
+    it('can search for a blog', () => {
+        wrapper.vm.$eventBus.search("foo")
+
+        expect(wrapper.vm.$data.query).toEqual({
+            page: 1,
+            q: 'foo',
+            per_page: 5
+        })
     })
 })

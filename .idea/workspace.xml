@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="BlogForm.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogForm.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2858">
-              <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+            <state relative-caret-position="329">
+              <caret line="107" column="38" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -54,8 +52,8 @@
       <file leaf-file-name="BlogReader.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+            <state relative-caret-position="737">
+              <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
               <folding>
                 <element signature="e#832#855#0" expanded="true" />
               </folding>
@@ -66,8 +64,8 @@
       <file leaf-file-name="BlogReader.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogReader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="48" />
+            <state relative-caret-position="82">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="32" />
               <folding>
                 <element signature="e#931#956#0" expanded="true" />
               </folding>
@@ -495,12 +493,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="71403000" />
+      <workItem from="1551173161003" duration="72476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="454553000" />
+    <option name="totallyTimeSpent" value="455626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -890,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2858">
-          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1265">
@@ -905,6 +896,20 @@
             <element signature="e#1604#1633#0" expanded="true" />
             <element signature="e#1862#1911#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="107" column="38" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -921,25 +926,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogReader.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="48" />
+        <state relative-caret-position="82">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="32" />
           <folding>
             <element signature="e#931#956#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogReader.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+        <state relative-caret-position="737">
+          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
           <folding>
             <element signature="e#832#855#0" expanded="true" />
           </folding>

@@ -4,7 +4,7 @@ const mockObjectSentennce= {"ops":[{"attributes":{"color":"#000000","bold":true}
 
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import VueRouter from 'vue-router'
+import { RouterLinkStub } from '@vue/test-utils';
 import BlogReader from '@/components/blog/BlogReader'
 import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
@@ -35,12 +35,16 @@ describe.only('BlogReader', () => {
                 body: {ops: {insert: ['a','b']}},
                 author: {
                     name: 'baz',
-                    nickname: 'baz-123'
+                    nickname: 'baz-123',
+                    avatar: 'profile-image.jpg'
                 },
                 category: {
                     name: 'foo-category'
                 }
             }
+        },
+        stubs: {
+            RouterLink: RouterLinkStub
         }
     })
 
@@ -63,8 +67,8 @@ describe.only('BlogReader', () => {
     })
 
     it('renders blogs cover image', async () => {
-        console.log(h.find("img").attributes('src'))
-        expect(h.find("img").attributes('src')).toEqual('foo-image.jpg')
+        await flushPromises()
+        expect(h.find('img').attributes("src")).toBe('profile-image.jpg')
         // expect(h.find("img").prop("src")).toEqual('foo-image.jpg');
     })
 })

@@ -51,7 +51,6 @@ const blog = {
                     current_page: 1,
                     last_page: 2
                 }
-
             }
         }
     }

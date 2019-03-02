@@ -67,14 +67,14 @@
 </template>
 
 <script>
-    import Quill from 'quill'
-    import moment from 'moment';
     import Favourite from '@/components/Favourite'
     import Avatar from '@/components/Avatar'
+    import BlogMixin from '@/mixins/BlogMixin'
 
     export default {
         name: "Blog",
         props: ['data'],
+        mixins: [BlogMixin],
         components: {
             Favourite,
             Avatar
@@ -106,20 +106,6 @@
             deleteBlog(blog) {
                 this.$store.dispatch('blog/deleteBlog', {slug: blog.slug})
                     .then(() => this.$emit('deleted', this.blog.id))
-            }
-        },
-        computed: {
-            ago() {
-                return moment(this.blog.created_at).fromNow() + '...';
-            },
-            body() {
-                const article = document.createElement('article')
-                let quill = new Quill(article, {})
-
-                quill.setContents(this.blog.body)
-                const body = quill.getText()
-
-                return body.length > 200 ? body.substring(0,200) + '...' : body
             }
         }
     }

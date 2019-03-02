@@ -28,12 +28,12 @@
 </template>
 
 <script>
-    import Quill from 'quill'
-    import moment from 'moment';
+    import BlogMixin from '@/mixins/BlogMixin'
 
     export default {
         name: "Blog",
         props: ['data'],
+        mixins: [BlogMixin],
         data() {
             return {
                 blog: this.data,
@@ -53,20 +53,6 @@
                         nickname: this.blog.author.nickname,
                         slug: this.blog.slug }
                 })
-            }
-        },
-        computed: {
-            ago() {
-                return moment(this.blog.created_at).fromNow() + '...';
-            },
-            body() {
-                const article = document.createElement('article')
-                let quill = new Quill(article, {})
-
-                quill.setContents(this.blog.body)
-                const body = quill.getText()
-
-                return body.length > 200 ? body.substring(0,200) + '...' : body
             }
         }
     }

@@ -84,8 +84,8 @@ describe('Blog', () => {
         h.see('baz', '#author')
     })
 
-    it('image src should have correct image url', () => {
-        h.hasAttribute('.cover_image_url', 'src')
+    it('renders blogs cover image', async () => {
+        h.hasAttributeValue('img', 'src', 'foo-image.jpg')
     })
 
     it('can navigate to users blogs', async () => {

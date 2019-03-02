@@ -24,5 +24,11 @@ module.exports = {
     testMatch: [
         '**/resources/js/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
     ],
-    testURL: 'http://localhost/'
+    testURL: 'http://localhost/',
+    reporters: [
+        "default",
+        ["./node_modules/jest-html-reporter", {
+            "pageTitle": "Test Report"
+        }]
+    ]
 }

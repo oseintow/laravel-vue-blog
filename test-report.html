@@ -1,0 +1,129 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+body {
+	padding: 1rem;
+	font-size: 0.85rem;
+}
+header {
+	display: flex;
+	align-items: center;
+}
+#title {
+	margin: 0;
+	flex-grow: 1;
+}
+#logo {
+	height: 4rem;
+}
+#timestamp {
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 0.5rem;
+}
+#summary {
+	color: #999;
+	margin-bottom: 1rem;
+}
+.suite-info {
+	padding: 1rem;
+	background-color: #eee;
+	border-bottom: 2px solid #999;
+	color: #999;
+	display: flex;
+	align-items: center;
+}
+.suite-info .suite-path {
+	font-weight: bold;
+	word-break: break-all;
+	flex-grow: 1;
+}
+.suite-info .suite-time {
+	margin-left: 0.5rem;
+	padding: 0.2rem 0.3rem;
+	font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+	background-color: #D8000C;
+	color: #fff;
+}
+.suite-table {
+	width: 100%;
+	font-size: 0.85rem;
+	margin-bottom: 1em;
+}
+.suite-table td {
+	padding: 0.5rem;
+}
+.suite-table tr.passed {
+	background-color: #DFF2BF;
+	color: #4F8A10;
+}
+.suite-table tr.pending {
+	background-color: #FEEFB3;
+	color: #9F6000;
+}
+.suite-table tr.failed {
+	background-color: #FFBABA;
+	color: #D8000C;
+}
+.suite-table td {
+	font-size: 0.85rem;
+	border-bottom: 1px solid #aaa;
+	vertical-align: top;
+}
+.suite-table td.suite {
+	font-weight: bold;
+	width: 20%;
+}
+.suite-table td.test {
+	font-style: italic;
+	width: 60%;
+}
+.suite-table td.test .failureMsg {
+	font-size: 1rem;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+.suite-table td.result {
+	width: 20%;
+	text-align: right;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	background-color: #efefef;
+}
+.suite-consolelog-header {
+	font-weight: bold;
+}
+.suite-consolelog-item {
+	padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+	margin: 0;
+}
+.suite-consolelog-item-origin {
+	color: #777;
+	font-weight: bold;
+}
+.suite-consolelog-item-message {
+	color: #000;
+	font-size: 1rem;
+	padding: 0 0.5rem;
+}
+</style></head><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Start: 2019-03-02 00:17:58</div><div id="summary">
+				35 tests --
+				34 passed /
+				1 failed /
+				0 pending
+			</div></div><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/test/unit/sanity.spec.js</div><div class="suite-time">1.162s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Sanity test</td><td class="test">runs correctly</td><td class="result">passed in 0.009s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/store/modules/__tests__/auth.spec.js</div><div class="suite-time">1.277s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">auth store module &gt; getters</td><td class="test">isAuthenticated logic works</td><td class="result">passed in 0.007s</td></tr><tr class="passed"><td class="suite">auth store module &gt; getters</td><td class="test">can get token</td><td class="result">passed in 0.001s</td></tr><tr class="passed"><td class="suite">auth store module &gt; getters</td><td class="test">can get auth user</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">auth store module &gt; mutations</td><td class="test">set is authenticated</td><td class="result">passed in 0.001s</td></tr><tr class="passed"><td class="suite">auth store module &gt; mutations</td><td class="test">set token</td><td class="result">passed in 0s</td></tr><tr class="passed"><td class="suite">auth store module &gt; mutations</td><td class="test">set authenticated user</td><td class="result">passed in 0s</td></tr><tr class="passed"><td class="suite">auth store module &gt; actions</td><td class="test">login a user</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">auth store module &gt; actions</td><td class="test">catches an error</td><td class="result">passed in 0s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/pages/__tests__/pages-sanity.spec.js</div><div class="suite-time">1.418s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Pages Sanity test</td><td class="test">pages test runs correctly</td><td class="result">passed in 0.006s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/components/blog/__tests__/Blog.spec.js</div><div class="suite-time">1.597s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Blog</td><td class="test">component mounts without errors</td><td class="result">passed in 0.035s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should show blogs category in capital letters</td><td class="result">passed in 0.01s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should display title</td><td class="result">passed in 0.005s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should display time blog was created</td><td class="result">passed in 0.007s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should limit body of blog to 200 characters</td><td class="result">passed in 0.004s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should see blogs authors name</td><td class="result">passed in 0.004s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">image src should have correct image url</td><td class="result">passed in 0.005s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">can navigate to users blogs</td><td class="result">passed in 0.008s</td></tr><tr class="passed"><td class="suite">Blog</td><td class="test">should navigate to user's blog</td><td class="result">passed in 0.052s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/components/__tests__/SignIn.spec.js</div><div class="suite-time">1.64s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Sign In</td><td class="test">component mounts without errors</td><td class="result">passed in 0.026s</td></tr><tr class="passed"><td class="suite">Sign In</td><td class="test">should be able to response to sign-in event</td><td class="result">passed in 0.008s</td></tr><tr class="passed"><td class="suite">Sign In</td><td class="test">should be able to login using google social account</td><td class="result">passed in 0.012s</td></tr><tr class="passed"><td class="suite">Sign In</td><td class="test">should be able to login using facebook social account</td><td class="result">passed in 0.057s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/components/blog/__tests__/BlogReader.spec.js</div><div class="suite-time">1.941s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">BlogReader</td><td class="test">sees blogs title</td><td class="result">passed in 0.019s</td></tr><tr class="passed"><td class="suite">BlogReader</td><td class="test">sees author's name</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">BlogReader</td><td class="test">sees blog creation date</td><td class="result">passed in 0.003s</td></tr><tr class="failed"><td class="suite">BlogReader</td><td class="test">renders blogs cover image</td><td class="result">failed</td></tr></table><div class="suite-info"><div class="suite-path">/Users/oseintow/Sites/laravel-vue-blog/resources/js/components/blog/__tests__/BlogForm.spec.js</div><div class="suite-time">2.051s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">BlogForm</td><td class="test">can get all categories</td><td class="result">passed in 0.086s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; Validate</td><td class="test">title is null</td><td class="result">passed in 0.067s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; Validate</td><td class="test">body is null</td><td class="result">passed in 0.035s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; Validate</td><td class="test">body has less than three characters</td><td class="result">passed in 0.029s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; Validate</td><td class="test">title has less than three characters</td><td class="result">passed in 0.033s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; Validate</td><td class="test">category is null</td><td class="result">passed in 0.041s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; can save</td><td class="test">a new blog</td><td class="result">passed in 0.068s</td></tr><tr class="passed"><td class="suite">BlogForm &gt; can update</td><td class="test">an existing blog</td><td class="result">passed in 0.071s</td></tr></table></html>

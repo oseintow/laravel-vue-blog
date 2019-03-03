@@ -19,6 +19,8 @@ jest.mock('@/plugins/vue-authenticator', () => ({
 
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
+import { sendPasswordResetLink } from '@/api/auth'
+
 jest.mock('@/api/auth')
 
 
@@ -104,6 +106,13 @@ describe('auth store module', () => {
             expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: false})
             expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', null)
             expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', null)
+        })
+
+        it('user can send forget password email', async () => {
+            const commit = jest.fn()
+            await actions.sendPasswordResetLink({ commit }, {foo: 'bar'})
+
+            expect(sendPasswordResetLink.mock.calls).toHaveLength(1)
         })
     })
 })

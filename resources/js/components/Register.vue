@@ -65,7 +65,7 @@
                 <error v-show="errors.has('password_confirmation')">{{ errors.first('password_confirmation') }}</error>
             </div>
 
-            <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
+            <button type="submit" class="btn btn-primary submit" @click="submit">Submit</button>
         </form>
     </div>
 </template>

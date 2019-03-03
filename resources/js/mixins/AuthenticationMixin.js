@@ -28,9 +28,9 @@ export default {
         register(payload) {
             return new Promise((resolve, reject) => {
                 this.$store.dispatch('auth/register', payload)
-                    .then(({data}) => {
+                    .then(() => {
                         this.$eventBus.userRegistered()
-                        return resolve(data)
+                        resolve()
                     })
                     .catch(error => reject(error))
             })

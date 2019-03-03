@@ -45,9 +45,7 @@ describe('Login', () => {
                 auth: {
                     namespaced: true,
                     actions: {
-                        login: jest.fn(() => {
-                            return Promise.resolve()
-                        })
+                        login: jest.fn()
                     }
                 }
             }
@@ -94,8 +92,9 @@ describe('Login', () => {
         })
 
         await flushPromises()
-        h.find('.submit').trigger('submit')
+        h.find('.submit').trigger('click')
 
+        await flushPromises()
         expect(wrapper.vm.$data.user).toEqual({
             email: '',
             password: ''

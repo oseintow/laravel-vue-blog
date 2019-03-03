@@ -47,9 +47,12 @@
         },
         methods: {
             submit(e) {
+                console.log('submit')
                 e.preventDefault()
                 this.$validator.validateAll()
                 if (this.errors.any()) return;
+
+                console.log("passed here");
 
                 this.login(this.user)
                     .then(() => {
@@ -57,6 +60,7 @@
                             email: '',
                             password: ''
                         }
+                        this.$nextTick(() => this.$validator.reset())
                     })
             }
         }

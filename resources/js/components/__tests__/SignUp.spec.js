@@ -20,8 +20,8 @@ jest.mock('@/plugins/vue-authenticator', () => ({
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import SignIn from '@/components/SignIn'
-import Login from '@/components/Login'
+import SignUp from '@/components/SignUp'
+import Register from '@/components/Register'
 import TestHelpers from '@/test/test-helpers'
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
@@ -33,7 +33,7 @@ localVue.use(VueRouter)
 localVue.use(eventBus)
 const router = new VueRouter()
 
-describe('Sign In', () => {
+describe('Sign Up', () => {
     let wrapper
     let store
     let h
@@ -54,7 +54,7 @@ describe('Sign In', () => {
                 }
             }
         })
-        wrapper = shallowMount(SignIn, {
+        wrapper = shallowMount(SignUp, {
             localVue,
             store,
             router,
@@ -70,12 +70,12 @@ describe('Sign In', () => {
     })
 
     it('should render login form', () => {
-        h.exists(Login)
+        h.exists(Register)
     })
 
     it('should be able to response to sign-in event', async () => {
         expect(wrapper.vm.$data.show).toBe(false)
-        wrapper.vm.$eventBus.signIn()
+        wrapper.vm.$eventBus.signUp()
         expect(wrapper.vm.$data.show).toBe(true)
     })
 

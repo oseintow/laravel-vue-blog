@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 import Comments from '@/components/comment/Comments'
 import Comment from '@/components/comment/Comment'
 import TestHelpers from '@/test/test-helpers'

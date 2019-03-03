@@ -8,7 +8,10 @@
                        name="email"
                        class="form-control"
                        id="email"
-                       placeholder="">
+                       placeholder=""
+                       data-vv-as="email"
+                       v-validate="'required|email'">
+                <error v-show="errors.has('email')">{{ errors.first('email') }}</error>
             </div>
 
 
@@ -23,7 +26,7 @@
                        placeholder="">
             </div>
 
-            <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
+            <button type="submit" class="btn btn-primary submit" @click="submit">Submit</button>
         </form>
     </div>
 </template>
@@ -45,6 +48,9 @@
         methods: {
             submit(e) {
                 e.preventDefault()
+                this.$validator.validateAll()
+                if (this.errors.any()) return;
+
                 this.login(this.user)
                     .then(() => {
                         this.user = {

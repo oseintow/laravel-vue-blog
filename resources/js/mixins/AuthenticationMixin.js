@@ -6,18 +6,24 @@ export default {
     },
     methods: {
         login(provider) {
-            this.$store.dispatch('auth/login', provider)
-                .then(() =>{
-                    this.$eventBus.userLoggedIn()
-                })
-                .catch(error => console.error(error))
+            return new Promise((resolve, reject) => {
+                this.$store.dispatch('auth/login', provider)
+                    .then(() =>{
+                        this.$eventBus.userLoggedIn()
+                        resolve()
+                    })
+                    .catch(error => reject(error))
+            })
         },
         socialLogin(provider) {
-            this.$store.dispatch('auth/socialLogin', provider)
-                .then(() =>{
-                    this.hideModal()
-                })
-                .catch(error => console.error(error))
+            return new Promise((resolve, reject) => {
+                this.$store.dispatch('auth/socialLogin', provider)
+                    .then(() => {
+                        this.hideModal()
+                        resolve()
+                    })
+                    .catch(error => reject(error))
+            })
         },
         register(payload) {
             return new Promise((resolve, reject) => {

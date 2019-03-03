@@ -18,6 +18,7 @@ jest.mock('@/plugins/vue-authenticator', () => ({
 }))
 
 import { getters, mutations, actions } from '@/store/modules/auth'
+import flushPromises from 'flush-promises'
 
 describe('auth store module', () => {
     let state
@@ -72,13 +73,6 @@ describe('auth store module', () => {
             expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
             expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)
             expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', mockToken)
-        })
-
-        it('catches an error', async () => {
-            mockError = true
-
-            // await expect(actions.login({ commit: jest.fn() }, 'github'))
-            //     .rejects.toThrow("API Error occurred.")
         })
     })
 })

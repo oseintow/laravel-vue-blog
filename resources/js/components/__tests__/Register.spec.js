@@ -109,6 +109,50 @@ describe('Register', () => {
             expect(wrapper.vm.errors.has("name")).toBe(true);
         })
 
+        it('nickname is null', async () => {
+            expect(wrapper.vm.errors.has("nickname")).toBe(false);
+            wrapper.setData({
+                user: {
+                    nickname: 'init nickname is not null'
+                }
+            })
+
+            await flushPromises()
+            let nickname = h.find('input[name="nickname"]')
+            nickname.setValue("")
+            nickname.trigger('blur')
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("nickname")).toBe(true);
+
+        })
+
+        it('nickname has less than three characters', async () => {
+            expect(wrapper.vm.errors.has("nickname")).toBe(false);
+
+            wrapper.setData({
+                user: {
+                    nickname: 'as'
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("nickname")).toBe(true);
+        })
+
+        it('nickname is more than fifty characters', async () => {
+            expect(wrapper.vm.errors.has("nickname")).toBe(false);
+
+            wrapper.setData({
+                user: {
+                    nickname: 'a'.repeat(51)
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("nickname")).toBe(true);
+        })
+
         it('email is null' , async () => {
             expect(wrapper.vm.errors.has("email")).toBe(false);
             wrapper.setData({
@@ -124,6 +168,82 @@ describe('Register', () => {
 
             await flushPromises()
             expect(wrapper.vm.errors.has("email")).toBe(true);
+        })
+
+        it('password is null', async () => {
+            expect(wrapper.vm.errors.has("password")).toBe(false);
+            wrapper.setData({
+                user: {
+                    password: 'init password is not null'
+                }
+            })
+
+            await flushPromises()
+            let password = h.find('input[name="password"]')
+            password.setValue("")
+            password.trigger('blur')
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("password")).toBe(true);
+
+        })
+
+        it('password has less than six characters', async () => {
+            expect(wrapper.vm.errors.has("password")).toBe(false);
+
+            wrapper.setData({
+                user: {
+                    password: 'a'.repeat(5)
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("password")).toBe(true);
+        })
+
+        it('password is more than fifty characters', async () => {
+            expect(wrapper.vm.errors.has("password")).toBe(false);
+
+            wrapper.setData({
+                user: {
+                    password: 'a'.repeat(51)
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("password")).toBe(true);
+        })
+
+        it('password confirmation is null', async () => {
+            expect(wrapper.vm.errors.has("password_confirmation")).toBe(false);
+            wrapper.setData({
+                user: {
+                    password_confirmation: 'init password_confirmation is not null'
+                }
+            })
+
+            await flushPromises()
+            let password_confirmation = h.find('input[name="password_confirmation"]')
+            password_confirmation.setValue("")
+            password_confirmation.trigger('blur')
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("password_confirmation")).toBe(true);
+
+        })
+
+        it('password and password confirmation are not the same', async () => {
+            expect(wrapper.vm.errors.has("password_confirmation")).toBe(false);
+            wrapper.setData({
+                user: {
+                    password: '@secret123',
+                    password_confirmation: '@secret'
+                }
+            })
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("password_confirmation")).toBe(true);
+
         })
     })
 

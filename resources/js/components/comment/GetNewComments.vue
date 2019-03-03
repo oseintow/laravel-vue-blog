@@ -30,7 +30,6 @@
         created() {
             this.$eventBus.$on('new-comment', (value) => {
                 this.comments.unshift(value)
-                console.log(this.comments);
             })
         }
     }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(userBlog, index) in userBlogs" :key="userBlog.id">
-            <user-blog :data="userBlog" @deleted="remove(index)"></user-blog>
+            <user-blog :data="userBlog" @deleted="remove(index)" class="user-blog"></user-blog>
         </div>
         <div style="margin-bottom: 100px">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getUserBlogs" v-if="userBlogs">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import InfiniteLoading from 'vue-infinite-loading';
+    import InfiniteLoading from 'vue-infinite-loading'
     import UserBlog from '@/components/blog/UserBlog'
 
     export default {

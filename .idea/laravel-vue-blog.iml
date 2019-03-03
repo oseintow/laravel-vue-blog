@@ -105,5 +105,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/jest" level="application" />
+    <orderEntry type="library" name="@types/jest-matcher-utils" level="application" />
+    <orderEntry type="library" name="@types/jest-matchers" level="application" />
+    <orderEntry type="library" name="@types/jest-specific-snapshot" level="application" />
   </component>
 </module>

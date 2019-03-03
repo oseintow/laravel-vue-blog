@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-vue-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-vue-blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/api/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
     </list>
@@ -31,7 +33,7 @@
       <file leaf-file-name="Register.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="-4943">
               <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="42" />
               <folding>
                 <element signature="e#1709#2176#0" />
@@ -45,7 +47,7 @@
       <file leaf-file-name="Comments.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/comment/__tests__/Comments.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1134">
+            <state relative-caret-position="-1409">
               <caret line="3" column="14" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="14" />
             </state>
           </provider>
@@ -54,10 +56,40 @@
       <file leaf-file-name="auth.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+            <state relative-caret-position="-1903">
+              <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
               <folding>
                 <element signature="e#527#593#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/api/__mocks__/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/api/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,27 +99,26 @@
         <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="67">
-              <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+              <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Login.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/Login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="289">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/store/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="17" />
+            <state relative-caret-position="-80">
               <folding>
-                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,40 +128,7 @@
         <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9">
-              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
-              <folding>
-                <element signature="e#527#550#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Blog.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blog.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-              <folding>
-                <element signature="e#599#622#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthenticationMixin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/mixins/AuthenticationMixin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignIn.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/SignIn.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="12" selection-end-column="71" />
+              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding>
                 <element signature="e#527#550#0" expanded="true" />
               </folding>
@@ -197,9 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/Feature/UpdateBlogTest.php" />
-        <option value="$PROJECT_DIR$/tests/TestCase.php" />
-        <option value="$PROJECT_DIR$/resources/js/api/user.js.vue" />
         <option value="$PROJECT_DIR$/resources/js/store/index.js" />
         <option value="$PROJECT_DIR$/resources/js/store/modules/user.js" />
         <option value="$PROJECT_DIR$/resources/js/api/blog.js" />
@@ -246,8 +241,11 @@
         <option value="$PROJECT_DIR$/resources/js/mixins/AuthenticationMixin.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/Login.vue" />
+        <option value="$PROJECT_DIR$/resources/js/api/auth.js" />
+        <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
+        <option value="$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js" />
+        <option value="$PROJECT_DIR$/resources/js/api/__mocks__/auth.js" />
       </list>
     </option>
   </component>
@@ -381,7 +379,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="982" />
+    <option name="height" value="981" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -406,6 +404,21 @@
               <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-vue-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="__mocks__" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-vue-blog" type="b2602c69:ProjectViewProjectNode" />
@@ -478,7 +491,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -541,12 +554,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="101269000" />
+      <workItem from="1551173161003" duration="107462000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484419000" />
+    <option name="totallyTimeSpent" value="490612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -610,30 +623,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/api/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/blog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jest.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
@@ -955,16 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/mixins/AuthenticationMixin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -975,23 +954,46 @@
     <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9">
-          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
           <folding>
             <element signature="e#527#550#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/store/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/comment/__tests__/Comments.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1134">
+        <state relative-caret-position="-1409">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="-4943">
           <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="42" />
           <folding>
             <element signature="e#1709#2176#0" />
@@ -1001,27 +1003,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/api/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/auth.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+        <state relative-caret-position="-1903">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="e#527#593#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+        <state relative-caret-position="213">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/Login.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/api/__mocks__/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="234">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

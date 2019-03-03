@@ -19,6 +19,8 @@ jest.mock('@/plugins/vue-authenticator', () => ({
 
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
+jest.mock('@/api/auth')
+
 
 describe('auth store module', () => {
     let state
@@ -65,7 +67,7 @@ describe('auth store module', () => {
         })
     })
     describe('actions', () => {
-        it('login a user', async () => {
+        it('login using a social account', async () => {
             const commit = jest.fn()
 
             await actions.socialLogin({ commit }, 'github')
@@ -73,6 +75,35 @@ describe('auth store module', () => {
             expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
             expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)
             expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', mockToken)
+        })
+
+        it('can login using email', async () => {
+            const commit = jest.fn()
+
+            await actions.login({ commit }, {email: 'foo@bar.com', password: '@secret123'})
+
+            expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', 'mocked user object')
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', 'mocked token')
+        })
+
+        it('user can register using personal details', async () => {
+            const commit = jest.fn()
+
+            await actions.register({ commit }, {foo: 'bar'})
+
+            expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', 'mocked user object')
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', 'mocked token')
+        })
+
+        it('can logout authenticated users', async () => {
+            const commit = jest.fn()
+            await actions.logout({ commit })
+
+            expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: false})
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', null)
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', null)
         })
     })
 })

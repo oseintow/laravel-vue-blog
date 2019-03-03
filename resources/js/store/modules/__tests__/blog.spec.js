@@ -1,9 +1,28 @@
+const mockToken = 'xxx-xxx';
+const mockUser = {name: 'foo', email: 'foo@bar.com'}
+let mockError = false
+
+jest.mock('@/plugins/vue-authenticator', () => ({
+    getVueAuthenticate: jest.fn(() => {
+        return {
+            authenticate() {
+                return new Promise((resolve, reject) => {
+                    if (mockError)
+                        reject(new Error('API Error occurred.'))
+
+                    resolve({data: {token: mockToken, user: mockUser}})
+                })
+            }
+        }
+    })
+}))
+
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
 import { sendPasswordResetLink, resetPassword } from '@/api/auth'
 
 jest.mock('@/api/auth')
-jest.mock('@/plugins/vue-authenticator')
+
 
 describe('auth store module', () => {
     let state
@@ -57,8 +76,8 @@ describe('auth store module', () => {
             await actions.socialLogin({ commit }, 'github')
 
             expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
-            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', 'mocked user')
-            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', 'mocked token')
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)
+            expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', mockToken)
         })
 
         it('can login using email', async () => {

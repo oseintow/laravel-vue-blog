@@ -15,3 +15,7 @@ export function logout() {
 export const sendPasswordResetLink = jest.fn(() => {
     return Promise.resolve({data: "mock response"})
 })
+
+export const resetPassword = jest.fn(() => {
+    return Promise.resolve({data: userData })
+})

@@ -105,5 +105,12 @@ describe('blog store module', () => {
 
             expect(commit).toHaveBeenCalledWith('BLOGS', 'mocked blogs')
         })
+
+        it('can get a blog', async () => {
+            const commit = jest.fn()
+            await actions.getBlog({ commit }, {})
+
+            expect(commit).toHaveBeenCalledWith('BLOG', 'mocked blog')
+        })
     })
 })

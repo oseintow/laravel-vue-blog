@@ -66,6 +66,7 @@ export const actions = {
                 .catch(error => reject(error))
         })
     },
+
     getBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             getBlog(payload)
@@ -76,6 +77,7 @@ export const actions = {
                 .catch(error => reject(error))
         })
     },
+
     getUserBlog({commit}, payload) {
         return new Promise((resolve, reject) => {
             getUserBlog(payload)

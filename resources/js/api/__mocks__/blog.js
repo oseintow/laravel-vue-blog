@@ -1,12 +1,8 @@
 import axios from 'axios'
 
-export const saveBlog = jest.fn(() => {
-    return Promise.resolve()
-})
+export const saveBlog = jest.fn()
 
-export const updateBlog =jest.fn(() => {
-    return Promise.resolve()
-})
+export const updateBlog =jest.fn()
 
 export const getBlog = jest.fn(() => {
     return Promise.resolve()

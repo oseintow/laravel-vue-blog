@@ -42,36 +42,6 @@ describe('blog store module', () => {
     })
 
     describe('actions', () => {
-        // it('login using a social account', async () => {
-        //     const commit = jest.fn()
-        //
-        //     await actions.socialLogin({ commit }, 'github')
-        //
-        //     expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', mockUser)
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', mockToken)
-        // })
-        //
-        // it('can login using email', async () => {
-        //     const commit = jest.fn()
-        //
-        //     await actions.login({ commit }, {email: 'foo@bar.com', password: '@secret123'})
-        //
-        //     expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', 'mocked user object')
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', 'mocked token')
-        // })
-        //
-        // it('user can register using personal details', async () => {
-        //     const commit = jest.fn()
-        //
-        //     await actions.register({ commit }, {foo: 'bar'})
-        //
-        //     expect(commit).toHaveBeenCalledWith("IS_AUTHENTICATED", {isAuthenticated: true})
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_USER', 'mocked user object')
-        //     expect(commit).toHaveBeenCalledWith('SET_AUTH_TOKEN', 'mocked token')
-        // })
-
         it('a blog can be saved', async () => {
 
             saveBlog.mockResolvedValue({data: "Blog data"})

@@ -24,8 +24,8 @@
                                         <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
                                             <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>
                                         </div>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                            <a class="dropdown-item edit-blog" @click.preventDefault="editBlog(blog)">Edit Blog</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" v-if="$canUpdate(blog.author.id)">
+                                            <a class="dropdown-item edit-blog"  @click.preventDefault="editBlog(blog)">Edit Blog</a>
                                             <a class="dropdown-item delete-blog" @click.preventDefault="deleteBlog(blog)">Delete Blog</a>
                                         </div>
                                     </div>

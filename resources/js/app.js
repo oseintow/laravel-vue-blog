@@ -41,12 +41,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import router from './router'
-import store from './store'
+import router from '@/router'
+import store from '@/store'
 
 import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
 import Authentication from '@/plugins/authentication'
+import Authorization from '@/plugins/authorization'
 require('promise.prototype.finally').shim()
 import Error from '@/components/Error'
 import Search from '@/components/Search'
@@ -57,6 +58,7 @@ Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)
 Vue.use(Authentication)
+Vue.use(Authorization)
 library.add(faCoffee, faThumbsUp, faCaretDown)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

@@ -1,12 +1,6 @@
 import { saveFavourite, deleteFavourite } from '@/api/favourite'
 
-const state = {
-}
-
-const mutations = {
-}
-
-const actions = {
+export const actions = {
     saveFavourite({commit}, payload) {
         return new Promise((resolve, reject) => {
             saveFavourite(payload)
@@ -28,14 +22,7 @@ const actions = {
     }
 }
 
-const getters = {
-
-}
-
 export default {
     namespaced: true,
-    state,
-    mutations,
     actions,
-    getters
 }

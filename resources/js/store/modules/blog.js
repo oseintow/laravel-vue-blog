@@ -78,15 +78,6 @@ export const actions = {
         })
     },
 
-    getUserBlog({commit}, payload) {
-        return new Promise((resolve, reject) => {
-            getUserBlog(payload)
-                .then(({data}) => {
-                    resolve(data)
-                })
-                .catch(error => reject(error))
-        })
-    },
     getUserBlogs({commit}, payload) {
         return new Promise((resolve, reject) => {
             getUserBlogs(payload)
@@ -96,6 +87,16 @@ export const actions = {
                 .catch(error => reject(error))
         })
     },
+
+    getUserBlog({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            getUserBlog(payload)
+                .then(({data}) => {
+                    resolve(data)
+                })
+                .catch(error => reject(error))
+        })
+    }
 }
 
 export const getters = {

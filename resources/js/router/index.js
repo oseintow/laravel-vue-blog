@@ -15,47 +15,83 @@ Vue.use(Router)
 
 export default new Router({
     routes: [
-        { path: '', name: 'home',  components: {
-                default: Home, header: Header
+        {
+            path: '',
+            name: 'home',
+            components: {
+                default: Home,
+                header: Header
             }
         },
-        { path: '/blog/new', name: 'new-blog',  components: {
-                default: NewBlogView, header: Header
-            }
-        },
-        { path: '/blog/:slug/edit', name: 'edit-user-blog',  components: {
-                default: EditBlogView, header: Header
-            }
-        },
-        { path: '/@:nickname', name: 'users-blogs',  components: {
-                default: UserBlogsView, header: Header
-            }
-        },
-        { path: '/profile/edit', name: 'edit-profile',  components: {
-                default: EditProfileView, header: Header
-            }, meta: {
+        {
+            path: '/blog/new',
+            name: 'new-blog',
+            components: {
+                default: NewBlogView,
+                header: Header
+            },
+            meta: {
                 requiresAuth: true
             }
         },
-        { path: '/@:nickname/:slug', name: 'user-blog',  components: {
-                default: BlogView, header: Header
+        {
+            path: '/blog/:slug/edit',
+            name: 'edit-user-blog',
+            components: {
+                default: EditBlogView,
+                header: Header
+            },
+            meta: {
+                requiresAuth: true
             }
         },
-        { path: '/password/reset', name: 'send-reset-password-link',  components: {
-                default: SendResetPasswordLinkView, header: Header
+        {
+            path: '/@:nickname',
+            name: 'users-blogs',
+            components: {
+                default: UserBlogsView,
+                header: Header
             }
         },
-        { path: '/password/reset/:token', name: 'reset-password-token',  components: {
-                default: ResetPasswordView, header: Header
+        {
+            path: '/profile/edit',
+            name: 'edit-profile',
+            components: {
+                default: EditProfileView,
+                header: Header
+            },
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/@:nickname/:slug',
+            name: 'user-blog',
+            components: {
+                default: BlogView,
+                header: Header
+            }
+        },
+        {
+            path: '/password/reset',
+            name: 'send-reset-password-link',
+            components: {
+                default: SendResetPasswordLinkView,
+                header: Header
+            }
+        },
+        {
+            path: '/password/reset/:token',
+            name: 'reset-password-token',
+            components: {
+                default: ResetPasswordView,
+                header: Header
             }
         },
         {
             path: '/auth/:provide/callback',
             component: {
                 template: '<div class="auth-component"></div>',
-                mounted() {
-                    console.log("mounted")
-                }
             }
         },
     ],

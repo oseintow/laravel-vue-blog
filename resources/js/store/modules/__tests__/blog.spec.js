@@ -43,7 +43,6 @@ describe('blog store module', () => {
 
     describe('actions', () => {
         it('a blog can be saved', async () => {
-
             saveBlog.mockResolvedValue({data: "Blog data"})
             const commit = jest.fn()
             await actions.saveBlog({ commit }, {})
@@ -52,7 +51,6 @@ describe('blog store module', () => {
         })
 
         it('a blog can be updated', async () => {
-
             updateBlog.mockResolvedValue({data: "Blog data"})
             const commit = jest.fn()
             await actions.updateBlog({ commit }, {})
@@ -61,7 +59,6 @@ describe('blog store module', () => {
         })
 
         it('a blog can be deleted', async () => {
-
             deleteBlog.mockResolvedValue({data: "Blog data"})
             const commit = jest.fn()
             await actions.deleteBlog({ commit }, {})

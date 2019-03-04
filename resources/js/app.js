@@ -48,12 +48,8 @@ import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
 import Authentication from '@/plugins/authentication'
 require('promise.prototype.finally').shim()
-import interceptors from '@/helpers/interceptors'
 import Error from '@/components/Error'
 import Search from '@/components/Search'
-
-// and running it somewhere here
-interceptors()
 
 Vue.use(VeeValidate);
 Vue.use(VueRx)

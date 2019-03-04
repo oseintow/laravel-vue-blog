@@ -29,21 +29,21 @@ describe('blog store module', () => {
         })
     })
 
-    // describe('mutations', () => {
-    //     it('set is blogenticated', () => {
-    //         mutations.IS_AUTHENTICATED(state, {isAuthenticated: true})
-    //         expect(state.isAuthenticated).toBe(true)
-    //     })
-    //     it('set token', () => {
-    //         mutations.SET_AUTH_TOKEN(state, 'xxx-xxx-xxx')
-    //         expect(state.token).toBe('xxx-xxx-xxx')
-    //     })
-    //     it('set blogenticated user', () => {
-    //         const user ={name: 'foo', email: 'foo@bar.com'};
-    //         mutations.SET_AUTH_USER(state, user)
-    //         expect(state.user).toBe(user)
-    //     })
-    // })
+    describe('mutations', () => {
+        it('set blogs', () => {
+            mutations.BLOGS(state, {data: [{name: 'foo'},{nanme: 'bar'}]})
+            expect(state.blogs).toEqual([{name: 'foo'},{nanme: 'bar'}])
+        })
+        // it('set token', () => {
+        //     mutations.SET_AUTH_TOKEN(state, 'xxx-xxx-xxx')
+        //     expect(state.token).toBe('xxx-xxx-xxx')
+        // })
+        // it('set blogenticated user', () => {
+        //     const user ={name: 'foo', email: 'foo@bar.com'};
+        //     mutations.SET_AUTH_USER(state, user)
+        //     expect(state.user).toBe(user)
+        // })
+    })
     //
     // describe('actions', () => {
     //     it('login using a social account', async () => {

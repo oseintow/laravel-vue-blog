@@ -9,13 +9,6 @@ const Authorization = {
 
             return userId === user.id ? true : false
         }
-        Vue.prototype.$canDelete = (userId) => {
-            let user = store.state.auth.user
-
-            if (!user) return false
-
-            return userId === user.id ? true : false
-        }
     }
 }
 

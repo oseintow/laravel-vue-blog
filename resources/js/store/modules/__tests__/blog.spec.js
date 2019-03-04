@@ -31,18 +31,14 @@ describe('blog store module', () => {
 
     describe('mutations', () => {
         it('set blogs', () => {
-            mutations.BLOGS(state, {data: [{name: 'foo'},{nanme: 'bar'}]})
-            expect(state.blogs).toEqual([{name: 'foo'},{nanme: 'bar'}])
+            mutations.BLOGS(state, {data: [{name: 'foo'},{name: 'bar'}]})
+            expect(state.blogs).toEqual([{name: 'foo'},{name: 'bar'}])
         })
-        // it('set token', () => {
-        //     mutations.SET_AUTH_TOKEN(state, 'xxx-xxx-xxx')
-        //     expect(state.token).toBe('xxx-xxx-xxx')
-        // })
-        // it('set blogenticated user', () => {
-        //     const user ={name: 'foo', email: 'foo@bar.com'};
-        //     mutations.SET_AUTH_USER(state, user)
-        //     expect(state.user).toBe(user)
-        // })
+
+        it('set blog', () => {
+            mutations.BLOG(state, {name: 'bar'})
+            expect(state.blog).toEqual({name: 'bar'})
+        })
     })
     //
     // describe('actions', () => {

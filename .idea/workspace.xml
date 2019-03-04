@@ -69,7 +69,7 @@
       <file leaf-file-name="blog.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/store/modules/blog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="-1002">
               <caret line="16" column="9" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="9" />
               <folding>
                 <element signature="e#0#135#0" expanded="true" />
@@ -81,8 +81,8 @@
       <file leaf-file-name="blog.spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/blog.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+            <state relative-caret-position="177">
+              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="e#527#593#0" expanded="true" />
               </folding>
@@ -523,12 +523,12 @@
       <workItem from="1550653056134" duration="23784000" />
       <workItem from="1550833507757" duration="48287000" />
       <workItem from="1550977836933" duration="44757000" />
-      <workItem from="1551173161003" duration="109435000" />
+      <workItem from="1551173161003" duration="109553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492585000" />
+    <option name="totallyTimeSpent" value="492703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -985,7 +985,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/blog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="-1002">
           <caret line="16" column="9" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="9" />
           <folding>
             <element signature="e#0#135#0" expanded="true" />
@@ -995,8 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/__tests__/blog.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        <state relative-caret-position="177">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="e#527#593#0" expanded="true" />
           </folding>

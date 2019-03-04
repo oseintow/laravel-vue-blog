@@ -8,12 +8,10 @@ export const getBlog = jest.fn(() => {
     return Promise.resolve()
 })
 
-export const deleteBlog = jest.fn(() => {
-    return Promise.resolve()
-})
+export const deleteBlog = jest.fn()
 
 export const getBlogs = jest.fn(() => {
-    return Promise.resolve()
+    return Promise.resolve({data: 'mocked blogs'})
 })
 
 export const getUserBlogs = jest.fn(() => {

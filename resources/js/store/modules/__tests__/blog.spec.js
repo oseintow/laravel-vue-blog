@@ -1,7 +1,7 @@
 import { getters, mutations, actions } from '@/store/modules/blog'
 import flushPromises from 'flush-promises'
 
-import { saveBlog, updateBlog } from '@/api/blog'
+import { saveBlog, updateBlog, deleteBlog } from '@/api/blog'
 jest.mock('@/api/blog')
 
 
@@ -88,6 +88,22 @@ describe('blog store module', () => {
             await actions.updateBlog({ commit }, {})
 
             expect(saveBlog.mock.calls).toHaveLength(1)
+        })
+
+        it('a blog can be deleted', async () => {
+
+            deleteBlog.mockResolvedValue({data: "Blog data"})
+            const commit = jest.fn()
+            await actions.deleteBlog({ commit }, {})
+
+            expect(saveBlog.mock.calls).toHaveLength(1)
+        })
+
+        it('can get blogs', async () => {
+            const commit = jest.fn()
+            await actions.getBlogs({ commit }, {})
+
+            expect(commit).toHaveBeenCalledWith('BLOGS', 'mocked blogs')
         })
     })
 })

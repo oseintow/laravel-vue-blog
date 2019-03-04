@@ -71,6 +71,18 @@ Vue.component('App', require('./pages/App.vue').default)
 Vue.component('error', Error)
 Vue.component('search', Search)
 
+router. beforeEach((to, from, next) => {
+    if(to.matched.some((record) => record.meta.requiresAuth)){
+        if(!store.state.auth.isAuthenticated){
+            next({path: '/'})
+        }else{
+            next()
+        }
+    }else{
+        next()
+    }
+})
+
 const app = new Vue({
     el: '#app',
     router,

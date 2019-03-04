@@ -1,0 +1,15 @@
+import store from '@/store'
+
+const Authorization = {
+    install(Vue, options) {
+        Vue.prototype.$canUpdate = (userId) => {
+            let user = store.state.auth.user
+
+            if (!user) return false
+
+            userId === user.id ? true : false
+        }
+    }
+}
+
+export default Authorization

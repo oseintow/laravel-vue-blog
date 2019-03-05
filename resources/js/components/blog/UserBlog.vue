@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex justify-content-end" style="margin-right: -35px">
-                                <div class="justify-content-end d-flex blog-actions" v-if="$auth.check && $canUpdate(blog.author.id)">
+                                <div class="justify-content-end d-flex blog-actions" v-if="$auth.check && $can.update(blog.author.id)">
                                     <div class="dropdown">
                                         <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
                                             <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>

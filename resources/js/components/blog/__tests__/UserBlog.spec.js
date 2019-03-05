@@ -10,31 +10,19 @@ import Favourite from '@/components/Favourite'
 import Avatar from '@/components/Avatar'
 import UserBlog from '@/components/blog/UserBlog'
 import { FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import Authorization from '@/plugins/authorization'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Authentication)
+localVue.use(Authorization)
 localVue.use(VueRouter)
 const router = new VueRouter()
 
-const mockToken = 'xxx-xxx';
-const mockUser = {name: 'foo', email: 'foo@bar.com'}
 let mockError = false
 
-jest.mock('@/plugins/vue-authenticator', () => ({
-    getVueAuthenticate: jest.fn(() => {
-        return {
-            authenticate() {
-                return new Promise((resolve, reject) => {
-                    if (mockError)
-                        reject(new Error('API Error occurred.'))
-
-                    resolve({data: {token: mockToken, user: mockUser}})
-                })
-            }
-        }
-    })
-}))
+jest.mock('@/plugins/vue-authenticator')
+jest.mock('@/plugins/authorization')
 
 jest.mock('quill', () => {
     return jest.fn().mockImplementation(() => ({
@@ -98,8 +86,8 @@ describe('UserBlog', () => {
                 Favourite: true,
                 Avatar: '<img src="blog.author.avatar" />',
                 FontAwesomeIcon: true
-            }
-            // sync: false
+            },
+            sync: false
         })
 
         h = new TestHelpers(wrapper, expect)
@@ -127,12 +115,14 @@ describe('UserBlog', () => {
 
     it('should hide blog actions if user is not authenticated', async () => {
         wrapper.vm.$auth.check = true
+        // wrapper.vm.$can.update
+
         await flushPromises()
 
         h.domHas('.blog-actions')
     })
 
-    it('can navigate to edit blogs if authenticated', () => {
+    it('can navigate to edit blogs if authenticated and authorized', () => {
         wrapper.vm.$router.push = spy
         h.click('.edit-blog')
 
@@ -144,7 +134,7 @@ describe('UserBlog', () => {
         });
     })
 
-    it('can delete blog if authenticated', async () => {
+    it('can delete blog if authenticated and authorized', async () => {
         h.click('.delete-blog')
 
         await flushPromises()

@@ -35,6 +35,6 @@ class Comment extends Model
 
     public function getFavouriteUrlAttribute()
     {
-        return "v1/comments/{$this->id}/favourites";
+        return "/v1/comments/{$this->id}/favourites";
     }
 }

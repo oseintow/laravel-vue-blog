@@ -84,6 +84,6 @@ class Blog extends Model
 
     public function getFavouriteUrlAttribute()
     {
-        return "v1/blogs/{$this->slug}/favourites";
+        return "/v1/blogs/{$this->slug}/favourites";
     }
 }

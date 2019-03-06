@@ -1,19 +1,3 @@
-const mockToken = 'xxx-xxx';
-const mockUser = {name: 'foo', email: 'foo@bar.com'}
-let mockError = false
-
-jest.mock('@/plugins/vue-authenticator', () => ({
-    getVueAuthenticate: jest.fn(() => {
-        return {
-            authenticate() {
-                return new Promise((resolve, reject) => {
-                    resolve()
-                })
-            }
-        }
-    })
-}))
-
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'

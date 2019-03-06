@@ -1,22 +1,3 @@
-const mockToken = 'xxx-xxx';
-const mockUser = {name: 'foo', email: 'foo@bar.com'}
-let mockError = false
-
-jest.mock('@/plugins/vue-authenticator', () => ({
-    getVueAuthenticate: jest.fn(() => {
-        return {
-            authenticate() {
-                return new Promise((resolve, reject) => {
-                    if (mockError)
-                        reject(new Error('API Error occurred.'))
-
-                    resolve({data: {token: mockToken, user: mockUser}})
-                })
-            }
-        }
-    })
-}))
-
 import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
@@ -26,6 +7,8 @@ import TestHelpers from '@/test/test-helpers'
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
 import eventBus from '@/plugins/event-bus'
+
+jest.mock('@/plugins/vue-authenticator')
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

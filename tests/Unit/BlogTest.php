@@ -100,7 +100,7 @@ class BlogTest extends TestCase
     {
         $blog = create(Blog::class);
 
-        $this->assertEquals($blog->favourite_url, "v1/blogs/{$blog->slug}/favourites");
+        $this->assertEquals($blog->favourite_url, "/v1/blogs/{$blog->slug}/favourites");
     }
     
 }

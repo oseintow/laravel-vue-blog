@@ -7,8 +7,8 @@
                         <login></login>
                     </div>
                     <div class="col-sm-6">
-                        <button @click="socialLogin('facebook')" class="facebook-signin">Facebook</button>
-                        <button @click="socialLogin('google')" class="google-signin">Google</button>
+                        <button @click="socialLogin('facebook')" class="btn btn-outline-primary facebook-signin">Facebook</button>
+                        <button @click="socialLogin('google')" class="btn btn-outline-danger google-signin">Google</button>
                         <a href="" @click="resetPassword">Forgot Your Password?</a>
                     </div>
                 </div>

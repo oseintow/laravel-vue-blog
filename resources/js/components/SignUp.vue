@@ -7,8 +7,8 @@
                         <register></register>
                     </div>
                     <div class="col-md-6">
-                        <button @click="socialLogin('facebook')" class="facebook-signin">Facebook</button>
-                        <button @click="socialLogin('google')" class="google-signin">Google</button>
+                        <button @click="socialLogin('facebook')" class="btn btn-outline-primary facebook-signin">Facebook</button>
+                        <button @click="socialLogin('google')" class="btn btn-outline-danger google-signin">Google</button>
                     </div>
                 </div>
             </div>

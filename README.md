@@ -27,7 +27,7 @@ authenticating using google and facebook. To use social logins add below to your
     
     Go to `resources->js->plugins->vue-authentication.js` and update the facebook and google client ids
 
-7. This project uses Laravel Passport for generating access tokens. Run command below 
+7. This project uses Laravel Passport to generate access tokens. Run command below 
 to install passport
 
     ```
@@ -78,7 +78,7 @@ npm run test:unit
 
 ### End to end test
 This project uses cypress for the end to end test 
-To run end to end test run command below
+To run end to end test run command below. 
 
 ```
 npm run e2e:open

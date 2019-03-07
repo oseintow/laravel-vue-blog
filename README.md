@@ -75,3 +75,11 @@ Use command below to run test
 ```
 npm run test:unit
 ```
+
+### End to end test
+This project uses cypress for the end to end test 
+To run end to end test run command below
+
+```
+npm run e2e:open
+```

@@ -23,7 +23,7 @@
                                     </div>
                                     <div>
                                         <button type="submit"
-                                                class="btn btn-primary mt-3"
+                                                class="btn btn-primary mt-3 send-password-reset-link"
                                                 @click="sendPasswordResetLink">
                                             Send Password Reset Link
                                         </button>

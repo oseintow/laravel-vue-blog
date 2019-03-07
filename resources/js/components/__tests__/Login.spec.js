@@ -2,7 +2,6 @@ import Vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import VeeValidate from 'vee-validate';
-import SignIn from '@/components/SignIn'
 import Login from '@/components/Login'
 import Error from '@/components/Error'
 import TestHelpers from '@/test/test-helpers'
@@ -61,7 +60,7 @@ describe('Login', () => {
 
             await flushPromises()
             let email = h.find('input[name="email"]')
-            email.setValue("")
+            email.setValue(null)
             email.trigger('blur')
 
             await flushPromises()

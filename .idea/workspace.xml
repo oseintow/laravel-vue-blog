@@ -4,9 +4,9 @@
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/__tests__/ResetPasswordView.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/__tests__/ResetPasswordView.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,15 +31,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ResetPasswordView.spec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResetPasswordView.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/ResetPasswordView.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+            <state relative-caret-position="2325">
+              <caret line="170" column="37" lean-forward="true" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
               <folding>
                 <element signature="e#527#550#0" expanded="true" />
-                <element signature="e#1800#1816#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserBlog.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="104" column="32" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
+              <folding>
+                <element signature="e#599#622#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendPasswordResetLinkView.spec.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendResetPasswordLinkView.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-778">
+              <caret line="14" column="58" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="62" column="32" lean-forward="true" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Register.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-887">
+              <caret line="36" column="44" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -53,58 +106,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/api/__mocks__/auth.js">
+      <file leaf-file-name="SignIn.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/SignIn.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135" />
+            <state relative-caret-position="-863" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SignIn.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/SignIn.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-888">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="32" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Register.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-308">
-              <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="64" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignUp.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/SignUp.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="49" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogForm.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/blog/BlogForm.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2403" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#64#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="149">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -112,18 +125,8 @@
       <file leaf-file-name="BlogForm.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-798">
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Blogs.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/Blogs.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-318">
+            <state relative-caret-position="225">
+              <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -145,7 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>saveCom</find>
       <find>type</find>
       <find>CommentEditor</find>
       <find>editor</find>
@@ -175,6 +177,7 @@
       <find>domhas</find>
       <find>mock</find>
       <find>router.push</find>
+      <find>validate</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -191,8 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js" />
-        <option value="$PROJECT_DIR$/resources/js/components/blog/Editor.vue" />
         <option value="$PROJECT_DIR$/resources/js/mixins/BlogMixins.js" />
         <option value="$PROJECT_DIR$/resources/js/components/blog/Blog.vue" />
         <option value="$PROJECT_DIR$/resources/js/mixins/BlogMixin.js" />
@@ -236,12 +237,14 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/Blog.php" />
         <option value="$PROJECT_DIR$/app/Comment.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/SignIn.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/SignUp.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/components/__tests__/Register.spec.js" />
         <option value="$PROJECT_DIR$/resources/js/pages/ResetPasswordView.vue" />
         <option value="$PROJECT_DIR$/resources/js/pages/__tests__/ResetPasswordView.spec.js" />
+        <option value="$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js" />
+        <option value="$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js" />
       </list>
     </option>
   </component>
@@ -563,12 +566,12 @@
       <workItem from="1550977836933" duration="44757000" />
       <workItem from="1551173161003" duration="127717000" />
       <workItem from="1551751530546" duration="4744000" />
-      <workItem from="1551915157681" duration="3980000" />
+      <workItem from="1551915157681" duration="6180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="519591000" />
+    <option name="totallyTimeSpent" value="521791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -663,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1668">
-          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
-          <folding>
-            <element signature="e#599#622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/plugins/__mocks__/authorization.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -721,14 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-811" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -800,13 +785,7 @@
     <entry file="file://$PROJECT_DIR$/resources/js/components/Login.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Search.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/SignIn.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/SignUp.vue">
@@ -833,16 +812,6 @@
         <state>
           <folding>
             <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="9" />
-          <folding>
-            <element signature="e#384#407#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -905,15 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-798">
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/api/__mocks__/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135" />
@@ -929,10 +889,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/SignIn.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-863" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/SignIn.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-888">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="32" selection-end-column="22" />
+        <state relative-caret-position="149">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -945,11 +910,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/ResetPasswordView.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
+        <state relative-caret-position="2325">
+          <caret line="170" column="37" lean-forward="true" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
           <folding>
             <element signature="e#527#550#0" expanded="true" />
-            <element signature="e#1800#1816#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/BlogForm.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/blog/__tests__/UserBlog.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="104" column="32" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
+          <folding>
+            <element signature="e#599#622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-887">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/pages/SendResetPasswordLinkView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-778">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/__tests__/Login.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="62" column="32" lean-forward="true" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/pages/__tests__/SendPasswordResetLinkView.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -15,4 +15,6 @@ yarn-error.log
 .idea
 .idea/workspace.xml
 public/images/cover_images/
+cypress/screenshots
+cypress/videos
 

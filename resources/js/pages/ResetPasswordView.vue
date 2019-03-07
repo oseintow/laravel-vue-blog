@@ -64,7 +64,7 @@
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9">
                                     <button type="submit"
-                                            class="btn btn-primary mt-2"
+                                            class="btn btn-primary mt-2 reset-password"
                                             @click="resetPassword">
                                         Reset Password
                                     </button>

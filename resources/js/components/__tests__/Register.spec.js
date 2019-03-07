@@ -10,6 +10,8 @@ import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
 import eventBus from '@/plugins/event-bus'
 
+jest.mock('@/plugins/vue-authenticator')
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
@@ -148,6 +150,23 @@ describe('Register', () => {
             await flushPromises()
             let email = h.find('input[name="email"]')
             email.setValue("")
+            email.trigger('blur')
+
+            await flushPromises()
+            expect(wrapper.vm.errors.has("email")).toBe(true);
+        })
+
+        it('email is not a valid email' , async () => {
+            expect(wrapper.vm.errors.has("email")).toBe(false);
+            wrapper.setData({
+                user: {
+                    email: 'foo@bar.com'
+                }
+            })
+
+            await flushPromises()
+            let email = h.find('input[name="email"]')
+            email.setValue("foo@bar")
             email.trigger('blur')
 
             await flushPromises()

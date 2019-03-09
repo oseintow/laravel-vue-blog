@@ -7,6 +7,7 @@ import Error from '@/components/Error'
 import TestHelpers from '@/test/test-helpers'
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
+import flash from '@/plugins/flash'
 
 jest.mock('@/plugins/vue-authenticator')
 
@@ -14,6 +15,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
 localVue.use(VeeValidate)
+localVue.use(flash)
 const router = new VueRouter()
 
 describe('SendResetPasswordLinkView', () => {
@@ -77,6 +79,7 @@ describe('SendResetPasswordLinkView', () => {
     })
 
     it('can request for password reset link', async () => {
+        wrapper.vm.$flash.success = spy
         wrapper.vm.$router.push = spy
         wrapper.setData({
             user: {
@@ -87,6 +90,8 @@ describe('SendResetPasswordLinkView', () => {
         h.click('.send-password-reset-link')
 
         await flushPromises()
+
+        expect(wrapper.vm.$flash.success).toHaveBeenCalled()
         expect(actions.sendPasswordResetLink).toHaveBeenCalled()
     })
 })

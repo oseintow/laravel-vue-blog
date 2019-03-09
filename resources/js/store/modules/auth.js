@@ -40,7 +40,9 @@ export const actions= {
                     commit('SET_AUTH_USER', data['user'])
                     commit('SET_AUTH_TOKEN', data['token'])
                     resolve(data)
-                }).catch(error => reject(error))
+                }).catch(error => {
+                    reject(error)
+                })
         })
     },
     // Perform VueAuthenticate login using Vuex actions

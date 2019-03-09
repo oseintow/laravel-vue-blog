@@ -59,6 +59,9 @@
                         }
                         this.$nextTick(() => this.$validator.reset())
                     })
+                    .catch((error) => {
+                        this.$flash.error({title: 'Login', text: "Email or password incorrect"})
+                    })
             }
         }
     }

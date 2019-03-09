@@ -95,6 +95,7 @@
 
                 this.register(this.user)
                     .then(() => {
+                        this.$flash.success({title: 'Register', text: 'Account created successfully'})
                         this.user = {
                             name: '',
                             nickname: '',
@@ -104,6 +105,9 @@
                         }
 
                         this.$nextTick(() => this.$validator.reset())
+                    })
+                    .catch((error) => {
+                        this.$flash.error({title: 'Register', text: 'Error creating account'})
                     })
             }
         }

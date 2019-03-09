@@ -11,18 +11,21 @@ import Avatar from '@/components/Avatar'
 import UserBlog from '@/components/blog/UserBlog'
 import { FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import Authorization from '@/plugins/authorization'
+import flash from '@/plugins/flash'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Authentication)
 localVue.use(Authorization)
 localVue.use(VueRouter)
+localVue.use(flash)
 const router = new VueRouter()
 
 let mockError = false
 
 jest.mock('@/plugins/vue-authenticator')
 jest.mock('@/plugins/authorization')
+jest.mock('@/plugins/flash')
 
 jest.mock('quill', () => {
     return jest.fn().mockImplementation(() => ({
@@ -115,7 +118,6 @@ describe('UserBlog', () => {
 
     it('should hide blog actions if user is not authenticated', async () => {
         wrapper.vm.$auth.check = true
-        // wrapper.vm.$can.update
 
         await flushPromises()
 
@@ -135,10 +137,12 @@ describe('UserBlog', () => {
     })
 
     it('can delete blog if authenticated and authorized', async () => {
+        wrapper.vm.$flash.success = jest.fn()
         h.click('.delete-blog')
 
         await flushPromises()
 
+        expect(wrapper.vm.$flash.success).toHaveBeenCalled()
         expect(wrapper.emitted().deleted).toBeTruthy()
     })
 

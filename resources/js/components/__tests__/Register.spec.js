@@ -9,17 +9,20 @@ import TestHelpers from '@/test/test-helpers'
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
 import eventBus from '@/plugins/event-bus'
+import flash from '@/plugins/flash'
 
 jest.mock('@/plugins/vue-authenticator')
+jest.mock('@/plugins/flash')
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
 localVue.use(eventBus)
+localVue.use(flash)
 localVue.use(VeeValidate)
 const router = new VueRouter()
 
-describe('Register', () => {
+describe.only('Register', () => {
 
     let h
     let wrapper
@@ -251,6 +254,7 @@ describe('Register', () => {
     })
 
     it('user can register', async () => {
+        wrapper.vm.$flash.success = jest.fn()
         wrapper.setData({
             user: {
                 name: 'foo bar',
@@ -265,6 +269,7 @@ describe('Register', () => {
         h.find('.submit').trigger('click')
 
         await flushPromises()
+        expect(wrapper.vm.$flash.success).toHaveBeenCalled()
         expect(wrapper.vm.$data.user).toEqual({
             name: '',
             nickname: '',

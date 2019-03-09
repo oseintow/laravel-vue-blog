@@ -7,6 +7,7 @@ import Error from '@/components/Error'
 import TestHelpers from '@/test/test-helpers'
 import { getters, mutations, actions } from '@/store/modules/auth'
 import flushPromises from 'flush-promises'
+import flash from '@/plugins/flash'
 
 jest.mock('@/plugins/vue-authenticator')
 
@@ -14,6 +15,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
 localVue.use(VeeValidate)
+localVue.use(flash)
 const router = new VueRouter()
 
 describe('ResetPasswordView', () => {
@@ -168,6 +170,7 @@ describe('ResetPasswordView', () => {
     })
 
     it('can reset users password', async () => {
+        wrapper.vm.$flash.success = spy
         wrapper.vm.$router.push = spy
         wrapper.setData({
             user: {
@@ -180,6 +183,8 @@ describe('ResetPasswordView', () => {
         h.click('.reset-password')
 
         await flushPromises()
+
+        expect(wrapper.vm.$flash.success).toHaveBeenCalled()
         expect(spy).toHaveBeenCalledWith({ name: 'home'});
     })
 })

@@ -167,7 +167,7 @@
                         this.$flash.success({title: 'New Story', text: 'Story saved successfully'})
                         this.resetForm();
                     })
-                    .error(() => {
+                    .catch(() => {
                         this.$flash.error({title: 'New Story', text: 'Error occured saving the story'})
                     })
 
@@ -184,7 +184,7 @@
                     .then(() =>{
                         this.$flash.success({title: 'Update Story', text: 'Story udpated successfully'})
                     })
-                    .error(() => {
+                    .catch(() => {
                         this.$flash.error({title: 'Update Story', text: 'Error occured updtating story'})
                     })
             }

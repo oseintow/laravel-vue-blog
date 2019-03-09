@@ -7,11 +7,15 @@ import TestHelpers from '@/test/test-helpers'
 import flushPromises from 'flush-promises'
 import Editor from '@/components/blog/Editor'
 import Error from '@/components/Error'
+import flash from  '@/plugins/flash'
+
+jest.mock('@/plugins/flash')
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(VueRouter)
 localVue.use(VeeValidate)
+localVue.use(flash)
 const router = new VueRouter()
 
 const categories = [
@@ -174,6 +178,7 @@ describe('BlogForm', () => {
         })
 
         it('a new blog', async () => {
+            wrapper.vm.$flash.success = jest.fn()
             wrapper.setData({
                 blog: {
                     title: 'foo bar',
@@ -192,8 +197,9 @@ describe('BlogForm', () => {
             expect(wrapper.vm.errors.count()).toBe(0)
 
             await flushPromises()
-            expect(blog.actions.saveBlog).toHaveBeenCalled()
 
+            expect(wrapper.vm.$flash.success).toHaveBeenCalled()
+            expect(blog.actions.saveBlog).toHaveBeenCalled()
             expect(wrapper.vm.$data.blog).toEqual({
                 title: '',
                 body: '',
@@ -212,6 +218,7 @@ describe('BlogForm', () => {
         })
 
         it('an existing blog', async () => {
+            wrapper.vm.$flash.success = jest.fn()
             wrapper.setData({
                 blog: {
                     title: 'foo bar',
@@ -234,6 +241,7 @@ describe('BlogForm', () => {
 
             await flushPromises()
 
+            expect(wrapper.vm.$flash.success).toHaveBeenCalled()
             expect(blog.actions.updateBlog).toHaveBeenCalled()
             expect(wrapper.vm.$data.blog).toEqual({
                 title: 'bar baz',

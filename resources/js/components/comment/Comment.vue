@@ -85,6 +85,7 @@
             deleteComment() {
                 this.$store.dispatch('comment/deleteComment', {slug: this.slug, id: this.comment.id})
                     .then(() => {
+                        this.$emit('deleted', this.comment.id)
                         this.$flash.success({title: 'Delete Comment', text: 'Comment deleted successfully'})
                     })
                     .catch((error) => {

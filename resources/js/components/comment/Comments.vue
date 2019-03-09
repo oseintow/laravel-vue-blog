@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="comment in comments" :key="comment.id">
-            <comment :data="comment" :blogSlug="slug" class="mb-3"></comment>
+            <comment :data="comment" :blogSlug="slug" @deleted="remove(index)" class="mb-3 user-comment"></comment>
         </div>
         <div style="margin-bottom: 100px" v-if="enableInfiniteLoading">
             <infinite-loading :identifier="query.q" spinner="waveDots" @infinite="getComments" v-if="comments"></infinite-loading>
@@ -54,6 +54,9 @@
                             state.complete()
                         }
                     })
+            },
+            remove(index) {
+                this.comments.splice(index, 1);
             }
         }
     }

@@ -1,6 +1,7 @@
 <template>
     <div>
         <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
+            <h3 class="mb-4" style="text-align: center">Sign in</h3>
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-6 float-left">

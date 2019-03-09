@@ -26,7 +26,9 @@
                        placeholder="">
             </div>
 
-            <a href="" @click="resetPassword">Forgot Your Password?</a>
+            <div class="float-right">
+                <a href="" @click="resetPassword">Forgot Your Password?</a>
+            </div>
 
             <button type="submit" class="btn btn-primary submit" @click="submit">Submit</button>
         </form>

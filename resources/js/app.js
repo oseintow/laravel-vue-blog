@@ -12,6 +12,7 @@ import Vue from 'vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'iview/dist/styles/iview.css'
+import Notifications from 'vue-notification'
 import BootstrapVue from 'bootstrap-vue'
 import VeeValidate from 'vee-validate';
 import VueRx from 'vue-rx'
@@ -46,17 +47,20 @@ import store from '@/store'
 
 import GlobalProperties from '@/plugins/GlobalProperties'
 import eventBus from '@/plugins/event-bus'
+import flash from '@/plugins/flash'
 import Authentication from '@/plugins/authentication'
 import Authorization from '@/plugins/authorization'
 require('promise.prototype.finally').shim()
 import Error from '@/components/Error'
 import Search from '@/components/Search'
 
+Vue.use(Notifications)
 Vue.use(VeeValidate);
 Vue.use(VueRx)
 Vue.use(BootstrapVue);
 Vue.use(GlobalProperties)
 Vue.use(eventBus)
+Vue.use(flash)
 Vue.use(Authentication)
 Vue.use(Authorization)
 library.add(faCoffee, faThumbsUp, faCaretDown)

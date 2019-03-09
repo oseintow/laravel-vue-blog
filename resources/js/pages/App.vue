@@ -1,5 +1,6 @@
 <template>
     <div>
+        <notifications group="app" />
         <router-view name="header"></router-view>
         <div class="container mt-4">
             <router-view></router-view>

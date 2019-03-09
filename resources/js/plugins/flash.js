@@ -1,18 +1,30 @@
 const flash = {
     install(Vue, options) {
         Vue.prototype.$flash = new Vue({
-            success({title, text}) {
-
-            },
-            error({title, text}) {
-
-            },
-            info({title, text}) {
-
-            },
-            warn({title, text}) {
-
+            methods: {
+                success({title, text}) {
+                    this.notify({title, text, type: 'success'})
+                },
+                error({title, text}) {
+                    this.notify({title, text, type: 'error'})
+                },
+                info({title, text}) {
+                    this.notify({title, text, type: 'info'})
+                },
+                warn({title, text}) {
+                    this.notify({title, text, type: 'warn'})
+                },
+                notify({title, text, type}) {
+                    this.$notify({
+                        group: 'app',
+                        title,
+                        text,
+                        type
+                    });
+                }
             }
         })
     }
 }
+
+export default flash

@@ -103,8 +103,13 @@
             },
             deleteBlog(blog) {
                 this.$store.dispatch('blog/deleteBlog', {slug: blog.slug})
-                    .then(() => this.$emit('deleted', this.blog.id))
-                    .catch((error) => console.log(error))
+                    .then(() => {
+                        this.$flash.success({title: 'Delete Story', text: 'Story deleted saccessfully'})
+                        this.$emit('deleted', this.blog.id)
+                    })
+                    .catch((error) => {
+                        this.$flash.error({title: 'Delete Story', text: 'Error occured deleting story'})
+                    })
             }
         }
     }

@@ -99,7 +99,13 @@
                 if (this.errors.any()) return;
 
                 this.$store.dispatch('auth/resetPassword', this.user)
-                    .then(() => this.$router.push({name: 'home'}))
+                    .then(() => {
+                        this.$flash.success({title: 'Reset Password', text: 'Password reset successfully'})
+                        this.$router.push({name: 'home'})
+                    })
+                    .catch((error) => {
+                        this.$flash.error({title: 'Reset Password', text: 'Error occured resetting password. Try again'})
+                    })
             }
         }
     }

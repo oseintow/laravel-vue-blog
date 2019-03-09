@@ -32,9 +32,12 @@
             save(){
                 this.saveComment({ slug: this.slug, body: this.body })
                     .then((response) =>{
+                        this.$flash.success({title: 'New Comment', text: 'Comment saved saccessfully'})
                         this.$eventBus.newComment(response.comment)
                     })
-                    .catch((error) => console.log(error));
+                    .catch((error) => {
+                        this.$flash.error({title: 'New Comment', text: 'Error occured updating comment'})
+                    });
             }
         }
     }

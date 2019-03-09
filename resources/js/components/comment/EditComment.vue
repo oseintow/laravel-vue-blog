@@ -48,9 +48,12 @@
             update(){
                 this.updateComment({ id: this.id, slug: this.slug, body: this.body })
                     .then((response) =>{
+                        this.$flash.success({title: 'Update Comment', text: 'Comment udpated saccessfully'})
                         this.$emit('updated', response.comment.body)
                     })
-                    .catch((error) => console.log(error));
+                    .catch((error) => {
+                        this.$flash.error({title: 'Update Comment', text: 'Error occured udpating comment'})
+                    });
             },
             cancel() {
                 this.$emit('cancelled')

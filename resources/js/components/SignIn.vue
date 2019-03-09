@@ -2,14 +2,18 @@
     <div>
         <b-modal v-model="show" id="authentication-modal" hide-footer size="lg" centered title="">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-6">
-                        <login></login>
+                <div class="col-md-12">
+                    <div class="col-md-6 float-left">
+                        <login @reset-password="resetPassword"></login>
                     </div>
-                    <div class="col-sm-6">
-                        <button @click="socialLogin('facebook')" class="btn btn-outline-primary facebook-signin">Facebook</button>
-                        <button @click="socialLogin('google')" class="btn btn-outline-danger google-signin">Google</button>
-                        <a href="" @click="resetPassword">Forgot Your Password?</a>
+                    <div class="col-md-1 float-left"></div>
+                    <div class="col-md-4 float-left mt-4">
+                        <div class="row">
+                            <button @click="socialLogin('facebook')" class="btn btn-outline-primary btn-block facebook-signin">Facebook</button>
+                        </div>
+                        <div class="row">
+                            <button @click="socialLogin('google')" class="btn btn-outline-danger btn-block mt-1 google-signin">Google</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,8 +39,7 @@ export default {
         showSignIn() {
             this.show = true
         },
-        resetPassword(e) {
-            e.preventDefault()
+        resetPassword() {
             this.hideModal()
             this.$router.push({name: 'send-reset-password-link'})
         }

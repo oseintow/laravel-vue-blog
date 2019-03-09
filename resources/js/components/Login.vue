@@ -26,6 +26,8 @@
                        placeholder="">
             </div>
 
+            <a href="" @click="resetPassword">Forgot Your Password?</a>
+
             <button type="submit" class="btn btn-primary submit" @click="submit">Submit</button>
         </form>
     </div>
@@ -62,6 +64,10 @@
                     .catch((error) => {
                         this.$flash.error({title: 'Login', text: "Email or password incorrect"})
                     })
+            },
+            resetPassword(e) {
+                e.preventDefault()
+                this.$emit('reset-password')
             }
         }
     }

@@ -164,7 +164,7 @@
 
                 this.$store.dispatch('blog/saveBlog', formData)
                     .then(() =>{
-                        this.$flash.success({title: 'New Story', text: 'Story saved saccessfully'})
+                        this.$flash.success({title: 'New Story', text: 'Story saved successfully'})
                         this.resetForm();
                     })
                     .error(() => {
@@ -182,7 +182,7 @@
 
                 this.$store.dispatch('blog/updateBlog', {slug: this.slug, formData})
                     .then(() =>{
-                        this.$flash.success({title: 'Update Story', text: 'Story udpated saccessfully'})
+                        this.$flash.success({title: 'Update Story', text: 'Story udpated successfully'})
                     })
                     .error(() => {
                         this.$flash.error({title: 'Update Story', text: 'Error occured updtating story'})

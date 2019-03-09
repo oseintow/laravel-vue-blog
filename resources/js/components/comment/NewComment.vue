@@ -32,7 +32,7 @@
             save(){
                 this.saveComment({ slug: this.slug, body: this.body })
                     .then((response) =>{
-                        this.$flash.success({title: 'New Comment', text: 'Comment saved saccessfully'})
+                        this.$flash.success({title: 'New Comment', text: 'Comment saved successfully'})
                         this.$eventBus.newComment(response.comment)
                     })
                     .catch((error) => {

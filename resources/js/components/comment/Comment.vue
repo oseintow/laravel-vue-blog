@@ -11,8 +11,21 @@
                             <p class="author-name">{{owner.name}}</p>
                             <p class="created_at">{{ago}}</p>
                         </div>
-                        <button @click="editComment">Edit</button>
-                        <button @click="deleteComment">Delete</button>
+                        <div class="d-flex justify-content-end" style="margin-right: -35px">
+                            <div class="justify-content-end d-flex blog-actions" v-if="$auth.check && $can.update(owner.id)">
+                                <div class="dropdown">
+                                    <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
+                                        <font-awesome-icon icon="caret-down" size="2x" class="toggle"/>
+                                    </div>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                        <a class="dropdown-item edit-blog"  @click.preventDefault="editComment">Edit Comment</a>
+                                        <a class="dropdown-item delete-blog" @click.preventDefault="deleteComment">Delete Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<button @click="editComment">Edit</button>-->
+                        <!--<button @click="deleteComment">Delete</button>-->
                     </div>
                     <div class="row mt-4 ml-2">
                         {{body}}

@@ -13,5 +13,5 @@ export function updateComment({slug, id, body}) {
 }
 
 export function deleteComment({slug, id}) {
-    return axios.put(`/v1/blogs/${slug}/comments/${id}`)
+    return axios.delete(`/v1/blogs/${slug}/comments/${id}`)
 }

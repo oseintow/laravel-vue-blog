@@ -3,15 +3,18 @@
         <div class="card">
             <div class="card-body">
                 <div v-if="edit==false">
-                    <div class="d-flex flex-row">
-                        <div class="">
-                            <avatar :image="owner.avatar"></avatar>
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <div class="">
+                                <avatar :image="owner.avatar"></avatar>
+                            </div>
+                            <div class="blog-info">
+                                <p class="author-name">{{owner.name}}</p>
+                                <p class="created_at">{{ago}}</p>
+                            </div>
                         </div>
-                        <div class="blog-info ml-2">
-                            <p class="author-name">{{owner.name}}</p>
-                            <p class="created_at">{{ago}}</p>
-                        </div>
-                        <div class="d-flex justify-content-end" style="margin-right: -35px">
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-end" style="margin-right: -35px">
                             <div class="justify-content-end d-flex blog-actions" v-if="$auth.check && $can.update(owner.id)">
                                 <div class="dropdown">
                                     <div type="button" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-115,0">
@@ -23,6 +26,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <!--<button @click="editComment">Edit</button>-->
                         <!--<button @click="deleteComment">Delete</button>-->
@@ -102,7 +106,7 @@
                         this.$flash.success({title: 'Delete Comment', text: 'Comment deleted successfully'})
                     })
                     .catch((error) => {
-                        this.$flash.error({title: 'Delete Comment', text: 'Comment deleted successfully'})
+                        this.$flash.error({title: 'Delete Comment', text: 'Error occured deleting comment'})
                     })
             }
         }

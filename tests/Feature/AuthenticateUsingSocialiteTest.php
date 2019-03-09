@@ -57,10 +57,8 @@ class AuthenticateUsingSocialiteTest extends TestCase
 
         $this->mockSocialiteFacade($providerUserDetail['id'], $providerUserDetail['email']);
 
-        $response = $this->json('POST', "/auth/{$proivder}")->json();
-
-        $this->assertArrayHasKey("token", $response);
-        $this->assertArrayHasKey("user", $response);
+        $this->json('POST', "/auth/{$proivder}")
+            ->assertJsonStructure(['token', 'user']);
     }
 
     protected function mockSocialiteFacade($id = 1, $email = 'foo@bar.com')

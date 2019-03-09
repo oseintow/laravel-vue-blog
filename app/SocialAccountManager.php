@@ -4,7 +4,7 @@ namespace App;
 
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
-class SocialAccountAuthenticator
+class SocialAccountManager
 {
     public function findOrCreate(ProviderUser $providerUser, string $provider)
     {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\SocialAccountAuthenticator;
+use App\SocialAccountManager;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialAccountController extends Controller
 {
-    public function handleProviderCallback(SocialAccountAuthenticator $accountAuthenticator, string $provider)
+    public function handleProviderCallback(SocialAccountManager $accountManager, string $provider)
     {
         try {
             $socialiteUser = Socialite::driver($provider)->stateless()->user();
@@ -18,7 +18,7 @@ class SocialAccountController extends Controller
             return response(['error' => "Something unusual happened"], 403);
         }
 
-        $user = $accountAuthenticator->findOrCreate($socialiteUser, $provider);
+        $user = $accountManager->findOrCreate($socialiteUser, $provider);
 
         $token = $user->createToken('AppTokens')->accessToken;
 

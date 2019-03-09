@@ -12,6 +12,7 @@
                             <p class="created_at">{{ago}}</p>
                         </div>
                         <button @click="editComment">Edit</button>
+                        <button @click="deleteComment">Delete</button>
                     </div>
                     <div class="row mt-4 ml-2">
                         {{body}}
@@ -80,6 +81,15 @@
             },
             cancelledComment() {
                 this.edit = false;
+            },
+            deleteComment() {
+                this.$store.dispatch('comment/deleteComment', {slug: this.slug, id: this.comment.id})
+                    .then(() => {
+                        this.$flash.success({title: 'Delete Comment', text: 'Comment deleted successfully'})
+                    })
+                    .catch((error) => {
+                        this.$flash.error({title: 'Delete Comment', text: 'Comment deleted successfully'})
+                    })
             }
         }
     }

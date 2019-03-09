@@ -48,7 +48,7 @@
             update(){
                 this.updateComment({ id: this.id, slug: this.slug, body: this.body })
                     .then((response) =>{
-                        this.$flash.success({title: 'Update Comment', text: 'Comment udpated saccessfully'})
+                        this.$flash.success({title: 'Update Comment', text: 'Comment udpated successfully'})
                         this.$emit('updated', response.comment.body)
                     })
                     .catch((error) => {

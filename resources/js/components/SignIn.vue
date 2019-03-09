@@ -4,10 +4,9 @@
             <h3 class="mb-4" style="text-align: center">Sign in</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="col-md-6 float-left">
+                    <div class="col-md-6 col-sm-offset-1 float-left">
                         <login @reset-password="resetPassword"></login>
                     </div>
-                    <div class="col-md-1 float-left"></div>
                     <div class="col-md-4 float-left mt-4">
                         <div class="row">
                             <button @click="socialLogin('facebook')" class="btn btn-outline-primary btn-block facebook-signin">Facebook</button>

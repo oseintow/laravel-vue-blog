@@ -4,10 +4,9 @@
             <h3 class="mb-4" style="text-align: center">Create Account</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="col-md-6 float-left">
+                    <div class="col-md-6 col-md-offset-1 float-left">
                         <register></register>
                     </div>
-                    <div class="col-md-1 float-left"></div>
                     <div class="col-md-4 float-left mt-4">
                         <div class="row">
                             <button @click="socialLogin('facebook')" class="btn btn-outline-primary btn-block facebook-signin">Facebook</button>

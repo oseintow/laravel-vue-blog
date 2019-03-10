@@ -4,8 +4,7 @@
     <list default="true" id="28202477-0ec3-4282-a769-68e22f253087" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/PageNotFoundView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/PageNotFoundView.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,8 +100,8 @@
       <file leaf-file-name="PageNotFoundView.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/pages/PageNotFoundView.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="364">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -512,12 +511,12 @@
       <workItem from="1551173161003" duration="127717000" />
       <workItem from="1551751530546" duration="4744000" />
       <workItem from="1551915157681" duration="28196000" />
-      <workItem from="1552250198288" duration="221000" />
+      <workItem from="1552250198288" duration="877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544028000" />
+    <option name="totallyTimeSpent" value="544684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="984" extended-state="6" />
@@ -530,8 +529,8 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.304248" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18315019" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.4993895" visible="true" weight="0.304248" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18315019" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3295063" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -915,8 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/pages/PageNotFoundView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="364">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>

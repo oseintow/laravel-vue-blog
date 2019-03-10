@@ -9,6 +9,7 @@ import Header from '@/components/menu/Header'
 import ResetPasswordView from '@/pages/ResetPasswordView'
 import SendResetPasswordLinkView from '@/pages/SendResetPasswordLinkView'
 import EditProfileView from '@/pages/EditProfileView'
+import PageNotFoundView from '@/pages/PageNotFoundView'
 import store from "@/store";
 
 Vue.use(Router)
@@ -94,6 +95,10 @@ export default new Router({
                 template: '<div class="auth-component"></div>',
             }
         },
+        {
+            path: '*',
+            component: PageNotFoundView
+        }
     ],
     mode: 'history',
     scrollBehavior(to, from, savePosition){

@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import VeeValidate from 'vee-validate';
 import SendResetPasswordLinkView from '@/pages/SendResetPasswordLinkView'
@@ -10,6 +10,7 @@ import flushPromises from 'flush-promises'
 import flash from '@/plugins/flash'
 
 jest.mock('@/plugins/vue-authenticator')
+jest.mock('@/plugins/flash')
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -46,7 +47,7 @@ describe('SendResetPasswordLinkView', () => {
             }
         })
 
-        wrapper = mount(SendResetPasswordLinkView, {
+        wrapper = shallowMount(SendResetPasswordLinkView, {
             localVue,
             store,
             router,
@@ -63,9 +64,7 @@ describe('SendResetPasswordLinkView', () => {
         it('email is not a valid email' , async () => {
             expect(wrapper.vm.errors.has("email")).toBe(false);
             wrapper.setData({
-                user: {
-                    email: 'foo@bar.com'
-                }
+                email: 'foo@bar.com'
             })
 
             await flushPromises()
@@ -82,9 +81,7 @@ describe('SendResetPasswordLinkView', () => {
         wrapper.vm.$flash.success = spy
         wrapper.vm.$router.push = spy
         wrapper.setData({
-            user: {
-                email: 'foo@bar.com',
-            }
+            email: 'foo@bar.com',
         })
 
         h.click('.send-password-reset-link')

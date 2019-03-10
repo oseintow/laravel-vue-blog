@@ -53,10 +53,10 @@
                 if (this.errors.any()) return;
 
                 this.$store.dispatch('auth/sendPasswordResetLink', { email: this.email })
-                    .then(({response}) => {
+                    .then(() => {
                         this.$flash.success({title: 'Reset Password Link', text: 'Password reset Link sent successfully'})
                     })
-                    .catch((error) => {
+                    .catch(() => {
                         this.$flash.error({title: 'Reset Password', text: 'Error occured sending password reset link. Try again'})
                     })
             }

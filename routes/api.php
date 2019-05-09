@@ -37,3 +37,4 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'],function() {
     Route::post('comments/{comment}/favourites', 'CommentFavouritesController@store');
     Route::delete('comments/{comment}/favourites', 'CommentFavouritesController@destroy');
 });
+

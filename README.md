@@ -3,7 +3,7 @@ This is a single page minimalistic medium.com clone. It is uses laravel
 on the backend to serve the api and vuejs to serve views and vuex for state management.
 
 ### Project Setup
-1. clone the project
+1. clone the project.
 2. copy the content of `.env.example` to `.env` and update the values
 3. copy the content of `.env.testing.example` to `.env.testing` and update the values
 4. run `composer install`
